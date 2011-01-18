@@ -17,46 +17,10 @@ Spring 2011
 ------------------------
 
 
-
 Introductions: Your Instructor
 =====================================================
 
-
-Scott Purcell
-
-scott_purcell@dell.com
-
-scott@texastwister.info
-
-.. class:: borderless
-
-+---------------------------------------------------+-----------------------------------------------------+
-| http://www.linkedin.com/in/scottpurcell           |  .. image:: images/ScottsFedoraMugShot_tighter.png  |
-+---------------------------------------------------+                                                     |
-| http://twitter.com/texastwister                   |                                                     |
-+---------------------------------------------------+                                                     |
-| http://www.facebook.com/profile.php?id=1017976440 |                                                     |
-+---------------------------------------------------+-----------------------------------------------------+
-
-
-Introductions: Your Instructor
-=====================================================
-
-Qualifications:
-----------------
-
-* RHCE #804005487818109 (RHEL4), CTT+
-
-* Curriculum Developer and Trainer for Dell for going on 11 years
-
-* Linux Enthusiast
-
-Personal:
-----------
-
-* Husband, Father, Disciple
-
-* Fun: Part-time Balloon Entertainer
+.. include:: OpenRHCE_Instructor.rst.txt
 
 
 Introductions: Fellow Students
