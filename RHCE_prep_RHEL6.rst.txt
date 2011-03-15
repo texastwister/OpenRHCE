@@ -1,0 +1,338 @@
+.. header::
+
+    RHCE Preparation in the RHEL6 era
+
+.. |copy| unicode:: 0xA9 .. copyright sign
+
+.. footer::
+
+    Copyright |copy| 2011, Scott Purcell
+    
+
+==================================
+RHCE Preparation in the RHEL6 era
+==================================
+------------------------
+Spring 2011
+------------------------
+
+
+
+Introductions: Your Instructor
+=====================================================
+
+
+Scott Purcell
+
+scott_purcell@dell.com
+
+scott@texastwister.info
+
+.. class:: borderless
+
++---------------------------------------------------+-----------------------------------------------------+
+| http://www.linkedin.com/in/scottpurcell           |  .. image:: images/ScottsFedoraMugShot_tighter.png  |
++---------------------------------------------------+                                                     |
+| http://twitter.com/texastwister                   |                                                     |
++---------------------------------------------------+                                                     |
+| http://www.facebook.com/profile.php?id=1017976440 |                                                     |
++---------------------------------------------------+-----------------------------------------------------+
+
+
+Introductions: Your Instructor
+=====================================================
+
+Qualifications:
+----------------
+
+* RHCE #804005487818109 (RHEL4), CTT+
+
+* Curriculum Developer and Trainer for Dell for going on 11 years
+
+* Linux Enthusiast
+
+Personal:
+----------
+
+* Husband, Father, Disciple
+
+* Fun: Part-time Balloon Entertainer
+
+
+Introductions: Fellow Students
+=====================================================
+
+Please Introduce Yourselves
+----------------------------
+
+* Name
+
+* Where you work or what you do.
+
+* What Linux experience do you already have?
+
+* What goals do you have for this class?
+
+* Something fun about yourself.
+
+
+
+Introductions: The Course
+=====================================================
+
+Expectations
+--------------
+
+* Should I be able to pass the RHCE on this class alone?
+
+Preparation Recommendations
+----------------------------
+
+* Practice/Study Environment
+
+   - 2 or 3 systems or VMs, networked together
+
+   - RHEL 5 (eval), CENTOS 5, or Fedora (Fedora Core 6 will be closest to RHEL 5)
+
+   - Red Hat docs at http://www.redhat.com/docs/manuals/enterprise/#RHEL5 
+
+   - RHCE Prep Guide at https://www.redhat.com/certification/rhce/prep_guide/
+
+   - Practice, practice, practice!
+
+
+
+
+The Red Hat Certification Landscape
+=========================================
+
+* RHCSA
+
+    RHCSA is new, replacing the RHCT.  It is the "core" sysadmin certification from Red Hat. To earn RHCE and other system administration certs will require first earning the RHCSA.
+
+* RHCE
+
+    RHCE is a senior system administration certification. It is an eligibility requirement for taking any COE exams and is thus a requirement for the upper-level credentials as well.
+    
+
+* Certificates of Expertise
+
+    COEs are incremental credentials demonstrating skills and knowledge in specialized areas. They are worthy credentials in their own right, but also the building blocks of the upper level credentials.
+
+* RHCSS, RHCDS, RHCA
+
+    These upper level credentials recognize those who have achieved expertise in several related specialized areas.  Each one requires multiple COEs.
+
+
+RHCSA: Understand & Use Essential Tools
+===========================================
+
+    * Access a shell prompt and issue commands with correct syntax
+    * Use input-output redirection (>, >>, ``|``, 2>, etc.)
+    * Use grep and regular expressions to analyze text
+    * Access remote systems using ssh and VNC
+    * Log in and switch users in multi-user runlevels
+    * Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2
+
+RHCSA: ...Essential Tools... (cont)
+=========================================
+    * Create and edit text files
+    * Create, delete, copy and move files and directories
+    * Create hard and soft links
+    * List, set and change standard ugo/rwx permissions
+    * Locate, read and use system documentation including man, info, and files in /usr/share/doc .
+
+          [Note: Red Hat may use applications during the exam that are not included in Red Hat Enterprise Linux for the purpose of evaluating candidate's abilities to meet this objective.]
+
+RHCSA: Operate Running Systems
+====================================
+
+    * Boot, reboot, and shut down a system normally
+    * Boot systems into different runlevels manually
+    * Use single-user mode to gain access to a system
+    * Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
+    * Locate and interpret system log files
+    * Access a virtual machine's console
+    * Start and stop virtual machines
+    * Start, stop and check the status of network services
+
+RHCSA: Configure Local Storage
+=====================================
+
+    * List, create, delete and set partition type for primary, extended, and logical partitions
+    * Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
+    * Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
+    * Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label
+    * Add new partitions, logical volumes and swap to a system non-destructively
+
+RHCSA: Create and Configure File Systems
+==============================================
+
+    * Create, mount, unmount and use ext2, ext3 and ext4 file systems
+    * Mount, unmount and use LUKS-encrypted file systems
+    * Mount and unmount CIFS and NFS network file systems
+    * Configure systems to mount ext4, LUKS-encrypted and network file systems automatically
+    * Extend existing unencrypted ext4-formatted logical volumes
+    * Create and configure set-GID directories for collaboration
+    * Create and manage Access Control Lists (ACLs)
+    * Diagnose and correct file permission problems
+
+RHCSA: Deploy, Configure & Maintain 
+==================================================
+
+    * Configure networking and hostname resolution statically or dynamically
+    * Schedule tasks using cron
+    * Configure systems to boot into a specific runlevel automatically
+    * Install Red Hat Enterprise Linux automatically using Kickstart
+    * Configure a physical machine to host virtual guests
+    * Install Red Hat Enterprise Linux systems as virtual guests
+    * Configure systems to launch virtual machines at boot
+    * Configure network services to start automatically at boot
+    * Configure a system to run a default configuration HTTP server
+    * Configure a system to run a default configuration FTP server
+    * Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem
+    * Update the kernel package appropriately to ensure a bootable system
+    * Modify the system bootloader
+
+RHCSA: Manage Users and Groups
+==================================
+
+    * Create, delete, and modify local user accounts
+    * Change passwords and adjust password aging for local user accounts
+    * Create, delete and modify local groups and group memberships
+    * Configure a system to use an existing LDAP directory service for user and group information
+
+RHCSA: Manage Security
+===========================
+
+    * Configure firewall settings using system-config-firewall or iptables
+    * Set enforcing and permissive modes for SELinux
+    * List and identify SELinux file and process context
+    * Restore default file contexts
+    * Use boolean settings to modify system SELinux settings
+    * Diagnose and address routine SELinux policy violations
+
+
+Exam Objectives
+
+RHCE exam candidates should consult the RHCSA Exam Objectives document and be capable of RHCSA-level tasks, as some of these skills may be required in order to meet RHCE exam objectives. Red Hat reserves the right to add, modify and remove objectives. Such changes will be made public in advance through revisions to this document.
+
+RHCE exam candidates should be able to accomplish the following without assistance. These have been grouped into several categories.
+
+RHCE: System Configuration and Management
+===============================================
+
+    * Route IP traffic and create static routes
+    * Use iptables to implement packet filtering and configure network address translation (NAT)
+    * Use /proc/sys and sysctl to modify and set kernel run-time parameters
+    * Configure system to authenticate using Kerberos
+    * Build a simple RPM that packages a single file
+    * Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
+    * Produce and deliver reports on system utilization (processor, memory, disk, and network)
+    * Use shell scripting to automate system maintenance tasks
+    * Configure a system to log to a remote system
+    * Configure a system to accept logging from a remote system
+
+RHCE: Network Services
+===========================================
+
+Network services are an important subset of the exam objectives. RHCE candidates should be capable of meeting the following objectives for each of the network services listed below:
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+
+RHCE candidates should also be capable of meeting the following objectives associated with specific services:
+
+RHCE: HTTP/HTTPS
+========================
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Configure a virtual host
+    * Configure private directories
+    * Deploy a basic CGI application
+    * Configure group-managed content
+
+RHCE: DNS
+==================
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Configure a caching-only name server
+    * Configure a caching-only name server to forward DNS queries
+    * Note: Candidates are not expected to configure master or slave name servers
+
+RHCE: FTP
+==============
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Configure anonymous-only download
+
+RHCE: NFS
+================
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Provide network shares to specific clients
+    * Provide network shares suitable for group collaboration
+
+RHCE: SMB
+=================
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Provide network shares to specific clients
+    * Provide network shares suitable for group collaboration
+
+RHCE: SMTP
+================
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Configure a mail transfer agent (MTA) to accept inbound email from other systems
+    * Configure an MTA to forward (relay) email through a smart host
+
+RHCE: SSH
+=============
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Configure key-based authentication
+    * Configure additional options described in documentation
+
+RHCE: NTP
+===============
+
+    * Install the packages needed to provide the service
+    * Configure SELinux to support the service
+    * Configure the service to start when the system is booted
+    * Configure the service for basic operation
+    * Configure host-based and user-based security for the service
+    * Synchronize time using other NTP peers
+
+

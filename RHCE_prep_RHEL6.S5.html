@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>RHCE Preparation in the RHEL6 era</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="ui/i18n/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/i18n/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/i18n/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/i18n/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/i18n/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+<div id="header">
+RHCE Preparation in the RHEL6 era
+</div>
+
+</div>
+<div id="footer">
+<h1>RHCE Preparation in the RHEL6 era</h1>
+<h2>Copyright © 2011, Scott Purcell</h2>
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">RHCE Preparation in the RHEL6 era</h1>
+<h2 class="subtitle" id="spring-2011">Spring 2011</h2>
+
+
+</div>
+<div class="slide" id="the-red-hat-certification-landscape">
+<h1>The Red Hat Certification Landscape</h1>
+<ul>
+<li><p class="first">RHCSA</p>
+<blockquote>
+<p>RHCSA is new, replacing the RHCT.  It is the &quot;core&quot; sysadmin certification from Red Hat. To earn RHCE and other system administration certs will require first earning the RHCSA.</p>
+</blockquote>
+</li>
+<li><p class="first">RHCE</p>
+<blockquote>
+<p>RHCE is a senior system administration certification. It is an eligibility requirement for taking any COE exams and is thus a requirement for the upper-level credentials as well.</p>
+</blockquote>
+</li>
+<li><p class="first">Certificates of Expertise</p>
+<blockquote>
+<p>COEs are incremental credentials demonstrating skills and knowledge in specialized areas. They are worthy credentials in their own right, but also the building blocks of the upper level credentials.</p>
+</blockquote>
+</li>
+<li><p class="first">RHCSS, RHCDS, RHCA</p>
+<blockquote>
+<p>These upper level credentials recognize those who have achieved expertise in several related specialized areas.  Each one requires multiple COEs.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="slide" id="rhcsa-understand-use-essential-tools">
+<h1>RHCSA: Understand &amp; Use Essential Tools</h1>
+<blockquote>
+<ul class="simple">
+<li>Access a shell prompt and issue commands with correct syntax</li>
+<li>Use input-output redirection (&gt;, &gt;&gt;, <tt class="docutils literal"><span class="pre">|</span></tt>, 2&gt;, etc.)</li>
+<li>Use grep and regular expressions to analyze text</li>
+<li>Access remote systems using ssh and VNC</li>
+<li>Log in and switch users in multi-user runlevels</li>
+<li>Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-essential-tools-cont">
+<h1>RHCSA: ...Essential Tools... (cont)</h1>
+<blockquote>
+<ul>
+<li><p class="first">Create and edit text files</p>
+</li>
+<li><p class="first">Create, delete, copy and move files and directories</p>
+</li>
+<li><p class="first">Create hard and soft links</p>
+</li>
+<li><p class="first">List, set and change standard ugo/rwx permissions</p>
+</li>
+<li><p class="first">Locate, read and use system documentation including man, info, and files in /usr/share/doc .</p>
+<blockquote>
+<p>[Note: Red Hat may use applications during the exam that are not included in Red Hat Enterprise Linux for the purpose of evaluating candidate's abilities to meet this objective.]</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-operate-running-systems">
+<h1>RHCSA: Operate Running Systems</h1>
+<blockquote>
+<ul class="simple">
+<li>Boot, reboot, and shut down a system normally</li>
+<li>Boot systems into different runlevels manually</li>
+<li>Use single-user mode to gain access to a system</li>
+<li>Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes</li>
+<li>Locate and interpret system log files</li>
+<li>Access a virtual machine's console</li>
+<li>Start and stop virtual machines</li>
+<li>Start, stop and check the status of network services</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-configure-local-storage">
+<h1>RHCSA: Configure Local Storage</h1>
+<blockquote>
+<ul class="simple">
+<li>List, create, delete and set partition type for primary, extended, and logical partitions</li>
+<li>Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes</li>
+<li>Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot</li>
+<li>Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label</li>
+<li>Add new partitions, logical volumes and swap to a system non-destructively</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-create-and-configure-file-systems">
+<h1>RHCSA: Create and Configure File Systems</h1>
+<blockquote>
+<ul class="simple">
+<li>Create, mount, unmount and use ext2, ext3 and ext4 file systems</li>
+<li>Mount, unmount and use LUKS-encrypted file systems</li>
+<li>Mount and unmount CIFS and NFS network file systems</li>
+<li>Configure systems to mount ext4, LUKS-encrypted and network file systems automatically</li>
+<li>Extend existing unencrypted ext4-formatted logical volumes</li>
+<li>Create and configure set-GID directories for collaboration</li>
+<li>Create and manage Access Control Lists (ACLs)</li>
+<li>Diagnose and correct file permission problems</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-deploy-configure-maintain">
+<h1>RHCSA: Deploy, Configure &amp; Maintain</h1>
+<blockquote>
+<ul class="simple">
+<li>Configure networking and hostname resolution statically or dynamically</li>
+<li>Schedule tasks using cron</li>
+<li>Configure systems to boot into a specific runlevel automatically</li>
+<li>Install Red Hat Enterprise Linux automatically using Kickstart</li>
+<li>Configure a physical machine to host virtual guests</li>
+<li>Install Red Hat Enterprise Linux systems as virtual guests</li>
+<li>Configure systems to launch virtual machines at boot</li>
+<li>Configure network services to start automatically at boot</li>
+<li>Configure a system to run a default configuration HTTP server</li>
+<li>Configure a system to run a default configuration FTP server</li>
+<li>Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem</li>
+<li>Update the kernel package appropriately to ensure a bootable system</li>
+<li>Modify the system bootloader</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-manage-users-and-groups">
+<h1>RHCSA: Manage Users and Groups</h1>
+<blockquote>
+<ul class="simple">
+<li>Create, delete, and modify local user accounts</li>
+<li>Change passwords and adjust password aging for local user accounts</li>
+<li>Create, delete and modify local groups and group memberships</li>
+<li>Configure a system to use an existing LDAP directory service for user and group information</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhcsa-manage-security">
+<h1>RHCSA: Manage Security</h1>
+<blockquote>
+<ul class="simple">
+<li>Configure firewall settings using system-config-firewall or iptables</li>
+<li>Set enforcing and permissive modes for SELinux</li>
+<li>List and identify SELinux file and process context</li>
+<li>Restore default file contexts</li>
+<li>Use boolean settings to modify system SELinux settings</li>
+<li>Diagnose and address routine SELinux policy violations</li>
+</ul>
+</blockquote>
+<p>Exam Objectives</p>
+<p>RHCE exam candidates should consult the RHCSA Exam Objectives document and be capable of RHCSA-level tasks, as some of these skills may be required in order to meet RHCE exam objectives. Red Hat reserves the right to add, modify and remove objectives. Such changes will be made public in advance through revisions to this document.</p>
+<p>RHCE exam candidates should be able to accomplish the following without assistance. These have been grouped into several categories.</p>
+</div>
+<div class="slide" id="rhce-system-configuration-and-management">
+<h1>RHCE: System Configuration and Management</h1>
+<blockquote>
+<ul class="simple">
+<li>Route IP traffic and create static routes</li>
+<li>Use iptables to implement packet filtering and configure network address translation (NAT)</li>
+<li>Use /proc/sys and sysctl to modify and set kernel run-time parameters</li>
+<li>Configure system to authenticate using Kerberos</li>
+<li>Build a simple RPM that packages a single file</li>
+<li>Configure a system as an iSCSI initiator that persistently mounts an iSCSI target</li>
+<li>Produce and deliver reports on system utilization (processor, memory, disk, and network)</li>
+<li>Use shell scripting to automate system maintenance tasks</li>
+<li>Configure a system to log to a remote system</li>
+<li>Configure a system to accept logging from a remote system</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-network-services">
+<h1>RHCE: Network Services</h1>
+<p>Network services are an important subset of the exam objectives. RHCE candidates should be capable of meeting the following objectives for each of the network services listed below:</p>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+</ul>
+</blockquote>
+<p>RHCE candidates should also be capable of meeting the following objectives associated with specific services:</p>
+</div>
+<div class="slide" id="rhce-http-https">
+<h1>RHCE: HTTP/HTTPS</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a virtual host</li>
+<li>Configure private directories</li>
+<li>Deploy a basic CGI application</li>
+<li>Configure group-managed content</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-dns">
+<h1>RHCE: DNS</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a caching-only name server</li>
+<li>Configure a caching-only name server to forward DNS queries</li>
+<li>Note: Candidates are not expected to configure master or slave name servers</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-ftp">
+<h1>RHCE: FTP</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure anonymous-only download</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-nfs">
+<h1>RHCE: NFS</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Provide network shares to specific clients</li>
+<li>Provide network shares suitable for group collaboration</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-smb">
+<h1>RHCE: SMB</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Provide network shares to specific clients</li>
+<li>Provide network shares suitable for group collaboration</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-smtp">
+<h1>RHCE: SMTP</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a mail transfer agent (MTA) to accept inbound email from other systems</li>
+<li>Configure an MTA to forward (relay) email through a smart host</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-ssh">
+<h1>RHCE: SSH</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure key-based authentication</li>
+<li>Configure additional options described in documentation</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="rhce-ntp">
+<h1>RHCE: NTP</h1>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Synchronize time using other NTP peers</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</body>
+</html>
