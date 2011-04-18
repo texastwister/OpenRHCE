@@ -1,20 +1,27 @@
+.. Sequence of section adornments:
+.. ==--
+.. ==--==--__++~~^^
+
 .. header::
 
-    RHCE Preparation in the RHEL6 era
+    RHCE Preparation (RHEL6)
 
 .. |copy| unicode:: 0xA9 .. copyright sign
 
 .. footer::
 
-    Copyright |copy| 2011, Scott Purcell
+    Copyright |copy| 2011, Scott Purcell, CC BY-NC-SA 3.0
     
 
-==================================
-RHCE Preparation in the RHEL6 era
-==================================
-------------------------
-Spring 2011
-------------------------
+=======================
+OpenRHCE
+=======================
+-------------------------------------------------------
+A Creative Commons Courseware for RHCE Preparation
+-------------------------------------------------------
+
+Session One: Introduction
+
 
 
 
@@ -24,19 +31,14 @@ Introductions: Your Instructor
 
 Scott Purcell
 
-scott_purcell@dell.com
-
 scott@texastwister.info
 
-.. class:: borderless
 
-+---------------------------------------------------+-----------------------------------------------------+
-| http://www.linkedin.com/in/scottpurcell           |  .. image:: images/ScottsFedoraMugShot_tighter.png  |
-+---------------------------------------------------+                                                     |
-| http://twitter.com/texastwister                   |                                                     |
-+---------------------------------------------------+                                                     |
-| http://www.facebook.com/profile.php?id=1017976440 |                                                     |
-+---------------------------------------------------+-----------------------------------------------------+
+http://www.linkedin.com/in/scottpurcell
+
+http://twitter.com/texastwister
+
+http://www.facebook.com/Scott.L.Purcell
 
 
 Introductions: Your Instructor
@@ -45,11 +47,13 @@ Introductions: Your Instructor
 Qualifications:
 ----------------
 
-* RHCE #804005487818109 (RHEL4), CTT+
+* RHCSA, RHCE #110-008-877 (RHEL6)
 
-* Curriculum Developer and Trainer for Dell for going on 11 years
+* Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
 
-* Linux Enthusiast
+* Curriculum Developer and Trainer for a major computer manufacturer for going on 11 years
+
+* Linux Enthusiast since 2000
 
 Personal:
 ----------
@@ -85,23 +89,32 @@ Expectations
 
 * Should I be able to pass the RHCE on this class alone?
 
+    A stunning number of seasoned professionals taking Red Hat's own prep courses fail to pass on first attempt.
+
+* Planning for more than one attempt is prudent.
+
+* Maximizing your out-of-class preparation time is prudent.
+
 Preparation Recommendations
-----------------------------
+===================================
 
 * Practice/Study Environment
 
-   - 2 or 3 systems or VMs, networked together
+   * 2 or 3 systems or VMs, networked together.  Virtualized hosting providers may be an alternative.
 
-   - RHEL 5 (eval), CENTOS 5, or Fedora (Fedora Core 6 will be closest to RHEL 5)
+   * RHEL 6 (eval), CENTOS 6 (when available), or Fedora (Fedora 13 will be closest to RHEL 6)
 
-   - Red Hat docs at http://www.redhat.com/docs/manuals/enterprise/#RHEL5 
+   * Red Hat docs at: 
 
-   - RHCE Prep Guide at https://www.redhat.com/certification/rhce/prep_guide/
+        http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html
 
-   - Practice, practice, practice!
+   * RHCE Objectives and other information at:
 
+        http://www.redhat.com/certification/
 
+   * Take initiative -- form a study group.
 
+   * Practice, practice, practice!
 
 The Red Hat Certification Landscape
 =========================================
@@ -124,8 +137,8 @@ The Red Hat Certification Landscape
     These upper level credentials recognize those who have achieved expertise in several related specialized areas.  Each one requires multiple COEs.
 
 
-RHCSA: Understand & Use Essential Tools
-===========================================
+RHCSA Objectives: Understand & Use Essential Tools
+======================================================
 
     * Access a shell prompt and issue commands with correct syntax
     * Use input-output redirection (>, >>, ``|``, 2>, etc.)
@@ -213,11 +226,6 @@ RHCSA: Manage Security
     * Diagnose and address routine SELinux policy violations
 
 
-Exam Objectives
-
-RHCE exam candidates should consult the RHCSA Exam Objectives document and be capable of RHCSA-level tasks, as some of these skills may be required in order to meet RHCE exam objectives. Red Hat reserves the right to add, modify and remove objectives. Such changes will be made public in advance through revisions to this document.
-
-RHCE exam candidates should be able to accomplish the following without assistance. These have been grouped into several categories.
 
 RHCE: System Configuration and Management
 ===============================================
@@ -334,5 +342,68 @@ RHCE: NTP
     * Configure the service for basic operation
     * Configure host-based and user-based security for the service
     * Synchronize time using other NTP peers
+
+Operating a System: Boot, Reboot, Shutdown
+===============================================
+
+* GRUB Menu
+* Display Manager Screen
+* Gnome or KDE
+* Terminal commands: shutdown, halt, poweroff, reboot, init
+
+Operating a System: Runlevels
+====================================
+
+* Default
+* From GRUB Menu
+
+Operating a System: Single User Mode
+=======================================
+
+* Password Recovery
+
+Note:  SELinux bug prevents password changes while set to "Enforcing".
+
+Operating a System: Log Files
+===================================
+
+``/var/log/*``
+
+View with ``cat``, ``less`` or other tools
+
+Search with ``grep``
+
+Operating a System: Start/Stop Virtual Machines
+=========================================================
+
+* Using virt-manager
+
+* Using virsh commands
+
+
+
+Operating a System: Virtual Machine Consoles
+========================================================
+
+* virt-manager
+
+* virt-viewer
+
+
+Operating a System: Virtual Machine Text Console
+========================================================
+
+With libguestfs-tools installed and the VM in question shut-down, from the host::
+
+    # virt-edit {VMname} /boot/grub/menu.lst
+
+There, append to the kernel line:: 
+
+    console=tty0 console=ttyS0.
+
+After saving, the following commands should allow a console based view of the boot process and a console login::
+
+    # virsh start {VMname} ; virsh console {VMname} 
+
 
 
