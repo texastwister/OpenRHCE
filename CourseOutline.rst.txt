@@ -1,0 +1,65 @@
+Course Outline
+=================
+
+I. Introductions
+
+    A. Introduction of the Instructor
+
+        * Qualifications and Experience
+        * Personal Information -- Something Fun!
+        * Contact Information
+
+
+    #. Student Introductions
+
+        * Employment, Experience, or Ambitions
+        * Goals for the class
+        * Personal -- Something Fun!
+
+    #. Course Introduction
+
+        * Expectations of the Course
+
+        * Expectations of Outside Preparation
+
+        * Suggestions for a Practice/Study Environment
+
+#. The Red Hat Certification Landscape
+
+    A. RHCSA
+
+        * `RHCSA Details`_
+
+            .. _`RHCSA Details`: https://www.redhat.com/courses/ex200_rhcsa_exam/
+
+        * `RHCSA Objectives`_
+
+            .. _`RHCSA Objectives`: https://www.redhat.com/certification/rhcsa/objectives/
+
+            
+
+    #. RHCE
+
+
+        * `RHCE Details`_
+
+            .. _`RHCE Details`: https://www.redhat.com/courses/ex300_red_hat_certified_engineer_exam/
+
+        * `RHCE Objectives`_
+
+            .. _`RHCE Objectives`: https://www.redhat.com/certification/rhce/objectives/
+
+   
+
+
+    #. COEs
+
+        * `Overview of COEs`_
+
+            .. _`Overview of COEs`: https://www.redhat.com/certification/certificates_of_expertise/
+
+
+
+    #. RHCSS, RHCDS, RHCA
+
+    
