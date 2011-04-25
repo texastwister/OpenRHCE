@@ -512,6 +512,21 @@ Also see [[AdvancedOptions]]</pre>
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
+<div title="/net" creator="ScottPurcell" modifier="ScottPurcell" created="201102211656" modified="201102211658" changecount="2">
+<pre>automount location that searches for network fileshares at that host...
+
+ls /net/instructor looks for shares mountable from the host instructor.</pre>
+</div>
+<div title="ACC Classroom Info" creator="ScottPurcell" modifier="ScottPurcell" created="201104152224" changecount="1">
+<pre>Password: linuxacc
+</pre>
+</div>
+<div title="About RHEL6" creator="ScottPurcell" modifier="ScottPurcell" created="201104182005" modified="201104182008" changecount="2">
+<pre>* [[Overview|http://www.redhat.com/rhel/]]
+* [[Server|http://www.redhat.com/rhel/server/]] and [[Desktop|http://www.redhat.com/rhel/desktop/]] variants
+* [[Add-on Functionality|http://www.redhat.com/rhel/add-ons/]]
+* [[LifeCycle|https://access.redhat.com/support/policy/updates/errata/]]</pre>
+</div>
 <div title="Access a shell prompt and issue commands with correct syntax" creator="ScottPurcell" modifier="ScottPurcell" created="201102122110" modified="201102172240" changecount="5">
 <pre>!Accessing a shell prompt 
 * In runlevel 3
@@ -526,20 +541,105 @@ Also see [[AdvancedOptions]]</pre>
 {{{command &lt;options&gt; &lt;target&gt;}}}
 * Command help and man pages</pre>
 </div>
+<div title="Access a virtual machine's console" creator="ScottPurcell" modifier="ScottPurcell" created="201104182129" changecount="1">
+<pre>* virt-manager
+
+* virt-viewer
+
+!To access it as a text console only
+
+With libguestfs-tools installed and the VM in question shut-down, from the host::
+
+    # virt-edit {VMname} /boot/grub/menu.lst
+
+There, append to the kernel line:: 
+
+    console=tty0 console=ttyS0.
+
+After saving, the following commands should allow a console based view of the boot process and a console login::
+
+    # virsh start {VMname} ; virsh console {VMname} </pre>
+</div>
 <div title="Access remote systems using ssh and VNC" creator="ScottPurcell" modifier="ScottPurcell" created="201102182050" tags="RHCA Objective vnc ssh" changecount="1">
 <pre>[[Remote access using SSH]]
 
 [[Remote access using VNC]]</pre>
 </div>
-<div title="Authentication" creator="ScottPurcell" modifier="ScottPurcell" created="201102161951" changecount="1">
-<pre>authconfig-gtk
+<div title="Authentication" creator="ScottPurcell" modifier="ScottPurcell" created="201102161951" modified="201102221939" changecount="2">
+<pre>Authentication keeps information such as: username, password, uid, gid, shell, home dir, etc.  By default this is kept on the local system -- but it can be stored in a centralized server such as an LDAP server.
+
+yum groupinstall directory-client
 
 system-config-authentication
 
-sssd -- caches credentials</pre>
+authconfig-gtk
+
+system-config-authentication
+
+sssd -- caches credentials
+
+getent passwd username </pre>
 </div>
-<div title="Building RPMs" creator="ScottPurcell" modifier="ScottPurcell" created="201102141752" modified="201102182044" changecount="11">
-<pre>! Packages to install
+<div title="BUGS -- You must know about these!" creator="ScottPurcell" modifier="ScottPurcell" created="201102222254" modified="201104182119" changecount="2">
+<pre>[[SELinux bug when changing password in single user mode]]
+</pre>
+</div>
+<div title="Boot systems into different runlevels manually" creator="ScottPurcell" modifier="ScottPurcell" created="201104182107" modified="201104182117" changecount="6">
+<pre>! By changing the default:
+
+In the file {{{/etc/inittab}}}, find the line that reads:
+{{{
+id:X:initdefault:
+}}}
+ 
+(where the &quot;X&quot; is a number between 2 and 5 corresponding to the run-level definition shown in the file)
+
+Use a text editor to change the number (represented by &quot;X&quot; in the example above) to that of the runlevel you want to become the new default.
+
+This is a good use-case for [[sed]], where the following line will implement the change from run-level 5 to run-level 3 without the need to open a file for editing:
+{{{
+# sed -i s/id:5:/id:3:/g /etc/inittab
+}}}
+
+! By intervening in the boot process by using the GRUB menu:
+
+Press a key at the GRUB prompt. Use the GRUB menu interface to append the desired runlevel number to the end of the line that invokes the kernel:
+
+</pre>
+</div>
+<div title="Boot, reboot, and shut down a system normally" creator="ScottPurcell" modifier="ScottPurcell" created="201104182048" changecount="1">
+<pre>* GRUB Menu
+* Display Manager Screen
+* Gnome or KDE
+* Terminal commands: shutdown, halt, poweroff, reboot, init
+</pre>
+</div>
+<div title="Building RPMs" creator="ScottPurcell" modifier="ScottPurcell" created="201102141752" modified="201102221914" changecount="24">
+<pre>! Documentation on Using and Creating RPM Packages
+
+As of this writing, Red Hat is pointing users to the following RPM Guide from the Fedora project for more information on RPM creation: 
+http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+
+! Inside an RPM package
+* files
+* scripts
+* metadata
+
+Good example of a spec file can be obtained from the source rpm for redhat-release.
+
+Open .spec in vim for color highlighting
+
+Main sections:
+ %prep
+ %build
+ %install
+ %clean
+
+Useful entries:
+* BuildRequires: 
+* BuildArch:
+
+! Packages to install
 
 * rpm-build
 * rpmdevtools
@@ -571,10 +671,136 @@ Install {{{tree}}} with {{{# yum install tree}}}.
 
 Invoke {{{tree}}} with {{{$ tree ~/rpmbuild}}} to show the contents of the build environment.
 
+! Signing Your ~RPMs
+
+Your RPMs can be digitally signed to protect users from the possibility of forged packages (any RPM package can execute scripts w/ root privileges when installed!).  To implement this, first generate and identify a gpg key:
+
+{{{
+$ gpg --gen-key
+gpg (GnuPG) 2.0.14; Copyright (C) 2009 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 
+Requested keysize is 2048 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0) 
+Key does not expire at all
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Scott Purcell
+Email address: scott@texastwister.info
+Comment: 
+You selected this USER-ID:
+    &quot;Scott Purcell &lt;scott@texastwister.info&gt;&quot;
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+You need a Passphrase to protect your secret key.
+
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key B9AED1DE marked as ultimately trusted
+public and secret key created and signed.
+
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+pub   2048R/B9AED1DE 2011-02-22
+      Key fingerprint = 9987 B276 A24A 1210 13A7  4D05 9F3F 8934 B9AE D1DE
+uid                  Scott Purcell &lt;scott@texastwister.info&gt;
+sub   2048R/0DA4CCE9 2011-02-22
+
+[scott@Client1 rhel6]$ 
+}}}
+
+The key ID can be seen in the output above, or can be found with {{{gpg --fingerprint}}}
+
+Export the key to a file:
+{{{
+$ gpg --armor --output ~/RPM-GPG-KEY-ScottPurcell --export B9AED1DE
+
+[scott@Client1 ~]$ ls RPM-GPG-KEY*
+RPM-GPG-KEY-ScottPurcell
+
+[scott@Client1 ~]$ cat RPM-GPG-KEY-ScottPurcell 
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.14 (GNU/Linux)
+
+mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl
+2cOXSz5MCAZKaeu2YK929v3FQ+I8Rk5j+hXvEUM0ZbbdlRjtqvQ9I2vxpZLCq+gj
+NdUEo7neehfInVnZBhxzbaTCWYFN3k0YoE9RzyduTnRjQ0HqtKNQADSvgxOvjNGQ
+UsGoPfBW1/SBQAy26ZesWXVE8R3z/G4IHdXFJ8mMjxEduGn7eFag1uLySXCKGRY1
+4kjMEVITSeTOW2m8N0o47Vu++00GhCsvLrQgu6rGmNYDyj1HSpU2F7GWFbRBqvUp
+AOiDaE9ZRkymeOCyALF1N9zgz2NyNeYAe8qDABEBAAG0J1Njb3R0IFB1cmNlbGwg
+PHNjb3R0QHRleGFzdHdpc3Rlci5pbmZvPokBOAQTAQIAIgUCTWNVqAIbAwYLCQgH
+AwIGFQgCCQoLBBYCAwECHgECF4AACgkQnz+JNLmu0d73zAf7BmnzOk7oPyJO6A9D
+dZhA+pg77LB9jKNQR2+Qx7lNbJyDIVGafrpU39qdOzc1IWDNyXMnAZUDwqjz48Y0
+ioUj/FFuJzPohjaO4pZn+r58ICYA7+uuARNJ0ujmaVsOR8YlkHSldITNK9ni01DV
+3ha/V1g+3L9Kgebq0l3R+3NaRJvBfUIJgM/ceCGSvn135gL9whIZnfPRVusSiCLA
+waCjT88v+tLwwjGDaUqHUXb47yNEN+gw+thYKAbUlv/sf4Z6PS4+DiLpCp7wybUl
+4sack1F9WrDVvNx0TEoSxJlYvYpU+1NdZlXu5rK6qVrroeO2ozdhn7nx31rIdQPo
+31lNYbkBDQRNY1WoAQgAq1A+1r9T45FUv4KV7BcX3DKeSqk5rWBqXLpiCENxV8cU
+NBOYGKBfAQJ6Gv9MUrEPcDzZ3AQdaFUyzQpOdJFy61whn8oGkRZFOhQLWhHkaRrD
+uFMj3LujQiWlrKyf0m16daHAYqqIl+hzUvhpy2uSkRFVAnPj4RTSPw4aAieoksQJ
+NHSoA2ZTPGM3S/tW0OKNbSp6L4TXddP7zo/X9iEax0DStVhheg7v8bJcWTF3Gd8c
+tBdxmkwYBfO1KEXsrDgkaAaIXQQd/j1GDmWiw3L7rICbgPVhloKOVb7Q5elGDiry
+pRON0CpkUdb9SbKVNHEmwGlB+DZ0yQZFvB0ZjiXhVQARAQABiQEfBBgBAgAJBQJN
+Y1WoAhsMAAoJEJ8/iTS5rtHecC8H/14xWH2w+OFxVol4asA55Kz5YtrtGpQe98VK
+fR86QsdBSUs4Evy22g5WXkARtdgg741LBqrm3SWVnbLfuoLujN3Q+ylqmiNk6Bmh
+E+McEfMQ8rcKEifEfiFlQJj9wIScebD4nxPXpAqcaKyz4HpjPzgOnKQpXxPk4kSV
+d7OkmxdyDDvmBOHODYivPybZTdiHIBraFmCGlmfLkFcMZbuZwjE7LyWB4Xjo2fw2
+QnqQEs/XzXsaXDwBMuayebzoKb06RNzQQC3uqQFszw7ObRtIqi9nEg5Hcfy2ip3j
+R+J9rjvN8rNpQwm40Gx6RpM7qtP/LodzD46dNfbr87lJ4F+4A3U=
+=f4Gq
+-----END PGP PUBLIC KEY BLOCK-----
+}}}
+
+Configure rpm-related tools to use your signature:
+
+{{{
+$ echo '%_gpg_name Scott Purcell'&gt;&gt; ~/.rpmmacros 
+}}}
+
+or
+
+{{{
+$ echo '%_gpg_name B9AED1DE'&gt;&gt; ~/.rpmmacros 
+}}}
+
+Now packages can be created and signed at the same time with rpmbuild using the {{{--sign}}} option.  Or existing packages can be retroactively signed with rpm using the {{{--addsign}}} or {{{--resign}}} options.
+
+With a signed package in place, the user intending to install it now needs to import the key:
+
+{{{
+# rpm --import /home/scott/RPM-GPG-KEY-ScottPurcell
+}}}
+
+And with the key imported, the package can be verified:
+{{{
+$ rpm -K rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm
+rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
+
+}}}
 
 !Exercise
 
-As root, install rpmbuild, rpmlint, rpmdevtools
+As root, install rpm-build, rpmlint, rpmdevtools
 
 {{{# yum -y install rpmbuild rpmdevtools rpmlint}}}
 
@@ -639,7 +865,6 @@ The changelog section can be deleted or left alone.
 
 
 
-If your package does not need to be &quot;built&quot;, 
  
 
 
@@ -661,6 +886,59 @@ TertiaryLight: #ccc
 TertiaryMid: #999
 TertiaryDark: #666
 Error: #f88
+</pre>
+</div>
+<div title="Configure a system as an iSCSI initiator that persistently mounts an iSCSI target" creator="ScottPurcell" modifier="ScottPurcell" created="201102221614" modified="201104201957" changecount="3">
+<pre>!Packages
+* iscsi-initiator-utils
+* scsi-target-utils
+
+!Documentation
+
+
+!Terms to Know
+
+
+
+
+!Process for accessing a remote iSCSI target
+
+# Install the initiator utilities
+# Set the local initiator name
+# Discover the targets offered by the iSCSI server (target portal)
+# Log in to an offered target
+# Identify the device name assigned
+# Use it as any SCSI disk -- partition, create FS, mount, configure for persistent mounting in /etc/fstab.
+
+Only caveats are that /etc/fstab should mount it via UUID (or label) since device naming can change on reboot and should include _netdev as a mount option so that no attempt is made to mount the device until after the network is activated.
+
+</pre>
+</div>
+<div title="CourseOutline" creator="ScottPurcell" modifier="ScottPurcell" created="201103100534" modified="201104181859" changecount="30">
+<pre>[[Session 1]] Introductions, expectations, and basic system operation topics
+
+[[Session 2]] Storage and filesystems
+
+[[Session 3]] Managing software, processes, kernel attribute, and users and groups
+
+[[Session 4]] Networking and routing
+
+[[Session 5]] Firewalls and SELinux
+
+[[Session 6]] Virtualization
+
+[[Session 7]] Logging and remote access
+
+[[Session 8]] Network Time Protocol
+
+[[Session 9]] HTTP and FTP
+
+[[Session 10]] NFS and Samba
+
+[[Session 11]] DNS and SMTP
+
+[[Session 12]] Finish uncompleted topics, Review, or Practice Exam 
+ 
 </pre>
 </div>
 <div title="DNS" creator="ScottPurcell" modifier="ScottPurcell" created="201102072052" modified="201102181534" changecount="3">
@@ -739,6 +1017,41 @@ Place files for download in {{{/var/ftp/pub}}}
 !Configure host-based Security
 
 !Configure user-based Security</pre>
+</div>
+<div title="FTP Drop Box" creator="ScottPurcell" modifier="ScottPurcell" created="201102242037" modified="201102242037" changecount="2">
+<pre>yum -y install vsftpd
+service vsftpd start
+chkconfig vsftpd on
+
+cd /var/ftp
+mkdir incoming 
+chgrp ftp incoming
+chmod 730 incoming
+
+man ftpd_selinux
+
+semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
+semanage boolean -l |grep anon
+
+setsebool -P allow_ftpd_anon_write on
+
+restorecon -rvv /var/ftp/
+
+vim /etc/vsftpd/vsftpd.conf
+
+anonymous_enable=YES
+local_enable=NO
+write_enable=YES
+anon_upload_enable=YES
+chown_uploads=YES
+chown_username=daemon
+
+restart service
+configure firewall
+
+in /etc/sysconfig/iptables:
+IPTABELS_MODULES=&quot;nf_conntrack_ftp&quot;
+(GUI tool adds this automatically)</pre>
 </div>
 <div title="Firewalls" creator="ScottPurcell" modifier="ScottPurcell" created="201102171920" modified="201102172120" changecount="3">
 <pre>Tip:
@@ -955,15 +1268,50 @@ Then copy the stanza, paste, and edit for add'l  virtual hosts.
 <div title="Install Red Hat Enterprise Linux automatically using Kickstart" creator="ScottPurcell" modifier="ScottPurcell" created="201102162139" changecount="1">
 <pre>For a list of available package groups: {{{# yum grouplist -v}}}.  Use the name in parentheses in the ks.cfg </pre>
 </div>
-<div title="Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem" creator="ScottPurcell" modifier="ScottPurcell" created="201102141530" modified="201102161527" tags="rpm yum repositories [[Red Hat Network]] [[software installation]]" changecount="6">
+<div title="Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem" creator="ScottPurcell" modifier="ScottPurcell" created="201102141530" modified="201102211545" tags="rpm yum repositories [[Red Hat Network]] [[software installation]]" changecount="8">
 <pre>! [[Working with RPM Packages]]
 
 ! [[Working with Remote Repositories]]
 
-! [[About the Red Hat Network]]
+! [[Working with the Red Hat Network|RHN]]
 
 
 </pre>
+</div>
+<div title="Instructor Aids" creator="ScottPurcell" modifier="ScottPurcell" created="201104202016" changecount="1">
+<pre>[[Password Randomization Script]]</pre>
+</div>
+<div title="Introductions" creator="ScottPurcell" modifier="ScottPurcell" created="201104181740" modified="201104182011" changecount="4">
+<pre>! Your Instructor
+Scott Purcell
+!! Contact Info:
+scottpurcell78750@gmail.com
+http://www.linkedin.com/in/scottpurcell
+http://twitter.com/texastwister
+http://www.facebook.com/Scott.L.Purcell
+
+!! Qualifications
+* RHCSA, RHCE #110-008-877 (RHEL6)
+* Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
+* Curriculum Developer and Trainer for a major computer manufacturer for going on 11 years
+* Linux Enthusiast since 2000
+!! Personal
+* Husband, father, disciple and apologist
+* Fun: Part-time Balloon Entertainer
+
+! Fellow Students
+Please Introduce Yourselves
+* Name
+* Where you work or what you do.
+* What Linux experience do you already have?
+* What goals do you have for this class?
+* Something fun about yourself.</pre>
+</div>
+<div title="Kerberos" creator="ScottPurcell" modifier="ScottPurcell" created="201102221918" modified="201102221939" changecount="2">
+<pre>Type the text for 'New Tiddler'</pre>
+</div>
+<div title="LDAP Authentication" creator="ScottPurcell" modifier="ScottPurcell" created="201102221917" modified="201102221939" changecount="2">
+<pre>LDAP passwords are plain-text over the network unless TLS encryption is used.</pre>
 </div>
 <div title="LUKS-encrypted file systems" creator="ScottPurcell" modifier="ScottPurcell" created="201102072036" modified="201102152216" changecount="3">
 <pre>Create a partition
@@ -1065,7 +1413,17 @@ loadRemoteFile = function(url,callback,params)
 //}}}
 </pre>
 </div>
-<div title="MainMenu" creator="ScottPurcell" modifier="ScottPurcell" created="201102072007" modified="201102100216" changecount="12">
+<div title="Locate and interpret system log files" creator="ScottPurcell" modifier="ScottPurcell" created="201104182127" changecount="1">
+<pre>``/var/log/*``
+
+View with ``cat``, ``less`` or other tools
+
+Search with ``grep``</pre>
+</div>
+<div title="Logical Volume Management" creator="ScottPurcell" modifier="ScottPurcell" created="201102221906" changecount="1">
+<pre>Type the text for 'New Tiddler'</pre>
+</div>
+<div title="MainMenu" creator="ScottPurcell" modifier="ScottPurcell" created="201102072007" modified="201104202016" changecount="14">
 <pre>[[WelcomeToTiddlyspot]] 
 [[GettingStarted]] 
 ----------
@@ -1074,12 +1432,18 @@ loadRemoteFile = function(url,callback,params)
 [[RHCE]]
 ----------
 [[PrepEnvironment]]
+[[CourseOutline]]
 [[Labs]]
+[[Instructor Aids]]
+
 ----------
 [[Edit this Menu|MainMenu]]
 &lt;html&gt;
 &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/3.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span xmlns:dct=&quot;http://purl.org/dc/terms/&quot; href=&quot;http://purl.org/dc/dcmitype/Text&quot; property=&quot;dct:title&quot; rel=&quot;dct:type&quot;&gt;Preparing for RHCE on RHEL6&lt;/span&gt; by &lt;a xmlns:cc=&quot;http://creativecommons.org/ns#&quot; href=&quot;http://rhel6rhce.tiddlyspot.com/&quot; property=&quot;cc:attributionName&quot; rel=&quot;cc:attributionURL&quot;&gt;Scott Purcell&lt;/a&gt; is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/3.0/&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License&lt;/a&gt;.
 &lt;/html&gt;</pre>
+</div>
+<div title="Modify the system bootloader" creator="ScottPurcell" modifier="ScottPurcell" created="201104182127" changecount="1">
+<pre>Type the text for 'Modify the system bootloader'</pre>
 </div>
 <div title="NFS" creator="ScottPurcell" modifier="ScottPurcell" created="201102072051" modified="201102181651" changecount="2">
 <pre>!Installation
@@ -1156,6 +1520,15 @@ Doesn't do IP Aliasing, nor Bonding
 !Configure host-based Security
 
 !Configure user-based Security</pre>
+</div>
+<div title="Password Randomization Script" creator="ScottPurcell" modifier="ScottPurcell" created="201104202017" changecount="1">
+<pre>{{{
+#!/bin/bash
+# Sets a random password to simulate a lost password and create a password recovery situation. 
+# Run as root on a learning system.
+
+tr -dc A-Za-z0-9 &lt;/dev/urandom |  head -c 14 | passwd --stdin
+}}}</pre>
 </div>
 <div title="PasswordOptionsPlugin" modifier="YourName" created="200704220851" modified="201102071955" tags="systemConfig">
 <pre>/***
@@ -1237,7 +1610,23 @@ merge(config.optionsDesc,{
 */
 //}}}</pre>
 </div>
-<div title="RHCE" creator="ScottPurcell" modifier="ScottPurcell" created="201102072026" modified="201102081957" changecount="2">
+<div title="Prerequisites and Expectations" creator="ScottPurcell" modifier="ScottPurcell" created="201104181752" modified="201104181753" changecount="3">
+<pre>* You should have mastered many elements of the RHCSA objectives before ever beginning this course.
+* You should have a measure of experience with or prior study of a wide range of network services before beginning this course. 
+* Should you be able to pass the RHCE on this class alone?
+** A stunning number of seasoned professionals taking Red Hat's own prep courses fail to pass on first attempt.
+* Planning for more than one attempt is prudent.
+* Maximizing your out-of-class preparation time is prudent.</pre>
+</div>
+<div title="Printing" creator="ScottPurcell" modifier="ScottPurcell" created="201102242224" changecount="1">
+<pre>lpq
+
+/var/spool/cups/
+
+Port 631 open
+</pre>
+</div>
+<div title="RHCE" creator="ScottPurcell" modifier="ScottPurcell" created="201102072026" modified="201104011446" changecount="3">
 <pre>RHCE is a senior system administration certification. It is an eligibility requirement for taking any COE exams and is thus a requirement for the upper-level credentials as well.
 
 [[RHCE Objectives]]
@@ -1408,6 +1797,15 @@ RHCSA exam candidates should be able to accomplish the tasks below without assis
     * [[Diagnose and address routine SELinux policy violations]]
 </pre>
 </div>
+<div title="RHN" creator="ScottPurcell" modifier="ScottPurcell" created="201102211558" changecount="1">
+<pre>Register with {{{rhn_register}}} or ''System|Administration|RHN Registration''
+
+!Man Pages
+rhn_register (8)
+rhnplugin (8)
+
+</pre>
+</div>
 <div title="RPM Signing" creator="ScottPurcell" modifier="ScottPurcell" created="201102142030" modified="201102142104" changecount="4">
 <pre>!1) Create Key
 
@@ -1490,6 +1888,20 @@ Once an appropriate context is found, chcon can be used to test -- but changes m
 
 {{{# sealert }}} launches a gui app that does the same.</pre>
 </div>
+<div title="SELinux bug when changing password in single user mode" creator="ScottPurcell" modifier="ScottPurcell" created="201104182124" changecount="1">
+<pre>In the original release of RHEL6 (on which the RHCSA and RHCE will be based for a considerable length of time) a bug in SELinux prevents the administrator from changing the root password in single-user mode while SELInux is in &quot;enforcing&quot; mode.
+
+Use the following work around:
+{{{
+# setenforce permissive
+# passwd
+Changing password for user root.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+# setenforce enforcing
+}}}</pre>
+</div>
 <div title="SMB" creator="ScottPurcell" modifier="ScottPurcell" created="201102072051" modified="201102181855" changecount="2">
 <pre>!Installation
 &quot;CIFS File Server&quot; group has a single package: samba
@@ -1561,30 +1973,315 @@ URL can be deleted</pre>
 
 !Configure user-based Security</pre>
 </div>
+<div title="Samba" creator="ScottPurcell" modifier="ScottPurcell" created="201102241936" modified="201102242019" changecount="2">
+<pre>!Package
+
+samba
+
+
+! Client Usage
+{{{smbclient -L hostname}}} shows shares
+
+{{{smbclient //host//share -U username -P password}}} connects to the share
+
+{{{
+
+{{{man mount.cifs}}}
+
+{{{mount -t cifs //server/share -o user=bob /mnt }}}
+
+in {{{/etc/fstab}}}
+{{{//server/share /mnt/ cifs  user=myuser 0 0}}}
+
+!Server Config
+
+rpm -qc samba
+
+create a samba-only user:
+{{{useradd -s /sbin/nologin winuser}}}
+{{{smbpasswd -a winuser}}}
+{{{getsebool -a}}}
+{{{semanage boolean -l }}}
+{{{setsebool -P samba_enable_home_dirs on}}}
+
+password file is at {{{/var/lib/samba/private/passdb.tdb}}}
+{{{pdbedit -L}}} dumps the contents of that file to screen.
+
+Port 445 is latest port.
+
+137, 138, and 139  (NetBIOS)
+
+netstat
+
+smbd nmb
+
+testparm
+{{{
+mkdir -p /shared/samba
+groupadd -r samba
+chgrp samba /shared/samba
+chmod 2770
+semanage fcontext -a -t public_content_t '/shared(/.*)?'
+semanage fcontext -a -t samba_share_t '/shared/samba(/.*)?'
+restorecon -rvv /shared/
+
+[samba]
+path = /shared/samba
+writeable = no
+write list = @samba
+public = no
+
+}}}
+</pre>
+</div>
+<div title="Session 1" creator="ScottPurcell" modifier="ScottPurcell" created="201104131218" modified="201104182047" changecount="4">
+<pre>!! Introduction
+* [[Introductions]]
+* [[Prerequisites and Expectations]]
+* [[About RHEL6]]
+* [[The Red Hat Certification Landscape]]
+* [[Study Recommendations]]
+* Operating a System
+** [[Boot, reboot, and shut down a system normally]]
+** [[Boot systems into different runlevels manually]]
+** [[Use single-user mode to gain access to a system]]
+** [[Locate and interpret system log files]]
+** [[Access a virtual machine's console]]
+** [[Start and stop virtual machines]]
+** [[Start, stop and check the status of network services]]
+** [[Modify the system bootloader]]
+
+!!! Labs
+    * Use single-user mode to recover a root password
+    * Boot into a specified (non-default) run-level
+    * Use a virtual terminal and an x-term to read system logs
+    * Manipulate the CUPS service
+
+</pre>
+</div>
+<div title="Session 10" creator="ScottPurcell" modifier="ScottPurcell" created="201104181834" changecount="1">
+<pre>          o NFS
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Provide network shares to specific clients
+                + * Provide network shares suitable for group collaboration
+          o Samba
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Provide network shares to specific clients
+                + * Provide network shares suitable for group collaboration</pre>
+</div>
+<div title="Session 11" creator="ScottPurcell" modifier="ScottPurcell" created="201104181834" changecount="1">
+<pre>          o DNS
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Configure a caching-only name server
+                + * Configure a caching-only name server to forward DNS queries
+                + * Note: Candidates are not expected to configure master or slave name servers
+          o SMTP
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Configure a mail transfer agent (MTA) to accept inbound email from other systems
+                + * Configure an MTA to forward (relay) email through a smart host</pre>
+</div>
+<div title="Session 12" creator="ScottPurcell" modifier="ScottPurcell" created="201104181805" changecount="1">
+<pre>Practice Exam?</pre>
+</div>
+<div title="Session 2" creator="ScottPurcell" modifier="ScottPurcell" created="201104181758" modified="201104201441" changecount="2">
+<pre>* Local Storage
+** [[List, create, delete and set partition type for primary, extended, and logical partitions|Disk Partitioning]]
+** [[Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes|Logical Volume Management]]
+** [[Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot|LUKS Encryption]]
+** [[Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label|FS Labels and UUIDs]]
+** [[Add new partitions, logical volumes, and swap to a system non-destructively|Adding Storage]]
+* File systems
+** [[Create, mount, unmount and use ext2, ext3 and ext4 file systems|File Systems]]
+** Mount, unmount and use ~LUKS-encrypted file systems
+** Mount and unmount [[CIFS|Samba Client Access] and [[NFS|NFS client access]] network file systems]]
+** Configure systems to mount ext4, ~LUKS-encrypted and network file systems automatically
+** Extend existing unencrypted ext4-formatted logical volumes
+** [[Create and configure set-GID directories for collaboration]]
+** [[Create and manage File Access Control Lists]]
+** Diagnose and correct file permission problems
+* Network Storage
+** [[Configure a system as an iSCSI initiator that persistently mounts an iSCSI target]]
+
+
+</pre>
+</div>
+<div title="Session 3" creator="ScottPurcell" modifier="ScottPurcell" created="201104181834" changecount="1">
+<pre>          o Managing Software
+                + RHN
+                + Repos
+                + Yum
+                      #
+
+                        * Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem 
+                + RPM
+                + Building RPMs
+                      # * Build a simple RPM that packages a single file
+                + Signing and Publishing RPMs
+                + * Update the kernel package appropriately to ensure a bootable system
+          o Manage Processes and Services
+                + * Configure network services to start automatically at boot
+                + * Configure systems to boot into a specific runlevel automatically
+                + * Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
+                + * Schedule tasks using cron
+          o Manage system performance
+                + * Use /proc/sys and sysctl to modify and set kernel run-time parameters
+                + * Produce and deliver reports on system utilization (processor, memory, disk, and network)
+                + * Use shell scripting to automate system maintenance tasks
+          o Manage Users and Groups
+                + * Create, delete, and modify local user accounts
+                + * Change passwords and adjust password aging for local user accounts
+                + * Create, delete and modify local groups and group memberships
+                + * Configure a system to use an existing LDAP directory service for user and group information
+                + * Configure system to authenticate using Kerberos</pre>
+</div>
+<div title="Session 4" creator="ScottPurcell" modifier="ScottPurcell" created="201104181831" changecount="1">
+<pre>          o Networking &amp; Routing
+                + * Configure networking and hostname resolution statically or dynamically
+                + * Route IP traffic and create static routes</pre>
+</div>
+<div title="Session 5" creator="ScottPurcell" modifier="ScottPurcell" created="201104181832" changecount="1">
+<pre>          o IPTables
+                + * Configure firewall settings using system-config-firewall or iptables
+          o SELinux
+                + * Set enforcing and permissive modes for SELinux
+                + * List and identify SELinux file and process context
+                + * Restore default file contexts
+                + * Use boolean settings to modify system SELinux settings
+                + * Diagnose and address routine SELinux policy violations</pre>
+</div>
+<div title="Session 6" creator="ScottPurcell" modifier="ScottPurcell" created="201104181832" changecount="1">
+<pre>          o KVM Virtualization
+                + * Configure a physical machine to host virtual guests
+                + * Install Red Hat Enterprise Linux systems as virtual guests
+                + * Configure systems to launch virtual machines at boot
+                + * Install Red Hat Enterprise Linux automatically using Kickstart</pre>
+</div>
+<div title="Session 7" creator="ScottPurcell" modifier="ScottPurcell" created="201104181832" changecount="1">
+<pre>          o + - Remote Logging
+                + * Configure a system to log to a remote system
+                + * Configure a system to accept logging from a remote system
+          o + - Remote Access
+                + SSH
+                      # * Install the packages needed to provide the service
+                      # * Configure SELinux to support the service
+                      # * Configure the service to start when the system is booted
+                      # * Configure the service for basic operation
+                      # * Configure host-based and user-based security for the service
+                      # * Configure key-based authentication
+                      # * Configure additional SSH options described in documentation
+                + VNC
+                      # * Install the packages needed to provide the service
+                      # * Configure SELinux to support the service
+                      # * Configure the service to start when the system is booted
+                      # * Configure the service for basic operation
+                      # * Configure host-based and user-based security for the service</pre>
+</div>
+<div title="Session 8" creator="ScottPurcell" modifier="ScottPurcell" created="201104181833" changecount="1">
+<pre>          o NTP
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service</pre>
+</div>
+<div title="Session 9" creator="ScottPurcell" modifier="ScottPurcell" created="201104181833" changecount="1">
+<pre>          o HTTP(s)
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Configure a virtual host
+                + * Configure private directories
+                + * Deploy a basic CGI application
+                + * Configure group-managed content
+          o FTP
+                + * Install the packages needed to provide the service
+                + * Configure SELinux to support the service
+                + * Configure the service to start when the system is booted
+                + * Configure the service for basic operation
+                + * Configure host-based and user-based security for the service
+                + * Configure anonymous-only download</pre>
+</div>
 <div title="SiteSubtitle" creator="ScottPurcell" modifier="ScottPurcell" created="201102071959" changecount="1">
 <pre>Notes by Scott Purcell</pre>
 </div>
 <div title="SiteTitle" creator="ScottPurcell" modifier="ScottPurcell" created="201102071959" modified="201102081734" changecount="2">
 <pre>Preparing for RHCE on ~RHEL6</pre>
 </div>
-<div title="The Red Hat Certification Landscape" creator="ScottPurcell" modifier="ScottPurcell" created="201102072010" modified="201102072024" changecount="9">
+<div title="Start and stop virtual machines" creator="ScottPurcell" modifier="ScottPurcell" created="201104182128" changecount="1">
+<pre>* Using virt-manager
+
+* Using virsh commands</pre>
+</div>
+<div title="Start, stop and check the status of network services" creator="ScottPurcell" modifier="ScottPurcell" created="201104182130" modified="201104202139" changecount="2">
+<pre>Two separate issues:
+
+* Is the service running now?
+* Should the service run by default in this runlevel?
+
+Handled by two different tools:
+
+* {{{/sbin/service}}} is used to start, stop, restart, and check the status of a service.  It has no bearing on when/whether a service is later started.
+** Example syntax:  {{{# service httpd restart}}}
+
+* {{{/sbin/chkconfig}}} is used to configure a service with regard to when (in which runlevels) it should be automaticially started.
+** Example sytax: {{{# chkconfig --level 345 vsftpd on}}}
+</pre>
+</div>
+<div title="Study Recommendations" creator="ScottPurcell" modifier="ScottPurcell" created="201104181900" modified="201104182012" changecount="5">
+<pre>Set up a Practice/Study Environment
+* 2 or 3 systems or virtual machines, networked together.  Virtualized hosting providers may be an alternative.
+* RHEL 6 (eval), CENTOS 6 (when available), or Fedora (Fedora 13 will be closest to RHEL 6)
+* Red Hat docs at: 
+** http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html
+* RHCE Objectives and other information at:
+** http://www.redhat.com/certification/
+* Take initiative -- form a study group.
+* Participate in our Google Group: http://groups.google.com/group/acc-ce-linux-learners
+* Practice, practice, practice!</pre>
+</div>
+<div title="The Red Hat Certification Landscape" creator="ScottPurcell" modifier="ScottPurcell" created="201102072010" modified="201104182044" changecount="15">
 <pre>![[RHCSA]]
 
 [[RHCSA]] is new, replacing the [[RHCT]].  It is the &quot;core&quot; sysadmin certification from Red Hat. To earn [[RHCE]] and other system administration certs will require first earning the [[RHCSA]].
+
+[[RHCSA Objectives]]
 
 
 ![[RHCE]]
 
     [[RHCE]] is a senior system administration certification. It is an eligibility requirement for taking any [[COE]] exams and is thus a requirement for the upper-level credentials as well.
     
+[[RHCE Objectives]]
 
 ![[Certificates of Expertise]]
 
     [[COEs|Certificates of Expertise]] are incremental credentials demonstrating skills and knowledge in specialized areas. They are worthy credentials in their own right, but also the building blocks of the upper level credentials.
 
-![[RHCSS]], [[RHCDS]], [[RHCA]]
+http://www.redhat.com/certification/certificates_of_expertise/
+
+![[RHCSS]], [[RHCDS]], [[RHCA]], [[RHCVA]]
 
     These upper level credentials recognize those who have achieved expertise in several related specialized areas.  Each one requires multiple [[COEs|Certificates of Expertise]].
+
+
 </pre>
 </div>
 <div title="TspotSetupPlugin" modifier="YourName" created="200808081041" modified="200808081041" tags="systemConfig">
@@ -1655,18 +2352,18 @@ merge(config.shadowTiddlers,{
 //}}}
 </pre>
 </div>
-<div title="UploadLog" modifier="ScottPurcell" created="201102071956" modified="201102210728">
+<div title="UploadLog" modifier="ScottPurcell" created="201102071956" modified="201104202139">
 <pre>| !date | !user | !location | !storeUrl | !uploadDir | !toFilename | !backupdir | !origin |
-| 16/02/2011 18:16:38 | ScottPurcell | [[rhel6rhce(4).html|file:///root/Desktop/rhel6rhce(4).html]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
-| 17/02/2011 09:45:40 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
-| 17/02/2011 15:03:06 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
-| 17/02/2011 16:50:17 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
-| 18/02/2011 10:24:15 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
-| 18/02/2011 13:24:57 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
-| 18/02/2011 15:39:31 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
-| 18/02/2011 17:18:20 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
-| 18/02/2011 17:27:02 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
-| 21/02/2011 01:28:59 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |</pre>
+| 18/04/2011 15:08:52 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 18/04/2011 15:44:53 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 18/04/2011 15:47:21 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 18/04/2011 16:17:20 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 18/04/2011 16:31:08 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
+| 18/04/2011 18:15:52 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 18/04/2011 21:52:41 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
+| 20/04/2011 09:41:47 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | ok |
+| 20/04/2011 15:17:43 | ScottPurcell | [[/|http://rhel6rhce.tiddlyspot.com/]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . |
+| 20/04/2011 16:39:44 | ScottPurcell | [[rhel6rhce.html|file:///home/scott/backup/current_work/RHCE_Prep_RHEL6/rhel6rhce.html]] | [[store.cgi|http://rhel6rhce.tiddlyspot.com/store.cgi]] | . | [[index.html | http://rhel6rhce.tiddlyspot.com/index.html]] | . | failed |</pre>
 </div>
 <div title="UploadPlugin" modifier="YourName" created="200808080918" modified="201102071955" tags="systemConfig">
 <pre>/***
@@ -2231,10 +2928,40 @@ config.backstageTasks.push(&quot;uploadOptions&quot;);
 
 </pre>
 </div>
+<div title="Use single-user mode to gain access to a system" creator="ScottPurcell" modifier="ScottPurcell" created="201104182124" modified="201104182125" changecount="3">
+<pre>At boot, use GRUB to enter runlevel 1 (or S).
+
+You will be logged in as root without the need for a password and can then change the system password with {{{passwd}}}.
+
+[[BUG ALERT!|SELinux bug when changing password in single user mode]]  </pre>
+</div>
 <div title="Using sudo" creator="ScottPurcell" modifier="ScottPurcell" created="201102162106" changecount="1">
 <pre>{{{user      host = (desired userID)  {NOPASSWD:} commands}}}</pre>
 </div>
-<div title="Working with RPM Packages" creator="ScottPurcell" modifier="ScottPurcell" created="201102161523" modified="201102161524" changecount="2">
+<div title="VNC" creator="ScottPurcell" modifier="ScottPurcell" created="201102242224" modified="201102242334" changecount="2">
+<pre>package
+tigervnc-server
+/etc/sysconfig/vncservers
+
+One line, two bits of info (display and name):
+
+VNCSERVERS=&quot;1:student 2:visitor&quot;
+
+The next line is optional but can configure an indi
+
+vncviewer -via user@host localhost:x
+
+
+
+1 Install service
+2 Configure
+3 create passwords
+4 start service (step 3 must be created first!)
+
+
+vncviewer -via user@host localhost:1</pre>
+</div>
+<div title="Working with RPM Packages" creator="ScottPurcell" modifier="ScottPurcell" created="201102161523" modified="201102211708" changecount="4">
 <pre>Software and system updates in RHEL are most often distributed in the form of RPM Packages, which are files, scripts, and package metadata stored in a modified CPIO archive.
 
 RPM originated as &quot;Red Hat Package Management&quot; but now stands for &quot;RPM Package Management&quot;.
@@ -2253,10 +2980,12 @@ The base level command for manipulating RPM packaging is {{{rpm}}}.  However, ot
 {{{rpm -q --configfiles bash}}}
 {{{rpm -qc  bash}}}
 {{{rpm -qd }}}
-{{{rpm -q --scripts }}}
+{{{rpm -q --scripts }}} shows the scripts that run when the package is installed or uninstalled.
 {{{rpm -qp}}}
 {{{rpm -qpl}}}
 {{{rpm -qpi}}}
+
+{{{rpm  -q &lt;kind of query: package, default&gt; &lt;what info: info, list, docs, confs, --scripts&gt;&lt;which packages: all, pkgname&gt;}}}
 
 
 ! Extracting RPM contents
@@ -2267,45 +2996,93 @@ extracts to current directory
 
 </pre>
 </div>
-<div title="Working with Remote Repositories" creator="ScottPurcell" modifier="ScottPurcell" created="201102161526" changecount="1">
-<pre>! Man Pages for yum
+<div title="Working with Remote Repositories" creator="ScottPurcell" modifier="ScottPurcell" created="201102161526" modified="201102220606" changecount="16">
+<pre>! Documentation for {{{yum}}}
 
+''man pages''
 * yum (1)
 * yum.conf (5)
 
 ! Configuring yum to use a remote repository
 
-Must create an entry in yum.conf.  The &quot;best practice&quot; way to do this is to create a file for this one repository, with a name ending in .repo, and place it in /etc/yum.repos.d/
+Must create an entry in yum.conf.  The &quot;best practice&quot; way to do this is to create a file for this one repository, with a name ending in {{{.repo}}}, and place it in {{{/etc/yum.repos.d/}}}
+
+''Must have:''
+* {{{[shortname]  -- no spaces permitted}}}
+* {{{name=friendly name}}}
+* {{{baseurl=&lt;proto://path/to/repo&gt;}}}
+
+When finding the path to a repo -- it is a directory containing repodata/
+
+
+
+''Optional:''
+*gpgcheck  (0=off, 1=on) (requires a gpgkey if used)
+*enabled  (0=off, 1=on)  (changed with {{{yum --enablerepo reponame}}} or {{{yum --disablerepo}}})
+
+''Example: /etc/yum.repos.d/hostiso.repo''
+{{{
+[hostiso]
+name=&quot;Host ISO Repo&quot;
+baseurl=http://172.17.0.1/install/rhel6
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+}}}
+
+! Non &quot;Core&quot; Repositories from Red Hat
+
+&quot;Optional&quot; repo is unsupported extra packages, similar to EPEL
+
+&quot;Supplemental&quot; repo is closed source packages like adobe acrobat reader, etc.
 
 ! Common Invocations of yum
 
 * yum help
 * yum list
-* yum search keyword
-* yum info packagename
-* yum install packagename
-* yum remove packagename
-* yum update packagename
-* yum grouplist
-* yum groupinfo
-* yum groupinstall groupname
-* yum update
-* yum whatprovides  (accepts globs)
-* yum localinstall
-* yum install --nogpgcheck
+** installed
+** available
+** updates
+** &lt;pkgname&gt;
+* {{{yum search &lt;keyword&gt;}}}
+* {{{yum localinstall &lt;pkgname&gt;}}}
+* {{{yum localinstall --nogpgcheck &lt;pkgname&gt;}}}
 
+{{{yum list | grep &lt;searchphrase&gt;}}} differs from {{{yum search &lt;searchphrase&gt;}}} in that yum search searches the description and metadata as well.  All you search with grep against yum list is what is shown.
 
+* {{{yum info packagename}}}
+* {{{yum install packagename}}}
+* {{{yum remove packagename}}}
+don't use -y with remove -- might remove more or fewer packages than you expect.
+* {{{yum update packagename}}}
+* {{{yum grouplist}}}
+* {{{yum groupinfo}}}
+* {{{yum groupinstall groupname}}}
+* {{{yum update}}}
+* {{{yum whatprovides}}}  (accepts globs)
+* {{{yum localinstall}}}
+* {{{yum install --nogpgcheck}}}
 
-When finding the path to a repo -- it is a directory containing repodata/
+! {{{yum}}} ''log files''
+
+* {{{/var/log/yum.log}}}
+
+! {{{yum}}} and Signed Packages
+Signed packages allow verification that a given package is from the source it claims to be from, and that the package has not been modified since leaving that source.  This prevents tampering and the distribution of compromised packages. Packagers that produce signed packages will usually provide their public key in some prominent and easily accessible way. Red Hat places their keys on the distribution DVDs or ISOs in the path {{{/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release}}}
+
+If {{{gpg-check=1}}} in the {{{.repo}}} file, yum will decline to install unsigned packages and packages with unknown signatures.  the {{{--nogpgcheck}}} option can be used to force the unvalidated installation of a package, but a better solution is to obtain and import the appropriate key with {{{rpm --import path/to/pubkey}}}.
 
 [[yum exercises]]</pre>
 </div>
-<div title="partprobe" creator="ScottPurcell" modifier="ScottPurcell" created="201102151933" modified="201102152006" changecount="2">
-<pre>no longer forces re-reading of partition table of files with mounted filesystems... :-(
+<div title="partprobe" creator="ScottPurcell" modifier="ScottPurcell" created="201102151933" modified="201102220022" changecount="4">
+<pre>{{{partprobe}}} no longer forces re-reading of partition table of files with mounted filesystems. ''Equivalent functionality can now be found in'' {{{partx}}}.
 </pre>
 </div>
 <div title="rsyslog" creator="ScottPurcell" modifier="ScottPurcell" created="201102172248" changecount="1">
 <pre>Type the text for 'New Tiddler'</pre>
+</div>
+<div title="sed" creator="ScottPurcell" modifier="ScottPurcell" created="201104182114" changecount="1">
+<pre>The Streaming Editor</pre>
 </div>
 <div title="virtualization" creator="ScottPurcell" modifier="ScottPurcell" created="201102162213" changecount="1">
 <pre>libguestfs-tools

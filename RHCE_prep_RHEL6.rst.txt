@@ -20,6 +20,7 @@ OpenRHCE
 A Creative Commons Courseware for RHCE Preparation
 -------------------------------------------------------
 
+
 Course Outline
 =======================
 
