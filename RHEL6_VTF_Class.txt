@@ -1,0 +1,1413 @@
+﻿Using Third-Party Repositories
+References:
+manual pages
+yum(1)
+yum.conf(5)
+/etc/yum.repos.d/
+must use *.repo file
+Practice:
+create repo file to use humbolt/linuxlib for updates
+update all relevant software
+basic yum commands
+yum help will display usage information
+yum list displays installed and available packages
+yum search keyword lists packages by keywords
+yum info packagename gives detailed information about a package
+yum install packagENAME installs a software package, including any dependencies
+yum remove packagename removes an installed software package, including any supported packages
+yum update packageNAME installs a newer version of the software package, including any dependencies
+with no PACKAGENAME specified, it will install all relevant updates
+Practice:
+attempt to run the command gnuplot
+search for plotting packages
+find out more information about the gnuplot package 
+install the gnuplot package 
+attempt to remove the gnuplot package, but say no
+how many packages would be removed?
+ attempt to remove the gnuplot-common package, but say no
+how many packages would be removed?
+
+
+Handling Third-Party Software
+References:
+manual pages
+rpm(8)
+rpm2cpio(8)
+cpio(8)
+RPM queries what packages
+-q -a – all installed packages
+-q packagENAME – currently installed PACKAGENAME
+-q -p packagefile.rpm – package file named PACKAGEFILE.rpm
+-q -f filename – what package provides FILENAME
+RPM queries what information
+if nothing is specified, lists the package's name and version; compare to yum list
+-q -i – package information; compare to yum info 
+-q -l – list of files installed by package 
+-q --configfiles – list just configuration files
+-q --docfiles – list just documentation files
+-q --scripts – list shell scripts that run after the package is installed or uninstalled
+NOTE: yum localinstall packagefile.rpm can be used to install package files directly.
+Automatically resolves dependencies using any configured yum repositories
+Use --nogpgcheck option to disable the digital signature check
+RPM package files are essentially cpio archives
+pipe output of rpm2cpio packagefile.rpm into cpio -id to extract all files stored in the RPM into the current directory
+Practice:
+download wonderwidgets-1.0-4.x86_64.rpm from http://instructor/pub/materials 
+what files does it contain?
+what scripts does it contain?
+how much disk space will it use when installed?
+extract the README.txt from the package file
+use yum localinstall to install the package 
+RPM package design
+design/structure of an RPM
+metadata
+files
+scripts
+useful RPM queries
+rpm -qd
+rpm -qc
+rpm -q --scripts 
+RPM Package Specifications
+References
+Fedora RPM Guide – http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+Fedora Packaging Guidelines – http://fedoraproject.org/wiki/Packaging:Guidelines
+Source RPM Package Search & Learn
+as student download the redhat-release SRPM from the instructor machine
+http://instructor/pub/materials/redhat-release-*.src.rpm
+install the redhat-release source RPM
+you should see ~/rpmbuild directory
+explore the directories created under it
+examine the internal structure of the tarball in SOURCES
+study the spec file
+Spec file directives and sections
+Name
+Version
+Release
+Group
+License
+Summary
+Source
+BuildArch
+Spec file sections
+%description
+%files
+%changelog
+%prep
+%build
+%install
+%clean
+rpmbbuild steps
+%prep
+%build
+%install
+%files
+Note: on RHEL6, vim has a macro that helps create a spec file
+example: [student@serverX]$ vim foo.spec
+provides some common entries for RPM building
+
+Building and Signing an RPM Package 
+References:
+manual pages
+rpmbuild(8)
+createrepo(8)
+Fedora RPM Guide – http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+Fedora Packaging Guidelines – http://fedoraproject.org/wiki/Packaging:Guidelines
+five steps for building an RPM Package:
+tarball
+name-version/
+SOURCES/
+spec file
+SPECS/name.spec
+rpmbuild
+sign
+--sign or –resign
+test
+create a yum repository
+Practice
+download ftp://instructor.example.com/pub/materials/hello.sh
+create a simple RPM that installs hello.sh in /root/bin
+ensure it is installed with mode 755
+create a GPG key, sign the package with the key, and export the public GPG key
+deploy a web server and create a yum repository in /var/www/html/Packages/
+serve the GPG key from the web server
+create a repository file that references http://serverX/Packages and include the key in the repository file
+install your RPM using the yum repository above and run /root/bin/hello.sh
+
+Network Management
+References
+Red Hat Enterprise Linux Deployment Guide Section 4: Network Interfaces
+Red Hat Enterprise Linux Deployment Guide Section 4.1: Network Configuration Files
+Red Hat Enterprise Linux Deployment Guide Section 4.2: Interface Configuration Files
+Red Hat Enterprise Linux Deployment Guide Section 5: Network Configuration
+Red Hat Enterprise Linux Deployment Guide Section 16.3.9.4: /proc/sys/net/
+Red Hat Enterprise Linux Deployment Guide Section 16.4: Using the sysctl Command
+Red Hat Enterprise Linux Deployment Guide Section 29.7.2: The Channel Bonding Module
+/usr/share/doc/initscripts-*/sysconfig.txt
+/usr/share/doc/kernel-*/Documentation/networking/bonding.txt
+Network Troubleshooting Toolkit
+How would you: Test? Check? Fix?
+IP Address and Subnet Mask
+Routing/Default Gateway
+Name Resolution
+Network Interface Configuration – IP Aliases
+NOTE:  recommend disabling NetworkManager when configuring aliases and bonding
+NetworkManager does not support IP aliasing in a manner that is backward compatible with old-style network alias configuration
+NetworkManager does not currently work with NIC bonding
+For more information, consult http://live.gnome.org/NetworkManager/SystemSettings#ifcfg-rh
+ip addr
+add 1.1.1.1/24 dev eth0 label eth0:0
+show
+/etc/sysconfig/network-scripts/ifcfg-eth0:0
+IPADDR=
+NETMASK=
+ONPARENT=
+Network Interface Configuration – Bonding 
+Linux Ethernet Bonding
+mode 0 (balance-rr)
+mode 1 (active-backup)
+mode 3 (broadcast)
+/etc/sysconfig/network-scripts/ifcfg-bond0
+DEVICE=
+IPADDR=
+NETMASK=
+ONBOOT=
+BOOTPROTO=
+USERCTL=
+BONDING_OPTS=
+/etc/sysconfig/network-scripts/ifcfg-interface
+DEVICE=
+BOOTPROTO=
+ONBOOT=
+MASTER=
+SLAVE=
+USERCTL=
+Tuning Kernel Parameters
+investigate the sysctl command and utilize the kernel documentation for relevant parameters
+Practice (Group)
+how would you use sysctl to identify kernel parameters that control ping, or ICMP echo, behavior?
+which parameters look promising?
+what command would you use to identify and/or examine kernel documentation that describes what those parameters are for?
+how would you use sysctl to adjust kernel parameters?
+how would you configure sysctl to persistently adjust kernel parameters to survive a reboot?
+Practice
+work with a partner to tune the kernel on serverX to respond to ping broadcast
+send a broadcast ping to the 192.168.0.0/24 network 
+note which hosts respond to the request
+tune serverX so that it will respond to ping broadcasts
+send another broadcast ping to the 192.168.0.0/24 network
+did your host respond?
+Persistently configure your serverX to respond to ping broadcasts and reboot
+send another broadcast ping to the 192.168.0.0/24 network 
+did your configuration changes persist the reboot?
+Lab – Routing Network Traffic
+before you begin...
+run the lab-setup-oshu script on desktopX
+modify the configuration on serverX so that it does not respond to any ping requests
+make this change persist across reboots
+add an additional IP address to serverX
+10.42.10.x/24
+Lab – Troubleshooting Network Configuration from the command-line
+all of the following should be performed on serverX
+run lab-break-net 1
+symptom: a web browser is unable to access the web page at http://instructor.remote.test
+apply the three steps: TEST, CHECK, FIX to identify and resolve the problem
+run lab-break-net 2
+symptom: a web browser is unable to access the web page at http://instructor.remote.test
+apply the three steps: TEST, CHECK, FIX to identify and resolve the problem
+run lab-break-net 3
+symptom: a web browser is unable to access the web page at http://instructor.remote.test
+apply the three steps: TEST, CHECK, FIX to identify and resolve the problem
+
+
+Storage Management
+References
+If I add several hundred GB of RAM to a system, do I really need several hundred GB of swap space for RHEL? https://access.redhat.com/kb/docs/DOC-15252
+Red Hat Enterprise Linux Storage Administration Guide Section 21.2: iSCSI
+/usr/share/doc/iscsi-initiator-utils-*/README
+manual pages
+fdisk(8)
+fstab(5)
+mkfs(8)
+blkid(8)
+partprobe(8)
+mount(8)
+parted(8)
+cryptsetup(8)
+crypttab(8)
+Simple Partitions and File Systems 
+fdisk 
+-l – view disks and current partitioning
+-c – disables legacy DOS-compatibility mode
+-u – displays output in sectors (not cylinders, which are obsolete)
+should not be used to manage disks >=2TiB
+parted
+should be used to manage disks >=2TiB
+may be used to manage all disks/partitions
+ext4 
+standard filesystem for RHEL
+robust and reliable
+many features to improve performance for modern workloads
+ext3/ext2
+older filesystem commonly used in Linux
+simple and reliable
+works well for small storage devices
+not as efficient as ext4
+vfat
+supported on a wide variety of systems and devices
+Creating and Using a New Filesystem
+mkfs -t filesystem  /dev/partition
+creates the type of filesystem requested
+blkid
+displays information about the contents of block devices including the UUID of the filesystem
+mkdir /mountpoint
+creates a directory to link the new filesystem to
+/etc/fstab
+add an entry for the filesystem to be mounted using the UUID of blkid
+UUID=uuid  /mountpoint  ext4  defaults  1 2
+mount /mountpoint
+mount the new filesystem
+Remove an Existing Filesystem
+umount /mountpoint
+/etc/fstab
+comment or remove the corresponding entry
+rmdir /mountpoint
+remove the mount point directory if it will no longer be needed
+Practice
+identify a disk with free space
+create a new partition 
+update the kernel partition table
+create a filesystem on the partition 
+add an entry to the filesystem table file 
+create a mount point
+mount the filesystem
+Enabling Data Privacy with Filesystem Encryption
+fdisk
+create a new partition 
+cryptsetup luksFormat /dev/partition
+encrypt the new partition and set first decryption password
+cryptsetup luksOpen /dev/partition name
+unlock encrypted volume partition as /dev/mapper/name
+mkfs -t ext4 /dev/mapper/name
+place a filesystem on the decrypted volume
+mkdir /mountpoint
+create a directory to mount the decrypted volume filesystem
+mount /dev/mapper/name  /mountpoint
+mount the decrypted volume filesystem
+To lock the volume
+umount /mountpoint
+cryptsetup luksClose name
+Persistently Mount Encrypted Partition
+/etc/crypttab
+contains a list of devices to be unlocked during system startup
+NAME  /dev/PARTITION  password
+NAME – local name to use for map to the unlocked device
+/dev/PARTITION – name of the locked device
+password – password to unlock the device
+none (or not present)
+must be manually entered during system boot
+anything else is interpreted as a path to a file containing the encryption password
+/etc/crypttab
+create an entry to mount the filesystem
+/dev/mapper/name  /mountpoint  ext4  defaults  1 2
+the device listed in the first field of /etc/fstab must match the name chosen for the local name to map in /etc/crypttab
+Practice
+create a new partition 
+format the new partition for encryption
+unlock the encrypted partition 
+create an ext4 filesystem on the decrypted volume
+create a directory to use as a mount point
+create an entry in /etc/crypttab
+create an entry in /etc/fstab
+mount the filesystem
+Managing Swap Space
+fdisk
+create a new partition 
+change partition type to 0x82 Linux Swap
+If no free space on disk or LVM, a file may be used
+performance hit of additional filesystem overhead incurred
+create an empty file
+dd if=/dev/zero of=/dir/swapfile bs=1M count=512
+to use it for swap space, replace /dev/partition and UUID=uuid in subsequent steps with the file's name, /dir/swapfile
+mkswap /dev/partition
+prepare partition for use as swap
+blkid /dev/partition
+determine the UUID
+/etc/fstab
+add the new swap space
+UUID=uuid  swap  swap  defaults  0 0
+swapon -a
+activate the new swap area
+actually activates all inactive defined swap
+swapon -s
+show status of current swap areas
+swapoff /dev/partition
+deactivate particular swap area
+Practice
+create and use a new 256MB swap partition on your serverX
+Accessing iSCSI Storage
+packages
+iscsi-initiator-utils
+iSCSI operations
+discovery
+iscsiadm -m discovery -t st -p 192.168.0.254
+login
+iscsiadm -m node -T iqn.2010-09.com.example:rdisks.demo -p 192.168.0.254 -l
+logout
+iscsiadm -m node -T iqn.2010-09.com.example:rdisks.demo -p 192.168.0.254 -u
+delete
+iscsiadm -m node -T iqn.2010-09.com.example:rdisks.demo -p 192.168.0.254 -o delete
+blkid
+_netdev
+mount option 
+Practice
+configure serverX to attach to centralized storage existing on instructor.example.com
+change initiator name to be iqn.2010-09.com.example:disks.serverX in the /etc/iscsi/initiatorname.iscsi configuration file 
+connect to the iscsi target rdisks.serverX on 192.168.0.254
+partition, format, and persistently mount the new storage device
+reboot
+persistently unmount the new filesystem
+logout and delete the entry for the iscsi target
+Lab – Partitions and Filesystems
+reset serverX
+connect to iscsi target rdisks.serverX on 192.168.0.254 and ensure it is enabled at boot time
+create two new physical partitions using the iscsi disk, 10MiB in size each
+with the first partition, create swap space and make it persistent
+with the second partition, create an ext4 filesystem persistently mounted on /opt with acl as a default mount option
+
+Logical Volume Management
+References
+Red Hat Enterprise Linux LVM Administrator Guide 
+manual pages
+lvm(8)
+pvmove(8)
+vgreduce(8)
+Components
+Physical Partitions
+first building block of LVM
+could be partitions, whole disks, RAID sets, or SAN disks 
+Physical Volumes
+the underlying “physical” storage
+typically a block device such as a partition 
+must be initialized as an LVM Physical Volume in order to be used with LVM
+Volume Groups
+storage pools composed of one or more Physical Volumes
+Physical Extents
+back end of LVM storage
+smallest unit of allocatable storage
+Logical Extents
+front end of LVM storage
+map to Physical Extents
+each Logical Extent will map to one Physical Extent
+exception example: Mirroring will map each Logical Extent to two Physical Extents
+Logical Volumes
+groups of Logical Extents
+used in the same manner as a hard drive partition 
+Implement LVM Storage with Command-line Tools
+fdisk
+create a new partition for use with LVM
+set the type to 0x8e Linux LVM
+pvcreate /dev/partition
+initialize the partition for use with LVM
+a header is created directly in the PV to store the LVM configuration data
+vgcreate vgname  /dev/partition
+create a volume group named vgname using physical volume /dev/partition
+lvcreate -n lvname -L 2g  vgname
+create a new 2GiB LV named lvname from available physical extents on vgname
+mkfs -t ext4 /dev/vgname/lvname
+create an ext4 filesystem on the new LV
+mkdir /mountpoint
+directory to use as a mount point
+/etc/fstab
+/dev/mapper/vgname-lvname /mountpoint ext4 defaults 1 2
+mount /mountpoint
+Review LVM Status Information
+pvdisplay /dev/partition
+display information about the specific physical volume
+vgdisplay vgname
+display information about the specific volume group
+lvdisplay /dev/vgname/lvname
+display information about the specific logical volume
+Practice
+perform steps on serverX
+create a new 512MiB partition and prepare it for use with LVM as a Physical Volume
+create a Volume Group named shazam using the Physical Volume created in the previous step
+create and format with ext4, a new Logical Volume of 256MiB called /dev/shazam/storage
+modify serverX such that /dev/shazam/storage is mounted at boot time as /storage
+Extending a Logical Volume and ext4 Filesystem
+Extending the Logical Volume and Filesystem
+verify current size of mounted filesystem 
+df -h /storage
+verify there are sufficient “Physical Extents available”
+vgdisplay vgname
+extend the logical volume using some or all of the available extents
+lvextend -l 128 /dev/vgname/lvname
+grow the associated filesystem mounted on /storage
+resize2fs -p /dev/vgname/lvname
+verify the new size of the mounted filesystem /storage
+df -h /storage
+Reducing a Filesystem and Logical Volume
+umount /storage
+unmount the filesystem to be reduced
+fsck -f /dev/vgname/lvname
+verify that all filesystem data structures are clean prior to resizing
+resize2fs -p /dev/vgname/lvname 512M
+resize the filesystem to be 512MB
+presuming that the logical volume is larger than 512MB
+lvreduce -L 512M /dev/vgname/lvname
+shrink the logical volume to 512M
+lvreduce has no knowledge of filesystem data structures and, without warning, will discard elements of the filesystem if you do not first use resize2fs to make the filesystem smaller then the intended logical volume size
+mount /storage
+Practice
+perform steps on serverX
+determine amount of free space in Volume Group shazam
+extend the logical volume /dev/shazam/storage with half the available extents in the volume group using command-line tools
+extend the filesystem mounted on /storage using command-line tools
+Extending a Volume Group
+fdisk
+create a new partition and set the type to 0x8e Linux LVM
+pvcreate /dev/partition
+initialize the partition for use with LVM
+vgextend vgname /dev/partition
+add the new physical volume to an existing volume group
+vgdisplay
+confirm additional “Physical Extents available”
+Reducing a Volume Group
+pvmove /dev/partition
+relocate any physical extents used on /dev/partition to other Physical Volumes in the Volume Group
+must be enough available extents in the VG on other PVs
+vgreduce vgname /dev/partition 
+remove Physical Volume /dev/partition from the Volume Group vgname
+Practice
+perform on serverX
+create a new 512MiB partition and prepare it for use with LVM
+extend the VG shazam by adding the PV
+Practice
+perform on serverX
+copy the file /usr/share/dict/linux.words to /storage
+create a new 20MiB snapshot LV of /dev/shazam/storage called storagesnap
+manually mount /dev/shazam/storagesnap read only at /storagesnap
+list the contents of /storagesnap and note they are the same as /storage
+delete the file /storage/linux.words and note that it still exists in /storagesnap
+clean up; unmount /storagesnap and delete the storagesnap logical volume
+Lab
+before you begin...
+run lab-setup-lvm from desktopX
+perform on serverX
+create a new VG called allison with enough space for both a 512MiB volume and a snapshot of that volume for backup software
+create a 512MiB LV called custdb
+create a snapshot volume called custdbsnap
+Managing Passwords
+References
+manual pages
+chage(1)
+shadow(5)
+crypt(3)
+/etc/shadow
+username
+password hash
+date of last password change
+minimum password age
+maximum password age
+password warning period
+password inactive period
+
+
+Managing Filesystem Access Control Lists
+References
+manual pages
+acl(5)
+getfacl(1)
+setfacl(1)
+access control list support
+standard linux filesystems (ext2/3/4) support extended ACLs
+must be mounted with acl option
+if the last character of the permission string displayed by ls -l is a +, the file or directory has an ACL set
+getfacl file 
+used to display ACLs on a file 
+u:elvis:rw-	#applies to user elvis
+u:3142:---	#applies to user id 3124
+u::rwx		#applies to file user owner
+g:music:rwx	#applies to group music
+g:10:r-x		#applies to group id 11
+g::rw-		#applies to file group owner
+o::rwx		#applies to everyone else
+setfacl
+used to set or modify ACLs on a file 
+setfacl -m u:friend:rw filename	#grant rw to user friend
+setfacl -m g:grads:rw filename	#grant rw to the group grads
+setfacl -m g:profs:r filename		#grant r to the group profs
+setfacl -x u:friend				#remove existing ACL for friend
+setfacl -m o::- filename			#change normal “other” permissions
+Permission Precedence
+if process UID == file's user owner, use user permissions
+if process UID == an explicit user  ACL entry, use those (masked) permissions
+if one of the groups of the process matches the group owner or an explicit group ACL entry, use any of those (masked) permissions which apply
+it is cumulative across matching groups
+otherwise, use the file's other permissions
+Default ACLs (Inheritance)
+directories can have “default ACL” entries which are automatically set on new files created in that directory
+setfacl -m d:u:elvis:rw directory
+sets a default ACL entry granting read-write access to user elvis on all new files created in directory
+similar to the way that the setgid permission, when set on a directory, causes new files created in that directory to be owned by the same group that owns the directory
+ACL Mount Option
+support for extended ACL entries must be enabled when the filesystem is mounted
+installer configures all ext4 filesystems it creates to automatically turn on ACL support
+dumpe2fs /dev/block-dev | grep 'Default mount'
+Default mount options:    user_xattr acl
+manually formatted filesystems will need to be mounted with acl mount option
+can set a manually-formatted ext4 filesystem to turn on support at mount automatically by using tune2fs to set default mount options
+tune2fs -o acl,user_xattr /dev/block-dev
+Practice
+perform on serverX
+run lab-add-users
+Grad Students need a directory /opt/research, where they can store generated research results.
+newly created files in the directory should have the following properties
+files should be owned by the group grads
+members of the profs group should have read/write access to the files 
+members of the interns group should have read-only access to the files 
+other users (not a member of profs, grads, or interns) should not be able to access the directory at all 
+
+Authentication Management
+References
+Red Hat Enterprise Linux Deployment Guide Section 15.1: The Authentication Configuration Tool
+Red Hat Enterprise Linux Deployment Guide Section 15.2: The System Security Services Daemon (SSSD)
+Red Hat Enterprise Linux Storage Administration Guide Section 10.3: autofs
+/etc/sudoers
+manual pages
+system-config-authentication(8)
+sssd(8)
+autofs(5)
+auto.master(5)
+kerberos(1)
+authconfig(8)
+sssd.conf(5)
+sssd-krb5(5)
+sssd-ldap(5)
+sudoers(5)
+visudo(8)
+Network Authentication Using an LDAP Server
+Key elements for LDAP client configuration
+server's fully-qualified hostname
+base dn to search for user definitions
+the CA certificate used to sign the LDAP server's SSL certificate
+System --> Administration --> Authentication or system-config-authentication
+can be used to modify the configuration of Identity & Authentication
+will automatically turn on the sssd service which will look up and cache LDAP user information and authentication credentials
+getent passwd username
+used to verify the account information being used
+Network Mounting Home Directories
+showmount -e nfsserver.domain
+should be mounted rw 
+example map file: /etc/auto.guests
+*  -rw,soft,intr  instructor.example.com:/home/guests/&
+Practice
+perform on serverX
+home directory server
+hostname: instructor.example.com
+exported directory: /home/guests/
+extend the configuration of automounter to mount the /home/guests directory
+have the automounter attempt to map any specified target directory as the analogous directory from the home directory server
+example: request to access local directory /home/guests/ldapuser1 should attempt to mount the directory /home/guests/ldapuser1 from instructor.example.com
+Kerberos Configuration
+Kerberos
+method of secure authentication over an insecure network 
+authenticates users without passing passwords over the network 
+protects the integrity of the password
+prevents password capture by network sniffers
+system-config-authentication or authconfig
+kerberos realm
+key distribution center (kdc)
+kerberos admin server
+sudo
+visudo
+edits sudoers file in a safe fashion
+Practice
+configure sudo on serverX
+users morris, borris, and horace may use sudo to run only the “service” and “chkconfig” commands without resupplying their password
+
+Installation, Kickstart, and Virtualization
+References
+Red Hat Enterprise Linux Installation Guide Section 32.4: Kickstart Options
+Red Hat Enterprise Linux Installation Guide Section 32.5: Package Selection
+Red Hat Enterprise Linux Installation Guide Section 32.6: Pre-installation Script
+Red Hat Enterprise Linux Installation Guide Section 32.7: Post-installation Script
+Red Hat Enterprise Linux Virtualization Guide Section 5: Installing the virtualization packages
+Red Hat Enterprise Linux Virtualization Guide Section 6: Virtualized guest installation
+Red Hat Enterprise Linux Virtualization Guide Section 7: Installing Red Hat Enterprise Linux 6 as a virtualized guest
+Red Hat Enterprise Linux Virtualization Guide Section 30: Managing guests with virsh
+manual pages
+virsh(1)
+Kickstart: basic steps
+create a kickstart file
+make the kickstart file available to the installer
+boot the installer
+point the installer to the kickstart file 
+Creating a Kickstart File by Modifying a Template
+the installer, anaconda, will create /root/anaconda-ks.cfg containing the configuration settings used to install the system 
+partitioninginformation is commented out
+why manually edit a kickstart file?
+GUI and/or system-config-kickstart unavailable
+LVM instructions needed
+individual packages need to be included or omitted (not just groups)
+KVM Virtualization
+implemented as a kernel module
+requires 64-bit AMD or Intel processors with virtualization extensions
+relevant flags
+lm
+svm
+vmx
+grep --color -E ' (lm|svm|vmx)' /proc/cpuinfo
+Virtual Guest Installation
+a domain name must be specified
+point to install media to grab the 1st and 2nd stages of anaconda
+virtual hardware elements
+number and types of CPU
+size of RAM
+virtual disk device
+file 
+volume
+network connection and MAC address
+Practice
+create a logical volume 10GiB in size from vol0 VG and name it guest
+create a virtual machine with the following characteristics
+name = guest
+install media = network install from http://instructor.example.com/pub/rhel6/dvd
+CPUs = 1
+Memory (RAM) = 768M
+Storage device = the LV created previously
+Network = use DHCP to get IP address
+once anaconda launches, build your guest system according to the following specifications
+use the entire virtual drive with a default disk partitioning scheme
+assign redhat as the root password
+install the Desktop package group
+Practice
+do not use virt-manager or virt-viewer
+perform from command line on desktopX
+determine the virtual domain id of serverX
+if serverX is not running, power it on
+gracefully shut down serverX
+power on serverX
+connect to the console of serverX
+after it presents the login screen on the console, disconnect from the console
+power off serverX
+ensure serverX starts at boot time
+Lab
+copy the /root/anaconda-ks.cfg from serverX to desktopX and call it ~/test.cfg
+modify test.cfg according to the following criteria
+partition storage according to the following
+/boot (ext4) 200MB
+swap 512MB
+/ (ext4) 8GB
+add the gimp package 
+create a /root/install-date file with the date and time
+copy test.cfg to /var/www/html/ on desktopX
+create a LV in VG vol0 named test large enough to server as the disk for the virtual machine
+start a virtual machine installation using test.cfg kickstart file 
+name the virtual machine test
+use install media from http://instructor.example.com/pub/rhel6/dvd 
+allocate 1 CPU and 768MB RAM
+use the previously create LV
+reboot virtual machine when it is finished installing and confirm that it installed correctly
+delete virtual machine and the LV it uses for storage to reclaim resources needed in future labs
+Boot Management
+References
+Red Hat Enterprise Linux Installation Guide Technical Appendix E.5: GRUB Interfaces
+Red Hat Enterprise Linux Installation Guide Technical Appendix E.7: GRUB Menu Configuration File 
+Red Hat Enterprise Linux Deployment Guide Section 28.6: Verifying the Boot Loader
+Red Hat Enterprise Linux Installation Guide Technical Appendix E.8: Changing Runlevels at Boot Time
+Red Hat Enterprise Linux Deployment Guide Section 3.2.2: Using RPM – Installing and Upgrading
+Red Hat Enterprise Linux Installation Guide Section 36.1: Rescue Mode
+Red Hat Enterprise Linux Installation Guide Section 36.1.3: Booting into Single-User Mode
+Red Hat Enterprise Linux Installation Guide Technical Appendix E: The GRUB Boot Loader
+Red Hat Enterprise Linux Installation Guide Technical Appendix F: Boot Process, Init, and Shutdown
+/etc/inittab
+Using GRUB to overcome boot problems http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/
+info pages
+chroot
+grub
+Temporary GRUB Correction
+interrupt GRUB countdown
+use 'e' to edit current configuration
+select lines to correct with arrow keys
+type 'e' again to edit the current line
+type 'b' command boots with the current changes
+Practice
+run lab-setup-bootbreak on desktopX
+on serverX, run lab-setup-bootbreak-5
+reboot serverX and fix the issue so the system can boot and you can log in
+Making Persistent GRUB Changes
+/boot/grub/grub.conf
+Practice
+reboot and ensure the issue from the previous problem is persistent 
+edit the configuration file to fix the issue permanently
+Changing the Default Run Level
+what are each of the runlevels typically used for?
+changing runlevels
+init rlnum
+pass runlevel number as an argument to the kernel via GRUB
+Single-User Mode
+special runlevel
+stops boot process just before system services start
+opens a shell prompt as root
+useful for troubleshooting if a system is hanging during service startup but otherwise boots
+pass the argument single to the kernel instead of a runlevel number on the kernel command-line in the GRUB menu
+RHEL6
+reads /etc/init/rcS.conf which runs /etc/rc.d/rc.sysinit
+then reads /etc/init/rcS-sulogin.conf which pauses the boot process and opens root shell prompt rather than reading /etc/init/rc.conf
+RHEL5
+pauses boot after running /etc/rc.d/rc.sysinit
+Practice
+run lab-setup-bootbreak-4
+get into the system and reset the root password to redhat
+change the system into runlevel 5 and run lab-grade-bootbreak-4
+a bug in original RHEL6 selinux-policy package blocks passwd in single-user mode
+must run setenforce 0 before passwd will work
+Kernel Role in the Boot Process 
+detect hardware devices
+load modules (drivers) for the devices
+uses initial RAM disk configured for the kernel in /boot/grub/grub.conf
+/boot/initramfs-<version>.img
+once root filesystem mounted, uses /lib/modules/<version>/
+mount root filesystem read-only
+start initial process, init 
+init and Upstart
+init is responsible for completing the boot process by starting all other non-kernel system processes
+with Upstart, init starts “jobs” when various “events” happen
+when system boots
+enter a runlevel
+another init job starts or stops
+jobs are stored as scripts in /etc/init/ directory
+at boot, startup event causes init to run the /etc/init/rcS.conf job which:
+runs /etc/rc.d/rc.sysinit to
+start LVM
+check and mount filesystems
+set system clock
+other housekeeping
+consults /etc/inittab for runlevel
+sends an event to init informing runlevel to enter 
+runlevel event causes init to run the /etc/init/rc.conf job which runs /etc/rc.d/rc script with desired runlevel as argument
+Example: rc.conf runs rc 5, which runs /etc/rc.d/rc5.d/K* stop and /etc/rc.d/rc5.d/S* start
+scripts run in numerical order, first Ks then Ss
+the /etc/rc.d/rc5.d/ scripts are symlinks to the scripts used by service
+whether the links start with a K or an S depends on whether the service has been turned on or off with chkconfig
+Rescue Shell
+anaconda, the RHEL installer, provides a rescue shell
+start an install as usual, but choose Rescue Installed System 
+Practice
+before you begin...
+run lab-setup-bootbreak on desktopX
+installation path is http://instructor.example.com/pub/rhel6/dvd
+path for individual packages is http://instructor.example.com/pub/rhel6/dvd/Packages/
+on serverX, run lab-setup-bootbreak-0
+boot into rescue environment to diagnose and resolve the issue
+confirmed the problem has been resolved by rebooting the system 
+Procedure for Editing Files from the Maintenance Shell
+sometimes necessary when a system can not mount filesystems due to typo in /etc/fstab, /etc/crypttab, or related files and drops to a maintenance shell with / mounted read-only
+remount the root filesystem read-write
+mount -o remount,rw /
+mount all other filesystems (if needed)
+mount -a
+edit any needed files
+exit maintenance shell
+Practice
+before you begin...
+run lab-setup-bootbreak on desktopX
+run lab-setup-bootbreak-1 on serverX
+reboot, diagnose and correct the problem
+repeat the process with lab-setup-bootbreak-2 and lab-setup-bootbreak-3
+
+SELinux Management
+References
+Red Hat Enterprise Linux SELinux Guide Section 2: Introduction
+Red Hat Enterprise Linux SELinux Guide Section 5.5: SELinux Modes
+Red Hat Enterprise Linux SELinux Guide Section 5.6: Booleans
+Red Hat Enterprise Linux SELinux Guide Section 5.7: SELinux Contexts – Labeling Files 
+Red Hat Enterprise Linux SELinux Guide Section 8: Troubleshooting
+Red Hat Enterprise Linux SELinux Guide Section 8.3.7: sealert Messages
+manual pages
+selinux(8)
+getenforce(1)
+setenforce(1)
+restorecon(8)
+semanage(8)
+booleans(8)
+getsebool(8)
+setsebool(8)
+sealert(8)
+Basic SELinux Security Concepts
+additional method to protect system 
+mandatory access control 
+set of security rules that determine which process can access which files, directories, ports, etc
+goal is to protect user data from system services that have been compromised
+SELinux modes
+disabled
+completely disables SELinux
+must reboot to transition from/to
+permissive
+useful to temporarily disable protection
+logs access violations, but allows
+useful to determine if having an SELinux issue
+enforcing
+logs access violations, but denies
+Practice
+transfer the /etc/resolv.conf file from desktopX to root's home directory on serverX
+all of the following steps should occur on serverX as root
+observe the SELinux context of the initial /etc/resolv.conf
+move resolv.conf from root's home directory to /etc/resolv.conf
+observe the SELinux context of the new  /etc/resolv.conf
+restore the SELinux context of newly positioned /etc/resolv.conf
+observe the SELinux context of the restored /etc/resolv.conf
+Managing SELinux Booleans
+switches that change the behavior of the SELinux policy in some way
+can be used by security administrators to tune the policy to make selective adjustments
+many packages have man pages *_selinux(8) which detail some of the booleans which they use
+man -k '_selinux'
+Lab
+before you begin...
+run lab-setup-selinux on desktopX
+perform on serverX
+copy the web_content.tgz archive from instructor:/var/ftp/pub/materials to /tmp
+extract the archive into /tmp
+move the extracted directory to /var/www/html
+start the web service
+try to observe the new directory with web browser on desktopX by visiting http://serverX/web_content
+search serverX for the UUIDs of any SELinux violations your attempt to browse the newly installed content might have generated
+generate text reports for the violations
+follow the report's advice to restore the SELinux contexts of the newly installed content 
+confirm that you can view the material from desktopX web browser by visiting http://serverX/web_content
+
+Firewall Management
+References
+Red Hat Enterprise Linux Security Guide Section 2.5: Firewalls
+Red Hat Enterprise Linux Security Guide Section 2.6: IPTables
+Netfilter home page: http://www.netfilter.org/
+
+manual pages
+iptables(8)
+Packet Filtering
+keywords
+rule
+chain
+policy
+table
+Built-in Chains (filter table)
+INPUT
+OUTPUT
+FORWARD
+Targets 
+ACCEPT
+DROP
+REJECT
+LOG
+connection tracking states
+NEW
+ESTABLISHED
+RELATED
+INVALID
+module configuration file 
+/etc/sysconfig/iptables-config
+Matching criteria syntax
+source IP or network 
+-s 192.0.2.0/24
+destination IP or network 
+-d 10.0.0.1
+UDP/TCP and ports
+-p udp --sport 68 --dport 67
+ICMP and types
+-p icmp --icmp-type echo-reply
+inbound network interface 
+-i eth0
+outbound network interface 
+-o eth0
+state tracking
+-m state --state ESTABLISHED,RELATED
+Practice
+perform on serverX using virt-viewer or virt-manager
+create a simple deny all (except loopback) firewall by creating /root/bin/resetfw.sh that
+sets the INPUT chain's default policy to DROP
+flushes all rules in the filter table
+will ACCEPT all packets from the loopback interface 
+run the script and record the results of
+ping and ssh serverX from desktopX
+ping desktopX and 192.168.0.X from serverX
+enable stateful firewalling by appending a rule to the script that will
+ACCEPT all ESTABLISHED,RELATED packets
+run the script and record the results of
+ping desktopX and 192.168.0.X from serverX
+reject all packets from 192.168.12.0/24 by appending a rule to the script that will
+REJECT all packets from the 192.168.12.0/24 network 
+enable ICMP traffic for example.com by appending a rule to the script that will
+ACCEPT all icmp traffic from 192.168.0.0/24
+run the script and record the results of
+ping and ssh serverX from desktopX
+enable SSH traffic for all hosts by modifying the script to
+ACCEPT all NEW connections to tcp port 22
+run the script 
+reject packets by default instead of dropping packets by appending a rule to the script that will
+REJECT all other traffic
+run the script
+Lab
+before you begin...
+run lab-setup-morrisworm on desktopX
+desktopX will be the firewall, serverX will be the webserver
+configure apache to run on serverX
+put custom content in /var/www/html/index.html to uniquely identify the server
+configure the firewall on desktopX to perform NAT that will allow the web server to reach the outside network 
+should be able to successfully ping instructor.example.com from serverX
+configure the firewall to forward all TCP port 80 traffic sent to it to the web server running on serverX
+confirm this works by using a web browser from an external machine, not desktopX
+browse to http://desktopX.example.com/
+after successfully completing the lab, run lab-cleanup-morrisworm
+
+NTP Server Configuration
+References
+Red Hat Enterprise Linux Deployment Guide Section 18.2.2: Network Time Protocol Setup
+manual pages
+ntp.conf(5)
+ntp_acc(5)
+NTP Reading
+understand the differences between a server and a peer
+understand all the arguments and syntax for restrict
+server
+peer
+restrict
+kod
+nomodify
+notrap
+nopeer
+Lab
+before you begin...
+run lab-setup-howsonclock on desktopX 
+set up NTP on serverX to be client of the NTP service running on instructor.example.com
+work with a few neighbors so that all of your serverX systems are setup to synchronize as NTP peers
+
+System Logging Service
+References
+/usr/share/doc/rsyslog-*/manual.html
+/usr/share/doc/rsyslog-*/rsyslog_conf_actions.html
+manual pages
+df(1)
+iostat(1)
+vmstat(8)
+rsyslog.conf(5)
+Usage Reports
+df
+create a disk usage report
+iostat
+create a disk i/o report
+vmstat
+create a swap usage report
+Remote Logging
+/etc/rsyslog.conf
+Practice
+configure serverX to accept remote log messages using UDP and restart rsyslogd
+configure desktopX to send log messages via UDP to serverX and restart rsyslogd
+test configuration by running logger “hello from desktopX” on desktopX 
+verify the message was received on both desktopX and serverX
+Lab
+before you begin...
+run lab-setup-blossoms on desktopX 
+configure rsyslog on desktopX to accept incoming log messages via UDP from serverX
+configure rsyslog on serverX to send all *.info log messages to desktopX via UDP
+
+Web Service
+References
+Red Hat Enterprise Linux Deployment Guide Section 11.5: Virtual Hosts
+Red Hat Enterprise Linux Deployment Guide Section 11.6: Setting Up and SSL Server
+Red Hat Enterprise Linux Deployment Guide Section 21.5.1: Group Directories
+Red Hat Enterprise Linux Managing Confined Services Section 3: The Apache HTTP Server
+Red Hat Enterprise Linux SELinux Guide Section 5.6: Booleans
+Red Hat Enterprise Linux SELinux Guide Section 8: Troubleshooting
+Apache.org Name-Based Virtual Host Support 
+http://httpd.apache.org/docs/2.2/vhosts/name-based.html
+Locally accessible by the httpd-manual RPM package 
+http://localhost/manual/vhosts/name-based.html
+Apache.org CGI How-To 
+http://httpd.apache.org/docs/2.2/howto/cgi.html
+Locally accessible by the httpd-manual RPM package 
+http://localhost/manual/howto/cgi.html
+Apache.org Authentication, Authorization and Access Control 
+http://httpd.apache.org/docs/2.2/howto/auth.html
+Locally accessible by the httpd-manual RPM package 
+http://localhost/manual/howto/auth.html
+manual pages
+httpd_selinux(8)
+semanage(8)
+Steps to Deploy SSL Encryption
+yum groupinstall “Web Server”
+Practice
+perform on serverX
+examine /etc/httpd/conf.d/ssl.conf
+launch firefox and browse to https://serverX.example.com
+when firefox presents a warning, take further steps to examine the certificate
+Configure Name-Based Virtual Hosting
+key concepts
+VirtualHost
+NameVirtualHost
+ServerName
+ServerAlias
+ServerAdmin
+DocumentRoot
+semanage fcontext
+Practice
+perform on serverX 
+create /var/www/html/index.html containing the text “this is serverX”
+from desktopX, use firefox to verify that the websites wwwX, wwwX.example.com, serverX, and serverX.example.com all display the custom index.html
+create /wwwX/html/index.html containing the text “this is wwwX”
+do not disable SELinux
+may need to modify the SELinux file context database
+may need to change the SELinux type of certain files 
+Configure User-Based Authentication
+create an apache password file 
+htpasswd -cm /etc/httpd/.htpasswd  bob
+htpasswd -m /etc/httpd/.htpasswd  alice
+assuming VirtualHost block defined previously, add a section into the VirtualHost block
+<Directory /wwwX/html/>
+  AuthName “Secret Stuff”
+  AuthType basic
+  AuthUserFile /etc/httpd/.htpasswd
+  Require valid-user
+</Directory>
+test access 
+Troubleshooting SELinux Issues with Apache 
+list current port SELinux contexts
+assign a port an SELinux context
+apache log files and logging levels
+make SELinux more verbose, SELinux log files 
+restore or change the SELinux context type of an html file or directory
+SELinux documentation on Apache context types and booleans
+list Apache SELinux booleans
+make SELinux booleans persist 
+Lab
+before you begin...
+run lab-setup-website on desktopX 
+on serverX 
+deploy a web server with two virtual hosts
+vhost1: http://serverX.example.com
+create a simple placeholder page for the base URL
+vhost2: http://wwwX.example.com
+create a simple placeholder page for the base URL that is different from the one used on vhost1
+add user forrest with password trees to /private
+
+Basic SMTP Configuration
+References
+Red Hat Enterprise Linux Deployment Guide Section 13.3.1: Postfix
+/usr/share/doc/postfix-*/README_FILES/
+BASIC_CONFIGURATION_README
+STANDARD_CONFIGURATION_README
+manual pages
+postconf(5)
+postfix(1)
+Postfix MTA
+/etc/postfix/main.cf
+inet_interfaces
+/var/log/maillog
+postfix flush
+Practice
+start two terminal shells
+one as root on desktopX 
+one as root on serverX 
+on each machine, confirm that postfix is installed and the service is running
+on serverX, add the user elvis
+become elvis
+open mutt MUA
+use mutt MUA on desktopX to compose and send mail to elvis@serverX.example.com
+on desktopX, use mailq to examine the delivery queue
+review /var/log/maillog for any problems
+on serverX, edit /etc/postfix/main.cf and set inet_interfaces=all
+restart postfix
+confirm listenting on all interfaces
+on desktopX, use postfix flush to manually flush pending delivery queue
+confirm the queue is empty
+confirm the mail was successfully delivered
+on serverX, use mutt MUA to confirm email delivery
+examine /var/log/maillog for evidence the mail was successfully delivered
+
+Caching-Only DNS Server 
+References
+Red Hat Enterprise Linux Deployment Guide Section 7.1: Introduction to DNS
+Red Hat Enterprise Linux Deployment Guide Section 7.2: Configuring the named Service
+Bind Administrator's Reference Manual, Chapter 1
+/usr/share/doc/bind-*/arm/
+manual pages
+dig(1)
+DNS Overview
+DNS Clients
+libresolv.so
+/etc/hosts
+/etc/resolv.conf
+host
+dig
+DNS Resource Records
+A
+AAAA
+CNAME
+PTR
+MX
+NS
+SOA
+SRV
+TXT
+DNS Servers
+Primary/Slave
+Non-Authoritative/Recursive
+Caching-Only
+Lab
+before you begin...
+run lab-setup-cachingdns on desktopX 
+set up a caching name server on serverX 
+configure the name server so that recursive queries are sent to instructor.example.com
+configure the name server to accept queries from anyone on 192.168.0.0/24 network 
+
+File Sharing with NFS 
+References
+Red Hat Enterprise Linux Storage Administration Guide Section 10: Network File System (NFS)
+Red Hat Enterprise Linux Storage Administration Guide Section 10.2: NFS Client Configuration
+Red Hat Enterprise Linux Storage Administration Guide Section 10.6.3: Running NFS Behind a Firewall 
+NFSv4 Specifications and Resources http://www.citi.umich.edu/projects/nfsv4/
+General NFSv4 References http://www.nfsv4.org
+manual pages
+exports(5)
+nfs(5)
+Implementing an NFS Server 
+nfs-utils
+nfs 
+/etc/exports
+exportfs
+NFS Server Options
+ro/rw
+sync/async
+fsid
+crossmnt
+no_root_squash
+NFS Mounts
+showmount -e instructor.example.com
+mount -t nfs4 instructor.example.com:/  /mnt
+mount -t nfs instructor.example.com:/exports  /mnt
+Using NFS 
+/etc/fstab
+_netdev option
+Client-side NFS mount options
+rw/ro
+soft
+hard,intr
+Securing an NFS Server 
+handling UID differences
+root_squash/no_root_squash/allsquash
+anonuid=,anongid=
+securing NFSv3 ports
+/etc/sysconfig/nfs
+LOCKD_TCPPORT=
+LOCKD_UDPPORT=
+MOUNTD_PORT=
+Practice
+perform on serverX 
+create a directory called /data
+configure NFS to export the directory read-only
+configure the server to use the following ports
+nfs – 2049/tcp and 2049/udp
+rpc.lockd – 31706/tcp and 31706/udp
+mountd – 795/tcp and 795/udp
+ensure ports are open in firewall and confirm configuration is working correctly
+Lab
+before you begin...
+run lab-setup-strickland on desktopX 
+deploy an NFSv4 service on desktopX 
+configure the service to use 
+LOCKD 32803/tcp and 32769/udp
+MOUNTD 892
+create and share two exports
+/share/current should be writable
+/share/archives should be read-only
+both exports should only be available to the example.com network/domain
+configure serverX to mount desktopX:/share/current as /sales/current 
+configure serverX to mount desktopX:/share/archives as /sales/archives
+the mounts must persist a reboot of serverX 
+
+File Sharing with CIFS
+References
+Red Hat Enterprise Linux Deployment Guide Section 9: Samba
+Red Hat Enterprise Linux Deployment Guide Section 9.3: Connecting to a Samba Share
+Red Hat Enterprise Linux Deployment Guide Section 9.10: Samba with CUPS Printing Support
+Red Hat Enterprise Linux Deployment Guide Section 21.5.1: Group Directories
+samba-doc RPM package 
+/usr/share/doc/samba-doc-*/
+manual pages
+smb.conf(5)
+smbd(8)
+mount.cifs(8)
+Configuring a CIFS Share
+yum install samba
+start and enable service
+service smb start
+chkconfig smb on
+find documentation
+rpm -qc samba-common
+cat /etc/samba/smb.conf
+setup Samba user and password
+useradd -s /sbin/nologin winuser
+smbpasswd -a winuser
+allow SELinux to share home directories for Samba
+setsebool -P samba_enable_home_dirs on
+allow ports through the firewall and make persistent 
+iptables -I INPUT -p udp --dport 137:138 -j ACCEPT
+iptables -I INPUT -p tcp -m multiport --dport 139,445 -j ACCEPT 
+service iptables save
+test from client
+parts of samba service
+Packages
+samba-common – support files for Samba
+samba-client – client applications
+samba – server applications
+samba-doc – documentation (in Optional repo)
+smb 
+service script
+/etc/samba/smb.conf
+[global] section
+workgroup
+hosts allow
+security
+passwd backend
+Other sections
+[homes]
+[printers]
+[ ... ]
+Samba-only users
+useradd
+smbpasswd
+Securing
+samba_enable_home_dirs
+use_samba_home_dirs
+service ports
+Practice
+perform on serverX 
+install necessary packages
+start and enable the service
+configure to be part of CLASSX workgroup with local user definitions
+create a samba-only user named winuserX with samba password winpass
+enable user home directory access within SELinux
+open necessary ports on firewall 
+test by accessing samba-only user's home directory from desktopX 
+accessing CIFS shares
+smbclient
+command-line ftp-style
+mount -t cifs -o user=username  //server/share  /mountpoint
+manually
+//server/share /mntpnt cifs credentials=/etc/credentials 0 0
+persistently
+
+File Sharing with FTP
+References
+Red Hat Enterprise Linux Deployment Guide Section 12.5: vsftpd Configuration Options
+Red Hat Enterprise Linux SELinux Guide Section 5.6: Booleans
+Red Hat Enterprise Linux Managing Confined Services Section 5.4.1: Uploading to an FTP site
+manual pages
+ftpd_selinux(8)
+vsftpd.conf(5)
+anonymous “drop-box” upload
+create upload directory
+permissions
+modify selinux for anonymous upload
+contexts
+booleans
+modify /etc/vsftpd/vsftpd.conf
+anonymous-related options
+modify firewall to support ftp connections
+inbound ports
+netfilter module
+lab
+before you begin...
+run lab-setup-dropbox on desktopX 
+perform on serverX 
+deploy vsftpd 
+configure a write-only upload directory that is accessible  at
+ftp://serverX.example.com/dropbox
+must accept connections from anywhere on the internet
+Cups Service
+References
+Red Hat Enterprise Linux Deployment Guide Section 22: Printer Configuration
+http://tldp.org/HOWTO/Printing-Usage-HOWTO-2.html
+
+Configure Printers
+System --> Administration -->  Printing
+system-config-printer
+Practice
+create a local print queue and share it with other systems 
+name the print queue local 
+make it a text-only printer that points to a serial or parallel port
+create a second print queue that points to a partner's local print queue
+name the print queue remote
+make it a raw print queue that forwards jobs to your partner's local print queue
+print some text files to local and remote
+Manage Print Jobs
+disable the print queue
+submit a print job
+view queued jobs
+select pending job and remove it
+enable default print queue
+Lab
+before you begin...
+run lab-setup-cups from desktopX 
+configure a network printer to send print jobs to an IPP print queue on instructor.example.com called /printers/printerX
+print queue should be called remote-test and should be default print queue
+
+SSH Service
+References
+Red Hat Enterprise Linux Deployment Guide Section 8.2.4: Using a Key-Based Authentication
+
+manual pages
+
+Using SSH Keys
+ssh-keygen
+ssh-copy-id
+Practice
+create an ssh key pair as student on desktopX 
+install the ssh public key for the student account on serverX 
+connect to serverX from desktopX using the ssh keys
+
+
+
+
+
+
+
+
+
+
+
+Virtual Network Computing (VNC) Service
+References
+Red Hat Enterprise Linux Deployment Guide Section 17.1.23: /etc/sysconfig/vncservers 
+manual pages
+ vncviewer(1)
+Configure a VNC Server
+yum install tigervnc-server
+/etc/sysconfig/vncservers
+VNCSERVERS=”2:root”
+VNCSERVERARGS[2]=”-geometry 800x600 -nolisten tcp -localhost”
+Set a VNC password
+vncpasswd
+start and enable the service
+service vncserver start
+chkconfig vncserver on
+Practice
+configure vnc display 1 for student 
+set redhat as the vnc password for student 
+start and enable vnc service
+Secure access to a remote desktop 
+connect to vnc server using ssh
+vncviewer -via visitor@serverX localhost:1
+Practice
+configure the vnc server on serverX to allow local connections only
+connect to the vnc server on serverX securely from desktopX using an ssh tunnel
+Lab
+before you begin...
+run lab-resetvm from desktopX 
+perform on serverX 
+configure multiple desktops with vnc 
+display 1 for student 
+display 2 for visitor 
+only permit connections from localhost
+set redhat as the vnc password for both student and visitor 
+start and enable vnc service
+connect from desktopX to both sessions

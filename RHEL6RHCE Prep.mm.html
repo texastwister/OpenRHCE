@@ -1,0 +1,989 @@
+<html>
+<head>
+<title>RHEL6RHCE Prep</title>
+<style type="text/css">
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    li { list-style: none; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a:link {text-decoration: none; color: black; }
+    a:visited {text-decoration: none; color: black; }
+    a:active {text-decoration: none; color: black; }
+    a:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script language="JavaScript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class=foldspecial onclick="fold_document()">All +</SPAN>
+<SPAN class=foldspecial onclick="unfold_document()">All -</SPAN>
+<p>RHEL6RHCE Prep
+<ul><li>Class Schedule
+<ul><li>Session 1
+<ul><li>Introductions
+
+</li>
+<li>Prerequisites and Expectations
+
+</li>
+<li>Operating a System
+<ul><li>* Boot, reboot, and shut down a system normally
+
+</li>
+<li>* Boot systems into different runlevels manually
+
+</li>
+<li>* Use single-user mode to gain access to a system
+
+</li>
+<li>* Locate and interpret system log files
+
+</li>
+<li>* Access a virtual machine's console
+
+</li>
+<li>* Start and stop virtual machines
+
+</li>
+<li>* Start, stop and check the status of network services
+
+</li>
+<li>* Modify the system bootloader
+
+</li>
+
+</ul>
+</li>
+<li>Labs
+<ul><li>Use single-user mode to recover a root password
+
+</li>
+<li>Boot into a specified (non-default) run-level
+
+</li>
+<li>Use a virtual terminal and an x-term to read system logs
+
+</li>
+<li>Manipulate the CUPS service
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 2
+<ul><li>Local Storage
+<ul><li><p>* List, create, delete and set partition type for primary, extended, and logical partitions
+<p>* Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
+<p>* Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
+<p>* Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label
+<p>* Add new partitions, logical volumes, and swap to a system non-destructively
+</li>
+</ul>
+</li>
+<li>File systems
+<ul><li>* Create, mount, unmount and use ext2, ext3 and ext4 file systems
+
+</li>
+<li>* Mount, unmount and use ~LUKS-encrypted file systems
+
+</li>
+<li>* Mount and unmount CIFS and NFS network file systems
+
+</li>
+<li>* Configure systems to mount ext4, ~LUKS-encrypted and network file systems automatically
+
+</li>
+<li>* Extend existing unencrypted ext4-formatted logical volumes
+
+</li>
+<li>* Create and configure set-GID directories for collaboration
+
+</li>
+<li>* Create and manage Access Control Lists
+
+</li>
+<li>* Diagnose and correct file permission problems
+
+</li>
+
+</ul>
+</li>
+<li>Network Storage
+<ul><li>iSCSI
+<ul><li>* Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 3
+<ul><li>Managing Software
+<ul><li>RHN
+
+</li>
+<li>Repos
+
+</li>
+<li>Yum
+<ul><li><p>* Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem
+</li>
+</ul>
+</li>
+<li>RPM
+
+</li>
+<li>Building RPMs
+<ul><li>* Build a simple RPM that packages a single file
+
+</li>
+
+</ul>
+</li>
+<li>Signing and Publishing RPMs
+
+</li>
+<li>* Update the kernel package appropriately to ensure a bootable system
+
+</li>
+
+</ul>
+</li>
+<li>Manage Processes and Services
+<ul><li>* Configure network services to start automatically at boot
+
+</li>
+<li>* Configure systems to boot into a specific runlevel automatically
+
+</li>
+<li>* Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
+
+</li>
+<li>* Schedule tasks using cron
+
+</li>
+
+</ul>
+</li>
+<li>Manage system performance
+<ul><li>* Use /proc/sys and sysctl to modify and set kernel run-time parameters
+
+</li>
+<li>* Produce and deliver reports on system utilization (processor, memory, disk, and network)
+
+</li>
+<li>* Use shell scripting to automate system maintenance tasks
+
+</li>
+
+</ul>
+</li>
+<li>Manage Users and Groups
+<ul><li>* Create, delete, and modify local user accounts
+
+</li>
+<li>* Change passwords and adjust password aging for local user accounts
+
+</li>
+<li>* Create, delete and modify local groups and group memberships
+
+</li>
+<li>* Configure a system to use an existing LDAP directory service for user and group information
+
+</li>
+<li>* Configure system to authenticate using Kerberos
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 4
+<ul><li>Networking &amp; Routing
+<ul><li>* Configure networking and hostname resolution statically or dynamically
+
+</li>
+<li>* Route IP traffic and create static routes
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 5
+<ul><li>IPTables
+<ul><li>* Configure firewall settings using system-config-firewall or iptables
+
+</li>
+
+</ul>
+</li>
+<li>SELinux
+<ul><li>* Set enforcing and permissive modes for SELinux
+
+</li>
+<li>* List and identify SELinux file and process context
+
+</li>
+<li>* Restore default file contexts
+
+</li>
+<li>* Use boolean settings to modify system SELinux settings
+
+</li>
+<li>* Diagnose and address routine SELinux policy violations
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 6
+<ul><li>KVM Virtualization
+<ul><li>* Configure a physical machine to host virtual guests
+
+</li>
+<li>* Install Red Hat Enterprise Linux systems as virtual guests
+
+</li>
+<li>* Configure systems to launch virtual machines at boot
+
+</li>
+<li>* Install Red Hat Enterprise Linux automatically using Kickstart
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 7
+<ul><li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</Span>
+Remote Logging
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure a system to log to a remote system
+
+</li>
+<li>* Configure a system to accept logging from a remote system
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</Span>
+Remote Access
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;"><li>SSH
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Configure key-based authentication
+
+</li>
+<li>* Configure additional SSH options described in documentation
+
+</li>
+
+</ul>
+</li>
+<li>VNC
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 8
+<ul><li>NTP
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 9
+<ul><li>HTTP(s)
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Configure a virtual host
+
+</li>
+<li>* Configure private directories
+
+</li>
+<li>* Deploy a basic CGI application
+
+</li>
+<li>* Configure group-managed content
+
+</li>
+
+</ul>
+</li>
+<li>FTP
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Configure anonymous-only download
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 10
+<ul><li>NFS
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Provide network shares to specific clients
+
+</li>
+<li>* Provide network shares suitable for group collaboration
+
+</li>
+
+</ul>
+</li>
+<li>Samba
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Provide network shares to specific clients
+
+</li>
+<li>* Provide network shares suitable for group collaboration
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 11
+<ul><li>DNS
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Configure a caching-only name server
+
+</li>
+<li>* Configure a caching-only name server to forward DNS queries
+
+</li>
+<li>* Note: Candidates are not expected to configure master or slave name servers
+
+</li>
+
+</ul>
+</li>
+<li>SMTP
+<ul><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+<li>* Configure a mail transfer agent (MTA) to accept inbound email from other systems
+
+</li>
+<li>* Configure an MTA to forward (relay) email through a smart host
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Session 12
+<ul><li>Practice Exam?
+
+</li>
+
+</ul>
+</li>
+<li>Optional Session
+
+</li>
+
+</ul>
+</li>
+<li>Objectives
+<ul><li>RHCSA
+<ul><li><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</Span>
+Understand and use Essential Tools
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;"><li>* Access a shell prompt and issue commands with correct syntax
+
+</li>
+<li>* Use input-output redirection (&gt;, &gt;&gt;, |, 2&gt;, etc.)
+
+</li>
+<li>* Use grep and regular expressions to analyze text
+
+</li>
+<li>* Access remote systems using ssh and VNC
+
+</li>
+<li>* Log in and switch users in multi-user runlevels
+
+</li>
+<li>* Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2
+
+</li>
+<li>* Create and edit text files
+
+</li>
+<li>* Create, delete, copy and move files and directories
+
+</li>
+<li>* Create hard and soft links
+
+</li>
+<li>* List, set and change standard ugo/rwx permissions
+
+</li>
+<li>* Locate, read and use system documentation including man, info, and files in /usr/share/doc.
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</Span>
+Operate Running Systems
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;"><li>* Boot, reboot, and shut down a system normally
+
+</li>
+<li>* Boot systems into different runlevels manually
+
+</li>
+<li>* Use single-user mode to gain access to a system
+
+</li>
+<li>* Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
+
+</li>
+<li>* Locate and interpret system log files
+
+</li>
+<li>* Access a virtual machine's console
+
+</li>
+<li>* Start and stop virtual machines
+
+</li>
+<li>* Start, stop and check the status of network services
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</Span>
+Configure Local Storage
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;"><li><p>* List, create, delete and set partition type for primary, extended, and logical partitions
+<p>* Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
+<p>* Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
+<p>* Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label
+<p>* Add new partitions, logical volumes, and swap to a system non-destructively
+</li>
+</ul>
+</li>
+<li><span id="show1_6" class="foldclosed" onClick="show_folder('1_6')" style="POSITION: absolute">+</span> <span id="hide1_6" class="foldopened" onClick="hide_folder('1_6')">-</Span>
+Create and Configure File Systems
+<ul id="fold1_6" style="POSITION: relative; VISIBILITY: visible;"><li>* Create, mount, unmount and use ext2, ext3 and ext4 file systems
+
+</li>
+<li>* Mount, unmount and use ~LUKS-encrypted file systems
+
+</li>
+<li>* Mount and unmount CIFS and NFS network file systems
+
+</li>
+<li>* Configure systems to mount ext4, ~LUKS-encrypted and network file systems automatically
+
+</li>
+<li>* Extend existing unencrypted ext4-formatted logical volumes
+
+</li>
+<li>* Create and configure set-GID directories for collaboration
+
+</li>
+<li>* Create and manage Access Control Lists
+
+</li>
+<li>* Diagnose and correct file permission problems
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7" class="foldclosed" onClick="show_folder('1_7')" style="POSITION: absolute">+</span> <span id="hide1_7" class="foldopened" onClick="hide_folder('1_7')">-</Span>
+Deploy, Configure, and Maintain Systems
+<ul id="fold1_7" style="POSITION: relative; VISIBILITY: visible;"><li><p>* Configure networking and hostname resolution statically or dynamically
+<p>* Schedule tasks using cron
+<p>* Configure systems to boot into a specific runlevel automatically
+<p>* Install Red Hat Enterprise Linux automatically using Kickstart
+<p>* Configure a physical machine to host virtual guests
+<p>* Install Red Hat Enterprise Linux systems as virtual guests
+<p>* Configure systems to launch virtual machines at boot
+<p>* Configure network services to start automatically at boot
+<p>* Configure a system to run a default configuration HTTP server
+<p>* Configure a system to run a default configuration FTP server
+<p>* Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem
+<p>* Update the kernel package appropriately to ensure a bootable system
+<p>* Modify the system bootloader
+</li>
+</ul>
+</li>
+<li><span id="show1_8" class="foldclosed" onClick="show_folder('1_8')" style="POSITION: absolute">+</span> <span id="hide1_8" class="foldopened" onClick="hide_folder('1_8')">-</Span>
+Manage Users and Groups
+<ul id="fold1_8" style="POSITION: relative; VISIBILITY: visible;"><li>* Create, delete, and modify local user accounts
+
+</li>
+<li>* Change passwords and adjust password aging for local user accounts
+
+</li>
+<li>* Create, delete and modify local groups and group memberships
+
+</li>
+<li>* Configure a system to use an existing LDAP directory service for user and group information
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_9" class="foldclosed" onClick="show_folder('1_9')" style="POSITION: absolute">+</span> <span id="hide1_9" class="foldopened" onClick="hide_folder('1_9')">-</Span>
+Manage Security
+<ul id="fold1_9" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure firewall settings using system-config-firewall or iptables
+
+</li>
+<li>* Set enforcing and permissive modes for SELinux
+
+</li>
+<li>* List and identify SELinux file and process context
+
+</li>
+<li>* Restore default file contexts
+
+</li>
+<li>* Use boolean settings to modify system SELinux settings
+
+</li>
+<li>* Diagnose and address routine SELinux policy violations
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10" class="foldclosed" onClick="show_folder('1_10')" style="POSITION: absolute">+</span> <span id="hide1_10" class="foldopened" onClick="hide_folder('1_10')">-</Span>
+RHCE
+<ul id="fold1_10" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_10_1" class="foldclosed" onClick="show_folder('1_10_1')" style="POSITION: absolute">+</span> <span id="hide1_10_1" class="foldopened" onClick="hide_folder('1_10_1')">-</Span>
+System Configuration and Management
+<ul id="fold1_10_1" style="POSITION: relative; VISIBILITY: visible;"><li>* Use iptables to implement packet filtering and configure NAT
+
+</li>
+<li>* Use /proc/sys and sysctl to modify and set kernel run-time parameters
+
+</li>
+<li>* Configure system to authenticate using Kerberos
+
+</li>
+<li>* Build a simple RPM that packages a single file
+
+</li>
+<li>* Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
+
+</li>
+<li>* Produce and deliver reports on system utilization (processor, memory, disk, and network)
+
+</li>
+<li>* Use shell scripting to automate system maintenance tasks
+
+</li>
+<li>* Configure a system to log to a remote system
+
+</li>
+<li>* Configure a system to accept logging from a remote system
+
+</li>
+<li>* Route IP traffic and create static routes
+
+</li>
+
+</ul>
+</li>
+<li>Network Services
+<ul><li><span id="show1_10_2" class="foldclosed" onClick="show_folder('1_10_2')" style="POSITION: absolute">+</span> <span id="hide1_10_2" class="foldopened" onClick="hide_folder('1_10_2')">-</Span>
+General Requirements for each service
+<ul id="fold1_10_2" style="POSITION: relative; VISIBILITY: visible;"><li>* Install the packages needed to provide the service
+
+</li>
+<li>* Configure SELinux to support the service
+
+</li>
+<li>* Configure the service to start when the system is booted
+
+</li>
+<li>* Configure the service for basic operation
+
+</li>
+<li>* Configure host-based and user-based security for the service
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_3" class="foldclosed" onClick="show_folder('1_10_3')" style="POSITION: absolute">+</span> <span id="hide1_10_3" class="foldopened" onClick="hide_folder('1_10_3')">-</Span>
+HTTP/HTTPS
+<ul id="fold1_10_3" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure a virtual host
+
+</li>
+<li>* Configure private directories
+
+</li>
+<li>* Deploy a basic CGI application
+
+</li>
+<li>* Configure group-managed content
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_4" class="foldclosed" onClick="show_folder('1_10_4')" style="POSITION: absolute">+</span> <span id="hide1_10_4" class="foldopened" onClick="hide_folder('1_10_4')">-</Span>
+DNS
+<ul id="fold1_10_4" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure a caching-only name server
+
+</li>
+<li>* Configure a caching-only name server to forward DNS queries
+
+</li>
+<li>* Note: Candidates are not expected to configure master or slave name servers
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_5" class="foldclosed" onClick="show_folder('1_10_5')" style="POSITION: absolute">+</span> <span id="hide1_10_5" class="foldopened" onClick="hide_folder('1_10_5')">-</Span>
+FTP
+<ul id="fold1_10_5" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure anonymous-only download
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_6" class="foldclosed" onClick="show_folder('1_10_6')" style="POSITION: absolute">+</span> <span id="hide1_10_6" class="foldopened" onClick="hide_folder('1_10_6')">-</Span>
+NFS
+<ul id="fold1_10_6" style="POSITION: relative; VISIBILITY: visible;"><li>* Provide network shares to specific clients
+
+</li>
+<li>* Provide network shares suitable for group collaboration
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_7" class="foldclosed" onClick="show_folder('1_10_7')" style="POSITION: absolute">+</span> <span id="hide1_10_7" class="foldopened" onClick="hide_folder('1_10_7')">-</Span>
+SMB
+<ul id="fold1_10_7" style="POSITION: relative; VISIBILITY: visible;"><li>* Provide network shares to specific clients
+
+</li>
+<li>* Provide network shares suitable for group collaboration
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_8" class="foldclosed" onClick="show_folder('1_10_8')" style="POSITION: absolute">+</span> <span id="hide1_10_8" class="foldopened" onClick="hide_folder('1_10_8')">-</Span>
+SMTP
+<ul id="fold1_10_8" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure a mail transfer agent (MTA) to accept inbound email from other systems
+
+</li>
+<li>* Configure an MTA to forward (relay) email through a smart host
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_9" class="foldclosed" onClick="show_folder('1_10_9')" style="POSITION: absolute">+</span> <span id="hide1_10_9" class="foldopened" onClick="hide_folder('1_10_9')">-</Span>
+SSH
+<ul id="fold1_10_9" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure key-based authentication
+
+</li>
+<li>* Configure additional SSH options described in documentation
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_10_10" class="foldclosed" onClick="show_folder('1_10_10')" style="POSITION: absolute">+</span> <span id="hide1_10_10" class="foldopened" onClick="hide_folder('1_10_10')">-</Span>
+NTP
+<ul id="fold1_10_10" style="POSITION: relative; VISIBILITY: visible;"><li>* Configure key-based authentication
+
+</li>
+<li>* Configure additional SSH options described in documentation
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul><SCRIPT language=JavaScript>
+fold_document();
+</SCRIPT>
+</body>
+</html>
