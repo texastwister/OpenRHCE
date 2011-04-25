@@ -1,0 +1,25 @@
+/home/student/rpmbuild
+├── BUILD
+│   ├── hello-1.0
+│   │   └── hello.sh
+│   └── rhel6rhce-0.1
+│       └── rhel6rhce.html
+├── BUILDROOT
+├── RPMS
+│   └── x86_64
+│       ├── hello-1.0-1.el6.x86_64.rpm
+│       └── rhel6rhce-0.1-1.el6.x86_64.rpm
+├── SOURCES
+│   ├── hello-1.0.tar.gz
+│   └── rhel6rhce-0.1.tar.gz
+├── SPECS
+│   ├── hello.spec
+│   ├── hello.spec.new.incomplete
+│   ├── hello.spec.orig
+│   ├── rhel6rhce.spec
+│   └── rpmbuild.tree.txt
+└── SRPMS
+    ├── hello-1.0-1.el6.src.rpm
+    └── rhel6rhce-0.1-1.el6.src.rpm
+
+9 directories, 13 files
