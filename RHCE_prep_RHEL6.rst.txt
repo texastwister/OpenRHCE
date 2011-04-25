@@ -504,29 +504,131 @@ Network Storage: Working with iSCSI devices
 Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
 
 
-Session 3 Managing software, processes, kernel attribute, and users and groups
+Session 3 Managing software, processes, kernel attributes, and users and groups
 ==================================================================================
 
-Managing Software
-----------------------
+Managing Software: RHN
+------------------------
 
-* RHN
-* Repos
-* Yum
-                + Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem
-* rpm
-* Building RPMs
-                + Build a simple RPM that packages a single file
-* Signing and Publishing RPMs
-* Update the kernel package appropriately to ensure a bootable system
+The primary delivery mechanism for installable software, updates, errata and bug fixes and systems management functions for an installation of RHEL 6 is the Red Hat Network or RHN.
 
-Manage Processes and Services
-------------------------------
+The "cost" of RHEL 6 is really a subscription to this support network.
 
-* Configure network services to start automatically at boot
-* Configure systems to boot into a specific runlevel automatically
-* Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
-* Schedule tasks using cron
+These commands are using in managing an RHN subscription::
+
+    # man -k rhn
+    rhn-profile-sync     (8)  - Update system information on Red Hat Network
+    rhn_check            (8)  - Check for and execute queued actions on RHN
+    rhn_register         (8)  - Connect to Red Hat Network
+    rhnplugin            (8)  - Red Hat Network support for yum(8)
+    rhnplugin.conf [rhnplugin] (5)  - Configuration file for the rhnplugin(8) yum(8) plugin
+    rhnreg_ks            (8)  - A program for non interactively registering systems to Red Hat Network
+    rhnsd                (8)  - A program for querying the Red Hat Network for updates and information
+
+Managing Software: RHN Subscription Activation
+-----------------------------------------------------
+
+A new user of RHEL6 should receive information similar to this::
+
+     
+    Red Hat subscription login:
+        Account Number       : *******
+        Contract Number      : *******
+        Item Description     : Red Hat Enterprise Linux ***Edition***
+        RHEL Subscription Number : *******************
+        Quantity             : #
+        Service Dates        : 12-JUN-10 through 11-JUN-11
+        Customer Name : *********************************
+        Account Number: ************
+        Log into the new portal here: access.redhat.com
+        Login: *************
+        Password: **************
+        Email address: ****************************
+
+That information can then be used with ``rhn_register`` to activate a new subscription
+
+Managing Software: Repositories
+----------------------------------
+
+These are other repositories of installable software, updates, or bugfixes.  The ``yum`` command can be configured to use them in addition to or instead of the RHN.
+
+Configuration of repositories other than the RHN is accomplished through text configuration files located in the directory: ``/etc/yum.repos.d/``
+
+Managing Software: Repo Configuration
+-----------------------------------------
+
+* A configuration file for each repository (or group of related repos) should be created in ``/etc/yum.repos.d/`` 
+
+* The name of each repo config file should end in ".repo".
+
+    * Tip:  This allows repos to be easily temporarily disabled simply by renaming the file to something like: ``myrepo.repo.disabled``
+
+Mandatory options::
+
+    [repositoryid]
+    name=Some name for this repository
+    baseurl=url://path/to/repository/
+
+Related man pages::
+
+    # man -k yum
+    qreposync             (1)  - synchronize yum repositories to a local directory
+    rhnplugin            (8)  - Red Hat Network support for yum(8)
+    rhnplugin.conf [rhnplugin] (5)  - Configuration file for the rhnplugin(8) yum(8) plugin
+    yum                  (8)  - Yellowdog Updater Modified
+    yum [yum-shell]      (8)  - Yellowdog Updater Modified shell
+    yum-groups-manager   (1)  - create and edit yum's group metadata
+    yum-utils            (1)  - tools for manipulating repositories and extended package management
+    yum.conf [yum]       (5)  - Configuration file for yum(8)
+
+
+
+Managing Software: Using yum
+--------------------------------
+
+Commond commands:
+
+* ``yum help``
+
+* ``yum list``
+
+* ``yum search KEYWORD``
+
+* ``yum info PACKAGENAME``
+
+
+Managing Software: Using rpm
+--------------------------------
+
+..                 + Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem
+
+
+Managing Software:  Building RPMs
+-------------------------------------
+
+..                + Build a simple RPM that packages a single file
+
+
+Managing Software:  Signing and Publishing RPMs
+--------------------------------------------------
+
+Managing Software:  Updating the kernel package 
+--------------------------------------------------
+
+Manage Processes and Services: Configure network services to start automatically at boot
+-------------------------------------------------------------------------------------------
+
+Manage Processes and Services: Configure systems to boot into a specific runlevel automatically
+-------------------------------------------------------------------------------------------------
+
+Manage Processes and Services: Monitoring, prioritizing, and controlling processes 
+-------------------------------------------------------------------------------------------
+
+.. Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
+
+Manage Processes and Services: Schedule tasks using cron
+--------------------------------------------------------------
+
 
 Manage system performance
 ------------------------------
