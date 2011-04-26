@@ -434,12 +434,34 @@ Session 2 Storage and filesystems
 Local Storage: Working with Partitions
 -------------------------------------------
 
-List, create, delete and set partition type for primary, extended, and logical partitions
+Overview of process for using Basic Storage Devices:
+
+* Install the device or otherwise make it available to the system.
+* Partition it with ``fdisk`` or ``parted``.
+* Create a filesystem on the partition with mkfs or other tools.
+* Choose or create a directory to serve as a mount point.
+* Mount the partition.
+* Add an entry to ``/etc/fstab`` to make it persistent.
+
+.. List, create, delete and set partition type for primary, extended, and logical partitions
 
 Local Storage: Working with Logical Volume Management
 --------------------------------------------------------
 
-Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
+Overview of process for using Logical Volume Management:
+
+* Install the device or otherwise make it available to the system.
+* Create a type ``8e`` partition with ``fdisk`` or ``parted``. 
+* Initialize the partition as a physical volume with ``pvcreate``.
+* Add the storage of the PV to a volume group with ``vgcreate``.
+* Allocate storage from the volume group to a logical volume with ``lvcreate``.
+* Create a filesystem on the logical volume with mkfs or other tools.
+* Choose or create a directory to serve as a mount point.
+* Mount the partition.
+* Add an entry to ``/etc/fstab`` to make it persistent.
+
+
+.. Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
 
 Local Storage: Working with LUKS encrypted storage
 -----------------------------------------------------
