@@ -564,13 +564,13 @@ Local Storage: Persistent mounting of LUKS devices
 
 To persistently mount it:
 
-* Create an entry in /etc/crypttab::
+    * Create an entry in /etc/crypttab::
 
-    <name> /dev/<partition> <password (none|<blank>|<path/to/file/with/password>)>
+        <name> /dev/<partition> <password (none|<blank>|<path/to/file/with/password>)>
 
-* If the password field is "none" or left blank, the system will prompt for a password.
+    * If the password field is "none" or left blank, the system will prompt for a password.
 
-* Create an entry in /etc/fstab
+    * Create an entry in /etc/fstab
 
 .. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
 
@@ -622,20 +622,10 @@ Create, mount, unmount and use ext2, ext3 and ext4 file systems
 Extend existing unencrypted ext4-formatted logical volumes
 
 
-File systems: Working with LUKS-encrypted filesystems
-------------------------------------------------------
 
-Mount, unmount and use LUKS-encrypted file systems
-
-
-.. File systems: Configure systems to mount ext4, LUKS-encrypted and network file systems automatically
-
-Filesystem Permissions: Basic Permssions
+Filesystem Permissions: Basic Permissions
 --------------------------------------------------------
 
-
-Linux Filesystem Permissions
------------------------------------------
 
 Linux permissions are organized around:
 
@@ -774,8 +764,8 @@ Setting Permissions with Numeric Options
 ``# chmod 751 myfile.txt``
 
 
-Setting Extended Attributes with Numeric Option
-==================================================
+Setting Extended Attributes with Numeric Options
+--------------------------------------------------
 
 
 
@@ -801,7 +791,7 @@ The leftmost place is for extended attributes:
 
 
 Setting Extended Attributes with Symbolic Values:
-======================================================
+--------------------------------------------------------
 
 ``chmod +t {filename}``
         Sets the sticky bit
@@ -814,7 +804,7 @@ Setting Extended Attributes with Symbolic Values:
 
 
 Extended Attributes in Directory Listings
-==============================================
+--------------------------------------------------
 
 ===========  ==================================================
 \-rwxrwxrwx   Normal Permissions, All permissions granted  
@@ -829,7 +819,7 @@ Extended Attributes in Directory Listings
 
 
 Umask
-=====================================================
+--------------
 
 * The umask value determines the permissions that will be applied to newly created files and directories.
 
@@ -845,7 +835,7 @@ Umask
 
 
 Umask Examples
-===============
+--------------------------
 
 * Umask of 0002 yields permissions of 0775 on new directories and 0664 on new files
         
@@ -853,12 +843,22 @@ Umask Examples
 
 
 
-
-Filesystem Permissions: Extended Attributes
-------------------------------------------------------------
-
 Filesystem Permissions: Use case -- Collaborative Directories
 -------------------------------------------------------------------
+
+* Create a Group for Collaboration
+* Add users to the group
+* Create a directory for collaboration
+* Set its group ownership to the intended group
+* Set its group permissions appropriately
+* Recursively set the SGID and sticky bits on the directory
+
+This ensures that:
+
+    # All files created in this directory will be owned by the intended group (SGID effect)
+
+    # All files created in this directory can only be deleted by the user who owns the file or the user who owns the directory (stickybit effect)
+    
 
 Filesystems Permissions: File Access Control Lists
 --------------------------------------------------------
@@ -875,7 +875,7 @@ setfacl
 
 
 getfacl
-=================
+------------------
 
 Example of "getfacl acldir"
 ::
@@ -890,7 +890,8 @@ Example of "getfacl acldir"
   mask::rwx
   other::r-x
 
-Example of "ls -l acldir"
+Example of ``ls -l acldir``::
+
   drwxrwxr-x+ 2 frank frank 4096 2009-05-27 14:15 acldir
 
 
@@ -899,6 +900,10 @@ Example of "ls -l acldir"
 
 Network Storage: Working with CIFS network file systems
 ----------------------------------------------------------------
+
+Will be covered in more detail later.
+
+
 
 Mount and unmount CIFS network file systems
 

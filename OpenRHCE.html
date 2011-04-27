@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>OpenRHCE</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="header">
+RHCE Preparation (RHEL6)
+<hr class="header"/>
+</div>
+<div class="document" id="openrhce">
+<h1 class="title">OpenRHCE</h1>
+<h2 class="subtitle" id="a-creative-commons-courseware-for-rhce-preparation">A Creative Commons Courseware for RHCE Preparation</h2>
+
+<!-- Sequence of section adornments: -->
+<!-- ==- - -->
+<!-- ==- -==- -__++~~^^ -->
+<div class="section" id="course-outline">
+<h1><a class="toc-backref" href="#id2">Course Outline</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#course-outline" id="id2">Course Outline</a></li>
+<li><a class="reference internal" href="#session-one-introduction" id="id3">Session One: Introduction</a><ul>
+<li><a class="reference internal" href="#introductions-your-instructor" id="id4">Introductions: Your Instructor</a></li>
+<li><a class="reference internal" href="#id1" id="id5">Introductions: Your Instructor</a><ul>
+<li><a class="reference internal" href="#qualifications" id="id6">Qualifications:</a></li>
+<li><a class="reference internal" href="#personal" id="id7">Personal:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introductions-fellow-students" id="id8">Introductions: Fellow Students</a><ul>
+<li><a class="reference internal" href="#please-introduce-yourselves" id="id9">Please Introduce Yourselves</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introductions-the-course" id="id10">Introductions: The Course</a><ul>
+<li><a class="reference internal" href="#expectations" id="id11">Expectations</a></li>
+<li><a class="reference internal" href="#preparation-recommendations" id="id12">Preparation Recommendations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-red-hat-certification-landscape" id="id13">The Red Hat Certification Landscape</a></li>
+<li><a class="reference internal" href="#rhcsa-objectives" id="id14">RHCSA Objectives</a><ul>
+<li><a class="reference internal" href="#rhcsa-objectives-understand-use-essential-tools" id="id15">RHCSA Objectives: Understand &amp; Use Essential Tools</a></li>
+<li><a class="reference internal" href="#rhcsa-essential-tools-cont" id="id16">RHCSA: ...Essential Tools... (cont)</a></li>
+<li><a class="reference internal" href="#rhcsa-operate-running-systems" id="id17">RHCSA: Operate Running Systems</a></li>
+<li><a class="reference internal" href="#rhcsa-configure-local-storage" id="id18">RHCSA: Configure Local Storage</a></li>
+<li><a class="reference internal" href="#rhcsa-create-and-configure-file-systems" id="id19">RHCSA: Create and Configure File Systems</a></li>
+<li><a class="reference internal" href="#rhcsa-deploy-configure-maintain" id="id20">RHCSA: Deploy, Configure &amp; Maintain</a></li>
+<li><a class="reference internal" href="#rhcsa-manage-users-and-groups" id="id21">RHCSA: Manage Users and Groups</a></li>
+<li><a class="reference internal" href="#rhcsa-manage-security" id="id22">RHCSA: Manage Security</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rhce-objectives" id="id23">RHCE Objectives</a><ul>
+<li><a class="reference internal" href="#rhce-system-configuration-and-management" id="id24">RHCE: System Configuration and Management</a></li>
+<li><a class="reference internal" href="#rhce-network-services" id="id25">RHCE: Network Services</a></li>
+<li><a class="reference internal" href="#rhce-http-https" id="id26">RHCE: HTTP/HTTPS</a></li>
+<li><a class="reference internal" href="#rhce-dns" id="id27">RHCE: DNS</a></li>
+<li><a class="reference internal" href="#rhce-ftp" id="id28">RHCE: FTP</a></li>
+<li><a class="reference internal" href="#rhce-nfs" id="id29">RHCE: NFS</a></li>
+<li><a class="reference internal" href="#rhce-smb" id="id30">RHCE: SMB</a></li>
+<li><a class="reference internal" href="#rhce-smtp" id="id31">RHCE: SMTP</a></li>
+<li><a class="reference internal" href="#rhce-ssh" id="id32">RHCE: SSH</a></li>
+<li><a class="reference internal" href="#rhce-ntp" id="id33">RHCE: NTP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operating-a-system-boot-reboot-shutdown" id="id34">Operating a System: Boot, Reboot, Shutdown</a></li>
+<li><a class="reference internal" href="#operating-a-system-runlevels" id="id35">Operating a System: Runlevels</a></li>
+<li><a class="reference internal" href="#operating-a-system-single-user-mode" id="id36">Operating a System: Single User Mode</a></li>
+<li><a class="reference internal" href="#operating-a-system-log-files" id="id37">Operating a System: Log Files</a></li>
+<li><a class="reference internal" href="#operating-a-system-start-stop-virtual-machines" id="id38">Operating a System: Start/Stop Virtual Machines</a></li>
+<li><a class="reference internal" href="#operating-a-system-virtual-machine-consoles" id="id39">Operating a System: Virtual Machine Consoles</a></li>
+<li><a class="reference internal" href="#operating-a-system-virtual-machine-text-console" id="id40">Operating a System: Virtual Machine Text Console</a></li>
+<li><a class="reference internal" href="#operating-a-system-start-stop-and-check-the-status-of-network-services" id="id41">Operating a System: Start, stop, and check the status of network services</a></li>
+<li><a class="reference internal" href="#operating-a-system-modify-the-system-bootloader" id="id42">Operating a System: Modify the system bootloader</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-2-storage-and-filesystems" id="id43">Session 2 Storage and filesystems</a><ul>
+<li><a class="reference internal" href="#filesystem-disambiguation" id="id44">&quot;Filesystem&quot; - Disambiguation</a></li>
+<li><a class="reference internal" href="#linux-filesystem-hierarchy" id="id45">Linux Filesystem Hierarchy</a></li>
+<li><a class="reference internal" href="#disk-and-filesystem-tools" id="id46">Disk and Filesystem tools</a></li>
+<li><a class="reference internal" href="#local-storage-working-with-partitions" id="id47">Local Storage: Working with Partitions</a></li>
+<li><a class="reference internal" href="#local-storage-working-with-logical-volume-management" id="id48">Local Storage: Working with Logical Volume Management</a></li>
+<li><a class="reference internal" href="#local-storage-commands-to-know" id="id49">Local Storage: Commands to Know</a></li>
+<li><a class="reference internal" href="#local-storage-working-with-luks-encrypted-storage" id="id50">Local Storage: Working with LUKS encrypted storage</a></li>
+<li><a class="reference internal" href="#local-storage-persistent-mounting-of-luks-devices" id="id51">Local Storage: Persistent mounting of LUKS devices</a></li>
+<li><a class="reference internal" href="#local-storage-working-with-swap" id="id52">Local Storage: Working with SWAP</a></li>
+<li><a class="reference internal" href="#local-storage-using-a-file-for-swap" id="id53">Local Storage: Using a file for SWAP</a></li>
+<li><a class="reference internal" href="#local-storage-using-uuids-and-filesystem-labels" id="id54">Local Storage: Using UUIDs and Filesystem Labels</a></li>
+<li><a class="reference internal" href="#local-storage-adding-new-storage" id="id55">Local Storage: Adding New Storage</a></li>
+<li><a class="reference internal" href="#file-systems-working-with-common-linux-filesystems" id="id56">File systems: Working with Common Linux Filesystems</a></li>
+<li><a class="reference internal" href="#filesystem-permissions-basic-permissions" id="id57">Filesystem Permissions: Basic Permissions</a></li>
+<li><a class="reference internal" href="#three-sets-of-permissions" id="id58">Three Sets of Permissions:</a></li>
+<li><a class="reference internal" href="#three-types-of-permissions" id="id59">Three Types of Permissions:</a></li>
+<li><a class="reference internal" href="#three-extended-attributes" id="id60">Three Extended Attributes:</a></li>
+<li><a class="reference internal" href="#viewing-permissions" id="id61">Viewing Permissions</a></li>
+<li><a class="reference internal" href="#setting-permissions" id="id62">Setting Permissions</a></li>
+<li><a class="reference internal" href="#setting-permissions-with-numeric-options" id="id63">Setting Permissions with Numeric Options</a></li>
+<li><a class="reference internal" href="#setting-extended-attributes-with-numeric-options" id="id64">Setting Extended Attributes with Numeric Options</a></li>
+<li><a class="reference internal" href="#setting-extended-attributes-with-symbolic-values" id="id65">Setting Extended Attributes with Symbolic Values:</a></li>
+<li><a class="reference internal" href="#extended-attributes-in-directory-listings" id="id66">Extended Attributes in Directory Listings</a></li>
+<li><a class="reference internal" href="#umask" id="id67">Umask</a></li>
+<li><a class="reference internal" href="#umask-examples" id="id68">Umask Examples</a></li>
+<li><a class="reference internal" href="#filesystem-permissions-use-case-collaborative-directories" id="id69">Filesystem Permissions: Use case -- Collaborative Directories</a></li>
+<li><a class="reference internal" href="#filesystems-permissions-file-access-control-lists" id="id70">Filesystems Permissions: File Access Control Lists</a></li>
+<li><a class="reference internal" href="#getfacl" id="id71">getfacl</a></li>
+<li><a class="reference internal" href="#network-storage-working-with-cifs-network-file-systems" id="id72">Network Storage: Working with CIFS network file systems</a></li>
+<li><a class="reference internal" href="#network-storage-working-with-nfs-file-systems" id="id73">Network Storage: Working with NFS file systems</a></li>
+<li><a class="reference internal" href="#network-storage-iscsi-devices" id="id74">Network Storage: iSCSI Devices</a></li>
+<li><a class="reference internal" href="#network-storage-accessing-iscsi-devices" id="id75">Network Storage: Accessing iSCSI Devices</a></li>
+<li><a class="reference internal" href="#network-storage-disconnecting-from-iscsi-devices" id="id76">Network Storage: Disconnecting from iSCSI Devices</a></li>
+<li><a class="reference internal" href="#additional-references" id="id77">Additional References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-3-managing-software-processes-kernel-attributes-and-users-and-groups" id="id78">Session 3 Managing software, processes, kernel attributes, and users and groups</a><ul>
+<li><a class="reference internal" href="#managing-software-rhn" id="id79">Managing Software: RHN</a></li>
+<li><a class="reference internal" href="#managing-software-rhn-subscription-activation" id="id80">Managing Software: RHN Subscription Activation</a></li>
+<li><a class="reference internal" href="#managing-software-repositories" id="id81">Managing Software: Repositories</a></li>
+<li><a class="reference internal" href="#managing-software-repo-configuration" id="id82">Managing Software: Repo Configuration</a></li>
+<li><a class="reference internal" href="#managing-software-using-yum" id="id83">Managing Software: Using yum</a></li>
+<li><a class="reference internal" href="#managing-software-using-rpm" id="id84">Managing Software: Using rpm</a></li>
+<li><a class="reference internal" href="#managing-software-building-rpms" id="id85">Managing Software:  Building RPMs</a></li>
+<li><a class="reference internal" href="#managing-software-signing-and-publishing-rpms" id="id86">Managing Software:  Signing and Publishing RPMs</a></li>
+<li><a class="reference internal" href="#managing-software-updating-the-kernel-package" id="id87">Managing Software:  Updating the kernel package</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-network-services-to-start-automatically-at-boot" id="id88">Manage Processes and Services: Configure network services to start automatically at boot</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id89">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-monitoring-prioritizing-and-controlling-processes" id="id90">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id91">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#manage-system-performance" id="id92">Manage system performance</a></li>
+<li><a class="reference internal" href="#manage-users-and-groups" id="id93">Manage Users and Groups</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-4-networking-and-routing" id="id94">Session 4 Networking and routing</a></li>
+<li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id95">Session 5 Firewalls and SELinux</a></li>
+<li><a class="reference internal" href="#session-6-virtualization" id="id96">Session 6 Virtualization</a></li>
+<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id97">Session 7 Logging and remote access</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol" id="id98">Session 8 Network Time Protocol</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id99">Session 9 HTTP and FTP</a></li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id100">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id101">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id102">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="session-one-introduction">
+<h1><a class="toc-backref" href="#id3">Session One: Introduction</a></h1>
+<div class="section" id="introductions-your-instructor">
+<h2><a class="toc-backref" href="#id4">Introductions: Your Instructor</a></h2>
+<p>Scott Purcell</p>
+<p><a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a></p>
+<p><a class="reference external" href="http://www.linkedin.com/in/scottpurcell">http://www.linkedin.com/in/scottpurcell</a></p>
+<p><a class="reference external" href="http://twitter.com/texastwister">http://twitter.com/texastwister</a></p>
+<p><a class="reference external" href="http://www.facebook.com/Scott.L.Purcell">http://www.facebook.com/Scott.L.Purcell</a></p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">Introductions: Your Instructor</a></h2>
+<div class="section" id="qualifications">
+<h3><a class="toc-backref" href="#id6">Qualifications:</a></h3>
+<ul class="simple">
+<li>RHCSA, RHCE #110-008-877 (RHEL6)</li>
+<li>Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+</li>
+<li>Curriculum Developer and Trainer for a major computer manufacturer for going on 11 years</li>
+<li>Linux Enthusiast since 2000</li>
+</ul>
+</div>
+<div class="section" id="personal">
+<h3><a class="toc-backref" href="#id7">Personal:</a></h3>
+<ul class="simple">
+<li>Husband, father, disciple and</li>
+<li>Fun: Part-time Balloon Entertainer</li>
+</ul>
+</div>
+</div>
+<div class="section" id="introductions-fellow-students">
+<h2><a class="toc-backref" href="#id8">Introductions: Fellow Students</a></h2>
+<div class="section" id="please-introduce-yourselves">
+<h3><a class="toc-backref" href="#id9">Please Introduce Yourselves</a></h3>
+<ul class="simple">
+<li>Name</li>
+<li>Where you work or what you do.</li>
+<li>What Linux experience do you already have?</li>
+<li>What goals do you have for this class?</li>
+<li>Something fun about yourself.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="introductions-the-course">
+<h2><a class="toc-backref" href="#id10">Introductions: The Course</a></h2>
+<div class="section" id="expectations">
+<h3><a class="toc-backref" href="#id11">Expectations</a></h3>
+<ul>
+<li><p class="first">Should I be able to pass the RHCE on this class alone?</p>
+<blockquote>
+<p>A stunning number of seasoned professionals taking Red Hat's own prep courses fail to pass on first attempt.</p>
+</blockquote>
+</li>
+<li><p class="first">Planning for more than one attempt is prudent.</p>
+</li>
+<li><p class="first">Maximizing your out-of-class preparation time is prudent.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="preparation-recommendations">
+<h3><a class="toc-backref" href="#id12">Preparation Recommendations</a></h3>
+<ul>
+<li><p class="first">Practice/Study Environment</p>
+<blockquote>
+<ul>
+<li><p class="first">2 or 3 systems or VMs, networked together.  Virtualized hosting providers may be an alternative.</p>
+</li>
+<li><p class="first">RHEL 6 (eval), CENTOS 6 (when available), or Fedora (Fedora 13 will be closest to RHEL 6)</p>
+</li>
+<li><p class="first">Red Hat docs at:</p>
+<blockquote>
+<p><a class="reference external" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html">http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html</a></p>
+</blockquote>
+</li>
+<li><p class="first">RHCE Objectives and other information at:</p>
+<blockquote>
+<p><a class="reference external" href="http://www.redhat.com/certification/">http://www.redhat.com/certification/</a></p>
+</blockquote>
+</li>
+<li><p class="first">Take initiative -- form a study group.</p>
+</li>
+<li><p class="first">Practice, practice, practice!</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-red-hat-certification-landscape">
+<h2><a class="toc-backref" href="#id13">The Red Hat Certification Landscape</a></h2>
+<ul>
+<li><p class="first">RHCSA</p>
+<blockquote>
+<p>RHCSA is new, replacing the RHCT.  It is the &quot;core&quot; sysadmin certification from Red Hat. To earn RHCE and other system administration certs will require first earning the RHCSA.</p>
+</blockquote>
+</li>
+<li><p class="first">RHCE</p>
+<blockquote>
+<p>RHCE is a senior system administration certification. It is an eligibility requirement for taking any COE exams and is thus a requirement for the upper-level credentials as well.</p>
+</blockquote>
+</li>
+<li><p class="first">Certificates of Expertise</p>
+<blockquote>
+<p>COEs are incremental credentials demonstrating skills and knowledge in specialized areas. They are worthy credentials in their own right, but also the building blocks of the upper level credentials.</p>
+</blockquote>
+</li>
+<li><p class="first">RHCSS, RHCDS, RHCA</p>
+<blockquote>
+<p>These upper level credentials recognize those who have achieved expertise in several related specialized areas.  Each one requires multiple COEs.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="rhcsa-objectives">
+<h2><a class="toc-backref" href="#id14">RHCSA Objectives</a></h2>
+<div class="section" id="rhcsa-objectives-understand-use-essential-tools">
+<h3><a class="toc-backref" href="#id15">RHCSA Objectives: Understand &amp; Use Essential Tools</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Access a shell prompt and issue commands with correct syntax</li>
+<li>Use input-output redirection (&gt;, &gt;&gt;, <tt class="docutils literal"><span class="pre">|</span></tt>, 2&gt;, etc.)</li>
+<li>Use grep and regular expressions to analyze text</li>
+<li>Access remote systems using ssh and VNC</li>
+<li>Log in and switch users in multi-user runlevels</li>
+<li>Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-essential-tools-cont">
+<h3><a class="toc-backref" href="#id16">RHCSA: ...Essential Tools... (cont)</a></h3>
+<blockquote>
+<ul>
+<li><p class="first">Create and edit text files</p>
+</li>
+<li><p class="first">Create, delete, copy and move files and directories</p>
+</li>
+<li><p class="first">Create hard and soft links</p>
+</li>
+<li><p class="first">List, set and change standard ugo/rwx permissions</p>
+</li>
+<li><p class="first">Locate, read and use system documentation including man, info, and files in /usr/share/doc .</p>
+<blockquote>
+<p>[Note: Red Hat may use applications during the exam that are not included in Red Hat Enterprise Linux for the purpose of evaluating candidate's abilities to meet this objective.]</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-operate-running-systems">
+<h3><a class="toc-backref" href="#id17">RHCSA: Operate Running Systems</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Boot, reboot, and shut down a system normally</li>
+<li>Boot systems into different runlevels manually</li>
+<li>Use single-user mode to gain access to a system</li>
+<li>Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes</li>
+<li>Locate and interpret system log files</li>
+<li>Access a virtual machine's console</li>
+<li>Start and stop virtual machines</li>
+<li>Start, stop and check the status of network services</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-configure-local-storage">
+<h3><a class="toc-backref" href="#id18">RHCSA: Configure Local Storage</a></h3>
+<blockquote>
+<ul class="simple">
+<li>List, create, delete and set partition type for primary, extended, and logical partitions</li>
+<li>Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes</li>
+<li>Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot</li>
+<li>Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label</li>
+<li>Add new partitions, logical volumes and swap to a system non-destructively</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-create-and-configure-file-systems">
+<h3><a class="toc-backref" href="#id19">RHCSA: Create and Configure File Systems</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Create, mount, unmount and use ext2, ext3 and ext4 file systems</li>
+<li>Mount, unmount and use LUKS-encrypted file systems</li>
+<li>Mount and unmount CIFS and NFS network file systems</li>
+<li>Configure systems to mount ext4, LUKS-encrypted and network file systems automatically</li>
+<li>Extend existing unencrypted ext4-formatted logical volumes</li>
+<li>Create and configure set-GID directories for collaboration</li>
+<li>Create and manage Access Control Lists (ACLs)</li>
+<li>Diagnose and correct file permission problems</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-deploy-configure-maintain">
+<h3><a class="toc-backref" href="#id20">RHCSA: Deploy, Configure &amp; Maintain</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Configure networking and hostname resolution statically or dynamically</li>
+<li>Schedule tasks using cron</li>
+<li>Configure systems to boot into a specific runlevel automatically</li>
+<li>Install Red Hat Enterprise Linux automatically using Kickstart</li>
+<li>Configure a physical machine to host virtual guests</li>
+<li>Install Red Hat Enterprise Linux systems as virtual guests</li>
+<li>Configure systems to launch virtual machines at boot</li>
+<li>Configure network services to start automatically at boot</li>
+<li>Configure a system to run a default configuration HTTP server</li>
+<li>Configure a system to run a default configuration FTP server</li>
+<li>Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem</li>
+<li>Update the kernel package appropriately to ensure a bootable system</li>
+<li>Modify the system bootloader</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-manage-users-and-groups">
+<h3><a class="toc-backref" href="#id21">RHCSA: Manage Users and Groups</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Create, delete, and modify local user accounts</li>
+<li>Change passwords and adjust password aging for local user accounts</li>
+<li>Create, delete and modify local groups and group memberships</li>
+<li>Configure a system to use an existing LDAP directory service for user and group information</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhcsa-manage-security">
+<h3><a class="toc-backref" href="#id22">RHCSA: Manage Security</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Configure firewall settings using system-config-firewall or iptables</li>
+<li>Set enforcing and permissive modes for SELinux</li>
+<li>List and identify SELinux file and process context</li>
+<li>Restore default file contexts</li>
+<li>Use boolean settings to modify system SELinux settings</li>
+<li>Diagnose and address routine SELinux policy violations</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="rhce-objectives">
+<h2><a class="toc-backref" href="#id23">RHCE Objectives</a></h2>
+<div class="section" id="rhce-system-configuration-and-management">
+<h3><a class="toc-backref" href="#id24">RHCE: System Configuration and Management</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Route IP traffic and create static routes</li>
+<li>Use iptables to implement packet filtering and configure network address translation (NAT)</li>
+<li>Use /proc/sys and sysctl to modify and set kernel run-time parameters</li>
+<li>Configure system to authenticate using Kerberos</li>
+<li>Build a simple RPM that packages a single file</li>
+<li>Configure a system as an iSCSI initiator that persistently mounts an iSCSI target</li>
+<li>Produce and deliver reports on system utilization (processor, memory, disk, and network)</li>
+<li>Use shell scripting to automate system maintenance tasks</li>
+<li>Configure a system to log to a remote system</li>
+<li>Configure a system to accept logging from a remote system</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-network-services">
+<h3><a class="toc-backref" href="#id25">RHCE: Network Services</a></h3>
+<p>Network services are an important subset of the exam objectives. RHCE candidates should be capable of meeting the following objectives for each of the network services listed below:</p>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+</ul>
+</blockquote>
+<p>RHCE candidates should also be capable of meeting the following objectives associated with specific services:</p>
+</div>
+<div class="section" id="rhce-http-https">
+<h3><a class="toc-backref" href="#id26">RHCE: HTTP/HTTPS</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a virtual host</li>
+<li>Configure private directories</li>
+<li>Deploy a basic CGI application</li>
+<li>Configure group-managed content</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-dns">
+<h3><a class="toc-backref" href="#id27">RHCE: DNS</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a caching-only name server</li>
+<li>Configure a caching-only name server to forward DNS queries</li>
+<li>Note: Candidates are not expected to configure master or slave name servers</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-ftp">
+<h3><a class="toc-backref" href="#id28">RHCE: FTP</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure anonymous-only download</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-nfs">
+<h3><a class="toc-backref" href="#id29">RHCE: NFS</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Provide network shares to specific clients</li>
+<li>Provide network shares suitable for group collaboration</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-smb">
+<h3><a class="toc-backref" href="#id30">RHCE: SMB</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Provide network shares to specific clients</li>
+<li>Provide network shares suitable for group collaboration</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-smtp">
+<h3><a class="toc-backref" href="#id31">RHCE: SMTP</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure a mail transfer agent (MTA) to accept inbound email from other systems</li>
+<li>Configure an MTA to forward (relay) email through a smart host</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-ssh">
+<h3><a class="toc-backref" href="#id32">RHCE: SSH</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Configure key-based authentication</li>
+<li>Configure additional options described in documentation</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rhce-ntp">
+<h3><a class="toc-backref" href="#id33">RHCE: NTP</a></h3>
+<blockquote>
+<ul class="simple">
+<li>Install the packages needed to provide the service</li>
+<li>Configure SELinux to support the service</li>
+<li>Configure the service to start when the system is booted</li>
+<li>Configure the service for basic operation</li>
+<li>Configure host-based and user-based security for the service</li>
+<li>Synchronize time using other NTP peers</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="operating-a-system-boot-reboot-shutdown">
+<h2><a class="toc-backref" href="#id34">Operating a System: Boot, Reboot, Shutdown</a></h2>
+<ul class="simple">
+<li>GRUB Menu</li>
+<li>Display Manager Screen</li>
+<li>Gnome or KDE</li>
+<li>Terminal commands: shutdown, halt, poweroff, reboot, init</li>
+</ul>
+</div>
+<div class="section" id="operating-a-system-runlevels">
+<h2><a class="toc-backref" href="#id35">Operating a System: Runlevels</a></h2>
+<ul class="simple">
+<li>Default</li>
+<li>From GRUB Menu</li>
+</ul>
+</div>
+<div class="section" id="operating-a-system-single-user-mode">
+<h2><a class="toc-backref" href="#id36">Operating a System: Single User Mode</a></h2>
+<ul class="simple">
+<li>Password Recovery</li>
+</ul>
+<p>Note:  SELinux bug prevents password changes while set to &quot;Enforcing&quot;.</p>
+</div>
+<div class="section" id="operating-a-system-log-files">
+<h2><a class="toc-backref" href="#id37">Operating a System: Log Files</a></h2>
+<p><tt class="docutils literal"><span class="pre">/var/log/*</span></tt></p>
+<p>View with <tt class="docutils literal"><span class="pre">cat</span></tt>, <tt class="docutils literal"><span class="pre">less</span></tt> or other tools</p>
+<p>Search with <tt class="docutils literal"><span class="pre">grep</span></tt></p>
+</div>
+<div class="section" id="operating-a-system-start-stop-virtual-machines">
+<h2><a class="toc-backref" href="#id38">Operating a System: Start/Stop Virtual Machines</a></h2>
+<ul class="simple">
+<li>Using virt-manager</li>
+<li>Using virsh commands</li>
+</ul>
+</div>
+<div class="section" id="operating-a-system-virtual-machine-consoles">
+<h2><a class="toc-backref" href="#id39">Operating a System: Virtual Machine Consoles</a></h2>
+<ul class="simple">
+<li>virt-manager</li>
+<li>virt-viewer</li>
+</ul>
+</div>
+<div class="section" id="operating-a-system-virtual-machine-text-console">
+<h2><a class="toc-backref" href="#id40">Operating a System: Virtual Machine Text Console</a></h2>
+<p>With libguestfs-tools installed and the VM in question shut-down, from the host:</p>
+<pre class="literal-block">
+# virt-edit {VMname} /boot/grub/menu.lst
+</pre>
+<p>There, append to the kernel line:</p>
+<pre class="literal-block">
+console=tty0 console=ttyS0.
+</pre>
+<p>After saving, the following commands should allow a console based view of the boot process and a console login:</p>
+<pre class="literal-block">
+# virsh start {VMname} ; virsh console {VMname}
+</pre>
+</div>
+<div class="section" id="operating-a-system-start-stop-and-check-the-status-of-network-services">
+<h2><a class="toc-backref" href="#id41">Operating a System: Start, stop, and check the status of network services</a></h2>
+</div>
+<div class="section" id="operating-a-system-modify-the-system-bootloader">
+<h2><a class="toc-backref" href="#id42">Operating a System: Modify the system bootloader</a></h2>
+</div>
+</div>
+<div class="section" id="session-2-storage-and-filesystems">
+<h1><a class="toc-backref" href="#id43">Session 2 Storage and filesystems</a></h1>
+<div class="section" id="filesystem-disambiguation">
+<h2><a class="toc-backref" href="#id44">&quot;Filesystem&quot; - Disambiguation</a></h2>
+<p>Several meanings for the term:</p>
+<ul class="simple">
+<li>The way files are physically written to storage devices, as in  the ext3, Fat-32, NTFS filesystems, or etc.</li>
+<li>The unified directory structure which logically organizes files</li>
+<li>The standard which defines how directories should be structured and utilized in Linux</li>
+</ul>
+</div>
+<div class="section" id="linux-filesystem-hierarchy">
+<h2><a class="toc-backref" href="#id45">Linux Filesystem Hierarchy</a></h2>
+<p>The directory structure of a Linux system is standardized through the Filesystem Hierarchy Standard (explained at <a class="reference external" href="http://www.pathname.com/fhs">http://www.pathname.com/fhs</a>)</p>
+<p>The Linux Manual system has an abbreviated reference:</p>
+<p><tt class="docutils literal"><span class="pre">$</span> <span class="pre">man</span> <span class="pre">7</span> <span class="pre">hier</span></tt></p>
+<p>Red Hat has a more complete description, along with RedHat-specific implementation decisions in their <strong>Deployment Guide</strong> at <a class="reference external" href="http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-filesystem.html">http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-filesystem.html</a></p>
+<!-- for future development, consider expanding this... -->
+</div>
+<div class="section" id="disk-and-filesystem-tools">
+<h2><a class="toc-backref" href="#id46">Disk and Filesystem tools</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt> -- Used to partition hard disks or other block devices</li>
+<li><tt class="docutils literal"><span class="pre">mkfs</span></tt> and variants -- Used to create filesystems on block devices (actually a front-end for a variety of FS-specific tools)</li>
+<li><tt class="docutils literal"><span class="pre">fsck</span></tt> and variants -- Used to run filesystem checks (a front-end to FS specific tools)</li>
+<li><tt class="docutils literal"><span class="pre">mount</span></tt> -- Used to mount a filesystem to a specific location in the directory structure</li>
+<li><tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> -- Configuration file used to describe the filesystems that should be persistently mounted</li>
+<li><tt class="docutils literal"><span class="pre">blkid</span></tt> -- used to identify filesystems or other in-use devices by UUID or filesystem labels.</li>
+<li><tt class="docutils literal"><span class="pre">df</span></tt> -- used to display the capacity and utilization % of mounted filesystems.</li>
+<li><tt class="docutils literal"><span class="pre">partx</span></tt> -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.</li>
+</ul>
+</div>
+<div class="section" id="local-storage-working-with-partitions">
+<h2><a class="toc-backref" href="#id47">Local Storage: Working with Partitions</a></h2>
+<p>Overview of process for using Basic Storage Devices:</p>
+<ul class="simple">
+<li>Install the device or otherwise make it available to the system.</li>
+<li>Partition it with <tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt>.</li>
+<li>Create a filesystem on the partition with mkfs or other tools.</li>
+<li>Choose or create a directory to serve as a mount point.</li>
+<li>Mount the partition.</li>
+<li>Add an entry to <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to make it persistent.</li>
+</ul>
+<!-- List, create, delete and set partition type for primary, extended, and logical partitions -->
+</div>
+<div class="section" id="local-storage-working-with-logical-volume-management">
+<h2><a class="toc-backref" href="#id48">Local Storage: Working with Logical Volume Management</a></h2>
+<p>Overview of process for using Logical Volume Management:</p>
+<ul class="simple">
+<li>Install the device or otherwise make it available to the system.</li>
+<li>Create a type <tt class="docutils literal"><span class="pre">8e</span></tt> partition with <tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt>.</li>
+<li>Initialize the partition as a physical volume with <tt class="docutils literal"><span class="pre">pvcreate</span></tt>.</li>
+<li>Add the storage of the PV to a volume group with <tt class="docutils literal"><span class="pre">vgcreate</span></tt>.</li>
+<li>Allocate storage from the volume group to a logical volume with <tt class="docutils literal"><span class="pre">lvcreate</span></tt>.</li>
+<li>Create a filesystem on the logical volume with mkfs or other tools.</li>
+<li>Choose or create a directory to serve as a mount point.</li>
+<li>Mount the partition.</li>
+<li>Add an entry to <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to make it persistent.</li>
+</ul>
+<!-- Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes -->
+</div>
+<div class="section" id="local-storage-commands-to-know">
+<h2><a class="toc-backref" href="#id49">Local Storage: Commands to Know</a></h2>
+<p>fdisk</p>
+<ul class="simple">
+<li>Always use -u and -c for best compatibility with newer storage devices</li>
+<li>Can't create partitions &gt;= 2TB, use parted with GPT instead</li>
+</ul>
+<p>mkfs</p>
+<ul class="simple">
+<li>Used to create filesystems on devices</li>
+<li>Front-end for other filesystem-specific tools (usually named mkfs.&lt;fstype&gt;)</li>
+</ul>
+<p>blkid</p>
+<ul class="simple">
+<li>Shows device name, Fileystem Labels, and UUID of detected block devices.</li>
+<li>May not show block devices until a filesystem is created on them.</li>
+<li>May not show block devices used in non-standard ways (for example, a filesystem on a whole disk instead of on a partition)</li>
+</ul>
+<p>mount</p>
+<ul class="simple">
+<li>used to make a new filesystem available</li>
+</ul>
+</div>
+<div class="section" id="local-storage-working-with-luks-encrypted-storage">
+<h2><a class="toc-backref" href="#id50">Local Storage: Working with LUKS encrypted storage</a></h2>
+<p>Overview of process for using LUKS encryption:</p>
+<ul class="simple">
+<li>Create a new partition</li>
+<li>Encrypt it with <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksFormat</span> <span class="pre">/dev/&lt;partition&gt;</span></tt></li>
+<li>Open the encrypted device and assign it a name with <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksOpen</span> <span class="pre">/dev/&lt;partition&gt;</span> <span class="pre">&lt;name&gt;</span></tt></li>
+<li>Create a filesystem on the named device (/dev/mapper/&lt;name&gt;)</li>
+<li>Create a mountpoint for the device</li>
+<li>Mount the device</li>
+</ul>
+<p>To lock the volume:</p>
+<ul class="simple">
+<li>unmount it</li>
+<li>Use <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksClose</span> <span class="pre">&lt;name&gt;</span></tt> to remove the decryption mapping</li>
+</ul>
+</div>
+<div class="section" id="local-storage-persistent-mounting-of-luks-devices">
+<h2><a class="toc-backref" href="#id51">Local Storage: Persistent mounting of LUKS devices</a></h2>
+<p>To persistently mount it:</p>
+<blockquote>
+<ul>
+<li><p class="first">Create an entry in /etc/crypttab:</p>
+<pre class="literal-block">
+&lt;name&gt; /dev/&lt;partition&gt; &lt;password (none|&lt;blank&gt;|&lt;path/to/file/with/password&gt;)&gt;
+</pre>
+</li>
+<li><p class="first">If the password field is &quot;none&quot; or left blank, the system will prompt for a password.</p>
+</li>
+<li><p class="first">Create an entry in /etc/fstab</p>
+</li>
+</ul>
+</blockquote>
+<!-- Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot -->
+</div>
+<div class="section" id="local-storage-working-with-swap">
+<h2><a class="toc-backref" href="#id52">Local Storage: Working with SWAP</a></h2>
+<p>Overview of process for adding SWAP space using a partition:</p>
+<ul>
+<li><p class="first">Create a type 82 partition</p>
+</li>
+<li><p class="first">Initialize as swap with <tt class="docutils literal"><span class="pre">mkswap</span> <span class="pre">/dev/&lt;partition&gt;</span></tt></p>
+</li>
+<li><p class="first">Identify the UUID with <tt class="docutils literal"><span class="pre">blkid</span></tt></p>
+</li>
+<li><p class="first">Add an <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> line:</p>
+<pre class="literal-block">
+UUID=&lt;UUID&gt; swap swap defaults 0 0
+</pre>
+</li>
+<li><p class="first">Activate the new swap space with: <tt class="docutils literal"><span class="pre">swapon</span> <span class="pre">-a</span></tt></p>
+</li>
+</ul>
+</div>
+<div class="section" id="local-storage-using-a-file-for-swap">
+<h2><a class="toc-backref" href="#id53">Local Storage: Using a file for SWAP</a></h2>
+<p>Overview of process for adding SWAP space using a file:</p>
+<ul>
+<li><p class="first">create a pre-allocated file of the desired size:</p>
+<pre class="literal-block">
+dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
+</pre>
+</li>
+<li><p class="first">Initialize as swap with <tt class="docutils literal"><span class="pre">mkswap</span> <span class="pre">/path/to/&lt;swapfile&gt;</span></tt></p>
+</li>
+<li><p class="first">Add an <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> line:</p>
+<pre class="literal-block">
+/path/to/&lt;swapfile&gt; swap swap defaults 0 0
+</pre>
+</li>
+<li><p class="first">Activate the new swap space with: <tt class="docutils literal"><span class="pre">swapon</span> <span class="pre">-a</span></tt></p>
+</li>
+</ul>
+</div>
+<div class="section" id="local-storage-using-uuids-and-filesystem-labels">
+<h2><a class="toc-backref" href="#id54">Local Storage: Using UUIDs and Filesystem Labels</a></h2>
+<p>Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label</p>
+</div>
+<div class="section" id="local-storage-adding-new-storage">
+<h2><a class="toc-backref" href="#id55">Local Storage: Adding New Storage</a></h2>
+<p>Add new partitions, logical volumes, and swap to a system non-destructively</p>
+</div>
+<div class="section" id="file-systems-working-with-common-linux-filesystems">
+<h2><a class="toc-backref" href="#id56">File systems: Working with Common Linux Filesystems</a></h2>
+<p>Create, mount, unmount and use ext2, ext3 and ext4 file systems</p>
+<p>Extend existing unencrypted ext4-formatted logical volumes</p>
+</div>
+<div class="section" id="filesystem-permissions-basic-permissions">
+<h2><a class="toc-backref" href="#id57">Filesystem Permissions: Basic Permissions</a></h2>
+<p>Linux permissions are organized around:</p>
+<ul class="simple">
+<li>Three sets of permissions -- User, Group, and Other</li>
+<li>Three types of permissions -- Read, Write, and Execute</li>
+<li>Three extended attributes -- SUID, SGID, and Stickybit</li>
+</ul>
+</div>
+<div class="section" id="three-sets-of-permissions">
+<h2><a class="toc-backref" href="#id58">Three Sets of Permissions:</a></h2>
+<p>Any given file or directory can be owned by one (and only one) user and one (and only one) group. Three different sets of permissions can be assigned.</p>
+<ul class="simple">
+<li>User -- User permissions apply to the individual user who owns the file or directory.</li>
+<li>Group -- Group permissions apply to any user who is a member of the group that owns the file or directory.</li>
+<li>Other -- Other permissions apply to any user account with access to the system that does not fall into the previous categories.</li>
+</ul>
+</div>
+<div class="section" id="three-types-of-permissions">
+<h2><a class="toc-backref" href="#id59">Three Types of Permissions:</a></h2>
+<ul>
+<li><p class="first">Read (&quot;r&quot;)</p>
+<blockquote>
+<ul class="simple">
+<li>On a file, allows reading</li>
+<li>On a directory, allows listing</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Write (&quot;w&quot;)</p>
+<blockquote>
+<ul class="simple">
+<li>On a file, allows editing</li>
+<li>On a directory, allows creation and deletion of files</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Execute (&quot;x&quot;)</p>
+<blockquote>
+<ul class="simple">
+<li>On a file, allows execution if the file is otherwise executable (script or binary)</li>
+<li>On a directory, allows entry or traversal (<tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">{dirname}</span></tt>)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="three-extended-attributes">
+<h2><a class="toc-backref" href="#id60">Three Extended Attributes:</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>SUID (Set User ID)</dt>
+<dd><p class="first last">On an executable, runs a process under the UID of the file owner rather than that of the user executing it.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SGID (Set Group ID)</dt>
+<dd><p class="first last">On a directory, causes any files created in the directory to belong to the group owning the directory.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&quot;Stickybit&quot;</dt>
+<dd><p class="first last">On a directory, ensures that only the owner of a file or the owner of the directory can delete it, even if all users or other members of a group have write access to the directory.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="viewing-permissions">
+<h2><a class="toc-backref" href="#id61">Viewing Permissions</a></h2>
+<p>Permissions are displayed with positions 2-10 of a &quot;long&quot; filelisting:</p>
+<blockquote>
+<img alt="images/permblock.gif" src="images/permblock.gif" style="width: 40%;" />
+</blockquote>
+</div>
+<div class="section" id="setting-permissions">
+<h2><a class="toc-backref" href="#id62">Setting Permissions</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">chmod</span></tt> command is used to set permissions on both files and directories.  It has two modes -- one using symbolic options and one using octal numbers.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[option]</span> <span class="pre">[ugoa...][+-=][rwxst]</span> <span class="pre">filename</span></tt></dt>
+<dd>where ugo are user, group, other, or all and rwxst are read, write, execute, s{u/g}id, stickybit.</dd>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[option]</span> <span class="pre">XXXX</span> <span class="pre">filename</span></tt></dt>
+<dd>where XXXX is a number representing the complete permissions on the file.</dd>
+</dl>
+</div>
+<div class="section" id="setting-permissions-with-numeric-options">
+<h2><a class="toc-backref" href="#id63">Setting Permissions with Numeric Options</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head" colspan="3">User</th>
+<th class="head" colspan="3">Group</th>
+<th class="head" colspan="3">Other</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Permissions</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+</tr>
+<tr><td>Numeric Value</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr><td>Sum</td>
+<td colspan="3">0-7</td>
+<td colspan="3">0-7</td>
+<td colspan="3">0-7</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">example.txt</th>
+<th class="head" colspan="3">User</th>
+<th class="head" colspan="3">Group</th>
+<th class="head" colspan="3">Other</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Permissions</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>-</td>
+<td>x</td>
+<td>-</td>
+<td>-</td>
+<td>x</td>
+</tr>
+<tr><td>Numeric Value</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr><td>Sum</td>
+<td colspan="3">7</td>
+<td colspan="3">5</td>
+<td colspan="3">1</td>
+</tr>
+</tbody>
+</table>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">chmod</span> <span class="pre">751</span> <span class="pre">myfile.txt</span></tt></p>
+</div>
+<div class="section" id="setting-extended-attributes-with-numeric-options">
+<h2><a class="toc-backref" href="#id64">Setting Extended Attributes with Numeric Options</a></h2>
+<p>chmod numeric options are actually 4 digits (not three).  Missing digits are assumed to be leading zeroes.</p>
+<p>The leftmost place is for extended attributes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="19%" />
+<col width="19%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Attribute</th>
+<th class="head">SUID</th>
+<th class="head">SGID</th>
+<th class="head">Stickybit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Value</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong> <tt class="docutils literal"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">3775</span> <span class="pre">MySharedDir</span></tt></p>
+</div>
+<div class="section" id="setting-extended-attributes-with-symbolic-values">
+<h2><a class="toc-backref" href="#id65">Setting Extended Attributes with Symbolic Values:</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">+t</span> <span class="pre">{filename}</span></tt></dt>
+<dd>Sets the sticky bit</dd>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">u+s</span> <span class="pre">{filename}</span></tt></dt>
+<dd>Sets suid</dd>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">g+s</span> <span class="pre">{filename}</span></tt></dt>
+<dd>Sets sgid</dd>
+</dl>
+</div>
+<div class="section" id="extended-attributes-in-directory-listings">
+<h2><a class="toc-backref" href="#id66">Extended Attributes in Directory Listings</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>-rwxrwxrwx</td>
+<td>Normal Permissions, All permissions granted</td>
+</tr>
+<tr><td>-rwSrwxrwx</td>
+<td>Indicates SUID set</td>
+</tr>
+<tr><td>-rwsrwxrwx</td>
+<td>Indicates SUID and execute permission set</td>
+</tr>
+<tr><td>-rwxrwSrwx</td>
+<td>Indicates SGID set</td>
+</tr>
+<tr><td>-rwxrwsrwx</td>
+<td>Indicates SGID and execute permission set</td>
+</tr>
+<tr><td>-rwxrwxrwT</td>
+<td>Indicates Stickybit set</td>
+</tr>
+<tr><td>-rwxrwxrwt</td>
+<td>Indicates Stickybit and execute permission set</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="umask">
+<h2><a class="toc-backref" href="#id67">Umask</a></h2>
+<ul class="simple">
+<li>The umask value determines the permissions that will be applied to newly created files and directories.</li>
+<li>As a &quot;mask&quot; it is subtractive -- representing the value of the permissions you DO NOT want to grant.</li>
+<li>Execute rights are automatically withheld (w/o regard for the umask) for <em>files</em> but not for <em>directories</em>.</li>
+<li>Extended attributes are not addressed -- even though a umask is four characters.</li>
+<li>The default umask value is set in /etc/bashrc and can be modified (non-persistently!) with the bash built-in command <tt class="docutils literal"><span class="pre">umask</span></tt>.</li>
+</ul>
+</div>
+<div class="section" id="umask-examples">
+<h2><a class="toc-backref" href="#id68">Umask Examples</a></h2>
+<ul class="simple">
+<li>Umask of 0002 yields permissions of 0775 on new directories and 0664 on new files</li>
+<li>Umask of 0022 yields permissions of 0755 on new directories and 0644 on new files</li>
+</ul>
+</div>
+<div class="section" id="filesystem-permissions-use-case-collaborative-directories">
+<h2><a class="toc-backref" href="#id69">Filesystem Permissions: Use case -- Collaborative Directories</a></h2>
+<ul class="simple">
+<li>Create a Group for Collaboration</li>
+<li>Add users to the group</li>
+<li>Create a directory for collaboration</li>
+<li>Set its group ownership to the intended group</li>
+<li>Set its group permissions appropriately</li>
+<li>Recursively set the SGID and sticky bits on the directory</li>
+</ul>
+<p>This ensures that:</p>
+<blockquote>
+<p># All files created in this directory will be owned by the intended group (SGID effect)</p>
+<p># All files created in this directory can only be deleted by the user who owns the file or the user who owns the directory (stickybit effect)</p>
+</blockquote>
+</div>
+<div class="section" id="filesystems-permissions-file-access-control-lists">
+<h2><a class="toc-backref" href="#id70">Filesystems Permissions: File Access Control Lists</a></h2>
+<ul class="simple">
+<li>Provide more granular control of permissions.</li>
+<li>Filesystem must be mounted with the 'acl' option or be compiled with that option by default</li>
+</ul>
+<p>getfacl</p>
+<p>setfacl</p>
+</div>
+<div class="section" id="getfacl">
+<h2><a class="toc-backref" href="#id71">getfacl</a></h2>
+<p>Example of &quot;getfacl acldir&quot;</p>
+<pre class="literal-block">
+# file: acldir
+# owner: frank
+# group: frank
+user::rwx
+user:bob:-wx
+user:mary:rw-
+group::rwx
+mask::rwx
+other::r-x
+</pre>
+<p>Example of <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">acldir</span></tt>:</p>
+<pre class="literal-block">
+drwxrwxr-x+ 2 frank frank 4096 2009-05-27 14:15 acldir
+</pre>
+<p>..Create and manage File Access Control Lists</p>
+</div>
+<div class="section" id="network-storage-working-with-cifs-network-file-systems">
+<h2><a class="toc-backref" href="#id72">Network Storage: Working with CIFS network file systems</a></h2>
+<p>Will be covered in more detail later.</p>
+<p>Mount and unmount CIFS network file systems</p>
+</div>
+<div class="section" id="network-storage-working-with-nfs-file-systems">
+<h2><a class="toc-backref" href="#id73">Network Storage: Working with NFS file systems</a></h2>
+<p>Mount and unmount NFS file systems</p>
+</div>
+<div class="section" id="network-storage-iscsi-devices">
+<h2><a class="toc-backref" href="#id74">Network Storage: iSCSI Devices</a></h2>
+<p>Package: iscsi-initiator-utils</p>
+<p>Allows a system to access remote storage devices with SCSI commands as though it were a local hard disk.</p>
+<p>Terms:</p>
+<ul class="simple">
+<li>iSCSI initiator: A client requesting access to storage</li>
+<li>iSCSI target: Remote storage device presented from an iSCSI server or &quot;target portal&quot;</li>
+<li>iSCSI target portal: A server providing targets to the initiator</li>
+<li>IQN: &quot;iSCSI Qualified Name&quot; -- a unique name.  Both the initiator and target need such a name to be assigned</li>
+</ul>
+</div>
+<div class="section" id="network-storage-accessing-iscsi-devices">
+<h2><a class="toc-backref" href="#id75">Network Storage: Accessing iSCSI Devices</a></h2>
+<ul>
+<li><p class="first">Install the iscsi-initiator-utils package</p>
+</li>
+<li><p class="first">Start the <tt class="docutils literal"><span class="pre">iscsi</span></tt> and <tt class="docutils literal"><span class="pre">iscsid</span></tt> services (and configure them persistently on)</p>
+</li>
+<li><p class="first">Set the initiator IQN in /etc/iscsi/initiatorname.iscsi</p>
+</li>
+<li><p class="first">Discover targets with:</p>
+<pre class="literal-block">
+iscsiadm -m discovery -t st-p &lt;targetportal IP address&gt;
+</pre>
+</li>
+<li><p class="first">Log in to the target using the name displayed in discovery:</p>
+<pre class="literal-block">
+iscsiadm -m mode -T &lt;discovered IQN&gt; -p &lt;targetportal IP address&gt; -l
+</pre>
+</li>
+<li><p class="first">Identify the SCSI device name with <tt class="docutils literal"><span class="pre">dmesg</span></tt>, <tt class="docutils literal"><span class="pre">tail</span> <span class="pre">/var/log/messages</span></tt> or <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/dev/disk/by-path/*iscsi*</span></tt></p>
+</li>
+<li><p class="first">Use the disk as though it were a local hard disk</p>
+</li>
+</ul>
+<div class="important">
+<p class="first admonition-title">Important</p>
+<p class="last">Be certain to use UUIDs or labels for persistent mounts in <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt>.  Also, provide <tt class="docutils literal"><span class="pre">_netdev</span></tt> as a mount option so that this device will not be mounted until the network is already up.</p>
+</div>
+<!-- Configure a system as an iSCSI initiator that persistently mounts an iSCSI target -->
+</div>
+<div class="section" id="network-storage-disconnecting-from-iscsi-devices">
+<h2><a class="toc-backref" href="#id76">Network Storage: Disconnecting from iSCSI Devices</a></h2>
+<ul>
+<li><p class="first">Ensure the device is not in use</p>
+</li>
+<li><p class="first">Unmount the device</p>
+</li>
+<li><p class="first">Remove its <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> entry</p>
+</li>
+<li><p class="first">Logout from the target:</p>
+<pre class="literal-block">
+iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP&gt; -u
+</pre>
+</li>
+<li><p class="first">Delete the local record:</p>
+<pre class="literal-block">
+iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP&gt; -o delete
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="additional-references">
+<h2><a class="toc-backref" href="#id77">Additional References</a></h2>
+<ul class="simple">
+<li>Chapter 4 of the Storage Administration Guide for RHEL6 (<a class="reference external" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/index.html">http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/index.html</a>) covers the usage of parted.</li>
+<li>Man pages for fdisk(8), fstab(5), mkfs(8), blkid(8), partprobe(8), mount(8), parted(8), cryptsetup(8), and crypttab(5)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="session-3-managing-software-processes-kernel-attributes-and-users-and-groups">
+<h1><a class="toc-backref" href="#id78">Session 3 Managing software, processes, kernel attributes, and users and groups</a></h1>
+<div class="section" id="managing-software-rhn">
+<h2><a class="toc-backref" href="#id79">Managing Software: RHN</a></h2>
+<p>The primary delivery mechanism for installable software, updates, errata and bug fixes and systems management functions for an installation of RHEL 6 is the Red Hat Network or RHN.</p>
+<p>The &quot;cost&quot; of RHEL 6 is really a subscription to this support network.</p>
+<p>These commands are using in managing an RHN subscription:</p>
+<pre class="literal-block">
+# man -k rhn
+rhn-profile-sync     (8)  - Update system information on Red Hat Network
+rhn_check            (8)  - Check for and execute queued actions on RHN
+rhn_register         (8)  - Connect to Red Hat Network
+rhnplugin            (8)  - Red Hat Network support for yum(8)
+rhnplugin.conf [rhnplugin] (5)  - Configuration file for the rhnplugin(8) yum(8) plugin
+rhnreg_ks            (8)  - A program for non interactively registering systems to Red Hat Network
+rhnsd                (8)  - A program for querying the Red Hat Network for updates and information
+</pre>
+</div>
+<div class="section" id="managing-software-rhn-subscription-activation">
+<h2><a class="toc-backref" href="#id80">Managing Software: RHN Subscription Activation</a></h2>
+<p>A new user of RHEL6 should receive information similar to this:</p>
+<pre class="literal-block">
+Red Hat subscription login:
+    Account Number       : *******
+    Contract Number      : *******
+    Item Description     : Red Hat Enterprise Linux ***Edition***
+    RHEL Subscription Number : *******************
+    Quantity             : #
+    Service Dates        : 12-JUN-10 through 11-JUN-11
+    Customer Name : *********************************
+    Account Number: ************
+    Log into the new portal here: access.redhat.com
+    Login: *************
+    Password: **************
+    Email address: ****************************
+</pre>
+<p>That information can then be used with <tt class="docutils literal"><span class="pre">rhn_register</span></tt> to activate a new subscription</p>
+</div>
+<div class="section" id="managing-software-repositories">
+<h2><a class="toc-backref" href="#id81">Managing Software: Repositories</a></h2>
+<p>These are other repositories of installable software, updates, or bugfixes.  The <tt class="docutils literal"><span class="pre">yum</span></tt> command can be configured to use them in addition to or instead of the RHN.</p>
+<p>Configuration of repositories other than the RHN is accomplished through text configuration files located in the directory: <tt class="docutils literal"><span class="pre">/etc/yum.repos.d/</span></tt></p>
+</div>
+<div class="section" id="managing-software-repo-configuration">
+<h2><a class="toc-backref" href="#id82">Managing Software: Repo Configuration</a></h2>
+<ul>
+<li><p class="first">A configuration file for each repository (or group of related repos) should be created in <tt class="docutils literal"><span class="pre">/etc/yum.repos.d/</span></tt></p>
+</li>
+<li><p class="first">The name of each repo config file should end in &quot;.repo&quot;.</p>
+<blockquote>
+<ul class="simple">
+<li>Tip:  This allows repos to be easily temporarily disabled simply by renaming the file to something like: <tt class="docutils literal"><span class="pre">myrepo.repo.disabled</span></tt></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>Mandatory options:</p>
+<pre class="literal-block">
+[repositoryid]
+name=Some name for this repository
+baseurl=url://path/to/repository/
+</pre>
+<p>Related man pages:</p>
+<pre class="literal-block">
+# man -k yum
+qreposync             (1)  - synchronize yum repositories to a local directory
+rhnplugin            (8)  - Red Hat Network support for yum(8)
+rhnplugin.conf [rhnplugin] (5)  - Configuration file for the rhnplugin(8) yum(8) plugin
+yum                  (8)  - Yellowdog Updater Modified
+yum [yum-shell]      (8)  - Yellowdog Updater Modified shell
+yum-groups-manager   (1)  - create and edit yum's group metadata
+yum-utils            (1)  - tools for manipulating repositories and extended package management
+yum.conf [yum]       (5)  - Configuration file for yum(8)
+</pre>
+</div>
+<div class="section" id="managing-software-using-yum">
+<h2><a class="toc-backref" href="#id83">Managing Software: Using yum</a></h2>
+<p>Commond commands:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">help</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">list</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">search</span> <span class="pre">KEYWORD</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">info</span> <span class="pre">PACKAGENAME</span></tt></li>
+</ul>
+</div>
+<div class="section" id="managing-software-using-rpm">
+<h2><a class="toc-backref" href="#id84">Managing Software: Using rpm</a></h2>
+<!-- + Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem -->
+</div>
+<div class="section" id="managing-software-building-rpms">
+<h2><a class="toc-backref" href="#id85">Managing Software:  Building RPMs</a></h2>
+<!-- + Build a simple RPM that packages a single file -->
+</div>
+<div class="section" id="managing-software-signing-and-publishing-rpms">
+<h2><a class="toc-backref" href="#id86">Managing Software:  Signing and Publishing RPMs</a></h2>
+</div>
+<div class="section" id="managing-software-updating-the-kernel-package">
+<h2><a class="toc-backref" href="#id87">Managing Software:  Updating the kernel package</a></h2>
+</div>
+<div class="section" id="manage-processes-and-services-configure-network-services-to-start-automatically-at-boot">
+<h2><a class="toc-backref" href="#id88">Manage Processes and Services: Configure network services to start automatically at boot</a></h2>
+</div>
+<div class="section" id="manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically">
+<h2><a class="toc-backref" href="#id89">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
+</div>
+<div class="section" id="manage-processes-and-services-monitoring-prioritizing-and-controlling-processes">
+<h2><a class="toc-backref" href="#id90">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></h2>
+<!-- Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes -->
+</div>
+<div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
+<h2><a class="toc-backref" href="#id91">Manage Processes and Services: Schedule tasks using cron</a></h2>
+</div>
+<div class="section" id="manage-system-performance">
+<h2><a class="toc-backref" href="#id92">Manage system performance</a></h2>
+<ul class="simple">
+<li>Use /proc/sys and sysctl to modify and set kernel run-time parameters</li>
+<li>Produce and deliver reports on system utilization (processor, memory, disk, and network)</li>
+<li>Use shell scripting to automate system maintenance tasks</li>
+</ul>
+</div>
+<div class="section" id="manage-users-and-groups">
+<h2><a class="toc-backref" href="#id93">Manage Users and Groups</a></h2>
+<ul class="simple">
+<li>Create, delete, and modify local user accounts</li>
+<li>Change passwords and adjust password aging for local user accounts</li>
+<li>Create, delete and modify local groups and group memberships</li>
+<li>Configure a system to use an existing LDAP directory service for user and group information</li>
+<li>Configure system to authenticate using Kerberos</li>
+</ul>
+</div>
+</div>
+<div class="section" id="session-4-networking-and-routing">
+<h1><a class="toc-backref" href="#id94">Session 4 Networking and routing</a></h1>
+<p>o Networking &amp; Routing
++ *  Configure networking and hostname resolution statically or dynamically
++ *  Route IP traffic and create static routes</p>
+</div>
+<div class="section" id="session-5-firewalls-and-selinux">
+<h1><a class="toc-backref" href="#id95">Session 5 Firewalls and SELinux</a></h1>
+<p>o IPTables
++ * Configure firewall settings using system-config-firewall or iptables
+o SELinux
++ * Set enforcing and permissive modes for SELinux
++ * List and identify SELinux file and process context
++ * Restore default file contexts
++ * Use boolean settings to modify system SELinux settings
++ * Diagnose and address routine SELinux policy violations</p>
+</div>
+<div class="section" id="session-6-virtualization">
+<h1><a class="toc-backref" href="#id96">Session 6 Virtualization</a></h1>
+<p>o KVM Virtualization
++ * Configure a physical machine to host virtual guests
++ * Install Red Hat Enterprise Linux systems as virtual guests
++ * Configure systems to launch virtual machines at boot
++ * Install Red Hat Enterprise Linux automatically using Kickstart</p>
+</div>
+<div class="section" id="session-7-logging-and-remote-access">
+<h1><a class="toc-backref" href="#id97">Session 7 Logging and remote access</a></h1>
+<p>o + - Remote Logging
++ * Configure a system to log to a remote system
++ * Configure a system to accept logging from a remote system
+o + - Remote Access
++ SSH
+# * Install the packages needed to provide the service
+# * Configure SELinux to support the service
+# * Configure the service to start when the system is booted
+# * Configure the service for basic operation
+# * Configure host-based and user-based security for the service
+# * Configure key-based authentication
+# * Configure additional SSH options described in documentation
++ VNC
+# * Install the packages needed to provide the service
+# * Configure SELinux to support the service
+# * Configure the service to start when the system is booted
+# * Configure the service for basic operation
+# * Configure host-based and user-based security for the service</p>
+</div>
+<div class="section" id="session-8-network-time-protocol">
+<h1><a class="toc-backref" href="#id98">Session 8 Network Time Protocol</a></h1>
+<p>o NTP
++ * Install the packages needed to provide the service
++ * Configure SELinux to support the service
++ * Configure the service to start when the system is booted
++ * Configure the service for basic operation
++ * Configure host-based and user-based security for the service</p>
+</div>
+<div class="section" id="session-9-http-and-ftp">
+<h1><a class="toc-backref" href="#id99">Session 9 HTTP and FTP</a></h1>
+</div>
+<div class="section" id="session-10-nfs-and-samba">
+<h1><a class="toc-backref" href="#id100">Session 10 NFS and Samba</a></h1>
+</div>
+<div class="section" id="session-11-dns-and-smtp">
+<h1><a class="toc-backref" href="#id101">Session 11 DNS and SMTP</a></h1>
+</div>
+<div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
+<h1><a class="toc-backref" href="#id102">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Copyright © 2011, Scott Purcell, CC BY-NC-SA 3.0
+</div>
+</body>
+</html>
