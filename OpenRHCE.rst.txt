@@ -436,7 +436,7 @@ Session 2 Storage and filesystems
 
 Several meanings for the term:
 
-.. class:: incremental
+
 
 * The way files are physically written to storage devices, as in  the ext3, Fat-32, NTFS filesystems, or etc.
 
@@ -517,10 +517,92 @@ Overview of process for using Logical Volume Management:
 
 .. Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
 
+Local Storage: Commands to Know
+---------------------------------------
+
+fdisk
+
+* Always use -u and -c for best compatibility with newer storage devices
+* Can't create partitions >= 2TB, use parted with GPT instead
+
+mkfs
+
+* Used to create filesystems on devices
+* Front-end for other filesystem-specific tools (usually named mkfs.<fstype>)
+
+blkid
+
+* Shows device name, Fileystem Labels, and UUID of detected block devices.
+* May not show block devices until a filesystem is created on them.
+* May not show block devices used in non-standard ways (for example, a filesystem on a whole disk instead of on a partition)
+
+mount
+
+* used to make a new filesystem available 
+
+
 Local Storage: Working with LUKS encrypted storage
 -----------------------------------------------------
 
-Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
+
+Overview of process for using LUKS encryption:
+
+* Create a new partition
+* Encrypt it with ``cryptsetup luksFormat /dev/<partition>``
+* Open the encrypted device and assign it a name with ``cryptsetup luksOpen /dev/<partition> <name>``
+* Create a filesystem on the named device (/dev/mapper/<name>)
+* Create a mountpoint for the device
+* Mount the device
+
+To lock the volume:
+
+* unmount it
+* Use ``cryptsetup luksClose <name>`` to remove the decryption mapping
+
+Local Storage: Persistent mounting of LUKS devices
+------------------------------------------------------
+
+To persistently mount it:
+
+* Create an entry in /etc/crypttab::
+
+    <name> /dev/<partition> <password (none|<blank>|<path/to/file/with/password>)>
+
+* If the password field is "none" or left blank, the system will prompt for a password.
+
+* Create an entry in /etc/fstab
+
+.. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
+
+Local Storage: Working with SWAP
+--------------------------------------
+
+Overview of process for adding SWAP space using a partition:
+
+* Create a type 82 partition
+* Initialize as swap with ``mkswap /dev/<partition>``
+* Identify the UUID with ``blkid``
+* Add an ``/etc/fstab`` line::
+
+     UUID=<UUID> swap swap defaults 0 0
+
+* Activate the new swap space with: ``swapon -a``
+
+Local Storage: Using a file for SWAP 
+-----------------------------------------
+
+Overview of process for adding SWAP space using a file:
+
+* create a pre-allocated file of the desired size::
+
+    dd if=/dev/zero of=/path/to/<swapfile> bs=1M count=<size in MB>
+
+* Initialize as swap with ``mkswap /path/to/<swapfile>``
+* Add an ``/etc/fstab`` line:: 
+
+    /path/to/<swapfile> swap swap defaults 0 0
+    
+* Activate the new swap space with: ``swapon -a``
 
 Local Storage: Using UUIDs and Filesystem Labels
 ------------------------------------------------------
@@ -614,17 +696,17 @@ Three Types of Permissions:
 Three Extended Attributes:
 ---------------------------------
 
-.. class:: incremental
+
 
 * SUID (Set User ID) 
         On an executable, runs a process under the UID of the file owner rather than that of the user executing it. 
 
-.. class:: incremental
+
 
 * SGID (Set Group ID)
         On a directory, causes any files created in the directory to belong to the group owning the directory.
 
-.. class:: incremental
+
 
 * "Stickybit"  
         On a directory, ensures that only the owner of a file or the owner of the directory can delete it, even if all users or other members of a group have write access to the directory.
@@ -637,7 +719,7 @@ Viewing Permissions
 
 Permissions are displayed with positions 2-10 of a "long" filelisting:
 
-	.. image:: images/permblock.png
+	.. image:: images/permblock.gif
 		:width: 40%
 
 
@@ -648,12 +730,12 @@ Setting Permissions
 
 The ``chmod`` command is used to set permissions on both files and directories.  It has two modes -- one using symbolic options and one using octal numbers.
 
-.. class:: incremental
+
 
 ``chmod [option] [ugoa...][+-=][rwxst] filename``
 	where ugo are user, group, other, or all and rwxst are read, write, execute, s{u/g}id, stickybit.
 
-.. class:: incremental
+
 
 ``chmod [option] XXXX filename``
 	where XXXX is a number representing the complete permissions on the file.
@@ -663,7 +745,7 @@ The ``chmod`` command is used to set permissions on both files and directories. 
 Setting Permissions with Numeric Options
 -------------------------------------------------
 
-.. class:: incremental
+
 
 +--------------+-----------+-----------+-----------+
 |              | User      |  Group    | Other     |
@@ -675,7 +757,7 @@ Setting Permissions with Numeric Options
 |Sum           |   0-7     |    0-7    |     0-7   |
 +--------------+-----------+-----------+-----------+
 
-.. class:: incremental
+
 
 +--------------+-----------+-----------+-----------+
 | example.txt  | User      |  Group    | Other     |
@@ -687,7 +769,7 @@ Setting Permissions with Numeric Options
 |Sum           |     7     |    5      |     1     |
 +--------------+-----------+-----------+-----------+
 
-.. class:: incremental
+
 
 ``# chmod 751 myfile.txt``
 
@@ -695,15 +777,15 @@ Setting Permissions with Numeric Options
 Setting Extended Attributes with Numeric Option
 ==================================================
 
-.. class:: incremental
+
 
 chmod numeric options are actually 4 digits (not three).  Missing digits are assumed to be leading zeroes. 
 
-.. class:: incremental
+
 
 The leftmost place is for extended attributes:
 
-.. class:: incremental
+
 
 
 +-----------+-------+-------+-----------+
@@ -712,7 +794,7 @@ The leftmost place is for extended attributes:
 | Value     | 4     | 2     | 1         |
 +-----------+-------+-------+-----------+
 
-.. class:: incremental
+
 
 **Example:** ``$ chmod 3775 MySharedDir``
 
@@ -781,7 +863,38 @@ Filesystem Permissions: Use case -- Collaborative Directories
 Filesystems Permissions: File Access Control Lists
 --------------------------------------------------------
 
-Create and manage File Access Control Lists
+
+* Provide more granular control of permissions.
+
+* Filesystem must be mounted with the 'acl' option or be compiled with that option by default
+
+getfacl
+
+setfacl
+
+
+
+getfacl
+=================
+
+Example of "getfacl acldir"
+::
+
+  # file: acldir
+  # owner: frank
+  # group: frank
+  user::rwx
+  user:bob:-wx
+  user:mary:rw-
+  group::rwx
+  mask::rwx
+  other::r-x
+
+Example of "ls -l acldir"
+  drwxrwxr-x+ 2 frank frank 4096 2009-05-27 14:15 acldir
+
+
+..Create and manage File Access Control Lists
 
 
 Network Storage: Working with CIFS network file systems
@@ -795,10 +908,65 @@ Network Storage: Working with NFS file systems
 Mount and unmount NFS file systems
 
 
-Network Storage: Working with iSCSI devices
+Network Storage: iSCSI Devices
 -------------------------------------------------------------------------
 
-Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
+Package: iscsi-initiator-utils
+
+Allows a system to access remote storage devices with SCSI commands as though it were a local hard disk.
+
+Terms:
+
+* iSCSI initiator: A client requesting access to storage
+* iSCSI target: Remote storage device presented from an iSCSI server or "target portal"
+* iSCSI target portal: A server providing targets to the initiator
+* IQN: "iSCSI Qualified Name" -- a unique name.  Both the initiator and target need such a name to be assigned
+
+
+Network Storage: Accessing iSCSI Devices
+------------------------------------------------
+
+* Install the iscsi-initiator-utils package
+* Start the ``iscsi`` and ``iscsid`` services (and configure them persistently on)
+* Set the initiator IQN in /etc/iscsi/initiatorname.iscsi
+* Discover targets with::
+
+    iscsiadm -m discovery -t st-p <targetportal IP address>
+
+* Log in to the target using the name displayed in discovery::
+
+    iscsiadm -m mode -T <discovered IQN> -p <targetportal IP address> -l
+
+* Identify the SCSI device name with ``dmesg``, ``tail /var/log/messages`` or ``ls -l /dev/disk/by-path/*iscsi*``
+
+* Use the disk as though it were a local hard disk
+
+.. important::
+
+    Be certain to use UUIDs or labels for persistent mounts in ``/etc/fstab``.  Also, provide ``_netdev`` as a mount option so that this device will not be mounted until the network is already up.
+.. Configure a system as an iSCSI initiator that persistently mounts an iSCSI target
+
+Network Storage: Disconnecting from iSCSI Devices
+------------------------------------------------------
+
+* Ensure the device is not in use
+* Unmount the device
+* Remove its ``/etc/fstab`` entry
+* Logout from the target::
+
+    iscsiadm -m node -T <IQN> -p <portal IP> -u
+
+* Delete the local record::
+
+    iscsiadm -m node -T <IQN> -p <portal IP> -o delete
+    
+
+Additional References
+-------------------------
+
+* Chapter 4 of the Storage Administration Guide for RHEL6 (http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/index.html) covers the usage of parted.
+
+* Man pages for fdisk(8), fstab(5), mkfs(8), blkid(8), partprobe(8), mount(8), parted(8), cryptsetup(8), and crypttab(5)
 
 
 Session 3 Managing software, processes, kernel attributes, and users and groups
