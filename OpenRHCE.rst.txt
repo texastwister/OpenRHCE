@@ -517,6 +517,18 @@ Overview of process for using Logical Volume Management:
 
 .. Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes
 
+
+Removing Logical Volume structures
+----------------------------------------
+
+* Unmount the lv you want to remove
+* Edit /etc/fstab to remove its entry
+* lvremove /dev/<vg>/<lv>
+* Before removing a VG, ensure there are no more LVs within it.
+vgremove /dev/testvg
+pvremove /dev/vd{b..d}1
+
+
 Local Storage: Commands to Know
 ---------------------------------------
 
@@ -544,6 +556,7 @@ mount
 Local Storage: Working with LUKS encrypted storage
 -----------------------------------------------------
 
+cryptsetup-luks-1.1.2-2.el6.x86_64
 
 Overview of process for using LUKS encryption:
 
@@ -571,6 +584,10 @@ To persistently mount it:
     * If the password field is "none" or left blank, the system will prompt for a password.
 
     * Create an entry in /etc/fstab
+
+.. note::
+
+	At reboot, the password prompt goes only to the default console.  If console redirection is enabled, as it might be in the case of enabling a virtual machine to accessible through ``virsh console <name>``, then the only place where the prompt is seen and the passphrase can be entered is at that redirected console.
 
 .. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
 

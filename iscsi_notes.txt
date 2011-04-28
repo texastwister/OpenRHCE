@@ -19,3 +19,23 @@ chkconfig tgtd on
 [root@AVCT-iSCSI ~]# tgtadm --lld iscsi --op bind --mode target --tid 1 -I 172.30.30.201
 
 [root@AVCT-iSCSI ~]# tgtadm --lld iscsi --op show --mode target
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
