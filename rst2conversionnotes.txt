@@ -19,7 +19,6 @@ DSTNAME=${TMPNAME}_slides.pdf
 rst2pdf  "${SRCNAME}" -b3 -s slides.style -o "${DSTNAME}" 
 
 
-
 #!/bin/bash
 
 SRCNAME=$GEDIT_CURRENT_DOCUMENT_PATH

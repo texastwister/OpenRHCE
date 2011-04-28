@@ -356,7 +356,7 @@ ____________
     * Configure host-based and user-based security for the service
     * Synchronize time using other NTP peers
 
-Operating a System: Boot, Reboot, Shutdown
+Boot, Reboot, Shutdown
 ---------------------------------------------
 
 * GRUB Menu
@@ -364,20 +364,20 @@ Operating a System: Boot, Reboot, Shutdown
 * Gnome or KDE
 * Terminal commands: shutdown, halt, poweroff, reboot, init
 
-Operating a System: Runlevels
+Runlevels
 --------------------------------
 
 * Default
 * From GRUB Menu
 
-Operating a System: Single User Mode
+Single User Mode
 ---------------------------------------
 
 * Password Recovery
 
 Note:  SELinux bug prevents password changes while set to "Enforcing".
 
-Operating a System: Log Files
+Log Files
 ------------------------------------
 
 ``/var/log/*``
@@ -386,7 +386,7 @@ View with ``cat``, ``less`` or other tools
 
 Search with ``grep``
 
-Operating a System: Start/Stop Virtual Machines
+Start/Stop Virtual Machines
 --------------------------------------------------
 
 * Using virt-manager
@@ -395,7 +395,7 @@ Operating a System: Start/Stop Virtual Machines
 
 
 
-Operating a System: Virtual Machine Consoles
+Virtual Machine Consoles
 --------------------------------------------------
 
 * virt-manager
@@ -403,7 +403,7 @@ Operating a System: Virtual Machine Consoles
 * virt-viewer
 
 
-Operating a System: Virtual Machine Text Console
+Virtual Machine Text Console
 ------------------------------------------------------
 
 With libguestfs-tools installed and the VM in question shut-down, from the host::
@@ -418,13 +418,18 @@ After saving, the following commands should allow a console based view of the bo
 
     # virsh start {VMname} ; virsh console {VMname} 
 
+Virtual Machine Text Console Caveat
+----------------------------------------
 
-Operating a System: Start, stop, and check the status of network services
+    After this change, some messages that appear only on the default console will be visible only here.  For example, the passphrase prompt to decrypt LUKS-encrypted partitions mounted in /etc/fstab will not be visible when using virt-viewer and the vm will appear to be hung.  Only by using virsh console can the passphrase be entered to allow the boot process to continue.
+
+
+Start, stop, and check the status of network services
 ------------------------------------------------------------------------------
 
 
 
-Operating a System: Modify the system bootloader
+Modify the system bootloader
 -----------------------------------------------------
 
 
@@ -523,10 +528,10 @@ Removing Logical Volume structures
 
 * Unmount the lv you want to remove
 * Edit /etc/fstab to remove its entry
-* lvremove /dev/<vg>/<lv>
+* Remove the logical volume: ``lvremove /dev/<vg>/<lv>``
 * Before removing a VG, ensure there are no more LVs within it.
-vgremove /dev/testvg
-pvremove /dev/vd{b..d}1
+* Remove the volume group: ``vgremove /dev/<vg>``
+* Remove the LVM signature from the partitions: ``pvremove /dev/<part>``
 
 
 Local Storage: Commands to Know
@@ -575,19 +580,19 @@ To lock the volume:
 Local Storage: Persistent mounting of LUKS devices
 ------------------------------------------------------
 
-To persistently mount it:
+To persistently mount it
 
-    * Create an entry in /etc/crypttab::
+ * Create an entry in /etc/crypttab::
 
-        <name> /dev/<partition> <password (none|<blank>|<path/to/file/with/password>)>
+    <name> /dev/<partition> <password (none|<blank>|<path/to/file/with/password>)>
 
-    * If the password field is "none" or left blank, the system will prompt for a password.
+ * If the password field is "none" or left blank, the system will prompt for a password.
 
-    * Create an entry in /etc/fstab
+ * Create an entry in /etc/fstab
 
-.. note::
+ .. note::
 
-	At reboot, the password prompt goes only to the default console.  If console redirection is enabled, as it might be in the case of enabling a virtual machine to accessible through ``virsh console <name>``, then the only place where the prompt is seen and the passphrase can be entered is at that redirected console.
+    At reboot, the password prompt goes only to the default console.  If console redirection is enabled, as it might be in the case of enabling a virtual machine to accessible through ``virsh console <name>``, then the only place where the prompt is seen and the passphrase can be entered is at that redirected console.
 
 .. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
 
@@ -726,8 +731,8 @@ Viewing Permissions
 
 Permissions are displayed with positions 2-10 of a "long" filelisting:
 
-	.. image:: images/permblock.gif
-		:width: 40%
+    .. image:: images/permblock.gif
+        :width: 40%
 
 
 
@@ -740,12 +745,12 @@ The ``chmod`` command is used to set permissions on both files and directories. 
 
 
 ``chmod [option] [ugoa...][+-=][rwxst] filename``
-	where ugo are user, group, other, or all and rwxst are read, write, execute, s{u/g}id, stickybit.
+    where ugo are user, group, other, or all and rwxst are read, write, execute, s{u/g}id, stickybit.
 
 
 
 ``chmod [option] XXXX filename``
-	where XXXX is a number representing the complete permissions on the file.
+    where XXXX is a number representing the complete permissions on the file.
 
 
 
@@ -761,7 +766,7 @@ Setting Permissions with Numeric Options
 +--------------+---+---+---+---+---+---+---+---+---+
 |Numeric Value | 4 | 2 | 1 | 4 | 2 | 1 | 4 | 2 | 1 |
 +--------------+---+---+---+---+---+---+---+---+---+
-|Sum           |   0-7     |    0-7    |     0-7   |
+|Sum           |   0-7     |    0-7    |    0-7    |
 +--------------+-----------+-----------+-----------+
 
 
@@ -872,9 +877,9 @@ Filesystem Permissions: Use case -- Collaborative Directories
 
 This ensures that:
 
-    # All files created in this directory will be owned by the intended group (SGID effect)
+    #. All files created in this directory will be owned by the intended group (SGID effect)
 
-    # All files created in this directory can only be deleted by the user who owns the file or the user who owns the directory (stickybit effect)
+    #. All files created in this directory can only be deleted by the user who owns the file or the user who owns the directory (stickybit effect)
     
 
 Filesystems Permissions: File Access Control Lists
@@ -951,9 +956,11 @@ Network Storage: Accessing iSCSI Devices
 * Install the iscsi-initiator-utils package
 * Start the ``iscsi`` and ``iscsid`` services (and configure them persistently on)
 * Set the initiator IQN in /etc/iscsi/initiatorname.iscsi
-* Discover targets with::
+* Discover targets with:
 
-    iscsiadm -m discovery -t st-p <targetportal IP address>
+::
+
+    iscsiadm -m discovery -t st -p <targetportal IP address>
 
 * Log in to the target using the name displayed in discovery::
 
