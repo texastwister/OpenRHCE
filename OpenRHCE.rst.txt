@@ -124,6 +124,16 @@ _______________________________
 
    * Practice, practice, practice!
 
+Red Hat Enterprise Linux
+-----------------------------
+
+* Overview
+* Server and Desktop variants
+* Add-on Functionality
+* LifeCycle
+
+
+
 The Red Hat Certification Landscape
 -----------------------------------------
 
@@ -1399,6 +1409,248 @@ Query the RPM database for the packages installed right now::
 
 Managing Software:  Building RPMs
 -------------------------------------
+
+
+As of this writing, Red Hat is pointing users to the following RPM Guide from the Fedora project for more information on RPM creation: 
+http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+
+Inside an RPM package
+-------------------------
+
+* files
+* scripts
+* metadata
+
+Good example of a spec file can be obtained from the source rpm for redhat-release.
+
+Open .spec in vim for color highlighting
+
+Main sections:
+%prep
+%build
+%install
+%clean
+
+Useful entries:
+BuildRequires:
+BuildArch:
+
+Packages to install
+-------------------------
+
+rpm-build
+rpmdevtools
+rpmlint
+
+Setting up a Build Environment
+----------------------------------
+
+As a non-privileged user, run:
+
+$ rpmdev-setuptree
+
+This should create the following directory structure in your home directory:
+ ~/rpmbuild
+├── BUILD
+├── RPMS
+├── SOURCES
+├── SPECS
+└── SRPMS
+
+In that structure, your source files (in a tarball) should be placed ~/rpmbuild/SOURCES/ and your .spec file in ~/rpmbuild/SPECS/. The ~/rpmbuild/BUILD/ directory will be a temporary working directory for the build process. And, after the rpmbuild process is complete, the finished binary and source RPMs will be placed in ~/rpmbuild/RPMS/ and ~/rpmbuild/SRPMS/, respectively.
+
+Viewing the Build Environment
+-----------------------------------
+
+When diagnosing build problems, it is sometimes useful to see what files are actually being created in the build environment in order to identify deviations of actual behavior from expected behavior. The tree utility is useful for that.
+
+Install tree with # yum install tree.
+
+Invoke tree with $ tree ~/rpmbuild to show the contents of the build environment.
+
+Signing Your RPMs
+-----------------------
+
+
+Your RPMs can be digitally signed to protect users from the possibility of forged packages (any RPM package can execute scripts w/ root privileges when installed!). To implement this, first generate and identify a gpg key:
+
+$ gpg --gen-key
+gpg (GnuPG) 2.0.14; Copyright (C) 2009 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 
+Requested keysize is 2048 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 
+Key does not expire at all
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Scott Purcell
+Email address: scott@texastwister.info
+Comment: 
+You selected this USER-ID:
+    "Scott Purcell <scott@texastwister.info>"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+You need a Passphrase to protect your secret key.
+
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key B9AED1DE marked as ultimately trusted
+public and secret key created and signed.
+
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+pub   2048R/B9AED1DE 2011-02-22
+      Key fingerprint = 9987 B276 A24A 1210 13A7  4D05 9F3F 8934 B9AE D1DE
+uid                  Scott Purcell <scott@texastwister.info>
+sub   2048R/0DA4CCE9 2011-02-22
+
+[scott@Client1 rhel6]$ 
+
+The key ID can be seen in the output above, or can be found with gpg --fingerprint
+
+Export the key to a file:
+$ gpg --armor --output ~/RPM-GPG-KEY-ScottPurcell --export B9AED1DE
+
+[scott@Client1 ~]$ ls RPM-GPG-KEY*
+RPM-GPG-KEY-ScottPurcell
+
+[scott@Client1 ~]$ cat RPM-GPG-KEY-ScottPurcell 
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.14 (GNU/Linux)
+
+mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl
+2cOXSz5MCAZKaeu2YK929v3FQ+I8Rk5j+hXvEUM0ZbbdlRjtqvQ9I2vxpZLCq+gj
+NdUEo7neehfInVnZBhxzbaTCWYFN3k0YoE9RzyduTnRjQ0HqtKNQADSvgxOvjNGQ
+UsGoPfBW1/SBQAy26ZesWXVE8R3z/G4IHdXFJ8mMjxEduGn7eFag1uLySXCKGRY1
+4kjMEVITSeTOW2m8N0o47Vu++00GhCsvLrQgu6rGmNYDyj1HSpU2F7GWFbRBqvUp
+AOiDaE9ZRkymeOCyALF1N9zgz2NyNeYAe8qDABEBAAG0J1Njb3R0IFB1cmNlbGwg
+PHNjb3R0QHRleGFzdHdpc3Rlci5pbmZvPokBOAQTAQIAIgUCTWNVqAIbAwYLCQgH
+AwIGFQgCCQoLBBYCAwECHgECF4AACgkQnz+JNLmu0d73zAf7BmnzOk7oPyJO6A9D
+dZhA+pg77LB9jKNQR2+Qx7lNbJyDIVGafrpU39qdOzc1IWDNyXMnAZUDwqjz48Y0
+ioUj/FFuJzPohjaO4pZn+r58ICYA7+uuARNJ0ujmaVsOR8YlkHSldITNK9ni01DV
+3ha/V1g+3L9Kgebq0l3R+3NaRJvBfUIJgM/ceCGSvn135gL9whIZnfPRVusSiCLA
+waCjT88v+tLwwjGDaUqHUXb47yNEN+gw+thYKAbUlv/sf4Z6PS4+DiLpCp7wybUl
+4sack1F9WrDVvNx0TEoSxJlYvYpU+1NdZlXu5rK6qVrroeO2ozdhn7nx31rIdQPo
+31lNYbkBDQRNY1WoAQgAq1A+1r9T45FUv4KV7BcX3DKeSqk5rWBqXLpiCENxV8cU
+NBOYGKBfAQJ6Gv9MUrEPcDzZ3AQdaFUyzQpOdJFy61whn8oGkRZFOhQLWhHkaRrD
+uFMj3LujQiWlrKyf0m16daHAYqqIl+hzUvhpy2uSkRFVAnPj4RTSPw4aAieoksQJ
+NHSoA2ZTPGM3S/tW0OKNbSp6L4TXddP7zo/X9iEax0DStVhheg7v8bJcWTF3Gd8c
+tBdxmkwYBfO1KEXsrDgkaAaIXQQd/j1GDmWiw3L7rICbgPVhloKOVb7Q5elGDiry
+pRON0CpkUdb9SbKVNHEmwGlB+DZ0yQZFvB0ZjiXhVQARAQABiQEfBBgBAgAJBQJN
+Y1WoAhsMAAoJEJ8/iTS5rtHecC8H/14xWH2w+OFxVol4asA55Kz5YtrtGpQe98VK
+fR86QsdBSUs4Evy22g5WXkARtdgg741LBqrm3SWVnbLfuoLujN3Q+ylqmiNk6Bmh
+E+McEfMQ8rcKEifEfiFlQJj9wIScebD4nxPXpAqcaKyz4HpjPzgOnKQpXxPk4kSV
+d7OkmxdyDDvmBOHODYivPybZTdiHIBraFmCGlmfLkFcMZbuZwjE7LyWB4Xjo2fw2
+QnqQEs/XzXsaXDwBMuayebzoKb06RNzQQC3uqQFszw7ObRtIqi9nEg5Hcfy2ip3j
+R+J9rjvN8rNpQwm40Gx6RpM7qtP/LodzD46dNfbr87lJ4F+4A3U=
+=f4Gq
+-----END PGP PUBLIC KEY BLOCK-----
+
+Configure rpm-related tools to use your signature:
+
+$ echo '%_gpg_name Scott Purcell'>> ~/.rpmmacros 
+
+or
+
+$ echo '%_gpg_name B9AED1DE'>> ~/.rpmmacros 
+
+Now packages can be created and signed at the same time with rpmbuild using the --sign option. Or existing packages can be retroactively signed with rpm using the --addsign or --resign options.
+
+With a signed package in place, the user intending to install it now needs to import the key:
+
+# rpm --import /home/scott/RPM-GPG-KEY-ScottPurcell
+
+And with the key imported, the package can be verified:
+$ rpm -K rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm
+rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
+
+
+Exercise
+----------------
+
+As root, install rpm-build, rpmlint, rpmdevtools
+
+# yum -y install rpmbuild rpmdevtools rpmlint
+
+As a non-privileged user:
+
+Create a project directory
+$ mkdir ~/hello-1.0
+
+Name this according to the convention: <projname>-<majorver>.<minorver>
+
+Create bash script: ~/hello-1.0/hello.sh
+#!/bin/bash
+# hello.sh
+echo 'hello'
+exit 0
+
+Create a tarball of the project directory
+$ tar cvzf hello-1.0.tar.gz ~/hello-1.0/
+
+
+
+Create an rpm development environment
+$ rpmdev-setuptree
+
+
+Move the tarball to the SOURCES directory
+
+Create a .spec file in the SPECS directory
+
+$ vim pkgname.spec
+
+or
+
+$ rpmdev-newspec -o pkgname.spec
+
+Insert a name (Match the pkgname on the tarball and direcotory)
+Insert a version (Match the version)
+Leave the release alone
+Insert a summary (one line)
+Insert a group (package group)
+Insert a license
+Insert a URL or delete the line
+Insert on the Source0 line, the name of your tarball
+Leave the BuildRoot line alone
+Unless your package has prerequisites needed before it can be compiled, delete the BuildRequires line
+Unless your package has prerequisites needed before it can work, delete the Requires line
+On a blank line below %description, insert a brief description of your package
+Leave the %prep and %setup lines alone
+If your package does not need to be "built" (compiled), delete the %build, %configure, and make lines.
+Leave the %install section header alone. 
+Under the %install section, leave the rm line alone. 
+If your package does not need to be built, modify the make install line to something like this:
+install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
+Leave the %clean and the rm -rf lines alone.
+Under %files, use the following syntax to list each of the files your package will place on the target system:
+%attr(770,owner,group)/path/to/file
+Use the following syntax to list each of the directories you package will place on the target system:
+%dir /root/bin
+The changelog section can be deleted or left alone.
+
+
+
 
 ..                + Build a simple RPM that packages a single file
 
