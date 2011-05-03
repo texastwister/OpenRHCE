@@ -1533,6 +1533,30 @@ Install tree with ``# yum install tree``.
 
 Invoke tree with ``$ tree ~/rpmbuild`` to show the contents of the build environment.
 
+Building the RPM
+------------------------
+
+With the source files in place and a properly configured ``.spec`` file written, the ``rpmbuild`` command can be used to build the rpm either at once, or (for troubleshooting) in stages
+
+``$ rpmbuild -bp <spec file>``
+    Builds through the ``%prep`` section -- unpacks sources and applies patches.
+
+``$ rpmbuild -bc <spec file>``
+    Builds through compile -- processes the ``%prep`` and ``%build`` sections.
+
+``$ rpmbuild -bi <spec file>``
+    Builds through ``%install`` -- processes ``%prep``, ``%build``, and ``%install``.
+
+``$ rpmbuild -bb <spec file>``
+    Builds only the binary rpm file.
+
+``$ rpmbuild -bs <spec file>``
+    Builds only the source rpm file.
+
+``$ rpmbuild -ba <spec file>``
+    Builds both the binary and source rpm files.    
+
+Use ``rpmbuild --help`` or ``man rpmbuild`` for other options.
 RPM Building Exercise
 --------------------------
 
@@ -1793,12 +1817,29 @@ Manage Users and Groups
 * Configure a system to use an existing LDAP directory service for user and group information
 * Configure system to authenticate using Kerberos
 
-Session 4 Networking and routing
+Session 4 Networking and Routing
 =======================================
 
-o Networking & Routing
-+ *  Configure networking and hostname resolution statically or dynamically
-+ *  Route IP traffic and create static routes
+Two Controlling Services
+--------------------------
+
+NetworkManager
+
+* RHEL6 default
+* Ideal for client systems and systems with dynamic network conditions
+* No support for bonding/bridging/aliases, etc.
+
+network
+
+* RHEL5 and earlier default
+* Ideal for systems with static network conditions
+* Bonding/bridging/aliases supported. 
+
+Troubleshooting Toolkit
+----------------------------
+
+.. + *  Configure networking and hostname resolution statically or dynamically
+.. + *  Route IP traffic and create static routes
 
 
 Session 5 Firewalls and SELinux
