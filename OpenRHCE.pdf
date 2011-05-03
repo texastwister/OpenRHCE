@@ -5,10 +5,10 @@
 % The standard fonts dictionary
 << /F1 2 0 R
  /F2 3 0 R
- /F3 279 0 R
- /F4 283 0 R
- /F5 298 0 R
- /F6 300 0 R >>
+ /F3 277 0 R
+ /F4 281 0 R
+ /F5 296 0 R
+ /F6 298 0 R >>
 endobj
 % 'F1': class PDFType1Font 
 2 0 obj
@@ -31,12 +31,12 @@ endobj
 % 'Page1': class PDFPage 
 4 0 obj
 % Page dictionary
-<< /Contents 458 0 R
+<< /Contents 455 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -89,10 +89,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 278 0 R
+ /Dest [ 276 0 R
  /XYZ
  62.69291
- 237.0236
+ 255.0236
  0 ]
  /Rect [ 68.69291
  663.5936
@@ -107,10 +107,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 278 0 R
+ /Dest [ 276 0 R
  /XYZ
  62.69291
- 237.0236
+ 255.0236
  0 ]
  /Rect [ 521.0227
  663.5936
@@ -125,10 +125,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 278 0 R
+ /Dest [ 276 0 R
  /XYZ
  62.69291
- 204.0236
+ 222.0236
  0 ]
  /Rect [ 88.69291
  645.5936
@@ -143,10 +143,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 278 0 R
+ /Dest [ 276 0 R
  /XYZ
  62.69291
- 204.0236
+ 222.0236
  0 ]
  /Rect [ 521.0227
  645.5936
@@ -161,7 +161,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  753.0236
@@ -179,7 +179,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  753.0236
@@ -197,7 +197,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  723.0236
@@ -215,7 +215,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  723.0236
@@ -233,7 +233,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  618.0236
@@ -251,7 +251,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  618.0236
@@ -269,7 +269,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  549.0236
@@ -287,7 +287,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  549.0236
@@ -305,7 +305,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  519.0236
@@ -323,7 +323,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  519.0236
@@ -341,7 +341,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  396.0236
@@ -359,7 +359,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  396.0236
@@ -377,7 +377,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  366.0236
@@ -395,7 +395,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  366.0236
@@ -413,7 +413,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  249.0236
@@ -431,7 +431,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  249.0236
@@ -449,7 +449,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  675.0236
@@ -467,7 +467,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  675.0236
@@ -485,7 +485,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  567.0236
@@ -503,7 +503,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  567.0236
@@ -521,7 +521,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  328.8661
@@ -539,7 +539,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  328.8661
@@ -557,7 +557,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  298.8661
@@ -575,7 +575,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  298.8661
@@ -593,7 +593,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  151.8661
@@ -611,7 +611,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  151.8661
@@ -629,7 +629,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  663.0236
@@ -647,7 +647,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  663.0236
@@ -665,7 +665,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  480.0236
@@ -683,7 +683,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  480.0236
@@ -701,7 +701,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  327.0236
@@ -719,7 +719,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  327.0236
@@ -737,7 +737,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  144.0236
@@ -755,7 +755,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 285 0 R
+ /Dest [ 283 0 R
  /XYZ
  62.69291
  144.0236
@@ -773,7 +773,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  519.0236
@@ -791,7 +791,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  519.0236
@@ -809,7 +809,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  408.0236
@@ -827,7 +827,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  408.0236
@@ -845,7 +845,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  261.0236
@@ -863,7 +863,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  261.0236
@@ -881,7 +881,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  231.0236
@@ -899,7 +899,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  231.0236
@@ -917,7 +917,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  675.0236
@@ -935,7 +935,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  675.0236
@@ -953,7 +953,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  492.0236
@@ -971,7 +971,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  492.0236
@@ -989,7 +989,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  298.8661
@@ -1007,7 +1007,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  298.8661
@@ -1025,7 +1025,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  115.8661
@@ -1043,7 +1043,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 287 0 R
+ /Dest [ 285 0 R
  /XYZ
  62.69291
  115.8661
@@ -1061,7 +1061,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  645.0236
@@ -1079,7 +1079,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  645.0236
@@ -1097,7 +1097,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  480.0236
@@ -1115,7 +1115,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  480.0236
@@ -1133,7 +1133,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  315.0236
@@ -1151,7 +1151,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  315.0236
@@ -1169,7 +1169,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  150.0236
@@ -1187,7 +1187,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 288 0 R
+ /Dest [ 286 0 R
  /XYZ
  62.69291
  150.0236
@@ -1205,7 +1205,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  639.0236
@@ -1223,7 +1223,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  639.0236
@@ -1304,12 +1304,12 @@ endobj
  68 0 R
  69 0 R
  70 0 R ]
- /Contents 459 0 R
+ /Contents 456 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -1326,7 +1326,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  492.0236
@@ -1344,7 +1344,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  492.0236
@@ -1362,7 +1362,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  384.0236
@@ -1380,7 +1380,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  384.0236
@@ -1398,7 +1398,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  312.0236
@@ -1416,7 +1416,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  312.0236
@@ -1434,7 +1434,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  240.0236
@@ -1452,7 +1452,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  240.0236
@@ -1470,7 +1470,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  156.0236
@@ -1488,7 +1488,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 289 0 R
+ /Dest [ 287 0 R
  /XYZ
  62.69291
  156.0236
@@ -1506,7 +1506,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  753.0236
@@ -1524,7 +1524,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  753.0236
@@ -1542,7 +1542,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  681.0236
@@ -1560,7 +1560,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  681.0236
@@ -1578,7 +1578,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  481.4236
@@ -1596,7 +1596,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  481.4236
@@ -1614,7 +1614,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  391.4236
@@ -1632,7 +1632,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  391.4236
@@ -1650,7 +1650,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  361.4236
@@ -1668,7 +1668,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  361.4236
@@ -1686,7 +1686,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  331.4236
@@ -1704,7 +1704,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  331.4236
@@ -1722,7 +1722,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  298.4236
@@ -1740,7 +1740,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  298.4236
@@ -1758,7 +1758,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  184.4236
@@ -1776,7 +1776,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  184.4236
@@ -1794,7 +1794,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  705.0236
@@ -1812,7 +1812,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  705.0236
@@ -1830,7 +1830,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  489.0236
@@ -1848,7 +1848,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  489.0236
@@ -1866,7 +1866,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  333.0236
@@ -1884,7 +1884,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  333.0236
@@ -1902,7 +1902,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  123.0236
@@ -1920,7 +1920,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 293 0 R
+ /Dest [ 291 0 R
  /XYZ
  62.69291
  123.0236
@@ -1938,7 +1938,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  639.0236
@@ -1956,7 +1956,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  639.0236
@@ -1974,7 +1974,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  381.0236
@@ -1992,7 +1992,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  381.0236
@@ -2010,7 +2010,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  141.0236
@@ -2028,7 +2028,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 294 0 R
+ /Dest [ 292 0 R
  /XYZ
  62.69291
  141.0236
@@ -2046,7 +2046,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  531.6678
@@ -2064,7 +2064,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  531.6678
@@ -2082,7 +2082,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  360.4678
@@ -2100,7 +2100,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  360.4678
@@ -2118,7 +2118,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  174.0678
@@ -2136,7 +2136,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  174.0678
@@ -2154,7 +2154,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  126.0678
@@ -2172,7 +2172,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 295 0 R
+ /Dest [ 293 0 R
  /XYZ
  62.69291
  126.0678
@@ -2190,7 +2190,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  753.0236
@@ -2208,7 +2208,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  753.0236
@@ -2226,7 +2226,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  687.0236
@@ -2244,7 +2244,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  687.0236
@@ -2262,7 +2262,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  585.0236
@@ -2280,7 +2280,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  585.0236
@@ -2298,7 +2298,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  447.0236
@@ -2316,7 +2316,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  447.0236
@@ -2334,7 +2334,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  231.0236
@@ -2352,7 +2352,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 296 0 R
+ /Dest [ 294 0 R
  /XYZ
  62.69291
  231.0236
@@ -2370,7 +2370,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  714.0236
@@ -2388,7 +2388,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  714.0236
@@ -2406,7 +2406,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  553.6434
@@ -2424,7 +2424,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  553.6434
@@ -2442,7 +2442,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  431.6434
@@ -2460,7 +2460,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  431.6434
@@ -2478,7 +2478,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  221.6434
@@ -2496,7 +2496,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 299 0 R
+ /Dest [ 297 0 R
  /XYZ
  62.69291
  221.6434
@@ -2514,7 +2514,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  753.0236
@@ -2532,7 +2532,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  753.0236
@@ -2550,7 +2550,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  628.0236
@@ -2568,7 +2568,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  628.0236
@@ -2586,7 +2586,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  460.0236
@@ -2604,7 +2604,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  460.0236
@@ -2691,12 +2691,12 @@ endobj
  141 0 R
  142 0 R
  143 0 R ]
- /Contents 460 0 R
+ /Contents 457 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -2713,7 +2713,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  310.0236
@@ -2731,7 +2731,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  310.0236
@@ -2749,7 +2749,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  238.0236
@@ -2767,7 +2767,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 301 0 R
+ /Dest [ 299 0 R
  /XYZ
  62.69291
  238.0236
@@ -2785,7 +2785,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  675.0236
@@ -2803,7 +2803,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  675.0236
@@ -2821,7 +2821,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  567.0236
@@ -2839,7 +2839,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  567.0236
@@ -2857,7 +2857,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  336.6236
@@ -2875,7 +2875,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  336.6236
@@ -2893,7 +2893,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  270.6236
@@ -2911,7 +2911,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  270.6236
@@ -2929,7 +2929,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  222.6236
@@ -2947,7 +2947,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 302 0 R
+ /Dest [ 300 0 R
  /XYZ
  62.69291
  222.6236
@@ -2965,7 +2965,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  699.0236
@@ -2983,7 +2983,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  699.0236
@@ -3001,7 +3001,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  357.6236
@@ -3019,7 +3019,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  357.6236
@@ -3037,7 +3037,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  165.2236
@@ -3055,7 +3055,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 304 0 R
+ /Dest [ 302 0 R
  /XYZ
  62.69291
  165.2236
@@ -3073,7 +3073,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  717.0236
@@ -3091,7 +3091,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  717.0236
@@ -3109,7 +3109,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  717.0236
@@ -3127,7 +3127,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  663.0236
@@ -3145,7 +3145,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  663.0236
@@ -3163,7 +3163,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  473.6744
@@ -3181,7 +3181,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  473.6744
@@ -3199,7 +3199,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  228.4744
@@ -3217,7 +3217,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 305 0 R
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  228.4744
@@ -3235,7 +3235,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  717.0236
@@ -3253,7 +3253,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  717.0236
@@ -3271,7 +3271,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  492.4236
@@ -3289,7 +3289,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  492.4236
@@ -3307,7 +3307,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  255.8236
@@ -3325,7 +3325,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 306 0 R
+ /Dest [ 304 0 R
  /XYZ
  62.69291
  255.8236
@@ -3343,7 +3343,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  590.0236
@@ -3361,7 +3361,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  590.0236
@@ -3379,7 +3379,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  454.3716
@@ -3397,7 +3397,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  454.3716
@@ -3415,7 +3415,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  352.3716
@@ -3433,7 +3433,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  352.3716
@@ -3451,7 +3451,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  130.3716
@@ -3469,7 +3469,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 307 0 R
+ /Dest [ 305 0 R
  /XYZ
  62.69291
  130.3716
@@ -3487,7 +3487,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  675.0236
@@ -3505,7 +3505,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  675.0236
@@ -3523,7 +3523,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  526.0236
@@ -3541,7 +3541,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  526.0236
@@ -3559,7 +3559,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  442.0236
@@ -3577,7 +3577,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  442.0236
@@ -3595,7 +3595,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  286.0236
@@ -3613,7 +3613,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  286.0236
@@ -3631,7 +3631,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  190.0236
@@ -3649,7 +3649,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 308 0 R
+ /Dest [ 306 0 R
  /XYZ
  62.69291
  190.0236
@@ -3667,7 +3667,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  753.0236
@@ -3685,7 +3685,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  753.0236
@@ -3703,7 +3703,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  500.0236
@@ -3721,7 +3721,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  500.0236
@@ -3739,7 +3739,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  356.0236
@@ -3757,7 +3757,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 309 0 R
+ /Dest [ 307 0 R
  /XYZ
  62.69291
  356.0236
@@ -3775,7 +3775,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  753.0236
@@ -3793,7 +3793,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  753.0236
@@ -3811,7 +3811,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  639.0236
@@ -3829,7 +3829,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  639.0236
@@ -3847,7 +3847,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  549.0236
@@ -3865,7 +3865,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  549.0236
@@ -3883,7 +3883,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  345.0236
@@ -3901,7 +3901,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  345.0236
@@ -3919,7 +3919,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  161.8236
@@ -3937,7 +3937,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 310 0 R
+ /Dest [ 308 0 R
  /XYZ
  62.69291
  161.8236
@@ -3955,7 +3955,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  642.6236
@@ -3973,7 +3973,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  642.6236
@@ -3991,7 +3991,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  564.6236
@@ -4009,7 +4009,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  564.6236
@@ -4097,12 +4097,12 @@ endobj
  215 0 R
  216 0 R
  217 0 R ]
- /Contents 461 0 R
+ /Contents 458 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -4119,7 +4119,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  331.6236
@@ -4137,7 +4137,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  331.6236
@@ -4155,7 +4155,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  205.6236
@@ -4173,7 +4173,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 313 0 R
+ /Dest [ 311 0 R
  /XYZ
  62.69291
  205.6236
@@ -4191,7 +4191,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  504.0236
@@ -4209,7 +4209,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  504.0236
@@ -4227,7 +4227,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  348.0236
@@ -4245,7 +4245,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  348.0236
@@ -4263,7 +4263,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  234.0236
@@ -4281,7 +4281,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 315 0 R
+ /Dest [ 313 0 R
  /XYZ
  62.69291
  234.0236
@@ -4299,7 +4299,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 316 0 R
+ /Dest [ 314 0 R
  /XYZ
  62.69291
  623.8236
@@ -4317,7 +4317,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 316 0 R
+ /Dest [ 314 0 R
  /XYZ
  62.69291
  623.8236
@@ -4335,7 +4335,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 316 0 R
+ /Dest [ 314 0 R
  /XYZ
  62.69291
  515.8236
@@ -4353,7 +4353,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 316 0 R
+ /Dest [ 314 0 R
  /XYZ
  62.69291
  515.8236
@@ -4371,14 +4371,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 317 0 R
+ /Dest [ 315 0 R
  /XYZ
  62.69291
  210.2236
  0 ]
  /Rect [ 88.69291
  615.5936
- 175.9429
+ 217.0729
  627.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4389,7 +4389,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 317 0 R
+ /Dest [ 315 0 R
  /XYZ
  62.69291
  210.2236
@@ -4407,14 +4407,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 320 0 R
+ /Dest [ 316 0 R
  /XYZ
  62.69291
- 150.098
+ 729.0236
  0 ]
  /Rect [ 88.69291
  597.5936
- 263.7629
+ 175.9429
  609.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4425,10 +4425,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 320 0 R
+ /Dest [ 316 0 R
  /XYZ
  62.69291
- 150.098
+ 729.0236
  0 ]
  /Rect [ 515.4627
  597.5936
@@ -4443,14 +4443,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 318 0 R
  /XYZ
  62.69291
- 697.7918
+ 264.698
  0 ]
  /Rect [ 88.69291
  579.5936
- 312.1229
+ 263.7629
  591.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4461,10 +4461,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 318 0 R
  /XYZ
  62.69291
- 697.7918
+ 264.698
  0 ]
  /Rect [ 515.4627
  579.5936
@@ -4479,14 +4479,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 667.7918
+ 753.0236
  0 ]
  /Rect [ 88.69291
  561.5936
- 307.6929
+ 394.3629
  573.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4497,15 +4497,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 667.7918
+ 753.0236
  0 ]
- /Rect [ 515.4627
- 561.5936
- 526.5827
- 573.5936 ]
+ /Rect [ 88.69291
+ 549.5936
+ 180.4029
+ 561.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4515,15 +4515,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 637.7918
+ 753.0236
  0 ]
- /Rect [ 88.69291
- 543.5936
- 394.3629
- 555.5936 ]
+ /Rect [ 515.4627
+ 561.5936
+ 526.5827
+ 573.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4533,14 +4533,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 637.7918
+ 705.0236
  0 ]
  /Rect [ 88.69291
  531.5936
- 180.4029
+ 419.9429
  543.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4551,15 +4551,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 637.7918
+ 705.0236
  0 ]
- /Rect [ 515.4627
- 543.5936
- 526.5827
- 555.5936 ]
+ /Rect [ 88.69291
+ 519.5936
+ 184.8329
+ 531.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4569,15 +4569,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 589.7918
+ 705.0236
  0 ]
- /Rect [ 88.69291
- 513.5936
- 419.9429
- 525.5936 ]
+ /Rect [ 515.4627
+ 531.5936
+ 526.5827
+ 543.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4587,14 +4587,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 589.7918
+ 657.0236
  0 ]
  /Rect [ 88.69291
  501.5936
- 184.8329
+ 408.8129
  513.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4605,15 +4605,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 589.7918
+ 657.0236
  0 ]
- /Rect [ 515.4627
- 513.5936
- 526.5827
- 525.5936 ]
+ /Rect [ 88.69291
+ 489.5936
+ 134.2629
+ 501.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4623,15 +4623,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 541.7918
+ 657.0236
  0 ]
- /Rect [ 88.69291
- 483.5936
- 408.8129
- 495.5936 ]
+ /Rect [ 515.4627
+ 501.5936
+ 526.5827
+ 513.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4641,14 +4641,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 541.7918
+ 609.0236
  0 ]
  /Rect [ 88.69291
  471.5936
- 134.2629
+ 357.1429
  483.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4659,15 +4659,15 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 541.7918
+ 609.0236
  0 ]
  /Rect [ 515.4627
- 483.5936
+ 471.5936
  526.5827
- 495.5936 ]
+ 483.5936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -4677,14 +4677,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 493.7918
+ 579.0236
  0 ]
  /Rect [ 88.69291
  453.5936
- 357.1429
+ 218.1829
  465.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4695,10 +4695,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 493.7918
+ 579.0236
  0 ]
  /Rect [ 515.4627
  453.5936
@@ -4713,14 +4713,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 463.7918
+ 490.7918
  0 ]
  /Rect [ 88.69291
  435.5936
- 218.1829
+ 208.7429
  447.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4731,10 +4731,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 463.7918
+ 490.7918
  0 ]
  /Rect [ 515.4627
  435.5936
@@ -4749,14 +4749,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 373.7918
+ 364.7918
  0 ]
- /Rect [ 88.69291
+ /Rect [ 68.69291
  417.5936
- 208.7429
+ 230.3929
  429.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4767,10 +4767,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 373.7918
+ 364.7918
  0 ]
  /Rect [ 515.4627
  417.5936
@@ -4785,14 +4785,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 247.7918
+ 301.7918
  0 ]
  /Rect [ 68.69291
  399.5936
- 230.3929
+ 224.3129
  411.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4803,10 +4803,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 247.7918
+ 301.7918
  0 ]
  /Rect [ 515.4627
  399.5936
@@ -4821,14 +4821,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 184.7918
+ 214.7918
  0 ]
  /Rect [ 68.69291
  381.5936
- 224.3129
+ 180.9529
  393.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4839,10 +4839,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 321 0 R
+ /Dest [ 319 0 R
  /XYZ
  62.69291
- 184.7918
+ 214.7918
  0 ]
  /Rect [ 515.4627
  381.5936
@@ -4857,14 +4857,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
  /Rect [ 68.69291
  363.5936
- 180.9529
+ 250.4229
  375.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4875,7 +4875,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
  753.0236
@@ -4893,14 +4893,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 678.0236
+ 618.0236
  0 ]
  /Rect [ 68.69291
  345.5936
- 250.4229
+ 227.0729
  357.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4911,10 +4911,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 678.0236
+ 618.0236
  0 ]
  /Rect [ 515.4627
  345.5936
@@ -4929,14 +4929,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
  543.0236
  0 ]
  /Rect [ 68.69291
  327.5936
- 227.0729
+ 186.5029
  339.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4947,7 +4947,7 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
  543.0236
@@ -4965,14 +4965,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 468.0236
+ 510.0236
  0 ]
  /Rect [ 68.69291
  309.5936
- 186.5029
+ 199.8529
  321.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -4983,10 +4983,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 468.0236
+ 510.0236
  0 ]
  /Rect [ 515.4627
  309.5936
@@ -5001,14 +5001,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 435.0236
+ 477.0236
  0 ]
  /Rect [ 68.69291
  291.5936
- 199.8529
+ 195.9529
  303.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -5019,10 +5019,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 435.0236
+ 477.0236
  0 ]
  /Rect [ 515.4627
  291.5936
@@ -5037,14 +5037,14 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 402.0236
+ 444.0236
  0 ]
  /Rect [ 68.69291
  273.5936
- 195.9529
+ 377.1429
  285.5936 ]
  /Subtype /Link
  /Type /Annot >>
@@ -5055,10 +5055,10 @@ endobj
  0
  0 ]
  /Contents ()
- /Dest [ 322 0 R
+ /Dest [ 320 0 R
  /XYZ
  62.69291
- 402.0236
+ 444.0236
  0 ]
  /Rect [ 515.4627
  273.5936
@@ -5067,47 +5067,26 @@ endobj
  /Subtype /Link
  /Type /Annot >>
 endobj
-% 'Annot.NUMBER265': class LinkAnnotation 
+% 'Annot.NUMBER265': class PDFDictionary 
 272 0 obj
-<< /Border [ 0
- 0
- 0 ]
- /Contents ()
- /Dest [ 322 0 R
- /XYZ
- 62.69291
- 369.0236
- 0 ]
- /Rect [ 68.69291
- 255.5936
- 377.1429
- 267.5936 ]
- /Subtype /Link
- /Type /Annot >>
-endobj
-% 'Annot.NUMBER266': class LinkAnnotation 
-273 0 obj
-<< /Border [ 0
- 0
- 0 ]
- /Contents ()
- /Dest [ 322 0 R
- /XYZ
- 62.69291
- 369.0236
- 0 ]
- /Rect [ 515.4627
- 255.5936
- 526.5827
- 267.5936 ]
- /Subtype /Link
- /Type /Annot >>
-endobj
-% 'Annot.NUMBER267': class PDFDictionary 
-274 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (mailto:scott@texastwister.info) >>
+ /Border [ 0
+ 0
+ 0 ]
+ /Rect [ 62.69291
+ 171.5936
+ 532.5827
+ 183.5936 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Annot.NUMBER266': class PDFDictionary 
+273 0 obj
+<< /A << /S /URI
+ /Type /Action
+ /URI (http://www.linkedin.com/in/scottpurcell) >>
  /Border [ 0
  0
  0 ]
@@ -5118,11 +5097,11 @@ endobj
  /Subtype /Link
  /Type /Annot >>
 endobj
-% 'Annot.NUMBER268': class PDFDictionary 
-275 0 obj
+% 'Annot.NUMBER267': class PDFDictionary 
+274 0 obj
 << /A << /S /URI
  /Type /Action
- /URI (http://www.linkedin.com/in/scottpurcell) >>
+ /URI (http://twitter.com/texastwister) >>
  /Border [ 0
  0
  0 ]
@@ -5133,11 +5112,11 @@ endobj
  /Subtype /Link
  /Type /Annot >>
 endobj
-% 'Annot.NUMBER269': class PDFDictionary 
-276 0 obj
+% 'Annot.NUMBER268': class PDFDictionary 
+275 0 obj
 << /A << /S /URI
  /Type /Action
- /URI (http://twitter.com/texastwister) >>
+ /URI (http://www.facebook.com/Scott.L.Purcell) >>
  /Border [ 0
  0
  0 ]
@@ -5148,23 +5127,8 @@ endobj
  /Subtype /Link
  /Type /Annot >>
 endobj
-% 'Annot.NUMBER270': class PDFDictionary 
-277 0 obj
-<< /A << /S /URI
- /Type /Action
- /URI (http://www.facebook.com/Scott.L.Purcell) >>
- /Border [ 0
- 0
- 0 ]
- /Rect [ 62.69291
- 99.59362
- 532.5827
- 111.5936 ]
- /Subtype /Link
- /Type /Annot >>
-endobj
 % 'Page5': class PDFPage 
-278 0 obj
+276 0 obj
 % Page dictionary
 << /Annots [ 219 0 R
  220 0 R
@@ -5222,15 +5186,13 @@ endobj
  272 0 R
  273 0 R
  274 0 R
- 275 0 R
- 276 0 R
- 277 0 R ]
- /Contents 462 0 R
+ 275 0 R ]
+ /Contents 459 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5242,7 +5204,7 @@ endobj
  /Type /Page >>
 endobj
 % 'F3': class PDFType1Font 
-279 0 obj
+277 0 obj
 % Font Helvetica-BoldOblique
 << /BaseFont /Helvetica-BoldOblique
  /Encoding /WinAnsiEncoding
@@ -5250,8 +5212,8 @@ endobj
  /Subtype /Type1
  /Type /Font >>
 endobj
-% 'Annot.NUMBER271': class PDFDictionary 
-280 0 obj
+% 'Annot.NUMBER269': class PDFDictionary 
+278 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html) >>
@@ -5266,15 +5228,15 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page6': class PDFPage 
-281 0 obj
+279 0 obj
 % Page dictionary
-<< /Annots [ 280 0 R ]
- /Contents 463 0 R
+<< /Annots [ 278 0 R ]
+ /Contents 460 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5285,8 +5247,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER272': class PDFDictionary 
-282 0 obj
+% 'Annot.NUMBER270': class PDFDictionary 
+280 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://www.redhat.com/certification/) >>
@@ -5301,7 +5263,7 @@ endobj
  /Type /Annot >>
 endobj
 % 'F4': class PDFType1Font 
-283 0 obj
+281 0 obj
 % Font Courier
 << /BaseFont /Courier
  /Encoding /WinAnsiEncoding
@@ -5310,15 +5272,15 @@ endobj
  /Type /Font >>
 endobj
 % 'Page7': class PDFPage 
-284 0 obj
+282 0 obj
 % Page dictionary
-<< /Annots [ 282 0 R ]
- /Contents 464 0 R
+<< /Annots [ 280 0 R ]
+ /Contents 461 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5330,14 +5292,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page8': class PDFPage 
-285 0 obj
+283 0 obj
 % Page dictionary
-<< /Contents 465 0 R
+<< /Contents 462 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5349,14 +5311,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page9': class PDFPage 
-286 0 obj
+284 0 obj
 % Page dictionary
-<< /Contents 466 0 R
+<< /Contents 463 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5368,14 +5330,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page10': class PDFPage 
-287 0 obj
+285 0 obj
 % Page dictionary
-<< /Contents 467 0 R
+<< /Contents 464 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5387,14 +5349,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page11': class PDFPage 
-288 0 obj
+286 0 obj
 % Page dictionary
-<< /Contents 468 0 R
+<< /Contents 465 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5406,14 +5368,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page12': class PDFPage 
-289 0 obj
+287 0 obj
 % Page dictionary
-<< /Contents 469 0 R
+<< /Contents 466 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5424,8 +5386,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER273': class PDFDictionary 
-290 0 obj
+% 'Annot.NUMBER271': class PDFDictionary 
+288 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://www.pathname.com/fhs) >>
@@ -5440,15 +5402,15 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page13': class PDFPage 
-291 0 obj
+289 0 obj
 % Page dictionary
-<< /Annots [ 290 0 R ]
- /Contents 470 0 R
+<< /Annots [ 288 0 R ]
+ /Contents 467 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5459,8 +5421,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER274': class PDFDictionary 
-292 0 obj
+% 'Annot.NUMBER272': class PDFDictionary 
+290 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-filesystem.html) >>
@@ -5475,15 +5437,15 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page14': class PDFPage 
-293 0 obj
+291 0 obj
 % Page dictionary
-<< /Annots [ 292 0 R ]
- /Contents 471 0 R
+<< /Annots [ 290 0 R ]
+ /Contents 468 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5495,14 +5457,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page15': class PDFPage 
-294 0 obj
+292 0 obj
 % Page dictionary
-<< /Contents 472 0 R
+<< /Contents 469 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5514,14 +5476,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page16': class PDFPage 
-295 0 obj
+293 0 obj
 % Page dictionary
-<< /Contents 473 0 R
+<< /Contents 470 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5533,14 +5495,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page17': class PDFPage 
-296 0 obj
+294 0 obj
 % Page dictionary
-<< /Contents 474 0 R
+<< /Contents 471 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5552,7 +5514,7 @@ endobj
  /Type /Page >>
 endobj
 % 'FormXob.ef0a2c636b071245b87ea7c3d15c1177': class PDFImageXObject 
-297 0 obj
+295 0 obj
 << /BitsPerComponent 8
  /ColorSpace /DeviceRGB
  /Filter [ /ASCII85Decode
@@ -5567,7 +5529,7 @@ Gb"/lIrJB;fuJ<=$,R#a<Zt>o[pu5_L8bl%a!K8cS9K4Sa=*/obfc'qnOJ;Q_&nV8)6Mp!<R>Gd!>R(?
 
 endobj
 % 'F5': class PDFType1Font 
-298 0 obj
+296 0 obj
 % Font Courier-Bold
 << /BaseFont /Courier-Bold
  /Encoding /WinAnsiEncoding
@@ -5576,27 +5538,27 @@ endobj
  /Type /Font >>
 endobj
 % 'Page18': class PDFPage 
-299 0 obj
+297 0 obj
 % Page dictionary
-<< /Contents 475 0 R
+<< /Contents 472 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
  /ImageB
  /ImageC
  /ImageI ]
- /XObject << /FormXob.ef0a2c636b071245b87ea7c3d15c1177 297 0 R >> >>
+ /XObject << /FormXob.ef0a2c636b071245b87ea7c3d15c1177 295 0 R >> >>
  /Rotate 0
  /Trans <<  >>
  /Type /Page >>
 endobj
 % 'F6': class PDFType1Font 
-300 0 obj
+298 0 obj
 % Font Helvetica-Oblique
 << /BaseFont /Helvetica-Oblique
  /Encoding /WinAnsiEncoding
@@ -5605,14 +5567,14 @@ endobj
  /Type /Font >>
 endobj
 % 'Page19': class PDFPage 
-301 0 obj
+299 0 obj
 % Page dictionary
-<< /Contents 476 0 R
+<< /Contents 473 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5624,14 +5586,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page20': class PDFPage 
-302 0 obj
+300 0 obj
 % Page dictionary
-<< /Contents 477 0 R
+<< /Contents 474 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5642,8 +5604,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER275': class PDFDictionary 
-303 0 obj
+% 'Annot.NUMBER273': class PDFDictionary 
+301 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/index.html) >>
@@ -5658,15 +5620,15 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page21': class PDFPage 
-304 0 obj
+302 0 obj
 % Page dictionary
-<< /Annots [ 303 0 R ]
- /Contents 478 0 R
+<< /Annots [ 301 0 R ]
+ /Contents 475 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5678,14 +5640,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page22': class PDFPage 
-305 0 obj
+303 0 obj
 % Page dictionary
-<< /Contents 479 0 R
+<< /Contents 476 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5697,14 +5659,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page23': class PDFPage 
-306 0 obj
+304 0 obj
 % Page dictionary
-<< /Contents 480 0 R
+<< /Contents 477 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5716,14 +5678,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page24': class PDFPage 
-307 0 obj
+305 0 obj
 % Page dictionary
-<< /Contents 481 0 R
+<< /Contents 478 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5735,14 +5697,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page25': class PDFPage 
-308 0 obj
+306 0 obj
 % Page dictionary
-<< /Contents 482 0 R
+<< /Contents 479 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5754,14 +5716,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page26': class PDFPage 
-309 0 obj
+307 0 obj
 % Page dictionary
-<< /Contents 483 0 R
+<< /Contents 480 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5773,14 +5735,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page27': class PDFPage 
-310 0 obj
+308 0 obj
 % Page dictionary
-<< /Contents 484 0 R
+<< /Contents 481 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5791,8 +5753,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER276': class PDFDictionary 
-311 0 obj
+% 'Annot.NUMBER274': class PDFDictionary 
+309 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/) >>
@@ -5806,8 +5768,8 @@ endobj
  /Subtype /Link
  /Type /Annot >>
 endobj
-% 'Annot.NUMBER277': class PDFDictionary 
-312 0 obj
+% 'Annot.NUMBER275': class PDFDictionary 
+310 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (ftp://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/os/SRPMS/redhat-release-server-6Server-6.0.0.37.el6.src.rpm) >>
@@ -5822,16 +5784,16 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page28': class PDFPage 
-313 0 obj
+311 0 obj
 % Page dictionary
-<< /Annots [ 311 0 R
- 312 0 R ]
- /Contents 485 0 R
+<< /Annots [ 309 0 R
+ 310 0 R ]
+ /Contents 482 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5842,8 +5804,8 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER278': class PDFDictionary 
-314 0 obj
+% 'Annot.NUMBER276': class PDFDictionary 
+312 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (http://fedoraproject.org/wiki/Packaging/LicensingGuidelines) >>
@@ -5858,15 +5820,15 @@ endobj
  /Type /Annot >>
 endobj
 % 'Page29': class PDFPage 
-315 0 obj
+313 0 obj
 % Page dictionary
-<< /Annots [ 314 0 R ]
- /Contents 486 0 R
+<< /Annots [ 312 0 R ]
+ /Contents 483 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5878,14 +5840,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page30': class PDFPage 
-316 0 obj
+314 0 obj
 % Page dictionary
-<< /Contents 487 0 R
+<< /Contents 484 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5897,14 +5859,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page31': class PDFPage 
-317 0 obj
+315 0 obj
 % Page dictionary
-<< /Contents 488 0 R
+<< /Contents 485 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5916,14 +5878,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page32': class PDFPage 
-318 0 obj
+316 0 obj
 % Page dictionary
-<< /Contents 489 0 R
+<< /Contents 486 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5934,31 +5896,31 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'Annot.NUMBER279': class PDFDictionary 
-319 0 obj
+% 'Annot.NUMBER277': class PDFDictionary 
+317 0 obj
 << /A << /S /URI
  /Type /Action
  /URI (mailto:scott@Client1) >>
  /Border [ 0
  0
  0 ]
- /Rect [ 66.02291
- 744.5936
- 135.7829
- 756.5936 ]
+ /Rect [ 85.47291
+ 586.1936
+ 154.5916
+ 598.1936 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
 % 'Page33': class PDFPage 
-320 0 obj
+318 0 obj
 % Page dictionary
-<< /Annots [ 319 0 R ]
- /Contents 490 0 R
+<< /Annots [ 317 0 R ]
+ /Contents 487 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5970,14 +5932,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page34': class PDFPage 
-321 0 obj
+319 0 obj
 % Page dictionary
-<< /Contents 491 0 R
+<< /Contents 488 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -5989,14 +5951,14 @@ endobj
  /Type /Page >>
 endobj
 % 'Page35': class PDFPage 
-322 0 obj
+320 0 obj
 % Page dictionary
-<< /Contents 492 0 R
+<< /Contents 489 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 457 0 R
+ /Parent 454 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -6007,1652 +5969,1640 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'R323': class PDFCatalog 
-323 0 obj
+% 'R321': class PDFCatalog 
+321 0 obj
 % Document Root
-<< /Outlines 325 0 R
- /PageLabels 493 0 R
+<< /Outlines 323 0 R
+ /PageLabels 490 0 R
  /PageMode /UseNone
- /Pages 457 0 R
+ /Pages 454 0 R
  /Type /Catalog >>
 endobj
-% 'R324': class PDFInfo 
-324 0 obj
+% 'R322': class PDFInfo 
+322 0 obj
 << /Author ()
- /CreationDate (D:20110502160547+06'00')
+ /CreationDate (D:20110502231427+06'00')
  /Keywords ()
  /Producer (ReportLab http://www.reportlab.com)
  /Subject (\(unspecified\))
  /Title (OpenRHCE) >>
 endobj
-% 'R325': class PDFOutlines 
-325 0 obj
-<< /Count 139
- /First 326 0 R
- /Last 456 0 R
+% 'R323': class PDFOutlines 
+323 0 obj
+<< /Count 138
+ /First 324 0 R
+ /Last 453 0 R
  /Type /Outlines >>
 endobj
 % 'Outline.0': class OutlineEntryObject 
-326 0 obj
+324 0 obj
 << /Dest [ 71 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 327 0 R
- /Parent 325 0 R
+ /Next 325 0 R
+ /Parent 323 0 R
  /Title (Course Outline) >>
 endobj
 % 'Outline.1': class OutlineEntryObject 
-327 0 obj
+325 0 obj
 << /Count 41
- /Dest [ 278 0 R
+ /Dest [ 276 0 R
  /XYZ
  62.69291
- 237.0236
+ 255.0236
  0 ]
- /First 328 0 R
- /Last 368 0 R
- /Next 369 0 R
- /Parent 325 0 R
- /Prev 326 0 R
+ /First 326 0 R
+ /Last 366 0 R
+ /Next 367 0 R
+ /Parent 323 0 R
+ /Prev 324 0 R
  /Title (Session One: Introduction) >>
 endobj
-% 'Outline.132.0': class OutlineEntryObject 
-328 0 obj
-<< /Dest [ 278 0 R
+% 'Outline.131.0': class OutlineEntryObject 
+326 0 obj
+<< /Dest [ 276 0 R
  /XYZ
  62.69291
- 204.0236
+ 222.0236
  0 ]
- /Next 329 0 R
- /Parent 327 0 R
+ /Next 327 0 R
+ /Parent 325 0 R
  /Title (Introductions: Your Instructor) >>
 endobj
-% 'Outline.132.1': class OutlineEntryObject 
-329 0 obj
+% 'Outline.131.1': class OutlineEntryObject 
+327 0 obj
 << /Count 2
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /First 330 0 R
- /Last 331 0 R
- /Next 332 0 R
- /Parent 327 0 R
- /Prev 328 0 R
+ /First 328 0 R
+ /Last 329 0 R
+ /Next 330 0 R
+ /Parent 325 0 R
+ /Prev 326 0 R
  /Title (Introductions: Your Instructor) >>
 endobj
-% 'Outline.133.0': class OutlineEntryObject 
-330 0 obj
-<< /Dest [ 281 0 R
+% 'Outline.132.0': class OutlineEntryObject 
+328 0 obj
+<< /Dest [ 279 0 R
  /XYZ
  62.69291
  723.0236
  0 ]
- /Next 331 0 R
- /Parent 329 0 R
+ /Next 329 0 R
+ /Parent 327 0 R
  /Title (Qualifications:) >>
 endobj
-% 'Outline.133.1': class OutlineEntryObject 
-331 0 obj
-<< /Dest [ 281 0 R
+% 'Outline.132.1': class OutlineEntryObject 
+329 0 obj
+<< /Dest [ 279 0 R
  /XYZ
  62.69291
  618.0236
  0 ]
- /Parent 329 0 R
- /Prev 330 0 R
+ /Parent 327 0 R
+ /Prev 328 0 R
  /Title (Personal:) >>
 endobj
-% 'Outline.132.2': class OutlineEntryObject 
-332 0 obj
+% 'Outline.131.2': class OutlineEntryObject 
+330 0 obj
 << /Count 1
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  549.0236
  0 ]
- /First 333 0 R
- /Last 333 0 R
- /Next 334 0 R
- /Parent 327 0 R
- /Prev 329 0 R
+ /First 331 0 R
+ /Last 331 0 R
+ /Next 332 0 R
+ /Parent 325 0 R
+ /Prev 327 0 R
  /Title (Introductions: Fellow Students) >>
 endobj
-% 'Outline.134.0': class OutlineEntryObject 
-333 0 obj
-<< /Dest [ 281 0 R
+% 'Outline.133.0': class OutlineEntryObject 
+331 0 obj
+<< /Dest [ 279 0 R
  /XYZ
  62.69291
  519.0236
  0 ]
- /Parent 332 0 R
+ /Parent 330 0 R
  /Title (Please Introduce Yourselves) >>
 endobj
-% 'Outline.132.3': class OutlineEntryObject 
-334 0 obj
+% 'Outline.131.3': class OutlineEntryObject 
+332 0 obj
 << /Count 2
- /Dest [ 281 0 R
+ /Dest [ 279 0 R
  /XYZ
  62.69291
  396.0236
  0 ]
- /First 335 0 R
- /Last 336 0 R
- /Next 337 0 R
- /Parent 327 0 R
- /Prev 332 0 R
+ /First 333 0 R
+ /Last 334 0 R
+ /Next 335 0 R
+ /Parent 325 0 R
+ /Prev 330 0 R
  /Title (Introductions: The Course) >>
 endobj
-% 'Outline.135.0': class OutlineEntryObject 
-335 0 obj
-<< /Dest [ 281 0 R
+% 'Outline.134.0': class OutlineEntryObject 
+333 0 obj
+<< /Dest [ 279 0 R
  /XYZ
  62.69291
  366.0236
  0 ]
- /Next 336 0 R
- /Parent 334 0 R
+ /Next 334 0 R
+ /Parent 332 0 R
  /Title (Expectations) >>
 endobj
-% 'Outline.135.1': class OutlineEntryObject 
-336 0 obj
-<< /Dest [ 281 0 R
+% 'Outline.134.1': class OutlineEntryObject 
+334 0 obj
+<< /Dest [ 279 0 R
  /XYZ
  62.69291
  249.0236
  0 ]
- /Parent 334 0 R
- /Prev 335 0 R
+ /Parent 332 0 R
+ /Prev 333 0 R
  /Title (Preparation Recommendations) >>
 endobj
-% 'Outline.132.4': class OutlineEntryObject 
-337 0 obj
-<< /Dest [ 284 0 R
+% 'Outline.131.4': class OutlineEntryObject 
+335 0 obj
+<< /Dest [ 282 0 R
  /XYZ
  62.69291
  675.0236
  0 ]
- /Next 338 0 R
- /Parent 327 0 R
- /Prev 334 0 R
+ /Next 336 0 R
+ /Parent 325 0 R
+ /Prev 332 0 R
  /Title (Red Hat Enterprise Linux) >>
 endobj
-% 'Outline.132.5': class OutlineEntryObject 
-338 0 obj
-<< /Dest [ 284 0 R
+% 'Outline.131.5': class OutlineEntryObject 
+336 0 obj
+<< /Dest [ 282 0 R
  /XYZ
  62.69291
  567.0236
  0 ]
- /Next 339 0 R
- /Parent 327 0 R
- /Prev 337 0 R
+ /Next 337 0 R
+ /Parent 325 0 R
+ /Prev 335 0 R
  /Title (The Red Hat Certification Landscape) >>
 endobj
-% 'Outline.132.6': class OutlineEntryObject 
-339 0 obj
+% 'Outline.131.6': class OutlineEntryObject 
+337 0 obj
 << /Count 8
- /Dest [ 284 0 R
+ /Dest [ 282 0 R
  /XYZ
  62.69291
  328.8661
  0 ]
- /First 340 0 R
- /Last 347 0 R
- /Next 348 0 R
- /Parent 327 0 R
- /Prev 338 0 R
+ /First 338 0 R
+ /Last 345 0 R
+ /Next 346 0 R
+ /Parent 325 0 R
+ /Prev 336 0 R
  /Title (RHCSA Objectives) >>
 endobj
-% 'Outline.136.0': class OutlineEntryObject 
-340 0 obj
-<< /Dest [ 284 0 R
+% 'Outline.135.0': class OutlineEntryObject 
+338 0 obj
+<< /Dest [ 282 0 R
  /XYZ
  62.69291
  298.8661
  0 ]
- /Next 341 0 R
- /Parent 339 0 R
+ /Next 339 0 R
+ /Parent 337 0 R
  /Title (RHCSA Objectives: Understand & Use Essential Tools) >>
 endobj
-% 'Outline.136.1': class OutlineEntryObject 
-341 0 obj
-<< /Dest [ 284 0 R
+% 'Outline.135.1': class OutlineEntryObject 
+339 0 obj
+<< /Dest [ 282 0 R
  /XYZ
  62.69291
  151.8661
  0 ]
- /Next 342 0 R
- /Parent 339 0 R
- /Prev 340 0 R
+ /Next 340 0 R
+ /Parent 337 0 R
+ /Prev 338 0 R
  /Title (RHCSA: ...Essential Tools... \(cont\)) >>
 endobj
-% 'Outline.136.2': class OutlineEntryObject 
-342 0 obj
-<< /Dest [ 285 0 R
+% 'Outline.135.2': class OutlineEntryObject 
+340 0 obj
+<< /Dest [ 283 0 R
  /XYZ
  62.69291
  663.0236
  0 ]
- /Next 343 0 R
- /Parent 339 0 R
- /Prev 341 0 R
+ /Next 341 0 R
+ /Parent 337 0 R
+ /Prev 339 0 R
  /Title (RHCSA: Operate Running Systems) >>
 endobj
-% 'Outline.136.3': class OutlineEntryObject 
-343 0 obj
-<< /Dest [ 285 0 R
+% 'Outline.135.3': class OutlineEntryObject 
+341 0 obj
+<< /Dest [ 283 0 R
  /XYZ
  62.69291
  480.0236
  0 ]
- /Next 344 0 R
- /Parent 339 0 R
- /Prev 342 0 R
+ /Next 342 0 R
+ /Parent 337 0 R
+ /Prev 340 0 R
  /Title (RHCSA: Configure Local Storage) >>
 endobj
-% 'Outline.136.4': class OutlineEntryObject 
-344 0 obj
-<< /Dest [ 285 0 R
+% 'Outline.135.4': class OutlineEntryObject 
+342 0 obj
+<< /Dest [ 283 0 R
  /XYZ
  62.69291
  327.0236
  0 ]
- /Next 345 0 R
- /Parent 339 0 R
- /Prev 343 0 R
+ /Next 343 0 R
+ /Parent 337 0 R
+ /Prev 341 0 R
  /Title (RHCSA: Create and Configure File Systems) >>
 endobj
-% 'Outline.136.5': class OutlineEntryObject 
-345 0 obj
-<< /Dest [ 285 0 R
+% 'Outline.135.5': class OutlineEntryObject 
+343 0 obj
+<< /Dest [ 283 0 R
  /XYZ
  62.69291
  144.0236
  0 ]
- /Next 346 0 R
- /Parent 339 0 R
- /Prev 344 0 R
+ /Next 344 0 R
+ /Parent 337 0 R
+ /Prev 342 0 R
  /Title (RHCSA: Deploy, Configure & Maintain) >>
 endobj
-% 'Outline.136.6': class OutlineEntryObject 
-346 0 obj
-<< /Dest [ 286 0 R
+% 'Outline.135.6': class OutlineEntryObject 
+344 0 obj
+<< /Dest [ 284 0 R
  /XYZ
  62.69291
  519.0236
  0 ]
- /Next 347 0 R
- /Parent 339 0 R
- /Prev 345 0 R
+ /Next 345 0 R
+ /Parent 337 0 R
+ /Prev 343 0 R
  /Title (RHCSA: Manage Users and Groups) >>
 endobj
-% 'Outline.136.7': class OutlineEntryObject 
-347 0 obj
-<< /Dest [ 286 0 R
+% 'Outline.135.7': class OutlineEntryObject 
+345 0 obj
+<< /Dest [ 284 0 R
  /XYZ
  62.69291
  408.0236
  0 ]
- /Parent 339 0 R
- /Prev 346 0 R
+ /Parent 337 0 R
+ /Prev 344 0 R
  /Title (RHCSA: Manage Security) >>
 endobj
-% 'Outline.132.7': class OutlineEntryObject 
-348 0 obj
+% 'Outline.131.7': class OutlineEntryObject 
+346 0 obj
 << /Count 10
- /Dest [ 286 0 R
+ /Dest [ 284 0 R
  /XYZ
  62.69291
  261.0236
  0 ]
- /First 349 0 R
- /Last 358 0 R
- /Next 359 0 R
- /Parent 327 0 R
- /Prev 339 0 R
+ /First 347 0 R
+ /Last 356 0 R
+ /Next 357 0 R
+ /Parent 325 0 R
+ /Prev 337 0 R
  /Title (RHCE Objectives) >>
 endobj
-% 'Outline.137.0': class OutlineEntryObject 
-349 0 obj
-<< /Dest [ 286 0 R
+% 'Outline.136.0': class OutlineEntryObject 
+347 0 obj
+<< /Dest [ 284 0 R
  /XYZ
  62.69291
  231.0236
  0 ]
- /Next 350 0 R
- /Parent 348 0 R
+ /Next 348 0 R
+ /Parent 346 0 R
  /Title (RHCE: System Configuration and Management) >>
 endobj
-% 'Outline.137.1': class OutlineEntryObject 
-350 0 obj
-<< /Dest [ 287 0 R
+% 'Outline.136.1': class OutlineEntryObject 
+348 0 obj
+<< /Dest [ 285 0 R
  /XYZ
  62.69291
  675.0236
  0 ]
- /Next 351 0 R
- /Parent 348 0 R
- /Prev 349 0 R
+ /Next 349 0 R
+ /Parent 346 0 R
+ /Prev 347 0 R
  /Title (RHCE: Network Services) >>
 endobj
-% 'Outline.137.2': class OutlineEntryObject 
-351 0 obj
-<< /Dest [ 287 0 R
+% 'Outline.136.2': class OutlineEntryObject 
+349 0 obj
+<< /Dest [ 285 0 R
  /XYZ
  62.69291
  492.0236
  0 ]
- /Next 352 0 R
- /Parent 348 0 R
- /Prev 350 0 R
+ /Next 350 0 R
+ /Parent 346 0 R
+ /Prev 348 0 R
  /Title (RHCE: HTTP/HTTPS) >>
 endobj
-% 'Outline.137.3': class OutlineEntryObject 
-352 0 obj
-<< /Dest [ 287 0 R
+% 'Outline.136.3': class OutlineEntryObject 
+350 0 obj
+<< /Dest [ 285 0 R
  /XYZ
  62.69291
  298.8661
  0 ]
- /Next 353 0 R
- /Parent 348 0 R
- /Prev 351 0 R
+ /Next 351 0 R
+ /Parent 346 0 R
+ /Prev 349 0 R
  /Title (RHCE: DNS) >>
 endobj
-% 'Outline.137.4': class OutlineEntryObject 
-353 0 obj
-<< /Dest [ 287 0 R
+% 'Outline.136.4': class OutlineEntryObject 
+351 0 obj
+<< /Dest [ 285 0 R
  /XYZ
  62.69291
  115.8661
  0 ]
- /Next 354 0 R
- /Parent 348 0 R
- /Prev 352 0 R
+ /Next 352 0 R
+ /Parent 346 0 R
+ /Prev 350 0 R
  /Title (RHCE: FTP) >>
 endobj
-% 'Outline.137.5': class OutlineEntryObject 
-354 0 obj
-<< /Dest [ 288 0 R
+% 'Outline.136.5': class OutlineEntryObject 
+352 0 obj
+<< /Dest [ 286 0 R
  /XYZ
  62.69291
  645.0236
  0 ]
- /Next 355 0 R
- /Parent 348 0 R
- /Prev 353 0 R
+ /Next 353 0 R
+ /Parent 346 0 R
+ /Prev 351 0 R
  /Title (RHCE: NFS) >>
 endobj
-% 'Outline.137.6': class OutlineEntryObject 
-355 0 obj
-<< /Dest [ 288 0 R
+% 'Outline.136.6': class OutlineEntryObject 
+353 0 obj
+<< /Dest [ 286 0 R
  /XYZ
  62.69291
  480.0236
  0 ]
- /Next 356 0 R
- /Parent 348 0 R
- /Prev 354 0 R
+ /Next 354 0 R
+ /Parent 346 0 R
+ /Prev 352 0 R
  /Title (RHCE: SMB) >>
 endobj
-% 'Outline.137.7': class OutlineEntryObject 
-356 0 obj
-<< /Dest [ 288 0 R
+% 'Outline.136.7': class OutlineEntryObject 
+354 0 obj
+<< /Dest [ 286 0 R
  /XYZ
  62.69291
  315.0236
  0 ]
- /Next 357 0 R
- /Parent 348 0 R
- /Prev 355 0 R
+ /Next 355 0 R
+ /Parent 346 0 R
+ /Prev 353 0 R
  /Title (RHCE: SMTP) >>
 endobj
-% 'Outline.137.8': class OutlineEntryObject 
-357 0 obj
-<< /Dest [ 288 0 R
+% 'Outline.136.8': class OutlineEntryObject 
+355 0 obj
+<< /Dest [ 286 0 R
  /XYZ
  62.69291
  150.0236
  0 ]
- /Next 358 0 R
- /Parent 348 0 R
- /Prev 356 0 R
+ /Next 356 0 R
+ /Parent 346 0 R
+ /Prev 354 0 R
  /Title (RHCE: SSH) >>
 endobj
-% 'Outline.137.9': class OutlineEntryObject 
-358 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.136.9': class OutlineEntryObject 
+356 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  639.0236
  0 ]
- /Parent 348 0 R
- /Prev 357 0 R
+ /Parent 346 0 R
+ /Prev 355 0 R
  /Title (RHCE: NTP) >>
 endobj
-% 'Outline.132.8': class OutlineEntryObject 
-359 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.131.8': class OutlineEntryObject 
+357 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  492.0236
  0 ]
- /Next 360 0 R
- /Parent 327 0 R
- /Prev 348 0 R
+ /Next 358 0 R
+ /Parent 325 0 R
+ /Prev 346 0 R
  /Title (Boot, Reboot, Shutdown) >>
 endobj
-% 'Outline.132.9': class OutlineEntryObject 
-360 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.131.9': class OutlineEntryObject 
+358 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  384.0236
  0 ]
- /Next 361 0 R
- /Parent 327 0 R
- /Prev 359 0 R
+ /Next 359 0 R
+ /Parent 325 0 R
+ /Prev 357 0 R
  /Title (Runlevels) >>
 endobj
-% 'Outline.132.10': class OutlineEntryObject 
-361 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.131.10': class OutlineEntryObject 
+359 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  312.0236
  0 ]
- /Next 362 0 R
- /Parent 327 0 R
- /Prev 360 0 R
+ /Next 360 0 R
+ /Parent 325 0 R
+ /Prev 358 0 R
  /Title (Single User Mode) >>
 endobj
-% 'Outline.132.11': class OutlineEntryObject 
-362 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.131.11': class OutlineEntryObject 
+360 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  240.0236
  0 ]
- /Next 363 0 R
- /Parent 327 0 R
- /Prev 361 0 R
+ /Next 361 0 R
+ /Parent 325 0 R
+ /Prev 359 0 R
  /Title (Log Files) >>
 endobj
-% 'Outline.132.12': class OutlineEntryObject 
-363 0 obj
-<< /Dest [ 289 0 R
+% 'Outline.131.12': class OutlineEntryObject 
+361 0 obj
+<< /Dest [ 287 0 R
  /XYZ
  62.69291
  156.0236
  0 ]
- /Next 364 0 R
- /Parent 327 0 R
- /Prev 362 0 R
+ /Next 362 0 R
+ /Parent 325 0 R
+ /Prev 360 0 R
  /Title (Start/Stop Virtual Machines) >>
 endobj
-% 'Outline.132.13': class OutlineEntryObject 
-364 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.131.13': class OutlineEntryObject 
+362 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 365 0 R
- /Parent 327 0 R
- /Prev 363 0 R
+ /Next 363 0 R
+ /Parent 325 0 R
+ /Prev 361 0 R
  /Title (Virtual Machine Consoles) >>
 endobj
-% 'Outline.132.14': class OutlineEntryObject 
-365 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.131.14': class OutlineEntryObject 
+363 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  681.0236
  0 ]
- /Next 366 0 R
- /Parent 327 0 R
- /Prev 364 0 R
+ /Next 364 0 R
+ /Parent 325 0 R
+ /Prev 362 0 R
  /Title (Virtual Machine Text Console) >>
 endobj
-% 'Outline.132.15': class OutlineEntryObject 
-366 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.131.15': class OutlineEntryObject 
+364 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  481.4236
  0 ]
- /Next 367 0 R
- /Parent 327 0 R
- /Prev 365 0 R
+ /Next 365 0 R
+ /Parent 325 0 R
+ /Prev 363 0 R
  /Title (Virtual Machine Text Console Caveat) >>
 endobj
-% 'Outline.132.16': class OutlineEntryObject 
-367 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.131.16': class OutlineEntryObject 
+365 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  391.4236
  0 ]
- /Next 368 0 R
- /Parent 327 0 R
- /Prev 366 0 R
+ /Next 366 0 R
+ /Parent 325 0 R
+ /Prev 364 0 R
  /Title (Start, stop, and check the status of network services) >>
 endobj
-% 'Outline.132.17': class OutlineEntryObject 
-368 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.131.17': class OutlineEntryObject 
+366 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  361.4236
  0 ]
- /Parent 327 0 R
- /Prev 367 0 R
+ /Parent 325 0 R
+ /Prev 365 0 R
  /Title (Modify the system bootloader) >>
 endobj
 % 'Outline.2': class OutlineEntryObject 
-369 0 obj
+367 0 obj
 << /Count 35
- /Dest [ 291 0 R
+ /Dest [ 289 0 R
  /XYZ
  62.69291
  331.4236
  0 ]
- /First 370 0 R
- /Last 404 0 R
- /Next 405 0 R
- /Parent 325 0 R
- /Prev 327 0 R
+ /First 368 0 R
+ /Last 402 0 R
+ /Next 403 0 R
+ /Parent 323 0 R
+ /Prev 325 0 R
  /Title (Session 2 Storage and filesystems) >>
 endobj
-% 'Outline.138.0': class OutlineEntryObject 
-370 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.137.0': class OutlineEntryObject 
+368 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  298.4236
  0 ]
- /Next 371 0 R
- /Parent 369 0 R
+ /Next 369 0 R
+ /Parent 367 0 R
  /Title ("Filesystem" - Disambiguation) >>
 endobj
-% 'Outline.138.1': class OutlineEntryObject 
-371 0 obj
-<< /Dest [ 291 0 R
+% 'Outline.137.1': class OutlineEntryObject 
+369 0 obj
+<< /Dest [ 289 0 R
  /XYZ
  62.69291
  184.4236
  0 ]
- /Next 372 0 R
- /Parent 369 0 R
- /Prev 370 0 R
+ /Next 370 0 R
+ /Parent 367 0 R
+ /Prev 368 0 R
  /Title (Linux Filesystem Hierarchy) >>
 endobj
-% 'Outline.138.2': class OutlineEntryObject 
-372 0 obj
-<< /Dest [ 293 0 R
+% 'Outline.137.2': class OutlineEntryObject 
+370 0 obj
+<< /Dest [ 291 0 R
  /XYZ
  62.69291
  705.0236
  0 ]
- /Next 373 0 R
- /Parent 369 0 R
- /Prev 371 0 R
+ /Next 371 0 R
+ /Parent 367 0 R
+ /Prev 369 0 R
  /Title (Disk and Filesystem tools) >>
 endobj
-% 'Outline.138.3': class OutlineEntryObject 
-373 0 obj
-<< /Dest [ 293 0 R
+% 'Outline.137.3': class OutlineEntryObject 
+371 0 obj
+<< /Dest [ 291 0 R
  /XYZ
  62.69291
  489.0236
  0 ]
- /Next 374 0 R
- /Parent 369 0 R
- /Prev 372 0 R
+ /Next 372 0 R
+ /Parent 367 0 R
+ /Prev 370 0 R
  /Title (Working with Partitions) >>
 endobj
-% 'Outline.138.4': class OutlineEntryObject 
-374 0 obj
-<< /Dest [ 293 0 R
+% 'Outline.137.4': class OutlineEntryObject 
+372 0 obj
+<< /Dest [ 291 0 R
  /XYZ
  62.69291
  333.0236
  0 ]
- /Next 375 0 R
- /Parent 369 0 R
- /Prev 373 0 R
+ /Next 373 0 R
+ /Parent 367 0 R
+ /Prev 371 0 R
  /Title (Working with Logical Volume Management) >>
 endobj
-% 'Outline.138.5': class OutlineEntryObject 
-375 0 obj
-<< /Dest [ 293 0 R
+% 'Outline.137.5': class OutlineEntryObject 
+373 0 obj
+<< /Dest [ 291 0 R
  /XYZ
  62.69291
  123.0236
  0 ]
- /Next 376 0 R
- /Parent 369 0 R
- /Prev 374 0 R
+ /Next 374 0 R
+ /Parent 367 0 R
+ /Prev 372 0 R
  /Title (Removing Logical Volume structures) >>
 endobj
-% 'Outline.138.6': class OutlineEntryObject 
-376 0 obj
-<< /Dest [ 294 0 R
+% 'Outline.137.6': class OutlineEntryObject 
+374 0 obj
+<< /Dest [ 292 0 R
  /XYZ
  62.69291
  639.0236
  0 ]
- /Next 377 0 R
- /Parent 369 0 R
- /Prev 375 0 R
+ /Next 375 0 R
+ /Parent 367 0 R
+ /Prev 373 0 R
  /Title (Commands to Know) >>
 endobj
-% 'Outline.138.7': class OutlineEntryObject 
-377 0 obj
-<< /Dest [ 294 0 R
+% 'Outline.137.7': class OutlineEntryObject 
+375 0 obj
+<< /Dest [ 292 0 R
  /XYZ
  62.69291
  381.0236
  0 ]
- /Next 378 0 R
- /Parent 369 0 R
- /Prev 376 0 R
+ /Next 376 0 R
+ /Parent 367 0 R
+ /Prev 374 0 R
  /Title (Working with LUKS encrypted storage) >>
 endobj
-% 'Outline.138.8': class OutlineEntryObject 
-378 0 obj
-<< /Dest [ 294 0 R
+% 'Outline.137.8': class OutlineEntryObject 
+376 0 obj
+<< /Dest [ 292 0 R
  /XYZ
  62.69291
  141.0236
  0 ]
- /Next 379 0 R
- /Parent 369 0 R
- /Prev 377 0 R
+ /Next 377 0 R
+ /Parent 367 0 R
+ /Prev 375 0 R
  /Title (Persistent mounting of LUKS devices) >>
 endobj
-% 'Outline.138.9': class OutlineEntryObject 
-379 0 obj
-<< /Dest [ 295 0 R
+% 'Outline.137.9': class OutlineEntryObject 
+377 0 obj
+<< /Dest [ 293 0 R
  /XYZ
  62.69291
  531.6678
  0 ]
- /Next 380 0 R
- /Parent 369 0 R
- /Prev 378 0 R
+ /Next 378 0 R
+ /Parent 367 0 R
+ /Prev 376 0 R
  /Title (Working with SWAP) >>
 endobj
-% 'Outline.138.10': class OutlineEntryObject 
-380 0 obj
-<< /Dest [ 295 0 R
+% 'Outline.137.10': class OutlineEntryObject 
+378 0 obj
+<< /Dest [ 293 0 R
  /XYZ
  62.69291
  360.4678
  0 ]
- /Next 381 0 R
- /Parent 369 0 R
- /Prev 379 0 R
+ /Next 379 0 R
+ /Parent 367 0 R
+ /Prev 377 0 R
  /Title (Using a file for SWAP) >>
 endobj
-% 'Outline.138.11': class OutlineEntryObject 
-381 0 obj
-<< /Dest [ 295 0 R
+% 'Outline.137.11': class OutlineEntryObject 
+379 0 obj
+<< /Dest [ 293 0 R
  /XYZ
  62.69291
  174.0678
  0 ]
- /Next 382 0 R
- /Parent 369 0 R
- /Prev 380 0 R
+ /Next 380 0 R
+ /Parent 367 0 R
+ /Prev 378 0 R
  /Title (Mounting Using UUIDs and Filesystem Labels) >>
 endobj
-% 'Outline.138.12': class OutlineEntryObject 
-382 0 obj
-<< /Dest [ 295 0 R
+% 'Outline.137.12': class OutlineEntryObject 
+380 0 obj
+<< /Dest [ 293 0 R
  /XYZ
  62.69291
  126.0678
  0 ]
- /Next 383 0 R
- /Parent 369 0 R
- /Prev 381 0 R
+ /Next 381 0 R
+ /Parent 367 0 R
+ /Prev 379 0 R
  /Title (Local Storage: Adding New Storage) >>
 endobj
-% 'Outline.138.13': class OutlineEntryObject 
-383 0 obj
-<< /Dest [ 296 0 R
+% 'Outline.137.13': class OutlineEntryObject 
+381 0 obj
+<< /Dest [ 294 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 384 0 R
- /Parent 369 0 R
- /Prev 382 0 R
+ /Next 382 0 R
+ /Parent 367 0 R
+ /Prev 380 0 R
  /Title (File systems: Working with Common Linux Filesystems) >>
 endobj
-% 'Outline.138.14': class OutlineEntryObject 
-384 0 obj
-<< /Dest [ 296 0 R
+% 'Outline.137.14': class OutlineEntryObject 
+382 0 obj
+<< /Dest [ 294 0 R
  /XYZ
  62.69291
  687.0236
  0 ]
- /Next 385 0 R
- /Parent 369 0 R
- /Prev 383 0 R
+ /Next 383 0 R
+ /Parent 367 0 R
+ /Prev 381 0 R
  /Title (Filesystem Permissions: Basic Permissions) >>
 endobj
-% 'Outline.138.15': class OutlineEntryObject 
-385 0 obj
-<< /Dest [ 296 0 R
+% 'Outline.137.15': class OutlineEntryObject 
+383 0 obj
+<< /Dest [ 294 0 R
  /XYZ
  62.69291
  585.0236
  0 ]
- /Next 386 0 R
- /Parent 369 0 R
- /Prev 384 0 R
+ /Next 384 0 R
+ /Parent 367 0 R
+ /Prev 382 0 R
  /Title (Three Sets of Permissions:) >>
 endobj
-% 'Outline.138.16': class OutlineEntryObject 
-386 0 obj
-<< /Dest [ 296 0 R
+% 'Outline.137.16': class OutlineEntryObject 
+384 0 obj
+<< /Dest [ 294 0 R
  /XYZ
  62.69291
  447.0236
  0 ]
- /Next 387 0 R
- /Parent 369 0 R
- /Prev 385 0 R
+ /Next 385 0 R
+ /Parent 367 0 R
+ /Prev 383 0 R
  /Title (Three Types of Permissions:) >>
 endobj
-% 'Outline.138.17': class OutlineEntryObject 
-387 0 obj
-<< /Dest [ 296 0 R
+% 'Outline.137.17': class OutlineEntryObject 
+385 0 obj
+<< /Dest [ 294 0 R
  /XYZ
  62.69291
  231.0236
  0 ]
- /Next 388 0 R
- /Parent 369 0 R
- /Prev 386 0 R
+ /Next 386 0 R
+ /Parent 367 0 R
+ /Prev 384 0 R
  /Title (Three Extended Attributes:) >>
 endobj
-% 'Outline.138.18': class OutlineEntryObject 
-388 0 obj
-<< /Dest [ 299 0 R
+% 'Outline.137.18': class OutlineEntryObject 
+386 0 obj
+<< /Dest [ 297 0 R
  /XYZ
  62.69291
  714.0236
  0 ]
- /Next 389 0 R
- /Parent 369 0 R
- /Prev 387 0 R
+ /Next 387 0 R
+ /Parent 367 0 R
+ /Prev 385 0 R
  /Title (Viewing Permissions) >>
 endobj
-% 'Outline.138.19': class OutlineEntryObject 
-389 0 obj
-<< /Dest [ 299 0 R
+% 'Outline.137.19': class OutlineEntryObject 
+387 0 obj
+<< /Dest [ 297 0 R
  /XYZ
  62.69291
  553.6434
  0 ]
- /Next 390 0 R
- /Parent 369 0 R
- /Prev 388 0 R
+ /Next 388 0 R
+ /Parent 367 0 R
+ /Prev 386 0 R
  /Title (Setting Permissions) >>
 endobj
-% 'Outline.138.20': class OutlineEntryObject 
-390 0 obj
-<< /Dest [ 299 0 R
+% 'Outline.137.20': class OutlineEntryObject 
+388 0 obj
+<< /Dest [ 297 0 R
  /XYZ
  62.69291
  431.6434
  0 ]
- /Next 391 0 R
- /Parent 369 0 R
- /Prev 389 0 R
+ /Next 389 0 R
+ /Parent 367 0 R
+ /Prev 387 0 R
  /Title (Setting Permissions with Numeric Options) >>
 endobj
-% 'Outline.138.21': class OutlineEntryObject 
-391 0 obj
-<< /Dest [ 299 0 R
+% 'Outline.137.21': class OutlineEntryObject 
+389 0 obj
+<< /Dest [ 297 0 R
  /XYZ
  62.69291
  221.6434
  0 ]
- /Next 392 0 R
- /Parent 369 0 R
- /Prev 390 0 R
+ /Next 390 0 R
+ /Parent 367 0 R
+ /Prev 388 0 R
  /Title (Setting Extended Attributes with Numeric Options) >>
 endobj
-% 'Outline.138.22': class OutlineEntryObject 
-392 0 obj
-<< /Dest [ 301 0 R
+% 'Outline.137.22': class OutlineEntryObject 
+390 0 obj
+<< /Dest [ 299 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 393 0 R
- /Parent 369 0 R
- /Prev 391 0 R
+ /Next 391 0 R
+ /Parent 367 0 R
+ /Prev 389 0 R
  /Title (Setting Extended Attributes with Symbolic Values:) >>
 endobj
-% 'Outline.138.23': class OutlineEntryObject 
-393 0 obj
-<< /Dest [ 301 0 R
+% 'Outline.137.23': class OutlineEntryObject 
+391 0 obj
+<< /Dest [ 299 0 R
  /XYZ
  62.69291
  628.0236
  0 ]
- /Next 394 0 R
- /Parent 369 0 R
- /Prev 392 0 R
+ /Next 392 0 R
+ /Parent 367 0 R
+ /Prev 390 0 R
  /Title (Extended Attributes in Directory Listings) >>
 endobj
-% 'Outline.138.24': class OutlineEntryObject 
-394 0 obj
-<< /Dest [ 301 0 R
+% 'Outline.137.24': class OutlineEntryObject 
+392 0 obj
+<< /Dest [ 299 0 R
  /XYZ
  62.69291
  460.0236
  0 ]
- /Next 395 0 R
- /Parent 369 0 R
- /Prev 393 0 R
+ /Next 393 0 R
+ /Parent 367 0 R
+ /Prev 391 0 R
  /Title (Umask) >>
 endobj
-% 'Outline.138.25': class OutlineEntryObject 
-395 0 obj
-<< /Dest [ 301 0 R
+% 'Outline.137.25': class OutlineEntryObject 
+393 0 obj
+<< /Dest [ 299 0 R
  /XYZ
  62.69291
  310.0236
  0 ]
- /Next 396 0 R
- /Parent 369 0 R
- /Prev 394 0 R
+ /Next 394 0 R
+ /Parent 367 0 R
+ /Prev 392 0 R
  /Title (Umask Examples) >>
 endobj
-% 'Outline.138.26': class OutlineEntryObject 
-396 0 obj
-<< /Dest [ 301 0 R
+% 'Outline.137.26': class OutlineEntryObject 
+394 0 obj
+<< /Dest [ 299 0 R
  /XYZ
  62.69291
  238.0236
  0 ]
- /Next 397 0 R
- /Parent 369 0 R
- /Prev 395 0 R
+ /Next 395 0 R
+ /Parent 367 0 R
+ /Prev 393 0 R
  /Title (SGID and Stickybit Use Case -- Collaborative Directories) >>
 endobj
-% 'Outline.138.27': class OutlineEntryObject 
-397 0 obj
-<< /Dest [ 302 0 R
+% 'Outline.137.27': class OutlineEntryObject 
+395 0 obj
+<< /Dest [ 300 0 R
  /XYZ
  62.69291
  675.0236
  0 ]
- /Next 398 0 R
- /Parent 369 0 R
- /Prev 396 0 R
+ /Next 396 0 R
+ /Parent 367 0 R
+ /Prev 394 0 R
  /Title (File Access Control Lists) >>
 endobj
-% 'Outline.138.28': class OutlineEntryObject 
-398 0 obj
-<< /Dest [ 302 0 R
+% 'Outline.137.28': class OutlineEntryObject 
+396 0 obj
+<< /Dest [ 300 0 R
  /XYZ
  62.69291
  567.0236
  0 ]
- /Next 399 0 R
- /Parent 369 0 R
- /Prev 397 0 R
+ /Next 397 0 R
+ /Parent 367 0 R
+ /Prev 395 0 R
  /Title (getfacl) >>
 endobj
-% 'Outline.138.29': class OutlineEntryObject 
-399 0 obj
-<< /Dest [ 302 0 R
+% 'Outline.137.29': class OutlineEntryObject 
+397 0 obj
+<< /Dest [ 300 0 R
  /XYZ
  62.69291
  336.6236
  0 ]
- /Next 400 0 R
- /Parent 369 0 R
- /Prev 398 0 R
+ /Next 398 0 R
+ /Parent 367 0 R
+ /Prev 396 0 R
  /Title (Working with CIFS network file systems) >>
 endobj
-% 'Outline.138.30': class OutlineEntryObject 
-400 0 obj
-<< /Dest [ 302 0 R
+% 'Outline.137.30': class OutlineEntryObject 
+398 0 obj
+<< /Dest [ 300 0 R
  /XYZ
  62.69291
  270.6236
  0 ]
- /Next 401 0 R
- /Parent 369 0 R
- /Prev 399 0 R
+ /Next 399 0 R
+ /Parent 367 0 R
+ /Prev 397 0 R
  /Title (Working with NFS file systems) >>
 endobj
-% 'Outline.138.31': class OutlineEntryObject 
-401 0 obj
-<< /Dest [ 302 0 R
+% 'Outline.137.31': class OutlineEntryObject 
+399 0 obj
+<< /Dest [ 300 0 R
  /XYZ
  62.69291
  222.6236
  0 ]
- /Next 402 0 R
- /Parent 369 0 R
- /Prev 400 0 R
+ /Next 400 0 R
+ /Parent 367 0 R
+ /Prev 398 0 R
  /Title (iSCSI Devices) >>
 endobj
-% 'Outline.138.32': class OutlineEntryObject 
-402 0 obj
-<< /Dest [ 304 0 R
+% 'Outline.137.32': class OutlineEntryObject 
+400 0 obj
+<< /Dest [ 302 0 R
  /XYZ
  62.69291
  699.0236
  0 ]
- /Next 403 0 R
- /Parent 369 0 R
- /Prev 401 0 R
+ /Next 401 0 R
+ /Parent 367 0 R
+ /Prev 399 0 R
  /Title (Accessing iSCSI Devices) >>
 endobj
-% 'Outline.138.33': class OutlineEntryObject 
-403 0 obj
-<< /Dest [ 304 0 R
+% 'Outline.137.33': class OutlineEntryObject 
+401 0 obj
+<< /Dest [ 302 0 R
  /XYZ
  62.69291
  357.6236
  0 ]
- /Next 404 0 R
- /Parent 369 0 R
- /Prev 402 0 R
+ /Next 402 0 R
+ /Parent 367 0 R
+ /Prev 400 0 R
  /Title (Disconnecting from iSCSI Devices) >>
 endobj
-% 'Outline.138.34': class OutlineEntryObject 
-404 0 obj
-<< /Dest [ 304 0 R
+% 'Outline.137.34': class OutlineEntryObject 
+402 0 obj
+<< /Dest [ 302 0 R
  /XYZ
  62.69291
  165.2236
  0 ]
- /Parent 369 0 R
- /Prev 403 0 R
+ /Parent 367 0 R
+ /Prev 401 0 R
  /Title (Additional References) >>
 endobj
 % 'Outline.3': class OutlineEntryObject 
-405 0 obj
-<< /Count 42
- /Dest [ 305 0 R
+403 0 obj
+<< /Count 41
+ /Dest [ 303 0 R
  /XYZ
  62.69291
  717.0236
  0 ]
- /First 406 0 R
- /Last 447 0 R
- /Next 448 0 R
- /Parent 325 0 R
- /Prev 369 0 R
+ /First 404 0 R
+ /Last 444 0 R
+ /Next 445 0 R
+ /Parent 323 0 R
+ /Prev 367 0 R
  /Title (Session 3 Managing software, processes, kernel attributes, and users and groups) >>
 endobj
-% 'Outline.139.0': class OutlineEntryObject 
-406 0 obj
-<< /Dest [ 305 0 R
+% 'Outline.138.0': class OutlineEntryObject 
+404 0 obj
+<< /Dest [ 303 0 R
  /XYZ
  62.69291
  663.0236
  0 ]
- /Next 407 0 R
- /Parent 405 0 R
+ /Next 405 0 R
+ /Parent 403 0 R
  /Title (The Red Hat Network \(RHN\)) >>
 endobj
-% 'Outline.139.1': class OutlineEntryObject 
-407 0 obj
-<< /Dest [ 305 0 R
+% 'Outline.138.1': class OutlineEntryObject 
+405 0 obj
+<< /Dest [ 303 0 R
  /XYZ
  62.69291
  473.6744
  0 ]
- /Next 408 0 R
- /Parent 405 0 R
- /Prev 406 0 R
+ /Next 406 0 R
+ /Parent 403 0 R
+ /Prev 404 0 R
  /Title (RHN Subscription Activation) >>
 endobj
-% 'Outline.139.2': class OutlineEntryObject 
-408 0 obj
-<< /Dest [ 305 0 R
+% 'Outline.138.2': class OutlineEntryObject 
+406 0 obj
+<< /Dest [ 303 0 R
  /XYZ
  62.69291
  228.4744
  0 ]
- /Next 409 0 R
- /Parent 405 0 R
- /Prev 407 0 R
+ /Next 407 0 R
+ /Parent 403 0 R
+ /Prev 405 0 R
  /Title (3rd Party Yum Repositories) >>
 endobj
-% 'Outline.139.3': class OutlineEntryObject 
-409 0 obj
-<< /Dest [ 306 0 R
+% 'Outline.138.3': class OutlineEntryObject 
+407 0 obj
+<< /Dest [ 304 0 R
  /XYZ
  62.69291
  717.0236
  0 ]
- /Next 410 0 R
- /Parent 405 0 R
- /Prev 408 0 R
+ /Next 408 0 R
+ /Parent 403 0 R
+ /Prev 406 0 R
  /Title (Yum Repository Mandatory Configuration Items) >>
 endobj
-% 'Outline.139.4': class OutlineEntryObject 
-410 0 obj
-<< /Dest [ 306 0 R
+% 'Outline.138.4': class OutlineEntryObject 
+408 0 obj
+<< /Dest [ 304 0 R
  /XYZ
  62.69291
  492.4236
  0 ]
- /Next 411 0 R
- /Parent 405 0 R
- /Prev 409 0 R
+ /Next 409 0 R
+ /Parent 403 0 R
+ /Prev 407 0 R
  /Title (Yum Repository Common Optional Configuration Items) >>
 endobj
-% 'Outline.139.5': class OutlineEntryObject 
-411 0 obj
-<< /Dest [ 306 0 R
+% 'Outline.138.5': class OutlineEntryObject 
+409 0 obj
+<< /Dest [ 304 0 R
  /XYZ
  62.69291
  255.8236
  0 ]
- /Next 412 0 R
- /Parent 405 0 R
- /Prev 410 0 R
+ /Next 410 0 R
+ /Parent 403 0 R
+ /Prev 408 0 R
  /Title (Managing Software: Using yum) >>
 endobj
-% 'Outline.139.6': class OutlineEntryObject 
-412 0 obj
-<< /Dest [ 307 0 R
+% 'Outline.138.6': class OutlineEntryObject 
+410 0 obj
+<< /Dest [ 305 0 R
  /XYZ
  62.69291
  590.0236
  0 ]
- /Next 413 0 R
- /Parent 405 0 R
- /Prev 411 0 R
+ /Next 411 0 R
+ /Parent 403 0 R
+ /Prev 409 0 R
  /Title (Yum-related man pages) >>
 endobj
-% 'Outline.139.7': class OutlineEntryObject 
-413 0 obj
-<< /Dest [ 307 0 R
+% 'Outline.138.7': class OutlineEntryObject 
+411 0 obj
+<< /Dest [ 305 0 R
  /XYZ
  62.69291
  454.3716
  0 ]
- /Next 414 0 R
- /Parent 405 0 R
- /Prev 412 0 R
+ /Next 412 0 R
+ /Parent 403 0 R
+ /Prev 410 0 R
  /Title (RPM Architecture) >>
 endobj
-% 'Outline.139.8': class OutlineEntryObject 
-414 0 obj
-<< /Dest [ 307 0 R
+% 'Outline.138.8': class OutlineEntryObject 
+412 0 obj
+<< /Dest [ 305 0 R
  /XYZ
  62.69291
  352.3716
  0 ]
- /Next 415 0 R
- /Parent 405 0 R
- /Prev 413 0 R
+ /Next 413 0 R
+ /Parent 403 0 R
+ /Prev 411 0 R
  /Title (RPM Package Naming) >>
 endobj
-% 'Outline.139.9': class OutlineEntryObject 
-415 0 obj
-<< /Dest [ 307 0 R
+% 'Outline.138.9': class OutlineEntryObject 
+413 0 obj
+<< /Dest [ 305 0 R
  /XYZ
  62.69291
  130.3716
  0 ]
- /Next 416 0 R
- /Parent 405 0 R
- /Prev 414 0 R
+ /Next 414 0 R
+ /Parent 403 0 R
+ /Prev 412 0 R
  /Title (Package Naming Example) >>
 endobj
-% 'Outline.139.10': class OutlineEntryObject 
-416 0 obj
-<< /Dest [ 308 0 R
+% 'Outline.138.10': class OutlineEntryObject 
+414 0 obj
+<< /Dest [ 306 0 R
  /XYZ
  62.69291
  675.0236
  0 ]
- /Next 417 0 R
- /Parent 405 0 R
- /Prev 415 0 R
+ /Next 415 0 R
+ /Parent 403 0 R
+ /Prev 413 0 R
  /Title (Installing and Upgrading Packages) >>
 endobj
-% 'Outline.139.11': class OutlineEntryObject 
-417 0 obj
-<< /Dest [ 308 0 R
+% 'Outline.138.11': class OutlineEntryObject 
+415 0 obj
+<< /Dest [ 306 0 R
  /XYZ
  62.69291
  526.0236
  0 ]
- /Next 418 0 R
- /Parent 405 0 R
- /Prev 416 0 R
+ /Next 416 0 R
+ /Parent 403 0 R
+ /Prev 414 0 R
  /Title (Upgrading a Kernel) >>
 endobj
-% 'Outline.139.12': class OutlineEntryObject 
-418 0 obj
-<< /Dest [ 308 0 R
+% 'Outline.138.12': class OutlineEntryObject 
+416 0 obj
+<< /Dest [ 306 0 R
  /XYZ
  62.69291
  442.0236
  0 ]
- /Next 419 0 R
- /Parent 405 0 R
- /Prev 417 0 R
+ /Next 417 0 R
+ /Parent 403 0 R
+ /Prev 415 0 R
  /Title (RPM and Modified Config Files) >>
 endobj
-% 'Outline.139.13': class OutlineEntryObject 
-419 0 obj
-<< /Dest [ 308 0 R
+% 'Outline.138.13': class OutlineEntryObject 
+417 0 obj
+<< /Dest [ 306 0 R
  /XYZ
  62.69291
  286.0236
  0 ]
- /Next 420 0 R
- /Parent 405 0 R
- /Prev 418 0 R
+ /Next 418 0 R
+ /Parent 403 0 R
+ /Prev 416 0 R
  /Title (Uninstalling) >>
 endobj
-% 'Outline.139.14': class OutlineEntryObject 
-420 0 obj
-<< /Dest [ 308 0 R
+% 'Outline.138.14': class OutlineEntryObject 
+418 0 obj
+<< /Dest [ 306 0 R
  /XYZ
  62.69291
  190.0236
  0 ]
- /Next 421 0 R
- /Parent 405 0 R
- /Prev 419 0 R
+ /Next 419 0 R
+ /Parent 403 0 R
+ /Prev 417 0 R
  /Title (RPM over a Network) >>
 endobj
-% 'Outline.139.15': class OutlineEntryObject 
-421 0 obj
-<< /Dest [ 309 0 R
+% 'Outline.138.15': class OutlineEntryObject 
+419 0 obj
+<< /Dest [ 307 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 422 0 R
- /Parent 405 0 R
- /Prev 420 0 R
+ /Next 420 0 R
+ /Parent 403 0 R
+ /Prev 418 0 R
  /Title (Common RPM Queries) >>
 endobj
-% 'Outline.139.16': class OutlineEntryObject 
-422 0 obj
-<< /Dest [ 309 0 R
+% 'Outline.138.16': class OutlineEntryObject 
+420 0 obj
+<< /Dest [ 307 0 R
  /XYZ
  62.69291
  500.0236
  0 ]
- /Next 423 0 R
- /Parent 405 0 R
- /Prev 421 0 R
+ /Next 421 0 R
+ /Parent 403 0 R
+ /Prev 419 0 R
  /Title (RPM Verification) >>
 endobj
-% 'Outline.139.17': class OutlineEntryObject 
-423 0 obj
-<< /Dest [ 309 0 R
+% 'Outline.138.17': class OutlineEntryObject 
+421 0 obj
+<< /Dest [ 307 0 R
  /XYZ
  62.69291
  356.0236
  0 ]
- /Next 424 0 R
- /Parent 405 0 R
- /Prev 422 0 R
+ /Next 422 0 R
+ /Parent 403 0 R
+ /Prev 420 0 R
  /Title (Validate Package Signatures) >>
 endobj
-% 'Outline.139.18': class OutlineEntryObject 
-424 0 obj
-<< /Dest [ 310 0 R
+% 'Outline.138.18': class OutlineEntryObject 
+422 0 obj
+<< /Dest [ 308 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 425 0 R
- /Parent 405 0 R
- /Prev 423 0 R
+ /Next 423 0 R
+ /Parent 403 0 R
+ /Prev 421 0 R
  /Title (RPM Checksig Sample Output) >>
 endobj
-% 'Outline.139.19': class OutlineEntryObject 
-425 0 obj
-<< /Dest [ 310 0 R
+% 'Outline.138.19': class OutlineEntryObject 
+423 0 obj
+<< /Dest [ 308 0 R
  /XYZ
  62.69291
  639.0236
  0 ]
- /Next 426 0 R
- /Parent 405 0 R
- /Prev 424 0 R
+ /Next 424 0 R
+ /Parent 403 0 R
+ /Prev 422 0 R
  /Title (Verify Installed Files) >>
 endobj
-% 'Outline.139.20': class OutlineEntryObject 
-426 0 obj
-<< /Dest [ 310 0 R
+% 'Outline.138.20': class OutlineEntryObject 
+424 0 obj
+<< /Dest [ 308 0 R
  /XYZ
  62.69291
  549.0236
  0 ]
- /Next 427 0 R
- /Parent 405 0 R
- /Prev 425 0 R
+ /Next 425 0 R
+ /Parent 403 0 R
+ /Prev 423 0 R
  /Title (Change Codes from rpm --verify) >>
 endobj
-% 'Outline.139.21': class OutlineEntryObject 
-427 0 obj
-<< /Dest [ 310 0 R
+% 'Outline.138.21': class OutlineEntryObject 
+425 0 obj
+<< /Dest [ 308 0 R
  /XYZ
  62.69291
  345.0236
  0 ]
- /Next 428 0 R
- /Parent 405 0 R
- /Prev 426 0 R
+ /Next 426 0 R
+ /Parent 403 0 R
+ /Prev 424 0 R
  /Title (RPM Verify Sample Output) >>
 endobj
-% 'Outline.139.22': class OutlineEntryObject 
-428 0 obj
-<< /Dest [ 310 0 R
+% 'Outline.138.22': class OutlineEntryObject 
+426 0 obj
+<< /Dest [ 308 0 R
  /XYZ
  62.69291
  161.8236
  0 ]
- /Next 429 0 R
- /Parent 405 0 R
- /Prev 427 0 R
+ /Next 427 0 R
+ /Parent 403 0 R
+ /Prev 425 0 R
  /Title (Identifying Installed Packages) >>
 endobj
-% 'Outline.139.23': class OutlineEntryObject 
-429 0 obj
-<< /Dest [ 313 0 R
+% 'Outline.138.23': class OutlineEntryObject 
+427 0 obj
+<< /Dest [ 311 0 R
  /XYZ
  62.69291
  642.6236
  0 ]
- /Next 430 0 R
- /Parent 405 0 R
- /Prev 428 0 R
+ /Next 428 0 R
+ /Parent 403 0 R
+ /Prev 426 0 R
  /Title (Managing Software:  Building RPMs) >>
 endobj
-% 'Outline.139.24': class OutlineEntryObject 
-430 0 obj
-<< /Dest [ 313 0 R
+% 'Outline.138.24': class OutlineEntryObject 
+428 0 obj
+<< /Dest [ 311 0 R
  /XYZ
  62.69291
  564.6236
  0 ]
- /Next 431 0 R
- /Parent 405 0 R
- /Prev 429 0 R
+ /Next 429 0 R
+ /Parent 403 0 R
+ /Prev 427 0 R
  /Title (Inside an RPM package) >>
 endobj
-% 'Outline.139.25': class OutlineEntryObject 
-431 0 obj
-<< /Dest [ 313 0 R
+% 'Outline.138.25': class OutlineEntryObject 
+429 0 obj
+<< /Dest [ 311 0 R
  /XYZ
  62.69291
  331.6236
  0 ]
- /Next 432 0 R
- /Parent 405 0 R
- /Prev 430 0 R
+ /Next 430 0 R
+ /Parent 403 0 R
+ /Prev 428 0 R
  /Title (Main contents of a .spec file) >>
 endobj
-% 'Outline.139.26': class OutlineEntryObject 
-432 0 obj
-<< /Dest [ 313 0 R
+% 'Outline.138.26': class OutlineEntryObject 
+430 0 obj
+<< /Dest [ 311 0 R
  /XYZ
  62.69291
  205.6236
  0 ]
- /Next 433 0 R
- /Parent 405 0 R
- /Prev 431 0 R
+ /Next 431 0 R
+ /Parent 403 0 R
+ /Prev 429 0 R
  /Title (Preamble directives) >>
 endobj
-% 'Outline.139.27': class OutlineEntryObject 
-433 0 obj
-<< /Dest [ 315 0 R
+% 'Outline.138.27': class OutlineEntryObject 
+431 0 obj
+<< /Dest [ 313 0 R
  /XYZ
  62.69291
  504.0236
  0 ]
- /Next 434 0 R
- /Parent 405 0 R
- /Prev 432 0 R
+ /Next 432 0 R
+ /Parent 403 0 R
+ /Prev 430 0 R
  /Title (Required Spec file sections) >>
 endobj
-% 'Outline.139.28': class OutlineEntryObject 
-434 0 obj
-<< /Dest [ 315 0 R
+% 'Outline.138.28': class OutlineEntryObject 
+432 0 obj
+<< /Dest [ 313 0 R
  /XYZ
  62.69291
  348.0236
  0 ]
- /Next 435 0 R
- /Parent 405 0 R
- /Prev 433 0 R
+ /Next 433 0 R
+ /Parent 403 0 R
+ /Prev 431 0 R
  /Title (Package Building Tools) >>
 endobj
-% 'Outline.139.29': class OutlineEntryObject 
-435 0 obj
-<< /Dest [ 315 0 R
+% 'Outline.138.29': class OutlineEntryObject 
+433 0 obj
+<< /Dest [ 313 0 R
  /XYZ
  62.69291
  234.0236
  0 ]
- /Next 436 0 R
- /Parent 405 0 R
- /Prev 434 0 R
+ /Next 434 0 R
+ /Parent 403 0 R
+ /Prev 432 0 R
  /Title (Setting up a Build Environment) >>
 endobj
-% 'Outline.139.30': class OutlineEntryObject 
-436 0 obj
-<< /Dest [ 316 0 R
+% 'Outline.138.30': class OutlineEntryObject 
+434 0 obj
+<< /Dest [ 314 0 R
  /XYZ
  62.69291
  623.8236
  0 ]
- /Next 437 0 R
- /Parent 405 0 R
- /Prev 435 0 R
+ /Next 435 0 R
+ /Parent 403 0 R
+ /Prev 433 0 R
  /Title (Viewing the Build Environment) >>
 endobj
-% 'Outline.139.31': class OutlineEntryObject 
-437 0 obj
-<< /Dest [ 316 0 R
+% 'Outline.138.31': class OutlineEntryObject 
+435 0 obj
+<< /Dest [ 314 0 R
  /XYZ
  62.69291
  515.8236
  0 ]
- /Next 438 0 R
- /Parent 405 0 R
- /Prev 436 0 R
+ /Next 436 0 R
+ /Parent 403 0 R
+ /Prev 434 0 R
  /Title (RPM Building Exercise) >>
 endobj
-% 'Outline.139.32': class OutlineEntryObject 
-438 0 obj
-<< /Dest [ 317 0 R
+% 'Outline.138.32': class OutlineEntryObject 
+436 0 obj
+<< /Dest [ 315 0 R
  /XYZ
  62.69291
  210.2236
  0 ]
- /Next 439 0 R
- /Parent 405 0 R
- /Prev 437 0 R
+ /Next 437 0 R
+ /Parent 403 0 R
+ /Prev 435 0 R
+ /Title (Create a Repo with your files) >>
+endobj
+% 'Outline.138.33': class OutlineEntryObject 
+437 0 obj
+<< /Dest [ 316 0 R
+ /XYZ
+ 62.69291
+ 729.0236
+ 0 ]
+ /Next 438 0 R
+ /Parent 403 0 R
+ /Prev 436 0 R
  /Title (Signing Your RPMs) >>
 endobj
-% 'Outline.139.33': class OutlineEntryObject 
-439 0 obj
-<< /Dest [ 320 0 R
+% 'Outline.138.34': class OutlineEntryObject 
+438 0 obj
+<< /Dest [ 318 0 R
  /XYZ
  62.69291
- 150.098
+ 264.698
  0 ]
- /Next 440 0 R
- /Parent 405 0 R
- /Prev 438 0 R
+ /Next 439 0 R
+ /Parent 403 0 R
+ /Prev 437 0 R
  /Title (RPM Packaging, Other Documentation:) >>
 endobj
-% 'Outline.139.34': class OutlineEntryObject 
-440 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 697.7918
- 0 ]
- /Next 441 0 R
- /Parent 405 0 R
- /Prev 439 0 R
- /Title (Managing Software:  Signing and Publishing RPMs) >>
-endobj
-% 'Outline.139.35': class OutlineEntryObject 
-441 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 667.7918
- 0 ]
- /Next 442 0 R
- /Parent 405 0 R
- /Prev 440 0 R
- /Title (Managing Software:  Updating the kernel package) >>
-endobj
-% 'Outline.139.36': class OutlineEntryObject 
-442 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 637.7918
- 0 ]
- /Next 443 0 R
- /Parent 405 0 R
- /Prev 441 0 R
- /Title (Manage Processes and Services: Configure network services to start automatically at boot) >>
-endobj
-% 'Outline.139.37': class OutlineEntryObject 
-443 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 589.7918
- 0 ]
- /Next 444 0 R
- /Parent 405 0 R
- /Prev 442 0 R
- /Title (Manage Processes and Services: Configure systems to boot into a specific runlevel automatically) >>
-endobj
-% 'Outline.139.38': class OutlineEntryObject 
-444 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 541.7918
- 0 ]
- /Next 445 0 R
- /Parent 405 0 R
- /Prev 443 0 R
- /Title (Manage Processes and Services: Monitoring, prioritizing, and controlling processes) >>
-endobj
-% 'Outline.139.39': class OutlineEntryObject 
-445 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 493.7918
- 0 ]
- /Next 446 0 R
- /Parent 405 0 R
- /Prev 444 0 R
- /Title (Manage Processes and Services: Schedule tasks using cron) >>
-endobj
-% 'Outline.139.40': class OutlineEntryObject 
-446 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 463.7918
- 0 ]
- /Next 447 0 R
- /Parent 405 0 R
- /Prev 445 0 R
- /Title (Manage system performance) >>
-endobj
-% 'Outline.139.41': class OutlineEntryObject 
-447 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 373.7918
- 0 ]
- /Parent 405 0 R
- /Prev 446 0 R
- /Title (Manage Users and Groups) >>
-endobj
-% 'Outline.4': class OutlineEntryObject 
-448 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 247.7918
- 0 ]
- /Next 449 0 R
- /Parent 325 0 R
- /Prev 405 0 R
- /Title (Session 4 Networking and routing) >>
-endobj
-% 'Outline.5': class OutlineEntryObject 
-449 0 obj
-<< /Dest [ 321 0 R
- /XYZ
- 62.69291
- 184.7918
- 0 ]
- /Next 450 0 R
- /Parent 325 0 R
- /Prev 448 0 R
- /Title (Session 5 Firewalls and SELinux) >>
-endobj
-% 'Outline.6': class OutlineEntryObject 
-450 0 obj
-<< /Dest [ 322 0 R
+% 'Outline.138.35': class OutlineEntryObject 
+439 0 obj
+<< /Dest [ 319 0 R
  /XYZ
  62.69291
  753.0236
  0 ]
- /Next 451 0 R
- /Parent 325 0 R
- /Prev 449 0 R
+ /Next 440 0 R
+ /Parent 403 0 R
+ /Prev 438 0 R
+ /Title (Manage Processes and Services: Configure network services to start automatically at boot) >>
+endobj
+% 'Outline.138.36': class OutlineEntryObject 
+440 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 705.0236
+ 0 ]
+ /Next 441 0 R
+ /Parent 403 0 R
+ /Prev 439 0 R
+ /Title (Manage Processes and Services: Configure systems to boot into a specific runlevel automatically) >>
+endobj
+% 'Outline.138.37': class OutlineEntryObject 
+441 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 657.0236
+ 0 ]
+ /Next 442 0 R
+ /Parent 403 0 R
+ /Prev 440 0 R
+ /Title (Manage Processes and Services: Monitoring, prioritizing, and controlling processes) >>
+endobj
+% 'Outline.138.38': class OutlineEntryObject 
+442 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 609.0236
+ 0 ]
+ /Next 443 0 R
+ /Parent 403 0 R
+ /Prev 441 0 R
+ /Title (Manage Processes and Services: Schedule tasks using cron) >>
+endobj
+% 'Outline.138.39': class OutlineEntryObject 
+443 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 579.0236
+ 0 ]
+ /Next 444 0 R
+ /Parent 403 0 R
+ /Prev 442 0 R
+ /Title (Manage system performance) >>
+endobj
+% 'Outline.138.40': class OutlineEntryObject 
+444 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 490.7918
+ 0 ]
+ /Parent 403 0 R
+ /Prev 443 0 R
+ /Title (Manage Users and Groups) >>
+endobj
+% 'Outline.4': class OutlineEntryObject 
+445 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 364.7918
+ 0 ]
+ /Next 446 0 R
+ /Parent 323 0 R
+ /Prev 403 0 R
+ /Title (Session 4 Networking and routing) >>
+endobj
+% 'Outline.5': class OutlineEntryObject 
+446 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 301.7918
+ 0 ]
+ /Next 447 0 R
+ /Parent 323 0 R
+ /Prev 445 0 R
+ /Title (Session 5 Firewalls and SELinux) >>
+endobj
+% 'Outline.6': class OutlineEntryObject 
+447 0 obj
+<< /Dest [ 319 0 R
+ /XYZ
+ 62.69291
+ 214.7918
+ 0 ]
+ /Next 448 0 R
+ /Parent 323 0 R
+ /Prev 446 0 R
  /Title (Session 6 Virtualization) >>
 endobj
 % 'Outline.7': class OutlineEntryObject 
-451 0 obj
-<< /Dest [ 322 0 R
+448 0 obj
+<< /Dest [ 320 0 R
  /XYZ
  62.69291
- 678.0236
+ 753.0236
  0 ]
- /Next 452 0 R
- /Parent 325 0 R
- /Prev 450 0 R
+ /Next 449 0 R
+ /Parent 323 0 R
+ /Prev 447 0 R
  /Title (Session 7 Logging and remote access) >>
 endobj
 % 'Outline.8': class OutlineEntryObject 
-452 0 obj
-<< /Dest [ 322 0 R
+449 0 obj
+<< /Dest [ 320 0 R
+ /XYZ
+ 62.69291
+ 618.0236
+ 0 ]
+ /Next 450 0 R
+ /Parent 323 0 R
+ /Prev 448 0 R
+ /Title (Session 8 Network Time Protocol) >>
+endobj
+% 'Outline.9': class OutlineEntryObject 
+450 0 obj
+<< /Dest [ 320 0 R
  /XYZ
  62.69291
  543.0236
  0 ]
- /Next 453 0 R
- /Parent 325 0 R
- /Prev 451 0 R
- /Title (Session 8 Network Time Protocol) >>
-endobj
-% 'Outline.9': class OutlineEntryObject 
-453 0 obj
-<< /Dest [ 322 0 R
- /XYZ
- 62.69291
- 468.0236
- 0 ]
- /Next 454 0 R
- /Parent 325 0 R
- /Prev 452 0 R
+ /Next 451 0 R
+ /Parent 323 0 R
+ /Prev 449 0 R
  /Title (Session 9 HTTP and FTP) >>
 endobj
 % 'Outline.10': class OutlineEntryObject 
-454 0 obj
-<< /Dest [ 322 0 R
+451 0 obj
+<< /Dest [ 320 0 R
  /XYZ
  62.69291
- 435.0236
+ 510.0236
  0 ]
- /Next 455 0 R
- /Parent 325 0 R
- /Prev 453 0 R
+ /Next 452 0 R
+ /Parent 323 0 R
+ /Prev 450 0 R
  /Title (Session 10 NFS and Samba) >>
 endobj
 % 'Outline.11': class OutlineEntryObject 
-455 0 obj
-<< /Dest [ 322 0 R
+452 0 obj
+<< /Dest [ 320 0 R
  /XYZ
  62.69291
- 402.0236
+ 477.0236
  0 ]
- /Next 456 0 R
- /Parent 325 0 R
- /Prev 454 0 R
+ /Next 453 0 R
+ /Parent 323 0 R
+ /Prev 451 0 R
  /Title (Session 11 DNS and SMTP) >>
 endobj
 % 'Outline.12': class OutlineEntryObject 
-456 0 obj
-<< /Dest [ 322 0 R
+453 0 obj
+<< /Dest [ 320 0 R
  /XYZ
  62.69291
- 369.0236
+ 444.0236
  0 ]
- /Parent 325 0 R
- /Prev 455 0 R
+ /Parent 323 0 R
+ /Prev 452 0 R
  /Title (Session 12 Finish uncompleted topics, Review, or Practice Exam) >>
 endobj
-% 'R457': class PDFPages 
-457 0 obj
+% 'R454': class PDFPages 
+454 0 obj
 % page tree
 << /Count 35
  /Kids [ 4 0 R
  71 0 R
  144 0 R
  218 0 R
- 278 0 R
- 281 0 R
+ 276 0 R
+ 279 0 R
+ 282 0 R
+ 283 0 R
  284 0 R
  285 0 R
  286 0 R
  287 0 R
- 288 0 R
  289 0 R
  291 0 R
+ 292 0 R
  293 0 R
  294 0 R
- 295 0 R
- 296 0 R
+ 297 0 R
  299 0 R
- 301 0 R
+ 300 0 R
  302 0 R
+ 303 0 R
  304 0 R
  305 0 R
  306 0 R
  307 0 R
  308 0 R
- 309 0 R
- 310 0 R
+ 311 0 R
  313 0 R
+ 314 0 R
  315 0 R
  316 0 R
- 317 0 R
  318 0 R
- 320 0 R
- 321 0 R
- 322 0 R ]
+ 319 0 R
+ 320 0 R ]
  /Type /Pages >>
 endobj
-% 'R458': class PDFStream 
-458 0 obj
+% 'R455': class PDFStream 
+455 0 obj
 % page stream
 << /Length 701 >>
 stream
@@ -7688,8 +7638,8 @@ Q
 endstream
 
 endobj
-% 'R459': class PDFStream 
-459 0 obj
+% 'R456': class PDFStream 
+456 0 obj
 % page stream
 << /Length 9317 >>
 stream
@@ -8192,8 +8142,8 @@ Q
 endstream
 
 endobj
-% 'R460': class PDFStream 
-460 0 obj
+% 'R457': class PDFStream 
+457 0 obj
 % page stream
 << /Length 10131 >>
 stream
@@ -8726,8 +8676,8 @@ Q
 endstream
 
 endobj
-% 'R461': class PDFStream 
-461 0 obj
+% 'R458': class PDFStream 
+458 0 obj
 % page stream
 << /Length 10062 >>
 stream
@@ -9260,34 +9210,20 @@ Q
 endstream
 
 endobj
-% 'R462': class PDFStream 
-462 0 obj
+% 'R459': class PDFStream 
+459 0 obj
 % page stream
-<< /Length 8677 >>
+<< /Length 8374 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 249.0236 cm
+1 0 0 1 62.69291 267.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 489 cm
-q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Main contents of a .spec file) Tj T* ET
-Q
-Q
-q
-1 0 0 1 403.8898 489 cm
-q
-0 0 .501961 rg
-0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (28) Tj T* -48.88 0 Td ET
-Q
-Q
-q
 1 0 0 1 6 471 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Preamble directives) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Main contents of a .spec file) Tj T* ET
 Q
 Q
 q
@@ -9301,7 +9237,7 @@ Q
 q
 1 0 0 1 6 453 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Required Spec file sections) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Preamble directives) Tj T* ET
 Q
 Q
 q
@@ -9309,13 +9245,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (29) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (28) Tj T* -48.88 0 Td ET
 Q
 Q
 q
 1 0 0 1 6 435 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Package Building Tools) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Required Spec file sections) Tj T* ET
 Q
 Q
 q
@@ -9329,7 +9265,7 @@ Q
 q
 1 0 0 1 6 417 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Setting up a Build Environment) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Package Building Tools) Tj T* ET
 Q
 Q
 q
@@ -9343,7 +9279,7 @@ Q
 q
 1 0 0 1 6 399 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Viewing the Build Environment) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Setting up a Build Environment) Tj T* ET
 Q
 Q
 q
@@ -9351,13 +9287,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (30) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (29) Tj T* -48.88 0 Td ET
 Q
 Q
 q
 1 0 0 1 6 381 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (RPM Building Exercise) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Viewing the Build Environment) Tj T* ET
 Q
 Q
 q
@@ -9371,7 +9307,7 @@ Q
 q
 1 0 0 1 6 363 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Signing Your RPMs) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (RPM Building Exercise) Tj T* ET
 Q
 Q
 q
@@ -9379,13 +9315,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (31) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (30) Tj T* -48.88 0 Td ET
 Q
 Q
 q
 1 0 0 1 6 345 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (RPM Packaging, Other Documentation:) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Create a Repo with your files) Tj T* ET
 Q
 Q
 q
@@ -9393,13 +9329,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (33) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (31) Tj T* -48.88 0 Td ET
 Q
 Q
 q
 1 0 0 1 6 327 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Managing Software: Signing and Publishing RPMs) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Signing Your RPMs) Tj T* ET
 Q
 Q
 q
@@ -9407,13 +9343,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (34) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (32) Tj T* -48.88 0 Td ET
 Q
 Q
 q
 1 0 0 1 6 309 cm
 q
-BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (Managing Software: Updating the kernel package) Tj T* ET
+BT 1 0 0 1 20 4.82 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (RPM Packaging, Other Documentation:) Tj T* ET
 Q
 Q
 q
@@ -9421,7 +9357,7 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (34) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 48.88 0 Td (33) Tj T* -48.88 0 Td ET
 Q
 Q
 q
@@ -9547,7 +9483,7 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL 48.88 0 Td (35) Tj T* -48.88 0 Td ET
+BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL 48.88 0 Td (34) Tj T* -48.88 0 Td ET
 Q
 Q
 q
@@ -9638,26 +9574,26 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 216.0236 cm
+1 0 0 1 62.69291 234.0236 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session One: Introduction) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 186.0236 cm
+1 0 0 1 62.69291 204.0236 cm
 q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Introductions: Your Instructor) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 168.0236 cm
+1 0 0 1 62.69291 186.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Scott Purcell) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 150.0236 cm
+1 0 0 1 62.69291 168.0236 cm
 q
 0 0 .501961 rg
 0 0 .501961 RG
@@ -9665,7 +9601,7 @@ BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (scott@texastwister.info) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 132.0236 cm
+1 0 0 1 62.69291 150.0236 cm
 q
 0 0 .501961 rg
 0 0 .501961 RG
@@ -9673,7 +9609,7 @@ BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (http://www.linkedin.com/in/scottpurcell) T
 Q
 Q
 q
-1 0 0 1 62.69291 114.0236 cm
+1 0 0 1 62.69291 132.0236 cm
 q
 0 0 .501961 rg
 0 0 .501961 RG
@@ -9681,7 +9617,7 @@ BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (http://twitter.com/texastwister) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 96.02362 cm
+1 0 0 1 62.69291 114.0236 cm
 q
 0 0 .501961 rg
 0 0 .501961 RG
@@ -9705,8 +9641,8 @@ Q
 endstream
 
 endobj
-% 'R463': class PDFStream 
-463 0 obj
+% 'R460': class PDFStream 
+460 0 obj
 % page stream
 << /Length 8992 >>
 stream
@@ -10295,8 +10231,8 @@ Q
 endstream
 
 endobj
-% 'R464': class PDFStream 
-464 0 obj
+% 'R461': class PDFStream 
+461 0 obj
 % page stream
 << /Length 10275 >>
 stream
@@ -10980,8 +10916,8 @@ Q
 endstream
 
 endobj
-% 'R465': class PDFStream 
-465 0 obj
+% 'R462': class PDFStream 
+462 0 obj
 % page stream
 << /Length 11254 >>
 stream
@@ -11736,8 +11672,8 @@ Q
 endstream
 
 endobj
-% 'R466': class PDFStream 
-466 0 obj
+% 'R463': class PDFStream 
+463 0 obj
 % page stream
 << /Length 11481 >>
 stream
@@ -12523,8 +12459,8 @@ Q
 endstream
 
 endobj
-% 'R467': class PDFStream 
-467 0 obj
+% 'R464': class PDFStream 
+464 0 obj
 % page stream
 << /Length 11112 >>
 stream
@@ -13282,8 +13218,8 @@ Q
 endstream
 
 endobj
-% 'R468': class PDFStream 
-468 0 obj
+% 'R465': class PDFStream 
+465 0 obj
 % page stream
 << /Length 11430 >>
 stream
@@ -14095,8 +14031,8 @@ Q
 endstream
 
 endobj
-% 'R469': class PDFStream 
-469 0 obj
+% 'R466': class PDFStream 
+466 0 obj
 % page stream
 << /Length 9415 >>
 stream
@@ -14739,8 +14675,8 @@ Q
 endstream
 
 endobj
-% 'R470': class PDFStream 
-470 0 obj
+% 'R467': class PDFStream 
+467 0 obj
 % page stream
 << /Length 6300 >>
 stream
@@ -15074,8 +15010,8 @@ Q
 endstream
 
 endobj
-% 'R471': class PDFStream 
-471 0 obj
+% 'R468': class PDFStream 
+468 0 obj
 % page stream
 << /Length 11221 >>
 stream
@@ -15702,8 +15638,8 @@ Q
 endstream
 
 endobj
-% 'R472': class PDFStream 
-472 0 obj
+% 'R469': class PDFStream 
+469 0 obj
 % page stream
 << /Length 10658 >>
 stream
@@ -16357,8 +16293,8 @@ Q
 endstream
 
 endobj
-% 'R473': class PDFStream 
-473 0 obj
+% 'R470': class PDFStream 
+470 0 obj
 % page stream
 << /Length 8651 >>
 stream
@@ -16859,8 +16795,8 @@ Q
 endstream
 
 endobj
-% 'R474': class PDFStream 
-474 0 obj
+% 'R471': class PDFStream 
+471 0 obj
 % page stream
 << /Length 9675 >>
 stream
@@ -17482,8 +17418,8 @@ Q
 endstream
 
 endobj
-% 'R475': class PDFStream 
-475 0 obj
+% 'R472': class PDFStream 
+472 0 obj
 % page stream
 << /Length 13361 >>
 stream
@@ -18270,8 +18206,8 @@ Q
 endstream
 
 endobj
-% 'R476': class PDFStream 
-476 0 obj
+% 'R473': class PDFStream 
+473 0 obj
 % page stream
 << /Length 9762 >>
 stream
@@ -18857,8 +18793,8 @@ Q
 endstream
 
 endobj
-% 'R477': class PDFStream 
-477 0 obj
+% 'R474': class PDFStream 
+474 0 obj
 % page stream
 << /Length 5977 >>
 stream
@@ -19204,8 +19140,8 @@ Q
 endstream
 
 endobj
-% 'R478': class PDFStream 
-478 0 obj
+% 'R475': class PDFStream 
+475 0 obj
 % page stream
 << /Length 9027 >>
 stream
@@ -19417,7 +19353,7 @@ q
 n -6 -6 445.6898 24 re B*
 Q
 q
-BT 1 0 0 1 0 5.71 Tm 12 TL /F4 10 Tf 0 0 0 rg (iscsiadm -m mode -T ) Tj (<) Tj (IQN) Tj (>) Tj ( -p ) Tj (<) Tj (portal IP address) Tj (>) Tj ( -l) Tj T* ET
+BT 1 0 0 1 0 5.71 Tm 12 TL /F4 10 Tf 0 0 0 rg (iscsiadm -m node -T ) Tj (<) Tj (IQN) Tj (>) Tj ( -p ) Tj (<) Tj (portal IP address) Tj (>) Tj ( -l) Tj T* ET
 Q
 Q
 Q
@@ -19736,8 +19672,8 @@ Q
 endstream
 
 endobj
-% 'R479': class PDFStream 
-479 0 obj
+% 'R476': class PDFStream 
+476 0 obj
 % page stream
 << /Length 5971 >>
 stream
@@ -19964,8 +19900,8 @@ Q
 endstream
 
 endobj
-% 'R480': class PDFStream 
-480 0 obj
+% 'R477': class PDFStream 
+477 0 obj
 % page stream
 << /Length 6777 >>
 stream
@@ -20380,8 +20316,8 @@ Q
 endstream
 
 endobj
-% 'R481': class PDFStream 
-481 0 obj
+% 'R478': class PDFStream 
+478 0 obj
 % page stream
 << /Length 8253 >>
 stream
@@ -20875,8 +20811,8 @@ Q
 endstream
 
 endobj
-% 'R482': class PDFStream 
-482 0 obj
+% 'R479': class PDFStream 
+479 0 obj
 % page stream
 << /Length 8697 >>
 stream
@@ -21300,8 +21236,8 @@ Q
 endstream
 
 endobj
-% 'R483': class PDFStream 
-483 0 obj
+% 'R480': class PDFStream 
+480 0 obj
 % page stream
 << /Length 8289 >>
 stream
@@ -21767,8 +21703,8 @@ Q
 endstream
 
 endobj
-% 'R484': class PDFStream 
-484 0 obj
+% 'R481': class PDFStream 
+481 0 obj
 % page stream
 << /Length 6232 >>
 stream
@@ -22078,17 +22014,17 @@ Q
 endstream
 
 endobj
-% 'R485': class PDFStream 
-485 0 obj
+% 'R482': class PDFStream 
+482 0 obj
 % page stream
-<< /Length 7500 >>
+<< /Length 7458 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
 1 0 0 1 62.69291 741.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (View a list of the packages installed on the system \(list typically updated once per day\):) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (View a list of the packages installed through yum:) Tj T* ET
 Q
 Q
 q
@@ -22106,7 +22042,7 @@ n -6 -6 468.6898 24 re B*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# less /var/log/rpmpkgs) Tj T* ET
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# less /var/log/yum.log) Tj T* ET
 Q
 Q
 Q
@@ -22525,8 +22461,8 @@ Q
 endstream
 
 endobj
-% 'R486': class PDFStream 
-486 0 obj
+% 'R483': class PDFStream 
+483 0 obj
 % page stream
 << /Length 6540 >>
 stream
@@ -22907,8 +22843,8 @@ Q
 endstream
 
 endobj
-% 'R487': class PDFStream 
-487 0 obj
+% 'R484': class PDFStream 
+484 0 obj
 % page stream
 << /Length 5399 >>
 stream
@@ -23184,10 +23120,10 @@ Q
 endstream
 
 endobj
-% 'R488': class PDFStream 
-488 0 obj
+% 'R485': class PDFStream 
+485 0 obj
 % page stream
-<< /Length 5912 >>
+<< /Length 5815 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
@@ -23431,18 +23367,89 @@ Q
 q
 1 0 0 1 62.69291 192.2236 cm
 q
+BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Create a Repo with your files) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 174.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (\(Assumes httpd already installed\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 156.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# yum -y install createrepo) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 138.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# mkdir -p /var/www/html/repo/Packages) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 120.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# cp MyPackage.rpm /var/www/html/repo/Packages) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 102.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# createrepo -v /var/www/html/repo) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56.69291 773.1969 cm
+q
+BT 1 0 0 1 0 4.82 Tm 178.7099 0 Td 12 TL /F1 10 Tf 0 0 0 rg (RHCE Preparation \(RHEL6\)) Tj T* -178.7099 0 Td ET
+Q
+Q
+q
+1 0 0 1 56.69291 56.69291 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 127.4999 0 Td (Copyright \251 2011, Scott Purcell, CC BY-NC-SA 3.0) Tj T* -127.4999 0 Td ET
+Q
+Q
+ 
+endstream
+
+endobj
+% 'R486': class PDFStream 
+486 0 obj
+% page stream
+<< /Length 3392 >>
+stream
+1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (# cp /home/me/RPM-GPG-KEY-me /var/www/html/repo) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Signing Your RPMs) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 150.2236 cm
+1 0 0 1 62.69291 669.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 28.82 Tm /F1 10 Tf 12 TL 1.57936 Tw (Your RPMs can be digitally signed to protect users from the possibility of forged packages \(any RPM) Tj T* 0 Tw 1.844269 Tw (package can execute scripts w/ root privileges when installed!\). To implement this, first generate and) Tj T* 0 Tw (identify a gpg key:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 93.02362 cm
+1 0 0 1 62.69291 95.82362 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23452,10 +23459,10 @@ q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 468.6898 48 re B*
+n -6 -6 468.6898 564 re B*
 Q
 q
-BT 1 0 0 1 0 29.71 Tm 12 TL /F4 10 Tf 0 0 0 rg ($ gpg --gen-key) Tj T* (gpg \(GnuPG\) 2.0.14; Copyright \(C\) 2009 Free Software Foundation, Inc.) Tj T* (This is free software: you are free to change and redistribute it.) Tj T* ET
+BT 1 0 0 1 0 545.71 Tm 12 TL /F4 10 Tf 0 0 0 rg ($ gpg --gen-key) Tj T* (gpg \(GnuPG\) 2.0.14; Copyright \(C\) 2009 Free Software Foundation, Inc.) Tj T* (This is free software: you are free to change and redistribute it.) Tj T* (There is NO WARRANTY, to the extent permitted by law.) Tj T*  T* (Please select what kind of key you want:) Tj T* (   \(1\) RSA and RSA \(default\)) Tj T* (   \(2\) DSA and Elgamal) Tj T* (   \(3\) DSA \(sign only\)) Tj T* (   \(4\) RSA \(sign only\)) Tj T* (Your selection?) Tj T* (RSA keys may be between 1024 and 4096 bits long.) Tj T* (What keysize do you want? \(2048\)) Tj T* (Requested keysize is 2048 bits) Tj T* (Please specify how long the key should be valid.) Tj T* (         0 = key does not expire) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (  = key expires in n days) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (w = key expires in n weeks) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (m = key expires in n months) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (y = key expires in n years) Tj T* (Key is valid for? \(0\)) Tj T* (Key does not expire at all) Tj T* (Is this correct? \(y/N\) y) Tj T*  T* (GnuPG needs to construct a user ID to identify your key.) Tj T*  T* (Real name: Scott Purcell) Tj T* (Email address: scott@texastwister.info) Tj T* (Comment:) Tj T* (You selected this USER-ID:) Tj T* (    "Scott Purcell ) Tj (<) Tj (scott@texastwister.info) Tj (>) Tj (") Tj T*  T* (Change \(N\)ame, \(C\)omment, \(E\)mail or \(O\)kay/\(Q\)uit? O) Tj T* (You need a Passphrase to protect your secret key.) Tj T*  T* (We need to generate a lot of random bytes. It is a good idea to perform) Tj T* (some other action \(type on the keyboard, move the mouse, utilize the) Tj T* (disks\) during the prime generation; this gives the random number) Tj T* (generator a better chance to gain enough entropy.) Tj T* (gpg: key B9AED1DE marked as ultimately trusted) Tj T* (public and secret key created and signed.) Tj T*  T* (gpg: checking the trustdb) Tj T* (gpg: 3 marginal\(s\) needed, 1 complete\(s\) needed, PGP trust model) Tj T* (gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u) Tj T* (pub   2048R/B9AED1DE 2011-02-22) Tj T* ET
 Q
 Q
 Q
@@ -23478,14 +23485,14 @@ Q
 endstream
 
 endobj
-% 'R489': class PDFStream 
-489 0 obj
+% 'R487': class PDFStream 
+487 0 obj
 % page stream
-<< /Length 3443 >>
+<< /Length 6053 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 163.8236 cm
+1 0 0 1 62.69291 679.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23495,31 +23502,31 @@ q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 468.6898 588 re B*
+n -6 -6 468.6898 72 re B*
 Q
 q
-BT 1 0 0 1 0 569.71 Tm 12 TL /F4 10 Tf 0 0 0 rg (There is NO WARRANTY, to the extent permitted by law.) Tj T*  T* (Please select what kind of key you want:) Tj T* (   \(1\) RSA and RSA \(default\)) Tj T* (   \(2\) DSA and Elgamal) Tj T* (   \(3\) DSA \(sign only\)) Tj T* (   \(4\) RSA \(sign only\)) Tj T* (Your selection?) Tj T* (RSA keys may be between 1024 and 4096 bits long.) Tj T* (What keysize do you want? \(2048\)) Tj T* (Requested keysize is 2048 bits) Tj T* (Please specify how long the key should be valid.) Tj T* (         0 = key does not expire) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (  = key expires in n days) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (w = key expires in n weeks) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (m = key expires in n months) Tj T* (      ) Tj (<) Tj (n) Tj (>) Tj (y = key expires in n years) Tj T* (Key is valid for? \(0\)) Tj T* (Key does not expire at all) Tj T* (Is this correct? \(y/N\) y) Tj T*  T* (GnuPG needs to construct a user ID to identify your key.) Tj T*  T* (Real name: Scott Purcell) Tj T* (Email address: scott@texastwister.info) Tj T* (Comment:) Tj T* (You selected this USER-ID:) Tj T* (    "Scott Purcell ) Tj (<) Tj (scott@texastwister.info) Tj (>) Tj (") Tj T*  T* (Change \(N\)ame, \(C\)omment, \(E\)mail or \(O\)kay/\(Q\)uit? O) Tj T* (You need a Passphrase to protect your secret key.) Tj T*  T* (We need to generate a lot of random bytes. It is a good idea to perform) Tj T* (some other action \(type on the keyboard, move the mouse, utilize the) Tj T* (disks\) during the prime generation; this gives the random number) Tj T* (generator a better chance to gain enough entropy.) Tj T* (gpg: key B9AED1DE marked as ultimately trusted) Tj T* (public and secret key created and signed.) Tj T*  T* (gpg: checking the trustdb) Tj T* (gpg: 3 marginal\(s\) needed, 1 complete\(s\) needed, PGP trust model) Tj T* (gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u) Tj T* (pub   2048R/B9AED1DE 2011-02-22) Tj T* (      Key fingerprint = 9987 B276 A24A 1210 13A7  4D05 9F3F 8934 B9AE D1DE) Tj T* (uid                  Scott Purcell ) Tj (<) Tj (scott@texastwister.info) Tj (>) Tj  T* (sub   2048R/0DA4CCE9 2011-02-22) Tj T*  T* ([scott@Client1 rhel6]$) Tj T* ET
+BT 1 0 0 1 0 53.71 Tm 12 TL /F4 10 Tf 0 0 0 rg (      Key fingerprint = 9987 B276 A24A 1210 13A7  4D05 9F3F 8934 B9AE D1DE) Tj T* (uid                  Scott Purcell ) Tj (<) Tj (scott@texastwister.info) Tj (>) Tj  T* (sub   2048R/0DA4CCE9 2011-02-22) Tj T*  T* ([scott@Client1 rhel6]$) Tj T* ET
 Q
 Q
 Q
 Q
 Q
 q
-1 0 0 1 62.69291 143.8236 cm
+1 0 0 1 62.69291 659.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (The key ID can be seen in the output above, or can be found with gpg --fingerprint) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 125.8236 cm
+1 0 0 1 62.69291 641.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Export the key to a file:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 92.62362 cm
+1 0 0 1 62.69291 608.6236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23540,65 +23547,41 @@ Q
 Q
 Q
 q
-1 0 0 1 56.69291 773.1969 cm
-q
-BT 1 0 0 1 0 4.82 Tm 178.7099 0 Td 12 TL /F1 10 Tf 0 0 0 rg (RHCE Preparation \(RHEL6\)) Tj T* -178.7099 0 Td ET
-Q
+1 0 0 1 62.69291 594.6236 cm
 Q
 q
-1 0 0 1 56.69291 56.69291 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 127.4999 0 Td (Copyright \251 2011, Scott Purcell, CC BY-NC-SA 3.0) Tj T* -127.4999 0 Td ET
-Q
-Q
- 
-endstream
-
-endobj
-% 'R490': class PDFStream 
-490 0 obj
-% page stream
-<< /Length 5515 >>
-stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 741.0236 cm
-q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F2 10 Tf 0 0 0 rg ([) Tj 0 0 .501961 rg (scott@Client1 ) Tj 0 0 0 rg (~]$ cat RPM-GPG-KEY-ScottPurcell) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 414.0236 cm
+1 0 0 1 62.69291 528.6236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 314 Tm  T* ET
+BT 1 0 0 1 0 2 Tm  T* ET
 q
-1 0 0 1 20 312 cm
+1 0 0 1 20 42 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (-----BEGIN PGP PUBLIC KEY BLOCK----- Version: GnuPG v2.0.14 \(GNU/Linux\)) Tj T* ET
+BT 1 0 0 1 0 16.82 Tm 3.94872 Tw 12 TL /F1 10 Tf 0 0 0 rg ([) Tj 0 0 .501961 rg (scott@Client1 ) Tj 0 0 0 rg (~]$ cat RPM-GPG-KEY-ScottPurcell -----BEGIN PGP PUBLIC KEY BLOCK-----) Tj T* 0 Tw (Version: GnuPG v2.0.14 \(GNU/Linux\)) Tj T* ET
 Q
 Q
 q
 1 0 0 1 20 0 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 304.82 Tm /F1 10 Tf 12 TL (mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl) Tj T* (2cOXSz5MCAZKaeu2YK929v3FQ+I8Rk5j+hXvEUM0ZbbdlRjtqvQ9I2vxpZLCq+gj) Tj T* (NdUEo7neehfInVnZBhxzbaTCWYFN3k0YoE9RzyduTnRjQ0HqtKNQADSvgxOvjNGQ) Tj T* (UsGoPfBW1/SBQAy26ZesWXVE8R3z/G4IHdXFJ8mMjxEduGn7eFag1uLySXCKGRY1) Tj T* (4kjMEVITSeTOW2m8N0o47Vu++00GhCsvLrQgu6rGmNYDyj1HSpU2F7GWFbRBqvUp) Tj T* (AOiDaE9ZRkymeOCyALF1N9zgz2NyNeYAe8qDABEBAAG0J1Njb3R0IFB1cmNlbGwg) Tj T* (PHNjb3R0QHRleGFzdHdpc3Rlci5pbmZvPokBOAQTAQIAIgUCTWNVqAIbAwYLCQgH) Tj T* (AwIGFQgCCQoLBBYCAwECHgECF4AACgkQnz+JNLmu0d73zAf7BmnzOk7oPyJO6A9D) Tj T* (dZhA+pg77LB9jKNQR2+Qx7lNbJyDIVGafrpU39qdOzc1IWDNyXMnAZUDwqjz48Y0) Tj T* (ioUj/FFuJzPohjaO4pZn+r58ICYA7+uuARNJ0ujmaVsOR8YlkHSldITNK9ni01DV) Tj T* (3ha/V1g+3L9Kgebq0l3R+3NaRJvBfUIJgM/ceCGSvn135gL9whIZnfPRVusSiCLA) Tj T* (waCjT88v+tLwwjGDaUqHUXb47yNEN+gw+thYKAbUlv/sf4Z6PS4+DiLpCp7wybUl) Tj T* (4sack1F9WrDVvNx0TEoSxJlYvYpU+1NdZlXu5rK6qVrroeO2ozdhn7nx31rIdQPo) Tj T* (31lNYbkBDQRNY1WoAQgAq1A+1r9T45FUv4KV7BcX3DKeSqk5rWBqXLpiCENxV8cU) Tj T* (NBOYGKBfAQJ6Gv9MUrEPcDzZ3AQdaFUyzQpOdJFy61whn8oGkRZFOhQLWhHkaRrD) Tj T* (uFMj3LujQiWlrKyf0m16daHAYqqIl+hzUvhpy2uSkRFVAnPj4RTSPw4aAieoksQJ) Tj T* (NHSoA2ZTPGM3S/tW0OKNbSp6L4TXddP7zo/X9iEax0DStVhheg7v8bJcWTF3Gd8c) Tj T* (tBdxmkwYBfO1KEXsrDgkaAaIXQQd/j1GDmWiw3L7rICbgPVhloKOVb7Q5elGDiry) Tj T* (pRON0CpkUdb9SbKVNHEmwGlB+DZ0yQZFvB0ZjiXhVQARAQABiQEfBBgBAgAJBQJN) Tj T* (Y1WoAhsMAAoJEJ8/iTS5rtHecC8H/14xWH2w+OFxVol4asA55Kz5YtrtGpQe98VK) Tj T* (fR86QsdBSUs4Evy22g5WXkARtdgg741LBqrm3SWVnbLfuoLujN3Q+ylqmiNk6Bmh) Tj T* (E+McEfMQ8rcKEifEfiFlQJj9wIScebD4nxPXpAqcaKyz4HpjPzgOnKQpXxPk4kSV) Tj T* (d7OkmxdyDDvmBOHODYivPybZTdiHIBraFmCGlmfLkFcMZbuZwjE7LyWB4Xjo2fw2) Tj T* (QnqQEs/XzXsaXDwBMuayebzoKb06RNzQQC3uqQFszw7ObRtIqi9nEg5Hcfy2ip3j) Tj T* .395953 Tw (R+J9rjvN8rNpQwm40Gx6RpM7qtP/LodzD46dNfbr87lJ4F+4A3U= =f4Gq -----END PGP PUBLIC KEY) Tj T* 0 Tw (BLOCK-----) Tj T* ET
+BT 1 0 0 1 0 28.82 Tm /F1 10 Tf 12 TL 18.71992 Tw (mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl . . .) Tj T* 0 Tw .395953 Tw (R+J9rjvN8rNpQwm40Gx6RpM7qtP/LodzD46dNfbr87lJ4F+4A3U= =f4Gq -----END PGP PUBLIC KEY) Tj T* 0 Tw (BLOCK-----) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 396.0236 cm
+1 0 0 1 62.69291 528.6236 cm
+Q
+q
+1 0 0 1 62.69291 510.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Configure rpm-related tools to use your signature:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 362.8236 cm
+1 0 0 1 62.69291 477.4236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23618,14 +23601,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 342.8236 cm
+1 0 0 1 62.69291 457.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (or:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 309.6236 cm
+1 0 0 1 62.69291 424.2236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23645,21 +23628,21 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 277.6236 cm
+1 0 0 1 62.69291 392.2236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 1.615868 Tw (Now packages can be created and signed at the same time with rpmbuild using the --sign option. Or) Tj T* 0 Tw (existing packages can be retroactively signed with rpm using the --addsign or --resign options.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 259.6236 cm
+1 0 0 1 62.69291 374.2236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (With a signed package in place, the user intending to install it now needs to import the key:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 226.4236 cm
+1 0 0 1 62.69291 341.0236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -23680,14 +23663,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 206.4236 cm
+1 0 0 1 62.69291 321.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (And with the key imported, the package can be verified:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 162.098 cm
+1 0 0 1 62.69291 276.698 cm
 q
 q
 .976496 0 0 .976496 0 0 cm
@@ -23708,53 +23691,30 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 132.098 cm
+1 0 0 1 62.69291 246.698 cm
 q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (RPM Packaging, Other Documentation:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 114.098 cm
+1 0 0 1 62.69291 228.698 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Red Hat Enterprise Linux Deployment Guide, section on "Querying RPM") Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 96.09798 cm
+1 0 0 1 62.69291 210.698 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Man Pages:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 90.09798 cm
+1 0 0 1 62.69291 204.698 cm
 Q
 q
-1 0 0 1 56.69291 773.1969 cm
-q
-BT 1 0 0 1 0 4.82 Tm 178.7099 0 Td 12 TL /F1 10 Tf 0 0 0 rg (RHCE Preparation \(RHEL6\)) Tj T* -178.7099 0 Td ET
-Q
-Q
-q
-1 0 0 1 56.69291 56.69291 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 127.4999 0 Td (Copyright \251 2011, Scott Purcell, CC BY-NC-SA 3.0) Tj T* -127.4999 0 Td ET
-Q
-Q
- 
-endstream
-
-endobj
-% 'R491': class PDFStream 
-491 0 obj
-% page stream
-<< /Length 7024 >>
-stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 709.7918 cm
+1 0 0 1 62.69291 150.698 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
@@ -23840,58 +23800,69 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 709.7918 cm
+1 0 0 1 62.69291 150.698 cm
 Q
 q
-1 0 0 1 62.69291 679.7918 cm
+1 0 0 1 56.69291 773.1969 cm
 q
-BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Managing Software: Signing and Publishing RPMs) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 649.7918 cm
-q
-BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Managing Software: Updating the kernel package) Tj T* ET
+BT 1 0 0 1 0 4.82 Tm 178.7099 0 Td 12 TL /F1 10 Tf 0 0 0 rg (RHCE Preparation \(RHEL6\)) Tj T* -178.7099 0 Td ET
 Q
 Q
 q
-1 0 0 1 62.69291 601.7918 cm
+1 0 0 1 56.69291 56.69291 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 127.4999 0 Td (Copyright \251 2011, Scott Purcell, CC BY-NC-SA 3.0) Tj T* -127.4999 0 Td ET
+Q
+Q
+ 
+endstream
+
+endobj
+% 'R488': class PDFStream 
+488 0 obj
+% page stream
+<< /Length 6183 >>
+stream
+1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 717.0236 cm
 q
 BT 1 0 0 1 0 25.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage Processes and Services: Configure network services to) Tj T* (start automatically at boot) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 553.7918 cm
+1 0 0 1 62.69291 669.0236 cm
 q
 BT 1 0 0 1 0 25.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage Processes and Services: Configure systems to boot into) Tj T* (a specific runlevel automatically) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 505.7918 cm
+1 0 0 1 62.69291 621.0236 cm
 q
 BT 1 0 0 1 0 25.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage Processes and Services: Monitoring, prioritizing, and) Tj T* (controlling processes) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 475.7918 cm
+1 0 0 1 62.69291 591.0236 cm
 q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage Processes and Services: Schedule tasks using cron) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 445.7918 cm
+1 0 0 1 62.69291 561.0236 cm
 q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage system performance) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 433.7918 cm
+1 0 0 1 62.69291 549.0236 cm
 Q
 q
-1 0 0 1 62.69291 433.7918 cm
+1 0 0 1 62.69291 549.0236 cm
 Q
 q
-1 0 0 1 62.69291 421.7918 cm
+1 0 0 1 62.69291 537.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -23912,10 +23883,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 415.7918 cm
+1 0 0 1 62.69291 531.0236 cm
 Q
 q
-1 0 0 1 62.69291 403.7918 cm
+1 0 0 1 62.69291 519.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -23936,10 +23907,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 397.7918 cm
+1 0 0 1 62.69291 514.7918 cm
 Q
 q
-1 0 0 1 62.69291 385.7918 cm
+1 0 0 1 62.69291 502.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -23960,22 +23931,22 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 385.7918 cm
+1 0 0 1 62.69291 502.7918 cm
 Q
 q
-1 0 0 1 62.69291 355.7918 cm
+1 0 0 1 62.69291 472.7918 cm
 q
 BT 1 0 0 1 0 7.23 Tm 18 TL /F2 15 Tf 0 0 0 rg (Manage Users and Groups) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 343.7918 cm
+1 0 0 1 62.69291 460.7918 cm
 Q
 q
-1 0 0 1 62.69291 343.7918 cm
+1 0 0 1 62.69291 460.7918 cm
 Q
 q
-1 0 0 1 62.69291 331.7918 cm
+1 0 0 1 62.69291 448.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -23996,10 +23967,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 325.7918 cm
+1 0 0 1 62.69291 442.7918 cm
 Q
 q
-1 0 0 1 62.69291 313.7918 cm
+1 0 0 1 62.69291 430.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -24020,10 +23991,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 307.7918 cm
+1 0 0 1 62.69291 424.7918 cm
 Q
 q
-1 0 0 1 62.69291 295.7918 cm
+1 0 0 1 62.69291 412.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -24044,10 +24015,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 289.7918 cm
+1 0 0 1 62.69291 406.7918 cm
 Q
 q
-1 0 0 1 62.69291 277.7918 cm
+1 0 0 1 62.69291 394.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -24068,10 +24039,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 271.7918 cm
+1 0 0 1 62.69291 388.7918 cm
 Q
 q
-1 0 0 1 62.69291 259.7918 cm
+1 0 0 1 62.69291 376.7918 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -24092,31 +24063,44 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 259.7918 cm
+1 0 0 1 62.69291 376.7918 cm
 Q
 q
-1 0 0 1 62.69291 226.7918 cm
+1 0 0 1 62.69291 343.7918 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 4 Networking and routing) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 196.7918 cm
+1 0 0 1 62.69291 313.7918 cm
 q
 BT 1 0 0 1 0 16.82 Tm 1.128651 Tw 12 TL /F1 10 Tf 0 0 0 rg (o Networking & Routing + * Configure networking and hostname resolution statically or dynamically + *) Tj T* 0 Tw (Route IP traffic and create static routes) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 163.7918 cm
+1 0 0 1 62.69291 280.7918 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 5 Firewalls and SELinux) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 109.7918 cm
+1 0 0 1 62.69291 226.7918 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 40.82 Tm /F1 10 Tf 12 TL 2.240651 Tw (o IPTables + * Configure firewall settings using system-config-firewall or iptables o SELinux + * Set) Tj T* 0 Tw 1.222927 Tw (enforcing and permissive modes for SELinux + * List and identify SELinux file and process context + *) Tj T* 0 Tw .012927 Tw (Restore default file contexts + * Use boolean settings to modify system SELinux settings + * Diagnose and) Tj T* 0 Tw (address routine SELinux policy violations) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 193.7918 cm
+q
+BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 6 Virtualization) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 151.7918 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 28.82 Tm /F1 10 Tf 12 TL .229987 Tw (o KVM Virtualization + * Configure a physical machine to host virtual guests + * Install Red Hat Enterprise) Tj T* 0 Tw .754987 Tw (Linux systems as virtual guests + * Configure systems to launch virtual machines at boot + * Install Red) Tj T* 0 Tw (Hat Enterprise Linux automatically using Kickstart) Tj T* ET
 Q
 Q
 q
@@ -24136,71 +24120,58 @@ Q
 endstream
 
 endobj
-% 'R492': class PDFStream 
-492 0 obj
+% 'R489': class PDFStream 
+489 0 obj
 % page stream
-<< /Length 3262 >>
+<< /Length 2720 >>
 stream
 1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
 q
 1 0 0 1 62.69291 732.0236 cm
 q
-BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 6 Virtualization) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 690.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 28.82 Tm /F1 10 Tf 12 TL .229987 Tw (o KVM Virtualization + * Configure a physical machine to host virtual guests + * Install Red Hat Enterprise) Tj T* 0 Tw .754987 Tw (Linux systems as virtual guests + * Configure systems to launch virtual machines at boot + * Install Red) Tj T* 0 Tw (Hat Enterprise Linux automatically using Kickstart) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 657.0236 cm
-q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 7 Logging and remote access) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 555.0236 cm
+1 0 0 1 62.69291 630.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 88.82 Tm /F1 10 Tf 12 TL .300898 Tw (o + - Remote Logging + * Configure a system to log to a remote system + * Configure a system to accept) Tj T* 0 Tw .233488 Tw (logging from a remote system o + - Remote Access + SSH # * Install the packages needed to provide the) Tj T* 0 Tw .276303 Tw (service # * Configure SELinux to support the service # * Configure the service to start when the system is) Tj T* 0 Tw .29186 Tw (booted # * Configure the service for basic operation # * Configure host-based and user-based security for) Tj T* 0 Tw 1.76284 Tw (the service # * Configure key-based authentication # * Configure additional SSH options described in) Tj T* 0 Tw 1.139986 Tw (documentation + VNC # * Install the packages needed to provide the service # * Configure SELinux to) Tj T* 0 Tw .334198 Tw (support the service # * Configure the service to start when the system is booted # * Configure the service) Tj T* 0 Tw (for basic operation # * Configure host-based and user-based security for the service) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 522.0236 cm
+1 0 0 1 62.69291 597.0236 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 8 Network Time Protocol) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 480.0236 cm
+1 0 0 1 62.69291 555.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 28.82 Tm /F1 10 Tf 12 TL .069461 Tw (o NTP + * Install the packages needed to provide the service + * Configure SELinux to support the service) Tj T* 0 Tw .421567 Tw (+ * Configure the service to start when the system is booted + * Configure the service for basic operation) Tj T* 0 Tw (+ * Configure host-based and user-based security for the service) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 447.0236 cm
+1 0 0 1 62.69291 522.0236 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 9 HTTP and FTP) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 414.0236 cm
+1 0 0 1 62.69291 489.0236 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 10 NFS and Samba) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 381.0236 cm
+1 0 0 1 62.69291 456.0236 cm
 q
 BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 11 DNS and SMTP) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 327.0236 cm
+1 0 0 1 62.69291 402.0236 cm
 q
 BT 1 0 0 1 0 29.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Session 12 Finish uncompleted topics, Review, or) Tj T* (Practice Exam) Tj T* ET
 Q
@@ -24222,292 +24193,292 @@ Q
 endstream
 
 endobj
-% 'R493': class PDFPageLabels 
-493 0 obj
+% 'R490': class PDFPageLabels 
+490 0 obj
 % Document Root
 << /Nums [ 0
- 494 0 R
+ 491 0 R
  1
- 495 0 R
+ 492 0 R
  2
- 496 0 R
+ 493 0 R
  3
- 497 0 R
+ 494 0 R
  4
- 498 0 R
+ 495 0 R
  5
- 499 0 R
+ 496 0 R
  6
- 500 0 R
+ 497 0 R
  7
- 501 0 R
+ 498 0 R
  8
- 502 0 R
+ 499 0 R
  9
- 503 0 R
+ 500 0 R
  10
- 504 0 R
+ 501 0 R
  11
- 505 0 R
+ 502 0 R
  12
- 506 0 R
+ 503 0 R
  13
- 507 0 R
+ 504 0 R
  14
- 508 0 R
+ 505 0 R
  15
- 509 0 R
+ 506 0 R
  16
- 510 0 R
+ 507 0 R
  17
- 511 0 R
+ 508 0 R
  18
- 512 0 R
+ 509 0 R
  19
- 513 0 R
+ 510 0 R
  20
- 514 0 R
+ 511 0 R
  21
- 515 0 R
+ 512 0 R
  22
- 516 0 R
+ 513 0 R
  23
- 517 0 R
+ 514 0 R
  24
- 518 0 R
+ 515 0 R
  25
- 519 0 R
+ 516 0 R
  26
- 520 0 R
+ 517 0 R
  27
- 521 0 R
+ 518 0 R
  28
- 522 0 R
+ 519 0 R
  29
- 523 0 R
+ 520 0 R
  30
- 524 0 R
+ 521 0 R
  31
- 525 0 R
+ 522 0 R
  32
- 526 0 R
+ 523 0 R
  33
- 527 0 R
+ 524 0 R
  34
- 528 0 R ] >>
+ 525 0 R ] >>
+endobj
+% 'R491': class PDFPageLabel 
+491 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+% 'R492': class PDFPageLabel 
+492 0 obj
+% None
+<< /S /D
+ /St 2 >>
+endobj
+% 'R493': class PDFPageLabel 
+493 0 obj
+% None
+<< /S /D
+ /St 3 >>
 endobj
 % 'R494': class PDFPageLabel 
 494 0 obj
 % None
 << /S /D
- /St 1 >>
+ /St 4 >>
 endobj
 % 'R495': class PDFPageLabel 
 495 0 obj
 % None
 << /S /D
- /St 2 >>
+ /St 5 >>
 endobj
 % 'R496': class PDFPageLabel 
 496 0 obj
 % None
 << /S /D
- /St 3 >>
+ /St 6 >>
 endobj
 % 'R497': class PDFPageLabel 
 497 0 obj
 % None
 << /S /D
- /St 4 >>
+ /St 7 >>
 endobj
 % 'R498': class PDFPageLabel 
 498 0 obj
 % None
 << /S /D
- /St 5 >>
+ /St 8 >>
 endobj
 % 'R499': class PDFPageLabel 
 499 0 obj
 % None
 << /S /D
- /St 6 >>
+ /St 9 >>
 endobj
 % 'R500': class PDFPageLabel 
 500 0 obj
 % None
 << /S /D
- /St 7 >>
+ /St 10 >>
 endobj
 % 'R501': class PDFPageLabel 
 501 0 obj
 % None
 << /S /D
- /St 8 >>
+ /St 11 >>
 endobj
 % 'R502': class PDFPageLabel 
 502 0 obj
 % None
 << /S /D
- /St 9 >>
+ /St 12 >>
 endobj
 % 'R503': class PDFPageLabel 
 503 0 obj
 % None
 << /S /D
- /St 10 >>
+ /St 13 >>
 endobj
 % 'R504': class PDFPageLabel 
 504 0 obj
 % None
 << /S /D
- /St 11 >>
+ /St 14 >>
 endobj
 % 'R505': class PDFPageLabel 
 505 0 obj
 % None
 << /S /D
- /St 12 >>
+ /St 15 >>
 endobj
 % 'R506': class PDFPageLabel 
 506 0 obj
 % None
 << /S /D
- /St 13 >>
+ /St 16 >>
 endobj
 % 'R507': class PDFPageLabel 
 507 0 obj
 % None
 << /S /D
- /St 14 >>
+ /St 17 >>
 endobj
 % 'R508': class PDFPageLabel 
 508 0 obj
 % None
 << /S /D
- /St 15 >>
+ /St 18 >>
 endobj
 % 'R509': class PDFPageLabel 
 509 0 obj
 % None
 << /S /D
- /St 16 >>
+ /St 19 >>
 endobj
 % 'R510': class PDFPageLabel 
 510 0 obj
 % None
 << /S /D
- /St 17 >>
+ /St 20 >>
 endobj
 % 'R511': class PDFPageLabel 
 511 0 obj
 % None
 << /S /D
- /St 18 >>
+ /St 21 >>
 endobj
 % 'R512': class PDFPageLabel 
 512 0 obj
 % None
 << /S /D
- /St 19 >>
+ /St 22 >>
 endobj
 % 'R513': class PDFPageLabel 
 513 0 obj
 % None
 << /S /D
- /St 20 >>
+ /St 23 >>
 endobj
 % 'R514': class PDFPageLabel 
 514 0 obj
 % None
 << /S /D
- /St 21 >>
+ /St 24 >>
 endobj
 % 'R515': class PDFPageLabel 
 515 0 obj
 % None
 << /S /D
- /St 22 >>
+ /St 25 >>
 endobj
 % 'R516': class PDFPageLabel 
 516 0 obj
 % None
 << /S /D
- /St 23 >>
+ /St 26 >>
 endobj
 % 'R517': class PDFPageLabel 
 517 0 obj
 % None
 << /S /D
- /St 24 >>
+ /St 27 >>
 endobj
 % 'R518': class PDFPageLabel 
 518 0 obj
 % None
 << /S /D
- /St 25 >>
+ /St 28 >>
 endobj
 % 'R519': class PDFPageLabel 
 519 0 obj
 % None
 << /S /D
- /St 26 >>
+ /St 29 >>
 endobj
 % 'R520': class PDFPageLabel 
 520 0 obj
 % None
 << /S /D
- /St 27 >>
+ /St 30 >>
 endobj
 % 'R521': class PDFPageLabel 
 521 0 obj
 % None
 << /S /D
- /St 28 >>
+ /St 31 >>
 endobj
 % 'R522': class PDFPageLabel 
 522 0 obj
 % None
 << /S /D
- /St 29 >>
+ /St 32 >>
 endobj
 % 'R523': class PDFPageLabel 
 523 0 obj
 % None
 << /S /D
- /St 30 >>
+ /St 33 >>
 endobj
 % 'R524': class PDFPageLabel 
 524 0 obj
 % None
 << /S /D
- /St 31 >>
+ /St 34 >>
 endobj
 % 'R525': class PDFPageLabel 
 525 0 obj
 % None
 << /S /D
- /St 32 >>
-endobj
-% 'R526': class PDFPageLabel 
-526 0 obj
-% None
-<< /S /D
- /St 33 >>
-endobj
-% 'R527': class PDFPageLabel 
-527 0 obj
-% None
-<< /S /D
- /St 34 >>
-endobj
-% 'R528': class PDFPageLabel 
-528 0 obj
-% None
-<< /S /D
  /St 35 >>
 endobj
 xref
-0 529
+0 526
 0000000000 65535 f
 0000000113 00000 n
 0000000277 00000 n
@@ -24744,9 +24715,9 @@ xref
 0000058949 00000 n
 0000059195 00000 n
 0000059441 00000 n
-0000059686 00000 n
-0000059931 00000 n
-0000060177 00000 n
+0000059687 00000 n
+0000059933 00000 n
+0000060178 00000 n
 0000060423 00000 n
 0000060669 00000 n
 0000060915 00000 n
@@ -24780,271 +24751,268 @@ xref
 0000067803 00000 n
 0000068049 00000 n
 0000068295 00000 n
-0000068541 00000 n
-0000068787 00000 n
-0000069032 00000 n
-0000069284 00000 n
-0000069545 00000 n
-0000069798 00000 n
-0000070043 00000 n
-0000070930 00000 n
-0000071135 00000 n
-0000071410 00000 n
-0000071731 00000 n
-0000071975 00000 n
-0000072136 00000 n
-0000072441 00000 n
-0000072724 00000 n
-0000073008 00000 n
-0000073292 00000 n
-0000073576 00000 n
-0000073875 00000 n
-0000074109 00000 n
-0000074430 00000 n
-0000074737 00000 n
-0000075043 00000 n
-0000075327 00000 n
-0000075611 00000 n
-0000075937 00000 n
-0000087039 00000 n
-0000087211 00000 n
-0000087563 00000 n
-0000087745 00000 n
-0000088029 00000 n
-0000088328 00000 n
-0000088639 00000 n
-0000088945 00000 n
-0000089229 00000 n
-0000089513 00000 n
-0000089797 00000 n
-0000090081 00000 n
-0000090365 00000 n
-0000090664 00000 n
-0000090968 00000 n
-0000091294 00000 n
-0000091625 00000 n
-0000091891 00000 n
-0000092197 00000 n
-0000092481 00000 n
-0000092765 00000 n
-0000093064 00000 n
-0000093291 00000 n
-0000093597 00000 n
-0000093881 00000 n
-0000094166 00000 n
-0000094330 00000 n
-0000094552 00000 n
-0000094682 00000 n
-0000094860 00000 n
-0000095115 00000 n
-0000095314 00000 n
-0000095573 00000 n
-0000095757 00000 n
-0000095935 00000 n
-0000096194 00000 n
-0000096374 00000 n
-0000096628 00000 n
-0000096809 00000 n
-0000097005 00000 n
-0000097214 00000 n
-0000097434 00000 n
-0000097679 00000 n
-0000097898 00000 n
-0000098120 00000 n
-0000098335 00000 n
-0000098550 00000 n
-0000098775 00000 n
-0000098995 00000 n
-0000099210 00000 n
-0000099401 00000 n
-0000099646 00000 n
-0000099856 00000 n
-0000100063 00000 n
-0000100264 00000 n
-0000100458 00000 n
-0000100652 00000 n
-0000100846 00000 n
-0000101040 00000 n
-0000101235 00000 n
-0000101429 00000 n
-0000101607 00000 n
-0000101814 00000 n
-0000102009 00000 n
-0000102211 00000 n
-0000102406 00000 n
-0000102619 00000 n
-0000102829 00000 n
-0000103043 00000 n
-0000103264 00000 n
-0000103503 00000 n
-0000103696 00000 n
-0000103959 00000 n
-0000104157 00000 n
-0000104368 00000 n
-0000104578 00000 n
-0000104786 00000 n
-0000105009 00000 n
-0000105228 00000 n
-0000105429 00000 n
-0000105649 00000 n
-0000105869 00000 n
-0000106072 00000 n
-0000106279 00000 n
-0000106507 00000 n
-0000106726 00000 n
-0000106963 00000 n
-0000107190 00000 n
-0000107402 00000 n
-0000107615 00000 n
-0000107827 00000 n
-0000108032 00000 n
-0000108237 00000 n
-0000108463 00000 n
-0000108697 00000 n
-0000108932 00000 n
-0000109159 00000 n
-0000109350 00000 n
-0000109550 00000 n
-0000109792 00000 n
-0000110003 00000 n
-0000110196 00000 n
-0000110420 00000 n
-0000110635 00000 n
-0000110834 00000 n
-0000111043 00000 n
-0000111261 00000 n
-0000111447 00000 n
-0000111756 00000 n
-0000111952 00000 n
-0000112164 00000 n
-0000112375 00000 n
-0000112604 00000 n
-0000112839 00000 n
-0000113052 00000 n
-0000113258 00000 n
-0000113459 00000 n
-0000113662 00000 n
-0000113870 00000 n
-0000114089 00000 n
-0000114293 00000 n
-0000114508 00000 n
-0000114706 00000 n
-0000114910 00000 n
-0000115114 00000 n
-0000115316 00000 n
-0000115529 00000 n
-0000115741 00000 n
-0000115949 00000 n
-0000116165 00000 n
-0000116375 00000 n
-0000116591 00000 n
-0000116810 00000 n
-0000117017 00000 n
-0000117232 00000 n
-0000117437 00000 n
-0000117650 00000 n
-0000117858 00000 n
-0000118074 00000 n
-0000118289 00000 n
-0000118496 00000 n
-0000118699 00000 n
-0000118919 00000 n
-0000119152 00000 n
-0000119385 00000 n
-0000119659 00000 n
-0000119940 00000 n
-0000120208 00000 n
-0000120450 00000 n
-0000120661 00000 n
-0000120849 00000 n
-0000121062 00000 n
-0000121274 00000 n
-0000121479 00000 n
-0000121695 00000 n
-0000121907 00000 n
-0000122111 00000 n
-0000122317 00000 n
-0000122522 00000 n
-0000122734 00000 n
-0000123183 00000 n
-0000123986 00000 n
-0000133406 00000 n
-0000143641 00000 n
-0000153807 00000 n
-0000162587 00000 n
-0000171682 00000 n
-0000182061 00000 n
-0000193419 00000 n
-0000205004 00000 n
-0000216220 00000 n
-0000227754 00000 n
-0000237272 00000 n
-0000243675 00000 n
-0000255000 00000 n
-0000265762 00000 n
-0000274516 00000 n
-0000284294 00000 n
-0000297759 00000 n
-0000307624 00000 n
-0000313704 00000 n
-0000322834 00000 n
-0000328908 00000 n
-0000335788 00000 n
-0000344144 00000 n
-0000352944 00000 n
-0000361336 00000 n
-0000367671 00000 n
-0000375274 00000 n
-0000381917 00000 n
-0000387419 00000 n
-0000393434 00000 n
-0000396980 00000 n
-0000402598 00000 n
-0000409725 00000 n
-0000413094 00000 n
-0000413691 00000 n
-0000413770 00000 n
-0000413849 00000 n
-0000413928 00000 n
-0000414007 00000 n
-0000414086 00000 n
-0000414165 00000 n
-0000414244 00000 n
-0000414323 00000 n
-0000414402 00000 n
-0000414482 00000 n
-0000414562 00000 n
-0000414642 00000 n
-0000414722 00000 n
-0000414802 00000 n
-0000414882 00000 n
-0000414962 00000 n
-0000415042 00000 n
-0000415122 00000 n
-0000415202 00000 n
-0000415282 00000 n
-0000415362 00000 n
-0000415442 00000 n
-0000415522 00000 n
-0000415602 00000 n
-0000415682 00000 n
-0000415762 00000 n
-0000415842 00000 n
-0000415922 00000 n
-0000416002 00000 n
-0000416082 00000 n
-0000416162 00000 n
-0000416242 00000 n
-0000416322 00000 n
-0000416402 00000 n
+0000068540 00000 n
+0000068792 00000 n
+0000069053 00000 n
+0000069306 00000 n
+0000069551 00000 n
+0000070418 00000 n
+0000070623 00000 n
+0000070898 00000 n
+0000071219 00000 n
+0000071463 00000 n
+0000071624 00000 n
+0000071929 00000 n
+0000072212 00000 n
+0000072496 00000 n
+0000072780 00000 n
+0000073064 00000 n
+0000073363 00000 n
+0000073597 00000 n
+0000073918 00000 n
+0000074225 00000 n
+0000074531 00000 n
+0000074815 00000 n
+0000075099 00000 n
+0000075425 00000 n
+0000086527 00000 n
+0000086699 00000 n
+0000087051 00000 n
+0000087233 00000 n
+0000087517 00000 n
+0000087816 00000 n
+0000088127 00000 n
+0000088433 00000 n
+0000088717 00000 n
+0000089001 00000 n
+0000089285 00000 n
+0000089569 00000 n
+0000089853 00000 n
+0000090152 00000 n
+0000090456 00000 n
+0000090782 00000 n
+0000091113 00000 n
+0000091379 00000 n
+0000091685 00000 n
+0000091969 00000 n
+0000092253 00000 n
+0000092552 00000 n
+0000092779 00000 n
+0000093085 00000 n
+0000093369 00000 n
+0000093654 00000 n
+0000093818 00000 n
+0000094040 00000 n
+0000094170 00000 n
+0000094348 00000 n
+0000094603 00000 n
+0000094802 00000 n
+0000095061 00000 n
+0000095245 00000 n
+0000095423 00000 n
+0000095682 00000 n
+0000095862 00000 n
+0000096116 00000 n
+0000096297 00000 n
+0000096493 00000 n
+0000096702 00000 n
+0000096922 00000 n
+0000097167 00000 n
+0000097386 00000 n
+0000097608 00000 n
+0000097823 00000 n
+0000098038 00000 n
+0000098263 00000 n
+0000098483 00000 n
+0000098698 00000 n
+0000098889 00000 n
+0000099134 00000 n
+0000099344 00000 n
+0000099551 00000 n
+0000099752 00000 n
+0000099946 00000 n
+0000100140 00000 n
+0000100334 00000 n
+0000100528 00000 n
+0000100723 00000 n
+0000100917 00000 n
+0000101095 00000 n
+0000101302 00000 n
+0000101497 00000 n
+0000101699 00000 n
+0000101894 00000 n
+0000102107 00000 n
+0000102317 00000 n
+0000102531 00000 n
+0000102752 00000 n
+0000102991 00000 n
+0000103184 00000 n
+0000103447 00000 n
+0000103645 00000 n
+0000103856 00000 n
+0000104066 00000 n
+0000104274 00000 n
+0000104497 00000 n
+0000104716 00000 n
+0000104917 00000 n
+0000105137 00000 n
+0000105357 00000 n
+0000105560 00000 n
+0000105767 00000 n
+0000105995 00000 n
+0000106214 00000 n
+0000106451 00000 n
+0000106678 00000 n
+0000106890 00000 n
+0000107103 00000 n
+0000107315 00000 n
+0000107520 00000 n
+0000107725 00000 n
+0000107951 00000 n
+0000108185 00000 n
+0000108420 00000 n
+0000108647 00000 n
+0000108838 00000 n
+0000109038 00000 n
+0000109280 00000 n
+0000109491 00000 n
+0000109684 00000 n
+0000109908 00000 n
+0000110123 00000 n
+0000110322 00000 n
+0000110531 00000 n
+0000110749 00000 n
+0000110935 00000 n
+0000111244 00000 n
+0000111440 00000 n
+0000111652 00000 n
+0000111863 00000 n
+0000112092 00000 n
+0000112327 00000 n
+0000112540 00000 n
+0000112746 00000 n
+0000112947 00000 n
+0000113150 00000 n
+0000113358 00000 n
+0000113577 00000 n
+0000113781 00000 n
+0000113996 00000 n
+0000114194 00000 n
+0000114398 00000 n
+0000114602 00000 n
+0000114804 00000 n
+0000115017 00000 n
+0000115229 00000 n
+0000115437 00000 n
+0000115653 00000 n
+0000115863 00000 n
+0000116079 00000 n
+0000116298 00000 n
+0000116505 00000 n
+0000116720 00000 n
+0000116925 00000 n
+0000117138 00000 n
+0000117346 00000 n
+0000117562 00000 n
+0000117777 00000 n
+0000117984 00000 n
+0000118199 00000 n
+0000118402 00000 n
+0000118622 00000 n
+0000118896 00000 n
+0000119177 00000 n
+0000119445 00000 n
+0000119687 00000 n
+0000119898 00000 n
+0000120086 00000 n
+0000120299 00000 n
+0000120511 00000 n
+0000120716 00000 n
+0000120932 00000 n
+0000121144 00000 n
+0000121348 00000 n
+0000121554 00000 n
+0000121759 00000 n
+0000121971 00000 n
+0000122420 00000 n
+0000123223 00000 n
+0000132643 00000 n
+0000142878 00000 n
+0000153044 00000 n
+0000161521 00000 n
+0000170616 00000 n
+0000180995 00000 n
+0000192353 00000 n
+0000203938 00000 n
+0000215154 00000 n
+0000226688 00000 n
+0000236206 00000 n
+0000242609 00000 n
+0000253934 00000 n
+0000264696 00000 n
+0000273450 00000 n
+0000283228 00000 n
+0000296693 00000 n
+0000306558 00000 n
+0000312638 00000 n
+0000321768 00000 n
+0000327842 00000 n
+0000334722 00000 n
+0000343078 00000 n
+0000351878 00000 n
+0000360270 00000 n
+0000366605 00000 n
+0000374166 00000 n
+0000380809 00000 n
+0000386311 00000 n
+0000392229 00000 n
+0000395724 00000 n
+0000401880 00000 n
+0000408166 00000 n
+0000410993 00000 n
+0000411590 00000 n
+0000411669 00000 n
+0000411748 00000 n
+0000411827 00000 n
+0000411906 00000 n
+0000411985 00000 n
+0000412064 00000 n
+0000412143 00000 n
+0000412222 00000 n
+0000412301 00000 n
+0000412381 00000 n
+0000412461 00000 n
+0000412541 00000 n
+0000412621 00000 n
+0000412701 00000 n
+0000412781 00000 n
+0000412861 00000 n
+0000412941 00000 n
+0000413021 00000 n
+0000413101 00000 n
+0000413181 00000 n
+0000413261 00000 n
+0000413341 00000 n
+0000413421 00000 n
+0000413501 00000 n
+0000413581 00000 n
+0000413661 00000 n
+0000413741 00000 n
+0000413821 00000 n
+0000413901 00000 n
+0000413981 00000 n
+0000414061 00000 n
+0000414141 00000 n
+0000414221 00000 n
+0000414301 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\355\014\257\361`\3433\014M\224.\232\2317\217\362) (\355\014\257\361`\3433\014M\224.\232\2317\217\362)] 
+ [(\256$\331AB\266\366\222\311K\026\020\031 u\312) (\256$\331AB\266\366\222\311K\026\020\031 u\312)] 
 
- /Info 324 0 R
- /Root 323 0 R
- /Size 529 >>
+ /Info 322 0 R
+ /Root 321 0 R
+ /Size 526 >>
 startxref
-416451
+414350
 %%EOF

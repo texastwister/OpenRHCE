@@ -426,27 +426,26 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#setting-up-a-build-environment" id="id111">Setting up a Build Environment</a></li>
 <li><a class="reference internal" href="#viewing-the-build-environment" id="id112">Viewing the Build Environment</a></li>
 <li><a class="reference internal" href="#rpm-building-exercise" id="id113">RPM Building Exercise</a></li>
-<li><a class="reference internal" href="#signing-your-rpms" id="id114">Signing Your RPMs</a></li>
-<li><a class="reference internal" href="#rpm-packaging-other-documentation" id="id115">RPM Packaging, Other Documentation:</a></li>
-<li><a class="reference internal" href="#managing-software-signing-and-publishing-rpms" id="id116">Managing Software:  Signing and Publishing RPMs</a></li>
-<li><a class="reference internal" href="#managing-software-updating-the-kernel-package" id="id117">Managing Software:  Updating the kernel package</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-configure-network-services-to-start-automatically-at-boot" id="id118">Manage Processes and Services: Configure network services to start automatically at boot</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-monitoring-prioritizing-and-controlling-processes" id="id120">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id121">Manage Processes and Services: Schedule tasks using cron</a></li>
-<li><a class="reference internal" href="#manage-system-performance" id="id122">Manage system performance</a></li>
-<li><a class="reference internal" href="#manage-users-and-groups" id="id123">Manage Users and Groups</a></li>
+<li><a class="reference internal" href="#create-a-repo-with-your-files" id="id114">Create a Repo with your files</a></li>
+<li><a class="reference internal" href="#signing-your-rpms" id="id115">Signing Your RPMs</a></li>
+<li><a class="reference internal" href="#rpm-packaging-other-documentation" id="id116">RPM Packaging, Other Documentation:</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-network-services-to-start-automatically-at-boot" id="id117">Manage Processes and Services: Configure network services to start automatically at boot</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id118">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-monitoring-prioritizing-and-controlling-processes" id="id119">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id120">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#manage-system-performance" id="id121">Manage system performance</a></li>
+<li><a class="reference internal" href="#manage-users-and-groups" id="id122">Manage Users and Groups</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-4-networking-and-routing" id="id124">Session 4 Networking and routing</a></li>
-<li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id125">Session 5 Firewalls and SELinux</a></li>
-<li><a class="reference internal" href="#session-6-virtualization" id="id126">Session 6 Virtualization</a></li>
-<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id127">Session 7 Logging and remote access</a></li>
-<li><a class="reference internal" href="#session-8-network-time-protocol" id="id128">Session 8 Network Time Protocol</a></li>
-<li><a class="reference internal" href="#session-9-http-and-ftp" id="id129">Session 9 HTTP and FTP</a></li>
-<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id130">Session 10 NFS and Samba</a></li>
-<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id131">Session 11 DNS and SMTP</a></li>
-<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id132">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#session-4-networking-and-routing" id="id123">Session 4 Networking and routing</a></li>
+<li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id124">Session 5 Firewalls and SELinux</a></li>
+<li><a class="reference internal" href="#session-6-virtualization" id="id125">Session 6 Virtualization</a></li>
+<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id126">Session 7 Logging and remote access</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol" id="id127">Session 8 Network Time Protocol</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id128">Session 9 HTTP and FTP</a></li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id129">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id130">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id131">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
 </ul>
 </div>
 </div>
@@ -1461,7 +1460,7 @@ iscsiadm -m discovery -t st -p &lt;portal IP address&gt;
 </li>
 <li><p class="first">Log in to the target using the name displayed in discovery:</p>
 <pre class="literal-block">
-iscsiadm -m mode -T &lt;IQN&gt; -p &lt;portal IP address&gt; -l
+iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP address&gt; -l
 </pre>
 </li>
 <li><p class="first">Identify the SCSI device name with <tt class="docutils literal"><span class="pre">dmesg</span></tt>, <tt class="docutils literal"><span class="pre">tail</span> <span class="pre">/var/log/messages</span></tt> or <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/dev/disk/by-path/*iscsi*</span></tt></p>
@@ -1891,9 +1890,9 @@ S.5....T    /usr/bin/aspell
 <pre class="literal-block">
 # less /root/install.log
 </pre>
-<p>View a list of the packages installed on the system (list typically updated once per day):</p>
+<p>View a list of the packages installed through yum:</p>
 <pre class="literal-block">
-# less /var/log/rpmpkgs
+# less /var/log/yum.log
 </pre>
 <p>Query the RPM database for the packages installed right now:</p>
 <pre class="literal-block">
@@ -2066,8 +2065,17 @@ install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
 <p>The changelog section can be deleted or left alone.</p>
 <!-- + Build a simple RPM that packages a single file -->
 </div>
+<div class="section" id="create-a-repo-with-your-files">
+<h2><a class="toc-backref" href="#id114">Create a Repo with your files</a></h2>
+<p>(Assumes httpd already installed)</p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">createrepo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">MyPackage.rpm</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">createrepo</span> <span class="pre">-v</span> <span class="pre">/var/www/html/repo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">/home/me/RPM-GPG-KEY-me</span> <span class="pre">/var/www/html/repo</span></tt></p>
+</div>
 <div class="section" id="signing-your-rpms">
-<h2><a class="toc-backref" href="#id114">Signing Your RPMs</a></h2>
+<h2><a class="toc-backref" href="#id115">Signing Your RPMs</a></h2>
 <p>Your RPMs can be digitally signed to protect users from the possibility of forged packages (any RPM package can execute scripts w/ root privileges when installed!). To implement this, first generate and identify a gpg key:</p>
 <pre class="literal-block">
 $ gpg --gen-key
@@ -2127,39 +2135,17 @@ sub   2048R/0DA4CCE9 2011-02-22
 <pre class="literal-block">
 $ gpg --armor --output ~/RPM-GPG-KEY-ScottPurcell --export B9AED1DE
 </pre>
-<dl class="docutils">
-<dt>[<a class="reference external" href="mailto:scott&#64;Client1">scott&#64;Client1</a> ~]$ cat RPM-GPG-KEY-ScottPurcell</dt>
-<dd><p class="first">-----BEGIN PGP PUBLIC KEY BLOCK-----
+<!--  -->
+<blockquote>
+<p>[<a class="reference external" href="mailto:scott&#64;Client1">scott&#64;Client1</a> ~]$ cat RPM-GPG-KEY-ScottPurcell
+-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.14 (GNU/Linux)</p>
-<p class="last">mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl
-2cOXSz5MCAZKaeu2YK929v3FQ+I8Rk5j+hXvEUM0ZbbdlRjtqvQ9I2vxpZLCq+gj
-NdUEo7neehfInVnZBhxzbaTCWYFN3k0YoE9RzyduTnRjQ0HqtKNQADSvgxOvjNGQ
-UsGoPfBW1/SBQAy26ZesWXVE8R3z/G4IHdXFJ8mMjxEduGn7eFag1uLySXCKGRY1
-4kjMEVITSeTOW2m8N0o47Vu++00GhCsvLrQgu6rGmNYDyj1HSpU2F7GWFbRBqvUp
-AOiDaE9ZRkymeOCyALF1N9zgz2NyNeYAe8qDABEBAAG0J1Njb3R0IFB1cmNlbGwg
-PHNjb3R0QHRleGFzdHdpc3Rlci5pbmZvPokBOAQTAQIAIgUCTWNVqAIbAwYLCQgH
-AwIGFQgCCQoLBBYCAwECHgECF4AACgkQnz+JNLmu0d73zAf7BmnzOk7oPyJO6A9D
-dZhA+pg77LB9jKNQR2+Qx7lNbJyDIVGafrpU39qdOzc1IWDNyXMnAZUDwqjz48Y0
-ioUj/FFuJzPohjaO4pZn+r58ICYA7+uuARNJ0ujmaVsOR8YlkHSldITNK9ni01DV
-3ha/V1g+3L9Kgebq0l3R+3NaRJvBfUIJgM/ceCGSvn135gL9whIZnfPRVusSiCLA
-waCjT88v+tLwwjGDaUqHUXb47yNEN+gw+thYKAbUlv/sf4Z6PS4+DiLpCp7wybUl
-4sack1F9WrDVvNx0TEoSxJlYvYpU+1NdZlXu5rK6qVrroeO2ozdhn7nx31rIdQPo
-31lNYbkBDQRNY1WoAQgAq1A+1r9T45FUv4KV7BcX3DKeSqk5rWBqXLpiCENxV8cU
-NBOYGKBfAQJ6Gv9MUrEPcDzZ3AQdaFUyzQpOdJFy61whn8oGkRZFOhQLWhHkaRrD
-uFMj3LujQiWlrKyf0m16daHAYqqIl+hzUvhpy2uSkRFVAnPj4RTSPw4aAieoksQJ
-NHSoA2ZTPGM3S/tW0OKNbSp6L4TXddP7zo/X9iEax0DStVhheg7v8bJcWTF3Gd8c
-tBdxmkwYBfO1KEXsrDgkaAaIXQQd/j1GDmWiw3L7rICbgPVhloKOVb7Q5elGDiry
-pRON0CpkUdb9SbKVNHEmwGlB+DZ0yQZFvB0ZjiXhVQARAQABiQEfBBgBAgAJBQJN
-Y1WoAhsMAAoJEJ8/iTS5rtHecC8H/14xWH2w+OFxVol4asA55Kz5YtrtGpQe98VK
-fR86QsdBSUs4Evy22g5WXkARtdgg741LBqrm3SWVnbLfuoLujN3Q+ylqmiNk6Bmh
-E+McEfMQ8rcKEifEfiFlQJj9wIScebD4nxPXpAqcaKyz4HpjPzgOnKQpXxPk4kSV
-d7OkmxdyDDvmBOHODYivPybZTdiHIBraFmCGlmfLkFcMZbuZwjE7LyWB4Xjo2fw2
-QnqQEs/XzXsaXDwBMuayebzoKb06RNzQQC3uqQFszw7ObRtIqi9nEg5Hcfy2ip3j
+<p>mQENBE1jVagBCADVDTOvRl3Z5xPZb6AAl2D3bM/H4kEhyJ+yk1pbVPmu8yu0Cbsl
+. . .
 R+J9rjvN8rNpQwm40Gx6RpM7qtP/LodzD46dNfbr87lJ4F+4A3U=
 =f4Gq
 -----END PGP PUBLIC KEY BLOCK-----</p>
-</dd>
-</dl>
+</blockquote>
 <p>Configure rpm-related tools to use your signature:</p>
 <pre class="literal-block">
 $ echo '%_gpg_name Scott Purcell'&gt;&gt; ~/.rpmmacros
@@ -2180,7 +2166,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </pre>
 </div>
 <div class="section" id="rpm-packaging-other-documentation">
-<h2><a class="toc-backref" href="#id115">RPM Packaging, Other Documentation:</a></h2>
+<h2><a class="toc-backref" href="#id116">RPM Packaging, Other Documentation:</a></h2>
 <p>Red Hat Enterprise Linux Deployment Guide, section on &quot;Querying RPM&quot;</p>
 <p>Man Pages:</p>
 <blockquote>
@@ -2191,27 +2177,21 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </ul>
 </blockquote>
 </div>
-<div class="section" id="managing-software-signing-and-publishing-rpms">
-<h2><a class="toc-backref" href="#id116">Managing Software:  Signing and Publishing RPMs</a></h2>
-</div>
-<div class="section" id="managing-software-updating-the-kernel-package">
-<h2><a class="toc-backref" href="#id117">Managing Software:  Updating the kernel package</a></h2>
-</div>
 <div class="section" id="manage-processes-and-services-configure-network-services-to-start-automatically-at-boot">
-<h2><a class="toc-backref" href="#id118">Manage Processes and Services: Configure network services to start automatically at boot</a></h2>
+<h2><a class="toc-backref" href="#id117">Manage Processes and Services: Configure network services to start automatically at boot</a></h2>
 </div>
 <div class="section" id="manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically">
-<h2><a class="toc-backref" href="#id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
+<h2><a class="toc-backref" href="#id118">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
 </div>
 <div class="section" id="manage-processes-and-services-monitoring-prioritizing-and-controlling-processes">
-<h2><a class="toc-backref" href="#id120">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></h2>
+<h2><a class="toc-backref" href="#id119">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></h2>
 <!-- Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes -->
 </div>
 <div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
-<h2><a class="toc-backref" href="#id121">Manage Processes and Services: Schedule tasks using cron</a></h2>
+<h2><a class="toc-backref" href="#id120">Manage Processes and Services: Schedule tasks using cron</a></h2>
 </div>
 <div class="section" id="manage-system-performance">
-<h2><a class="toc-backref" href="#id122">Manage system performance</a></h2>
+<h2><a class="toc-backref" href="#id121">Manage system performance</a></h2>
 <ul class="simple">
 <li>Use /proc/sys and sysctl to modify and set kernel run-time parameters</li>
 <li>Produce and deliver reports on system utilization (processor, memory, disk, and network)</li>
@@ -2219,7 +2199,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </ul>
 </div>
 <div class="section" id="manage-users-and-groups">
-<h2><a class="toc-backref" href="#id123">Manage Users and Groups</a></h2>
+<h2><a class="toc-backref" href="#id122">Manage Users and Groups</a></h2>
 <ul class="simple">
 <li>Create, delete, and modify local user accounts</li>
 <li>Change passwords and adjust password aging for local user accounts</li>
@@ -2230,13 +2210,13 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </div>
 </div>
 <div class="section" id="session-4-networking-and-routing">
-<h1><a class="toc-backref" href="#id124">Session 4 Networking and routing</a></h1>
+<h1><a class="toc-backref" href="#id123">Session 4 Networking and routing</a></h1>
 <p>o Networking &amp; Routing
 + *  Configure networking and hostname resolution statically or dynamically
 + *  Route IP traffic and create static routes</p>
 </div>
 <div class="section" id="session-5-firewalls-and-selinux">
-<h1><a class="toc-backref" href="#id125">Session 5 Firewalls and SELinux</a></h1>
+<h1><a class="toc-backref" href="#id124">Session 5 Firewalls and SELinux</a></h1>
 <p>o IPTables
 + * Configure firewall settings using system-config-firewall or iptables
 o SELinux
@@ -2247,7 +2227,7 @@ o SELinux
 + * Diagnose and address routine SELinux policy violations</p>
 </div>
 <div class="section" id="session-6-virtualization">
-<h1><a class="toc-backref" href="#id126">Session 6 Virtualization</a></h1>
+<h1><a class="toc-backref" href="#id125">Session 6 Virtualization</a></h1>
 <p>o KVM Virtualization
 + * Configure a physical machine to host virtual guests
 + * Install Red Hat Enterprise Linux systems as virtual guests
@@ -2255,7 +2235,7 @@ o SELinux
 + * Install Red Hat Enterprise Linux automatically using Kickstart</p>
 </div>
 <div class="section" id="session-7-logging-and-remote-access">
-<h1><a class="toc-backref" href="#id127">Session 7 Logging and remote access</a></h1>
+<h1><a class="toc-backref" href="#id126">Session 7 Logging and remote access</a></h1>
 <p>o + - Remote Logging
 + * Configure a system to log to a remote system
 + * Configure a system to accept logging from a remote system
@@ -2276,7 +2256,7 @@ o + - Remote Access
 # * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-8-network-time-protocol">
-<h1><a class="toc-backref" href="#id128">Session 8 Network Time Protocol</a></h1>
+<h1><a class="toc-backref" href="#id127">Session 8 Network Time Protocol</a></h1>
 <p>o NTP
 + * Install the packages needed to provide the service
 + * Configure SELinux to support the service
@@ -2285,16 +2265,16 @@ o + - Remote Access
 + * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-9-http-and-ftp">
-<h1><a class="toc-backref" href="#id129">Session 9 HTTP and FTP</a></h1>
+<h1><a class="toc-backref" href="#id128">Session 9 HTTP and FTP</a></h1>
 </div>
 <div class="section" id="session-10-nfs-and-samba">
-<h1><a class="toc-backref" href="#id130">Session 10 NFS and Samba</a></h1>
+<h1><a class="toc-backref" href="#id129">Session 10 NFS and Samba</a></h1>
 </div>
 <div class="section" id="session-11-dns-and-smtp">
-<h1><a class="toc-backref" href="#id131">Session 11 DNS and SMTP</a></h1>
+<h1><a class="toc-backref" href="#id130">Session 11 DNS and SMTP</a></h1>
 </div>
 <div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
-<h1><a class="toc-backref" href="#id132">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+<h1><a class="toc-backref" href="#id131">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
 </div>
 </div>
 <div class="footer">
