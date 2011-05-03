@@ -972,7 +972,7 @@ Accessing iSCSI Devices
 
 * Log in to the target using the name displayed in discovery::
 
-    iscsiadm -m mode -T <IQN> -p <portal IP address> -l
+    iscsiadm -m node -T <IQN> -p <portal IP address> -l
 
 * Identify the SCSI device name with ``dmesg``, ``tail /var/log/messages`` or ``ls -l /dev/disk/by-path/*iscsi*``
 
@@ -1394,11 +1394,11 @@ Identifying Installed Packages
 View a list of the packages originally installed on the system::
 
 	# less /root/install.log
-	
-View a list of the packages installed on the system (list typically updated once per day)::
-	
-	# less /var/log/rpmpkgs
-	
+
+View a list of the packages installed through yum::
+
+	# less /var/log/yum.log
+		
 Query the RPM database for the packages installed right now::
 
 	# rpm -qa 
@@ -1635,9 +1635,19 @@ The changelog section can be deleted or left alone.
 Create a Repo with your files
 --------------------------------
 
+(Assumes httpd already installed)
+
 ``# yum -y install createrepo``
 
-``# mkdir -p 
+``# mkdir -p /var/www/html/repo/Packages`` 
+
+``# cp MyPackage.rpm /var/www/html/repo/Packages``
+
+``# createrepo -v /var/www/html/repo``
+
+``# cp /home/me/RPM-GPG-KEY-me /var/www/html/repo``
+
+
 
 
 Signing Your RPMs
@@ -1751,11 +1761,6 @@ Man Pages:
     
 
 
-Managing Software:  Signing and Publishing RPMs
---------------------------------------------------
-
-Managing Software:  Updating the kernel package 
---------------------------------------------------
 
 Manage Processes and Services: Configure network services to start automatically at boot
 -------------------------------------------------------------------------------------------
