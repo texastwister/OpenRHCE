@@ -1657,22 +1657,6 @@ The changelog section can be deleted or left alone.
 ..                + Build a simple RPM that packages a single file
 
 
-Create a Repo with your files
---------------------------------
-
-(Assumes httpd already installed)
-
-``# yum -y install createrepo``
-
-``# mkdir -p /var/www/html/repo/Packages`` 
-
-``# cp MyPackage.rpm /var/www/html/repo/Packages``
-
-``# createrepo -v /var/www/html/repo``
-
-``# cp /home/me/RPM-GPG-KEY-me /var/www/html/repo``
-
-
 
 
 Signing Your RPMs
@@ -1772,6 +1756,22 @@ And with the key imported, the package can be verified::
 
 
 
+Create a Repo with your files
+--------------------------------
+
+(Assumes httpd already installed)
+
+``# yum -y install createrepo``
+
+``# mkdir -p /var/www/html/repo/Packages`` 
+
+``# cp MyPackage.rpm /var/www/html/repo/Packages``
+
+``# createrepo -v /var/www/html/repo``
+
+``# cp /home/me/RPM-GPG-KEY-me /var/www/html/repo``
+
+
 
 RPM Packaging, Other Documentation:
 ------------------------------------------
@@ -1785,21 +1785,92 @@ Man Pages:
     * cpio (1)
     
 
-
-
-Manage Processes and Services: Configure network services to start automatically at boot
+Manage Processes and Services
 -------------------------------------------------------------------------------------------
+
+Start a service:
+    * ``service <servicename> start`` 
+    * ``/etc/init.d/<servicescript> start``
+
+Stop a service:
+    * ``service <servicename> stop``
+    * ``/etc/init.d/<servicescript> stop``
+
+Check status of a service:
+    * ``service <servicename> status``
+    * ``/etc/init.d/<servicescript> status``
+
+Reload a service's config:
+    * ``service <servicename> reload``
+    * ``/etc/init.d/<servicescript> reload``
+
+Persistent Configuration of Services
+-----------------------------------------
+
+Configure a service to start at boot:
+    * ``chkconfig <servicename> on``
+    * ``system-config-services`` 
+    * ``ntsysv``
+
+
+
 
 Manage Processes and Services: Configure systems to boot into a specific runlevel automatically
 -------------------------------------------------------------------------------------------------
 
-Manage Processes and Services: Monitoring, prioritizing, and controlling processes 
--------------------------------------------------------------------------------------------
+``/etc/inittab``
+
+Monitoring Processes
+--------------------------
+
+``ps``
+    Highly configurable command to list running processes
+
+``top``
+    Command to provide realtime reports of the most active running processes
+
+Killing Processes
+----------------------
+
+``kill``
+    kills a process by PID.  Optionally sends "signals" other than "kill".
+
+``kill-all``
+    Kills a process by name.  Use care not to match names you don't intend to kill.
+
+``pkill`` 
+    Also kills processes by name.  Use care not to match names you don't intend to kill.
+
+``pgrep``
+    Searches processes by name. Useful for verifying which processes would be killed by pkill.
+
+Prioritizing Processes
+-------------------------
+
+The kernel calculates the priority of each process through a variety of factors.  One input into that calculation is a user-modifiable value called "niceness". 
+
+* A process with higher niceness has lower priority and is thus more willing to share resources with other processes.
+
+* niceness can range from -20 (highest priority) to 19 (lowest priority).
+
+``nice`` and ``renice`` commands
+-----------------------------------
+
+``nice``
+    Launches commands with a specified "niceness" value affecting process priority.
+
+    * Default niceness is "0".
+    * Root can set any value.
+    * Non-privileged users can only use positive values. 
+
+``renice``
+    Modifies the niceness of an already-running process.
+
+    * Root can modify the niceness of any process in either direction.
+    * Non-privileged users can only modify their own processes and by increasing niceness (lowering priority)
+
 
 .. Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes
-
-Manage Processes and Services: Schedule tasks using cron
---------------------------------------------------------------
 
 
 Manage system performance
@@ -1958,14 +2029,87 @@ Troubleshooting Toolkit
 Session 5 Firewalls and SELinux
 ========================================
 
-o IPTables
-+ * Configure firewall settings using system-config-firewall or iptables
-o SELinux
-+ * Set enforcing and permissive modes for SELinux
-+ * List and identify SELinux file and process context
-+ * Restore default file contexts
-+ * Use boolean settings to modify system SELinux settings
-+ * Diagnose and address routine SELinux policy violations
+Firewalling in RHEL6
+------------------------
+
+RHEL6 implements a packet filtering firewall called iptables. You should know several key terms:
+
+rule
+    A one-line rule defining a packet type and how it should be handled.
+
+chain
+    A list  of rules.
+
+table
+    A list of rules aggregating all of the chains and rules taking a particular path through the network stack.
+
+policy
+    A default rule that applies in the absence of other rules.
+    
+
+iptables Built-in Chains
+------------------------------
+
+INPUT
+    Applies to traffic with your server as the destination.
+
+OUTPUT
+    Applies to traffic origination on your server as the source.
+
+FORWARD
+    Applies to traffic being routed by your system from one network to another
+
+iptables Targets
+---------------------
+
+ACCEPT
+    Allows the packet to proceed to its destination.
+
+DROP
+    Silently drop the packet.
+
+REJECT
+    Drop the packet with a rejection message
+
+LOG
+    Combined with other targets, also log the action
+
+Connection Tracking States
+--------------------------------
+
+Iptables can filter packets based on their relationship with previous traffic.
+
+
+NEW
+    The packet has started a new connection.
+
+ESTABLISHED
+    Applies to packets that are part of an established TCP connection (packets have already been delivered in both directions).
+
+RELATED
+    The packet is starting a new connection, but associated with an existing connection.
+
+INVALID
+    The packet is associated with no known connection.
+
+
+
+
+
+.. o IPTables
+.. + * Configure firewall settings using system-config-firewall or iptables
+
+
+SELinux
+----------------
+
+
+
+.. + * Set enforcing and permissive modes for SELinux
+.. + * List and identify SELinux file and process context
+.. + * Restore default file contexts
+.. + * Use boolean settings to modify system SELinux settings
+.. + * Diagnose and address routine SELinux policy violations
 
 Session 6 Virtualization
 ================================
@@ -2023,3 +2167,14 @@ Session 11 DNS and SMTP
 
 Session 12 Finish uncompleted topics, Review, or Practice Exam 
 =======================================================================
+
+
+Supplemental Topics
+=========================
+
+
+
+Manage Processes and Services: Schedule tasks using cron
+--------------------------------------------------------------
+
+
