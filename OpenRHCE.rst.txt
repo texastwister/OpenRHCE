@@ -1821,34 +1821,58 @@ Manage Users and Groups
 Session 4 Networking and Routing
 =======================================
 
-Network Config and Troubleshooting
-------------------------------------
+Network Configuration and Troubleshooting
+------------------------------------------
 
+Class discussion -- Populate a table explaining for each of the following aspects of network configuration: 1) How to view or verify the existing configuration, and 2) How to change the configuration.
+
+* IP Address and Subnet Mask
+
+* Routing and Default Gateway
+
+* Hostname
+
+* Name Resolution
+
+    
 IP Address and Subnet Mask
+----------------------------
 
-    * Verifying configuration
-    * Changing configuration
+* Verifying configuration
+
+    ``ip a``, ``ifconfig``
+
+* Changing configuration
+
+    ``nm_applet``, ``system-config-network``, manual editing of interface config files
 
 Routing and Default Gateway
+-----------------------------
 
-    * Verifying configuration
-    * Changing configuration
+* Verifying configuration
+
+    ``route``, ``ip r``
+
+* Changing configuration
+
+    ``route``, ``ip r``, manual editing of route config files,
+    
 
 Hostname
+------------
 
-    * Verifying configuration
-    * Changing configuration
+* Verifying configuration
+
+* Changing configuration
+
+
 
 Name Resolution
+-----------------
 
-    * Verifying configuration
-    * Changing configuration
+* Verifying configuration
 
-    
-
-    
-
-    
+* Changing configuration
 
     
 
