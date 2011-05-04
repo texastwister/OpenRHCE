@@ -1557,6 +1557,7 @@ With the source files in place and a properly configured ``.spec`` file written,
     Builds both the binary and source rpm files.    
 
 Use ``rpmbuild --help`` or ``man rpmbuild`` for other options.
+
 RPM Building Exercise
 --------------------------
 
@@ -1820,20 +1821,108 @@ Manage Users and Groups
 Session 4 Networking and Routing
 =======================================
 
+Network Config and Troubleshooting
+------------------------------------
+
+IP Address and Subnet Mask
+
+    * Verifying configuration
+    * Changing configuration
+
+Routing and Default Gateway
+
+    * Verifying configuration
+    * Changing configuration
+
+Hostname
+
+    * Verifying configuration
+    * Changing configuration
+
+Name Resolution
+
+    * Verifying configuration
+    * Changing configuration
+
+    
+
+    
+
+    
+
+    
+
 Two Controlling Services
 --------------------------
 
-NetworkManager
+**NetworkManager**
 
 * RHEL6 default
 * Ideal for client systems and systems with dynamic network conditions
 * No support for bonding/bridging/aliases, etc.
 
-network
+**network**
 
 * RHEL5 and earlier default
 * Ideal for systems with static network conditions
 * Bonding/bridging/aliases supported. 
+
+Switching between Controlling Services
+------------------------------------------
+
+To disable NetworkManager and enable network::
+
+    # service NetworkManager stop; chkconfig NetworkManager off
+    # service network start; chkconfig network start
+
+To disable network and enable NetworkManager::
+
+    # service network stop; chkconfig network off
+    # service NetworkManager start; chkconfig NetworkManager on
+
+To exempt a particular interface from control by NetworkManager, but leave it in control of other interfaces:
+
+* In the interface configuration file of the interface to be exempted, insert the line::
+
+    NM_CONTROLLED=no
+
+* Ensure both services are configured on and running.
+
+* Configured interfaces can be brought up with ``ifup eth<x>`` or down with ``ifdown eth<x>`` regardless of whether they are managed by NetworkManager or not.
+
+
+Network Configuration Files
+-------------------------------
+
+/etc/hosts
+    Static hostname-to-IP resolution.
+
+/etc/resolv.conf
+    Client configuration for DNS.
+
+/etc/sysconfig/network
+    Main system networking config file.  Enables/disables networking in general, sets the hostname, and configures routing.
+
+/etc/sysconfig/network-scripts/ifcfg-<ifname>
+    Config file for each configured interface.
+
+/etc/sysconfig/network-scripts/route-<name>
+    Config file for static routes (where needed)
+
+.. note:: 
+
+    /etc/sysconfig/networking/ is used by system-config-network and should not be manually edited.
+
+
+Reference
+--------------
+
+/usr/share/doc/initscripts-9.03.17/sysconfig.txt
+
+Future (Near!) Network Device Naming Scheme
+----------------------------------------------
+
+http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf
 
 Troubleshooting Toolkit
 ----------------------------

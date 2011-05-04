@@ -425,27 +425,37 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#package-building-tools" id="id110">Package Building Tools</a></li>
 <li><a class="reference internal" href="#setting-up-a-build-environment" id="id111">Setting up a Build Environment</a></li>
 <li><a class="reference internal" href="#viewing-the-build-environment" id="id112">Viewing the Build Environment</a></li>
-<li><a class="reference internal" href="#rpm-building-exercise" id="id113">RPM Building Exercise</a></li>
-<li><a class="reference internal" href="#create-a-repo-with-your-files" id="id114">Create a Repo with your files</a></li>
-<li><a class="reference internal" href="#signing-your-rpms" id="id115">Signing Your RPMs</a></li>
-<li><a class="reference internal" href="#rpm-packaging-other-documentation" id="id116">RPM Packaging, Other Documentation:</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-configure-network-services-to-start-automatically-at-boot" id="id117">Manage Processes and Services: Configure network services to start automatically at boot</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id118">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-monitoring-prioritizing-and-controlling-processes" id="id119">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id120">Manage Processes and Services: Schedule tasks using cron</a></li>
-<li><a class="reference internal" href="#manage-system-performance" id="id121">Manage system performance</a></li>
-<li><a class="reference internal" href="#manage-users-and-groups" id="id122">Manage Users and Groups</a></li>
+<li><a class="reference internal" href="#building-the-rpm" id="id113">Building the RPM</a></li>
+<li><a class="reference internal" href="#rpm-building-exercise" id="id114">RPM Building Exercise</a></li>
+<li><a class="reference internal" href="#create-a-repo-with-your-files" id="id115">Create a Repo with your files</a></li>
+<li><a class="reference internal" href="#signing-your-rpms" id="id116">Signing Your RPMs</a></li>
+<li><a class="reference internal" href="#rpm-packaging-other-documentation" id="id117">RPM Packaging, Other Documentation:</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-network-services-to-start-automatically-at-boot" id="id118">Manage Processes and Services: Configure network services to start automatically at boot</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-monitoring-prioritizing-and-controlling-processes" id="id120">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id121">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#manage-system-performance" id="id122">Manage system performance</a></li>
+<li><a class="reference internal" href="#manage-users-and-groups" id="id123">Manage Users and Groups</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-4-networking-and-routing" id="id123">Session 4 Networking and routing</a></li>
-<li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id124">Session 5 Firewalls and SELinux</a></li>
-<li><a class="reference internal" href="#session-6-virtualization" id="id125">Session 6 Virtualization</a></li>
-<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id126">Session 7 Logging and remote access</a></li>
-<li><a class="reference internal" href="#session-8-network-time-protocol" id="id127">Session 8 Network Time Protocol</a></li>
-<li><a class="reference internal" href="#session-9-http-and-ftp" id="id128">Session 9 HTTP and FTP</a></li>
-<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id129">Session 10 NFS and Samba</a></li>
-<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id130">Session 11 DNS and SMTP</a></li>
-<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id131">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#session-4-networking-and-routing" id="id124">Session 4 Networking and Routing</a><ul>
+<li><a class="reference internal" href="#network-config-and-troubleshooting" id="id125">Network Config and Troubleshooting</a></li>
+<li><a class="reference internal" href="#two-controlling-services" id="id126">Two Controlling Services</a></li>
+<li><a class="reference internal" href="#switching-between-controlling-services" id="id127">Switching between Controlling Services</a></li>
+<li><a class="reference internal" href="#network-configuration-files" id="id128">Network Configuration Files</a></li>
+<li><a class="reference internal" href="#reference" id="id129">Reference</a></li>
+<li><a class="reference internal" href="#future-near-network-device-naming-scheme" id="id130">Future (Near!) Network Device Naming Scheme</a></li>
+<li><a class="reference internal" href="#troubleshooting-toolkit" id="id131">Troubleshooting Toolkit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id132">Session 5 Firewalls and SELinux</a></li>
+<li><a class="reference internal" href="#session-6-virtualization" id="id133">Session 6 Virtualization</a></li>
+<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id134">Session 7 Logging and remote access</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol" id="id135">Session 8 Network Time Protocol</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id136">Session 9 HTTP and FTP</a></li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id137">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id138">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id139">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
 </ul>
 </div>
 </div>
@@ -1996,8 +2006,27 @@ $ rpmdev-setuptree
 <p>Install tree with <tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">tree</span></tt>.</p>
 <p>Invoke tree with <tt class="docutils literal"><span class="pre">$</span> <span class="pre">tree</span> <span class="pre">~/rpmbuild</span></tt> to show the contents of the build environment.</p>
 </div>
+<div class="section" id="building-the-rpm">
+<h2><a class="toc-backref" href="#id113">Building the RPM</a></h2>
+<p>With the source files in place and a properly configured <tt class="docutils literal"><span class="pre">.spec</span></tt> file written, the <tt class="docutils literal"><span class="pre">rpmbuild</span></tt> command can be used to build the rpm either at once, or (for troubleshooting) in stages</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bp</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through the <tt class="docutils literal"><span class="pre">%prep</span></tt> section -- unpacks sources and applies patches.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bc</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through compile -- processes the <tt class="docutils literal"><span class="pre">%prep</span></tt> and <tt class="docutils literal"><span class="pre">%build</span></tt> sections.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bi</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through <tt class="docutils literal"><span class="pre">%install</span></tt> -- processes <tt class="docutils literal"><span class="pre">%prep</span></tt>, <tt class="docutils literal"><span class="pre">%build</span></tt>, and <tt class="docutils literal"><span class="pre">%install</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bb</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds only the binary rpm file.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bs</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds only the source rpm file.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-ba</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds both the binary and source rpm files.</dd>
+</dl>
+<p>Use <tt class="docutils literal"><span class="pre">rpmbuild</span> <span class="pre">--help</span></tt> or <tt class="docutils literal"><span class="pre">man</span> <span class="pre">rpmbuild</span></tt> for other options.</p>
+</div>
 <div class="section" id="rpm-building-exercise">
-<h2><a class="toc-backref" href="#id113">RPM Building Exercise</a></h2>
+<h2><a class="toc-backref" href="#id114">RPM Building Exercise</a></h2>
 <p>As root, install rpm-build, rpmlint, rpmdevtools:</p>
 <pre class="literal-block">
 # yum -y install rpmbuild rpmdevtools rpmlint
@@ -2066,7 +2095,7 @@ install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
 <!-- + Build a simple RPM that packages a single file -->
 </div>
 <div class="section" id="create-a-repo-with-your-files">
-<h2><a class="toc-backref" href="#id114">Create a Repo with your files</a></h2>
+<h2><a class="toc-backref" href="#id115">Create a Repo with your files</a></h2>
 <p>(Assumes httpd already installed)</p>
 <p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">createrepo</span></tt></p>
 <p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
@@ -2075,7 +2104,7 @@ install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
 <p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">/home/me/RPM-GPG-KEY-me</span> <span class="pre">/var/www/html/repo</span></tt></p>
 </div>
 <div class="section" id="signing-your-rpms">
-<h2><a class="toc-backref" href="#id115">Signing Your RPMs</a></h2>
+<h2><a class="toc-backref" href="#id116">Signing Your RPMs</a></h2>
 <p>Your RPMs can be digitally signed to protect users from the possibility of forged packages (any RPM package can execute scripts w/ root privileges when installed!). To implement this, first generate and identify a gpg key:</p>
 <pre class="literal-block">
 $ gpg --gen-key
@@ -2166,7 +2195,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </pre>
 </div>
 <div class="section" id="rpm-packaging-other-documentation">
-<h2><a class="toc-backref" href="#id116">RPM Packaging, Other Documentation:</a></h2>
+<h2><a class="toc-backref" href="#id117">RPM Packaging, Other Documentation:</a></h2>
 <p>Red Hat Enterprise Linux Deployment Guide, section on &quot;Querying RPM&quot;</p>
 <p>Man Pages:</p>
 <blockquote>
@@ -2178,20 +2207,20 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </blockquote>
 </div>
 <div class="section" id="manage-processes-and-services-configure-network-services-to-start-automatically-at-boot">
-<h2><a class="toc-backref" href="#id117">Manage Processes and Services: Configure network services to start automatically at boot</a></h2>
+<h2><a class="toc-backref" href="#id118">Manage Processes and Services: Configure network services to start automatically at boot</a></h2>
 </div>
 <div class="section" id="manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically">
-<h2><a class="toc-backref" href="#id118">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
+<h2><a class="toc-backref" href="#id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
 </div>
 <div class="section" id="manage-processes-and-services-monitoring-prioritizing-and-controlling-processes">
-<h2><a class="toc-backref" href="#id119">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></h2>
+<h2><a class="toc-backref" href="#id120">Manage Processes and Services: Monitoring, prioritizing, and controlling processes</a></h2>
 <!-- Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes -->
 </div>
 <div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
-<h2><a class="toc-backref" href="#id120">Manage Processes and Services: Schedule tasks using cron</a></h2>
+<h2><a class="toc-backref" href="#id121">Manage Processes and Services: Schedule tasks using cron</a></h2>
 </div>
 <div class="section" id="manage-system-performance">
-<h2><a class="toc-backref" href="#id121">Manage system performance</a></h2>
+<h2><a class="toc-backref" href="#id122">Manage system performance</a></h2>
 <ul class="simple">
 <li>Use /proc/sys and sysctl to modify and set kernel run-time parameters</li>
 <li>Produce and deliver reports on system utilization (processor, memory, disk, and network)</li>
@@ -2199,7 +2228,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </ul>
 </div>
 <div class="section" id="manage-users-and-groups">
-<h2><a class="toc-backref" href="#id122">Manage Users and Groups</a></h2>
+<h2><a class="toc-backref" href="#id123">Manage Users and Groups</a></h2>
 <ul class="simple">
 <li>Create, delete, and modify local user accounts</li>
 <li>Change passwords and adjust password aging for local user accounts</li>
@@ -2210,13 +2239,113 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </div>
 </div>
 <div class="section" id="session-4-networking-and-routing">
-<h1><a class="toc-backref" href="#id123">Session 4 Networking and routing</a></h1>
-<p>o Networking &amp; Routing
-+ *  Configure networking and hostname resolution statically or dynamically
-+ *  Route IP traffic and create static routes</p>
+<h1><a class="toc-backref" href="#id124">Session 4 Networking and Routing</a></h1>
+<div class="section" id="network-config-and-troubleshooting">
+<h2><a class="toc-backref" href="#id125">Network Config and Troubleshooting</a></h2>
+<p>IP Address and Subnet Mask</p>
+<blockquote>
+<ul class="simple">
+<li>Verifying configuration</li>
+<li>Changing configuration</li>
+</ul>
+</blockquote>
+<p>Routing and Default Gateway</p>
+<blockquote>
+<ul class="simple">
+<li>Verifying configuration</li>
+<li>Changing configuration</li>
+</ul>
+</blockquote>
+<p>Hostname</p>
+<blockquote>
+<ul class="simple">
+<li>Verifying configuration</li>
+<li>Changing configuration</li>
+</ul>
+</blockquote>
+<p>Name Resolution</p>
+<blockquote>
+<ul class="simple">
+<li>Verifying configuration</li>
+<li>Changing configuration</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="two-controlling-services">
+<h2><a class="toc-backref" href="#id126">Two Controlling Services</a></h2>
+<p><strong>NetworkManager</strong></p>
+<ul class="simple">
+<li>RHEL6 default</li>
+<li>Ideal for client systems and systems with dynamic network conditions</li>
+<li>No support for bonding/bridging/aliases, etc.</li>
+</ul>
+<p><strong>network</strong></p>
+<ul class="simple">
+<li>RHEL5 and earlier default</li>
+<li>Ideal for systems with static network conditions</li>
+<li>Bonding/bridging/aliases supported.</li>
+</ul>
+</div>
+<div class="section" id="switching-between-controlling-services">
+<h2><a class="toc-backref" href="#id127">Switching between Controlling Services</a></h2>
+<p>To disable NetworkManager and enable network:</p>
+<pre class="literal-block">
+# service NetworkManager stop; chkconfig NetworkManager off
+# service network start; chkconfig network start
+</pre>
+<p>To disable network and enable NetworkManager:</p>
+<pre class="literal-block">
+# service network stop; chkconfig network off
+# service NetworkManager start; chkconfig NetworkManager on
+</pre>
+<p>To exempt a particular interface from control by NetworkManager, but leave it in control of other interfaces:</p>
+<ul>
+<li><p class="first">In the interface configuration file of the interface to be exempted, insert the line:</p>
+<pre class="literal-block">
+NM_CONTROLLED=no
+</pre>
+</li>
+<li><p class="first">Ensure both services are configured on and running.</p>
+</li>
+<li><p class="first">Configured interfaces can be brought up with <tt class="docutils literal"><span class="pre">ifup</span> <span class="pre">eth&lt;x&gt;</span></tt> or down with <tt class="docutils literal"><span class="pre">ifdown</span> <span class="pre">eth&lt;x&gt;</span></tt> regardless of whether they are managed by NetworkManager or not.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="network-configuration-files">
+<h2><a class="toc-backref" href="#id128">Network Configuration Files</a></h2>
+<dl class="docutils">
+<dt>/etc/hosts</dt>
+<dd>Static hostname-to-IP resolution.</dd>
+<dt>/etc/resolv.conf</dt>
+<dd>Client configuration for DNS.</dd>
+<dt>/etc/sysconfig/network</dt>
+<dd>Main system networking config file.  Enables/disables networking in general, sets the hostname, and configures routing.</dd>
+<dt>/etc/sysconfig/network-scripts/ifcfg-&lt;ifname&gt;</dt>
+<dd>Config file for each configured interface.</dd>
+<dt>/etc/sysconfig/network-scripts/route-&lt;name&gt;</dt>
+<dd>Config file for static routes (where needed)</dd>
+</dl>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">/etc/sysconfig/networking/ is used by system-config-network and should not be manually edited.</p>
+</div>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id129">Reference</a></h2>
+<p>/usr/share/doc/initscripts-9.03.17/sysconfig.txt</p>
+</div>
+<div class="section" id="future-near-network-device-naming-scheme">
+<h2><a class="toc-backref" href="#id130">Future (Near!) Network Device Naming Scheme</a></h2>
+<p><a class="reference external" href="http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf">http://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf</a></p>
+</div>
+<div class="section" id="troubleshooting-toolkit">
+<h2><a class="toc-backref" href="#id131">Troubleshooting Toolkit</a></h2>
+<!-- + *  Configure networking and hostname resolution statically or dynamically -->
+<!-- + *  Route IP traffic and create static routes -->
+</div>
 </div>
 <div class="section" id="session-5-firewalls-and-selinux">
-<h1><a class="toc-backref" href="#id124">Session 5 Firewalls and SELinux</a></h1>
+<h1><a class="toc-backref" href="#id132">Session 5 Firewalls and SELinux</a></h1>
 <p>o IPTables
 + * Configure firewall settings using system-config-firewall or iptables
 o SELinux
@@ -2227,7 +2356,7 @@ o SELinux
 + * Diagnose and address routine SELinux policy violations</p>
 </div>
 <div class="section" id="session-6-virtualization">
-<h1><a class="toc-backref" href="#id125">Session 6 Virtualization</a></h1>
+<h1><a class="toc-backref" href="#id133">Session 6 Virtualization</a></h1>
 <p>o KVM Virtualization
 + * Configure a physical machine to host virtual guests
 + * Install Red Hat Enterprise Linux systems as virtual guests
@@ -2235,7 +2364,7 @@ o SELinux
 + * Install Red Hat Enterprise Linux automatically using Kickstart</p>
 </div>
 <div class="section" id="session-7-logging-and-remote-access">
-<h1><a class="toc-backref" href="#id126">Session 7 Logging and remote access</a></h1>
+<h1><a class="toc-backref" href="#id134">Session 7 Logging and remote access</a></h1>
 <p>o + - Remote Logging
 + * Configure a system to log to a remote system
 + * Configure a system to accept logging from a remote system
@@ -2256,7 +2385,7 @@ o + - Remote Access
 # * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-8-network-time-protocol">
-<h1><a class="toc-backref" href="#id127">Session 8 Network Time Protocol</a></h1>
+<h1><a class="toc-backref" href="#id135">Session 8 Network Time Protocol</a></h1>
 <p>o NTP
 + * Install the packages needed to provide the service
 + * Configure SELinux to support the service
@@ -2265,16 +2394,16 @@ o + - Remote Access
 + * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-9-http-and-ftp">
-<h1><a class="toc-backref" href="#id128">Session 9 HTTP and FTP</a></h1>
+<h1><a class="toc-backref" href="#id136">Session 9 HTTP and FTP</a></h1>
 </div>
 <div class="section" id="session-10-nfs-and-samba">
-<h1><a class="toc-backref" href="#id129">Session 10 NFS and Samba</a></h1>
+<h1><a class="toc-backref" href="#id137">Session 10 NFS and Samba</a></h1>
 </div>
 <div class="section" id="session-11-dns-and-smtp">
-<h1><a class="toc-backref" href="#id130">Session 11 DNS and SMTP</a></h1>
+<h1><a class="toc-backref" href="#id138">Session 11 DNS and SMTP</a></h1>
 </div>
 <div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
-<h1><a class="toc-backref" href="#id131">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+<h1><a class="toc-backref" href="#id139">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
 </div>
 </div>
 <div class="footer">
