@@ -427,16 +427,16 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#viewing-the-build-environment" id="id112">Viewing the Build Environment</a></li>
 <li><a class="reference internal" href="#building-the-rpm" id="id113">Building the RPM</a></li>
 <li><a class="reference internal" href="#rpm-building-exercise" id="id114">RPM Building Exercise</a></li>
-<li><a class="reference internal" href="#create-a-repo-with-your-files" id="id115">Create a Repo with your files</a></li>
-<li><a class="reference internal" href="#signing-your-rpms" id="id116">Signing Your RPMs</a></li>
+<li><a class="reference internal" href="#signing-your-rpms" id="id115">Signing Your RPMs</a></li>
+<li><a class="reference internal" href="#create-a-repo-with-your-files" id="id116">Create a Repo with your files</a></li>
 <li><a class="reference internal" href="#rpm-packaging-other-documentation" id="id117">RPM Packaging, Other Documentation:</a></li>
 <li><a class="reference internal" href="#manage-processes-and-services" id="id118">Manage Processes and Services</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
-<li><a class="reference internal" href="#monitoring-processes" id="id120">Monitoring Processes</a></li>
-<li><a class="reference internal" href="#killing-processes" id="id121">Killing Processes</a></li>
-<li><a class="reference internal" href="#prioritizing-processes" id="id122">Prioritizing Processes</a></li>
-<li><a class="reference internal" href="#nice-and-renice-commands" id="id123"><tt class="docutils literal"><span class="pre">nice</span></tt> and <tt class="docutils literal"><span class="pre">renice</span></tt> commands</a></li>
-<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id124">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#persistent-configuration-of-services" id="id119">Persistent Configuration of Services</a></li>
+<li><a class="reference internal" href="#manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically" id="id120">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></li>
+<li><a class="reference internal" href="#monitoring-processes" id="id121">Monitoring Processes</a></li>
+<li><a class="reference internal" href="#killing-processes" id="id122">Killing Processes</a></li>
+<li><a class="reference internal" href="#prioritizing-processes" id="id123">Prioritizing Processes</a></li>
+<li><a class="reference internal" href="#nice-and-renice-commands" id="id124"><tt class="docutils literal"><span class="pre">nice</span></tt> and <tt class="docutils literal"><span class="pre">renice</span></tt> commands</a></li>
 <li><a class="reference internal" href="#manage-system-performance" id="id125">Manage system performance</a></li>
 <li><a class="reference internal" href="#manage-users-and-groups" id="id126">Manage Users and Groups</a></li>
 </ul>
@@ -458,16 +458,22 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#session-5-firewalls-and-selinux" id="id139">Session 5 Firewalls and SELinux</a><ul>
 <li><a class="reference internal" href="#firewalling-in-rhel6" id="id140">Firewalling in RHEL6</a></li>
 <li><a class="reference internal" href="#iptables-built-in-chains" id="id141">iptables Built-in Chains</a></li>
-<li><a class="reference internal" href="#selinux" id="id142">SELinux</a></li>
+<li><a class="reference internal" href="#iptables-targets" id="id142">iptables Targets</a></li>
+<li><a class="reference internal" href="#connection-tracking-states" id="id143">Connection Tracking States</a></li>
+<li><a class="reference internal" href="#selinux" id="id144">SELinux</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-6-virtualization" id="id143">Session 6 Virtualization</a></li>
-<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id144">Session 7 Logging and remote access</a></li>
-<li><a class="reference internal" href="#session-8-network-time-protocol" id="id145">Session 8 Network Time Protocol</a></li>
-<li><a class="reference internal" href="#session-9-http-and-ftp" id="id146">Session 9 HTTP and FTP</a></li>
-<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id147">Session 10 NFS and Samba</a></li>
-<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id148">Session 11 DNS and SMTP</a></li>
-<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id149">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#session-6-virtualization" id="id145">Session 6 Virtualization</a></li>
+<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id146">Session 7 Logging and remote access</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol" id="id147">Session 8 Network Time Protocol</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id148">Session 9 HTTP and FTP</a></li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id149">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id150">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id151">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#supplemental-topics" id="id152">Supplemental Topics</a><ul>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id153">Manage Processes and Services: Schedule tasks using cron</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -2106,17 +2112,8 @@ install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
 <p>The changelog section can be deleted or left alone.</p>
 <!-- + Build a simple RPM that packages a single file -->
 </div>
-<div class="section" id="create-a-repo-with-your-files">
-<h2><a class="toc-backref" href="#id115">Create a Repo with your files</a></h2>
-<p>(Assumes httpd already installed)</p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">createrepo</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">MyPackage.rpm</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">createrepo</span> <span class="pre">-v</span> <span class="pre">/var/www/html/repo</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">/home/me/RPM-GPG-KEY-me</span> <span class="pre">/var/www/html/repo</span></tt></p>
-</div>
 <div class="section" id="signing-your-rpms">
-<h2><a class="toc-backref" href="#id116">Signing Your RPMs</a></h2>
+<h2><a class="toc-backref" href="#id115">Signing Your RPMs</a></h2>
 <p>Your RPMs can be digitally signed to protect users from the possibility of forged packages (any RPM package can execute scripts w/ root privileges when installed!). To implement this, first generate and identify a gpg key:</p>
 <pre class="literal-block">
 $ gpg --gen-key
@@ -2206,6 +2203,15 @@ $ rpm -K rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm
 rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </pre>
 </div>
+<div class="section" id="create-a-repo-with-your-files">
+<h2><a class="toc-backref" href="#id116">Create a Repo with your files</a></h2>
+<p>(Assumes httpd already installed)</p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">createrepo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">MyPackage.rpm</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">createrepo</span> <span class="pre">-v</span> <span class="pre">/var/www/html/repo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">/home/me/RPM-GPG-KEY-me</span> <span class="pre">/var/www/html/repo</span></tt></p>
+</div>
 <div class="section" id="rpm-packaging-other-documentation">
 <h2><a class="toc-backref" href="#id117">RPM Packaging, Other Documentation:</a></h2>
 <p>Red Hat Enterprise Linux Deployment Guide, section on &quot;Querying RPM&quot;</p>
@@ -2245,6 +2251,11 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> <span class="pre">reload</span></tt></li>
 </ul>
 </dd>
+</dl>
+</div>
+<div class="section" id="persistent-configuration-of-services">
+<h2><a class="toc-backref" href="#id119">Persistent Configuration of Services</a></h2>
+<dl class="docutils">
 <dt>Configure a service to start at boot:</dt>
 <dd><ul class="first last simple">
 <li><tt class="docutils literal"><span class="pre">chkconfig</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">on</span></tt></li>
@@ -2255,11 +2266,11 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </dl>
 </div>
 <div class="section" id="manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically">
-<h2><a class="toc-backref" href="#id119">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
+<h2><a class="toc-backref" href="#id120">Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</a></h2>
 <p><tt class="docutils literal"><span class="pre">/etc/inittab</span></tt></p>
 </div>
 <div class="section" id="monitoring-processes">
-<h2><a class="toc-backref" href="#id120">Monitoring Processes</a></h2>
+<h2><a class="toc-backref" href="#id121">Monitoring Processes</a></h2>
 <dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">ps</span></tt></dt>
 <dd>Highly configurable command to list running processes</dd>
@@ -2268,13 +2279,20 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </dl>
 </div>
 <div class="section" id="killing-processes">
-<h2><a class="toc-backref" href="#id121">Killing Processes</a></h2>
-<p><tt class="docutils literal"><span class="pre">kill</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">kill-all</span></tt></p>
-<p><tt class="docutils literal"><span class="pre">pkill</span></tt></p>
+<h2><a class="toc-backref" href="#id122">Killing Processes</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">kill</span></tt></dt>
+<dd>kills a process by PID.  Optionally sends &quot;signals&quot; other than &quot;kill&quot;.</dd>
+<dt><tt class="docutils literal"><span class="pre">kill-all</span></tt></dt>
+<dd>Kills a process by name.  Use care not to match names you don't intend to kill.</dd>
+<dt><tt class="docutils literal"><span class="pre">pkill</span></tt></dt>
+<dd>Also kills processes by name.  Use care not to match names you don't intend to kill.</dd>
+<dt><tt class="docutils literal"><span class="pre">pgrep</span></tt></dt>
+<dd>Searches processes by name. Useful for verifying which processes would be killed by pkill.</dd>
+</dl>
 </div>
 <div class="section" id="prioritizing-processes">
-<h2><a class="toc-backref" href="#id122">Prioritizing Processes</a></h2>
+<h2><a class="toc-backref" href="#id123">Prioritizing Processes</a></h2>
 <p>The kernel calculates the priority of each process through a variety of factors.  One input into that calculation is a user-modifiable value called &quot;niceness&quot;.</p>
 <ul class="simple">
 <li>A process with higher niceness has lower priority and is thus more willing to share resources with other processes.</li>
@@ -2282,7 +2300,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </ul>
 </div>
 <div class="section" id="nice-and-renice-commands">
-<h2><a class="toc-backref" href="#id123"><tt class="docutils literal"><span class="pre">nice</span></tt> and <tt class="docutils literal"><span class="pre">renice</span></tt> commands</a></h2>
+<h2><a class="toc-backref" href="#id124"><tt class="docutils literal"><span class="pre">nice</span></tt> and <tt class="docutils literal"><span class="pre">renice</span></tt> commands</a></h2>
 <dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">nice</span></tt></dt>
 <dd><p class="first">Launches commands with a specified &quot;niceness&quot; value affecting process priority.</p>
@@ -2301,9 +2319,6 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </dd>
 </dl>
 <!-- Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes -->
-</div>
-<div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
-<h2><a class="toc-backref" href="#id124">Manage Processes and Services: Schedule tasks using cron</a></h2>
 </div>
 <div class="section" id="manage-system-performance">
 <h2><a class="toc-backref" href="#id125">Manage system performance</a></h2>
@@ -2479,11 +2494,38 @@ NM_CONTROLLED=no
 <dt>FORWARD</dt>
 <dd>Applies to traffic being routed by your system from one network to another</dd>
 </dl>
+</div>
+<div class="section" id="iptables-targets">
+<h2><a class="toc-backref" href="#id142">iptables Targets</a></h2>
+<dl class="docutils">
+<dt>ACCEPT</dt>
+<dd>Allows the packet to proceed to its destination.</dd>
+<dt>DROP</dt>
+<dd>Silently drop the packet.</dd>
+<dt>REJECT</dt>
+<dd>Drop the packet with a rejection message</dd>
+<dt>LOG</dt>
+<dd>Combined with other targets, also log the action</dd>
+</dl>
+</div>
+<div class="section" id="connection-tracking-states">
+<h2><a class="toc-backref" href="#id143">Connection Tracking States</a></h2>
+<p>Iptables can filter packets based on their relationship with previous traffic.</p>
+<dl class="docutils">
+<dt>NEW</dt>
+<dd>The packet has started a new connection.</dd>
+<dt>ESTABLISHED</dt>
+<dd>Applies to packets that are part of an established TCP connection (packets have already been delivered in both directions).</dd>
+<dt>RELATED</dt>
+<dd>The packet is starting a new connection, but associated with an existing connection.</dd>
+<dt>INVALID</dt>
+<dd>The packet is associated with no known connection.</dd>
+</dl>
 <!-- o IPTables -->
 <!-- + * Configure firewall settings using system-config-firewall or iptables -->
 </div>
 <div class="section" id="selinux">
-<h2><a class="toc-backref" href="#id142">SELinux</a></h2>
+<h2><a class="toc-backref" href="#id144">SELinux</a></h2>
 <!-- + * Set enforcing and permissive modes for SELinux -->
 <!-- + * List and identify SELinux file and process context -->
 <!-- + * Restore default file contexts -->
@@ -2492,7 +2534,7 @@ NM_CONTROLLED=no
 </div>
 </div>
 <div class="section" id="session-6-virtualization">
-<h1><a class="toc-backref" href="#id143">Session 6 Virtualization</a></h1>
+<h1><a class="toc-backref" href="#id145">Session 6 Virtualization</a></h1>
 <p>o KVM Virtualization
 + * Configure a physical machine to host virtual guests
 + * Install Red Hat Enterprise Linux systems as virtual guests
@@ -2500,7 +2542,7 @@ NM_CONTROLLED=no
 + * Install Red Hat Enterprise Linux automatically using Kickstart</p>
 </div>
 <div class="section" id="session-7-logging-and-remote-access">
-<h1><a class="toc-backref" href="#id144">Session 7 Logging and remote access</a></h1>
+<h1><a class="toc-backref" href="#id146">Session 7 Logging and remote access</a></h1>
 <p>o + - Remote Logging
 + * Configure a system to log to a remote system
 + * Configure a system to accept logging from a remote system
@@ -2521,7 +2563,7 @@ o + - Remote Access
 # * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-8-network-time-protocol">
-<h1><a class="toc-backref" href="#id145">Session 8 Network Time Protocol</a></h1>
+<h1><a class="toc-backref" href="#id147">Session 8 Network Time Protocol</a></h1>
 <p>o NTP
 + * Install the packages needed to provide the service
 + * Configure SELinux to support the service
@@ -2530,16 +2572,22 @@ o + - Remote Access
 + * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-9-http-and-ftp">
-<h1><a class="toc-backref" href="#id146">Session 9 HTTP and FTP</a></h1>
+<h1><a class="toc-backref" href="#id148">Session 9 HTTP and FTP</a></h1>
 </div>
 <div class="section" id="session-10-nfs-and-samba">
-<h1><a class="toc-backref" href="#id147">Session 10 NFS and Samba</a></h1>
+<h1><a class="toc-backref" href="#id149">Session 10 NFS and Samba</a></h1>
 </div>
 <div class="section" id="session-11-dns-and-smtp">
-<h1><a class="toc-backref" href="#id148">Session 11 DNS and SMTP</a></h1>
+<h1><a class="toc-backref" href="#id150">Session 11 DNS and SMTP</a></h1>
 </div>
 <div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
-<h1><a class="toc-backref" href="#id149">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+<h1><a class="toc-backref" href="#id151">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+</div>
+<div class="section" id="supplemental-topics">
+<h1><a class="toc-backref" href="#id152">Supplemental Topics</a></h1>
+<div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
+<h2><a class="toc-backref" href="#id153">Manage Processes and Services: Schedule tasks using cron</a></h2>
+</div>
 </div>
 </div>
 <div class="footer">
