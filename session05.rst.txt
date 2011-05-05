@@ -1,0 +1,136 @@
+
+Session 5 Firewalls and SELinux
+========================================
+
+Firewalling in RHEL6
+------------------------
+
+RHEL6 implements a packet filtering firewall called iptables. You should know several key terms:
+
+rule
+    A one-line rule defining a packet type and how it should be handled.
+
+chain
+    A list  of rules.
+
+table
+    A list of rules aggregating all of the chains and rules taking a particular path through the network stack.
+
+policy
+    A default rule that applies in the absence of other rules.
+    
+
+iptables Built-in Chains
+------------------------------
+
+INPUT
+    Applies to traffic with your server as the destination.
+
+OUTPUT
+    Applies to traffic origination on your server as the source.
+
+FORWARD
+    Applies to traffic being routed by your system from one network to another
+
+iptables Targets
+---------------------
+
+ACCEPT
+    Allows the packet to proceed to its destination.
+
+DROP
+    Silently drop the packet.
+
+REJECT
+    Drop the packet with a rejection message
+
+LOG
+    Combined with other targets, also log the action
+
+Connection Tracking States
+--------------------------------
+
+Iptables can filter packets based on their relationship with previous traffic.
+
+
+NEW
+    The packet has started a new connection.
+
+ESTABLISHED
+    Applies to packets that are part of an established TCP connection (packets have already been delivered in both directions).
+
+RELATED
+    The packet is starting a new connection, but associated with an existing connection.
+
+INVALID
+    The packet is associated with no known connection.
+
+
+
+
+
+.. o IPTables
+.. + * Configure firewall settings using system-config-firewall or iptables
+
+
+SELinux
+----------------
+
+SELinux is a set of security rules that determine which processes can access which files, directories, ports, and other system resources.
+
+Purposes:
+
+* Provide another method of securing a system.
+* Implement Mandatory Access Control policies (required in some institutional contexts).
+* Protect the system and its data from system services that have been compromised.
+
+SELinux Enforcement Modes
+---------------------------------
+
+Disabled
+    No rules are enforced and the SELinux filesystem contexts are stripped away. Moving to or from this mode to one of the others requires a reboot.
+
+Permissive
+    Rules are in place, violations are logged, but access is permitted (rules not enforced). Useful for troubleshooting.
+
+Enforcing
+    Rules are in place and enforced.  Attempted violations are logged and access is denied.
+
+Setting the SELinux Enforcement Mode
+----------------------------------------
+
+View the current setting::
+
+    # getenforce
+    Enforcing
+
+Change the current setting::
+
+    # setenforce <mode>
+    
+To make persistent changes, edit ``/etc/sysconfig/selinux``
+
+SELinux Policy Types
+--------------------------
+
+Targeted (default)
+    Default policy set that aims to protect the most high-risk system services.
+
+MLS
+    Implements Multi-Level Security policies -- a much stricter policy set than the default
+
+Minimum
+    A less intrusive implementation of minimal aspects of SELinux
+
+The RHCE exam will likely only be concerned with the default "Targeted" policy set.
+
+
+
+
+.. + * Set enforcing and permissive modes for SELinux
+.. + * List and identify SELinux file and process context
+.. + * Restore default file contexts
+.. + * Use boolean settings to modify system SELinux settings
+.. + * Diagnose and address routine SELinux policy violations
+
+
