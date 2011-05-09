@@ -460,18 +460,34 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#iptables-built-in-chains" id="id141">iptables Built-in Chains</a></li>
 <li><a class="reference internal" href="#iptables-targets" id="id142">iptables Targets</a></li>
 <li><a class="reference internal" href="#connection-tracking-states" id="id143">Connection Tracking States</a></li>
-<li><a class="reference internal" href="#selinux" id="id144">SELinux</a></li>
+<li><a class="reference internal" href="#iptables-command-options" id="id144">Iptables Command Options</a></li>
+<li><a class="reference internal" href="#iptables-tips" id="id145">Iptables Tips</a></li>
+<li><a class="reference internal" href="#selinux" id="id146">SELinux</a></li>
+<li><a class="reference internal" href="#selinux-in-action" id="id147">SELinux in Action</a></li>
+<li><a class="reference internal" href="#selinux-enforcement-modes" id="id148">SELinux Enforcement Modes</a></li>
+<li><a class="reference internal" href="#important-selinux-filesystem-locations" id="id149">Important SELinux Filesystem locations</a></li>
+<li><a class="reference internal" href="#related-packages" id="id150">Related Packages</a></li>
+<li><a class="reference internal" href="#useful-commands" id="id151">Useful Commands</a></li>
+<li><a class="reference internal" href="#additional-documentation" id="id152">Additional Documentation</a></li>
+<li><a class="reference internal" href="#setting-the-selinux-enforcement-mode" id="id153">Setting the SELinux Enforcement Mode</a></li>
+<li><a class="reference internal" href="#selinux-policy-types" id="id154">SELinux Policy Types</a></li>
+<li><a class="reference internal" href="#selinux-contexts" id="id155">SELinux Contexts</a></li>
+<li><a class="reference internal" href="#setting-selinux-file-contexts" id="id156">Setting SELinux file contexts</a></li>
+<li><a class="reference internal" href="#selinux-booleans" id="id157">SELinux Booleans</a></li>
+<li><a class="reference internal" href="#modifying-selinux-booleans" id="id158">Modifying SELinux Booleans</a></li>
+<li><a class="reference internal" href="#help-for-selinux-with-regard-to-specific-services" id="id159">Help for SELinux with regard to specific services</a></li>
+<li><a class="reference internal" href="#monitor-selinux-violations" id="id160">Monitor SELinux Violations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-6-virtualization" id="id145">Session 6 Virtualization</a></li>
-<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id146">Session 7 Logging and remote access</a></li>
-<li><a class="reference internal" href="#session-8-network-time-protocol" id="id147">Session 8 Network Time Protocol</a></li>
-<li><a class="reference internal" href="#session-9-http-and-ftp" id="id148">Session 9 HTTP and FTP</a></li>
-<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id149">Session 10 NFS and Samba</a></li>
-<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id150">Session 11 DNS and SMTP</a></li>
-<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id151">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
-<li><a class="reference internal" href="#supplemental-topics" id="id152">Supplemental Topics</a><ul>
-<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id153">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#session-6-virtualization" id="id161">Session 6 Virtualization</a></li>
+<li><a class="reference internal" href="#session-7-logging-and-remote-access" id="id162">Session 7 Logging and remote access</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol" id="id163">Session 8 Network Time Protocol</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id164">Session 9 HTTP and FTP</a></li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id165">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id166">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id167">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#supplemental-topics" id="id168">Supplemental Topics</a><ul>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id169">Manage Processes and Services: Schedule tasks using cron</a></li>
 </ul>
 </li>
 </ul>
@@ -2505,7 +2521,7 @@ NM_CONTROLLED=no
 <dt>REJECT</dt>
 <dd>Drop the packet with a rejection message</dd>
 <dt>LOG</dt>
-<dd>Combined with other targets, also log the action</dd>
+<dd>Log the packet and move to next rule in the chain (which may then accept, drop, or reject)</dd>
 </dl>
 </div>
 <div class="section" id="connection-tracking-states">
@@ -2521,20 +2537,229 @@ NM_CONTROLLED=no
 <dt>INVALID</dt>
 <dd>The packet is associated with no known connection.</dd>
 </dl>
+</div>
+<div class="section" id="iptables-command-options">
+<h2><a class="toc-backref" href="#id144">Iptables Command Options</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">-vnl</span> <span class="pre">--line-numbers</span></tt></dt>
+<dd>List all rules with line numbering</dd>
+<dt><tt class="docutils literal"><span class="pre">-A</span> <span class="pre">&lt;chain&gt;</span> <span class="pre">&lt;rule&gt;</span> <span class="pre">-j</span> <span class="pre">&lt;target&gt;</span></tt></dt>
+<dd>Adds a rule to the end of the chain</dd>
+<dt><tt class="docutils literal"><span class="pre">-D</span> <span class="pre">&lt;chain&gt;</span> <span class="pre">&lt;rule#&gt;</span></tt></dt>
+<dd>Deletes a rule by number</dd>
+<dt><tt class="docutils literal"><span class="pre">-F</span> <span class="pre">&lt;chain&gt;</span></tt></dt>
+<dd>Flushes all rules from the chain</dd>
+</dl>
+</div>
+<div class="section" id="iptables-tips">
+<h2><a class="toc-backref" href="#id145">Iptables Tips</a></h2>
+<p>Use <tt class="docutils literal"><span class="pre">system-config-firewall</span></tt> to enable and select FTP and SSH to generate a sample set of rules and load the connection tracking module.</p>
+<p>Show connections being accepted or rejected in realtime:</p>
+<pre class="literal-block">
+# watch -d -n 2 `iptables -nvL`
+</pre>
 <!-- o IPTables -->
 <!-- + * Configure firewall settings using system-config-firewall or iptables -->
 </div>
 <div class="section" id="selinux">
-<h2><a class="toc-backref" href="#id144">SELinux</a></h2>
+<h2><a class="toc-backref" href="#id146">SELinux</a></h2>
+<p>SELinux is a set of security rules that determine which processes can access which files, directories, ports, and other system resources.</p>
+<p>Purposes:</p>
+<ul class="simple">
+<li>Provide another method of securing a system.</li>
+<li>Implement Mandatory Access Control policies (required in some institutional contexts).</li>
+<li>Protect the system and its data from system services that have been compromised.</li>
+</ul>
+</div>
+<div class="section" id="selinux-in-action">
+<h2><a class="toc-backref" href="#id147">SELinux in Action</a></h2>
+<ul class="simple">
+<li>httpd allows remote anonymous access.</li>
+<li>This allows the possibility of attempts to compromise the httpd daemon with security exploits.</li>
+<li>httpd runs with the identity of the user &quot;apache&quot; and the group &quot;apache&quot; -- a successful exploit gains system access with the permissions granted to that user and group.</li>
+<li>In addition to the filesystem areas needed to run a webserver, the apache user and group also have access to other &quot;world-readable&quot; and &quot;world-writeable&quot; location such as <tt class="docutils literal"><span class="pre">/tmp</span></tt>.</li>
+<li>SELinux ensures that a compromised service cannot gain access to these filesystem location where it should not need access in the normal course of events.</li>
+</ul>
+</div>
+<div class="section" id="selinux-enforcement-modes">
+<h2><a class="toc-backref" href="#id148">SELinux Enforcement Modes</a></h2>
+<dl class="docutils">
+<dt>Disabled</dt>
+<dd>No rules are enforced and the SELinux filesystem contexts are stripped away. Moving to or from this mode to one of the others requires a reboot -- during which the entire filesystem will be processed to add or remove the SELinux filesystem context labels.</dd>
+<dt>Permissive</dt>
+<dd>Rules are in place, violations are logged, but access is permitted (rules not enforced). Useful for troubleshooting.</dd>
+<dt>Enforcing</dt>
+<dd>Rules are in place and enforced.  Attempted violations are logged and access is denied.</dd>
+</dl>
+</div>
+<div class="section" id="important-selinux-filesystem-locations">
+<h2><a class="toc-backref" href="#id149">Important SELinux Filesystem locations</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">/etc/sysconfig/selinux</span></tt></dt>
+<dd>Used to set enforcement mode and policy set.</dd>
+<dt><tt class="docutils literal"><span class="pre">/var/log/audit/audit.log</span></tt></dt>
+<dd>Extensive log of SELinux messages</dd>
+<dt><tt class="docutils literal"><span class="pre">/var/log/messages</span></tt></dt>
+<dd>Contains short summaries of SELinux messages when <tt class="docutils literal"><span class="pre">setroubleshoot-server</span></tt> is installed and active</dd>
+</dl>
+<ul class="simple">
+<li>Watch for &quot;AVC&quot; (Access Vector Cache) in log messages.</li>
+</ul>
+</div>
+<div class="section" id="related-packages">
+<h2><a class="toc-backref" href="#id150">Related Packages</a></h2>
+<dl class="docutils">
+<dt>coreutils</dt>
+<dd>Always installed.  Provides some default elements of SELinux.</dd>
+<dt>policycoreutils</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">restorecon</span></tt>, <tt class="docutils literal"><span class="pre">secon</span></tt>, <tt class="docutils literal"><span class="pre">setfiles</span></tt>, et al.</dd>
+<dt>libselinux-utils</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">getenforce</span></tt>, <tt class="docutils literal"><span class="pre">setenforce</span></tt>, <tt class="docutils literal"><span class="pre">getsebool</span></tt>, <tt class="docutils literal"><span class="pre">setsebool</span></tt>, et al.</dd>
+<dt>policycoreutils-gui</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">system-config-selinux</span></tt> and <tt class="docutils literal"><span class="pre">sepolgen</span></tt>, et al.</dd>
+<dt>policycoreutils-python</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">semanage</span></tt>, <tt class="docutils literal"><span class="pre">audit2allow</span></tt>, <tt class="docutils literal"><span class="pre">audit2why</span></tt>, et al.</dd>
+<dt>setroubleshoot</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">seapplet</span></tt></dd>
+<dt>setroubleshoot-server</dt>
+<dd>Provides <tt class="docutils literal"><span class="pre">sealert</span></tt>, <tt class="docutils literal"><span class="pre">sedispatch</span></tt>, <tt class="docutils literal"><span class="pre">setroubleshootd</span></tt>, et al.</dd>
+</dl>
+</div>
+<div class="section" id="useful-commands">
+<h2><a class="toc-backref" href="#id151">Useful Commands</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">sestatus</span></tt></dt>
+<dd>Displays information about the current SELinux parameters.</dd>
+<dt><tt class="docutils literal"><span class="pre">chcon</span></tt></dt>
+<dd>Changes context labels on files (but non-persistently! Use with <tt class="docutils literal"><span class="pre">semanage</span></tt> for persistent changes.</dd>
+<dt><tt class="docutils literal"><span class="pre">semanage</span></tt></dt>
+<dd>Modifies SELinux contexts persistently.</dd>
+</dl>
+</div>
+<div class="section" id="additional-documentation">
+<h2><a class="toc-backref" href="#id152">Additional Documentation</a></h2>
+<p><a class="reference external" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/index.html">http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/index.html</a></p>
+</div>
+<div class="section" id="setting-the-selinux-enforcement-mode">
+<h2><a class="toc-backref" href="#id153">Setting the SELinux Enforcement Mode</a></h2>
+<p>View the current setting:</p>
+<pre class="literal-block">
+# getenforce
+Enforcing
+</pre>
+<p>Change the current setting:</p>
+<pre class="literal-block">
+# setenforce &lt;mode&gt;
+</pre>
+<p>To make persistent changes, edit <tt class="docutils literal"><span class="pre">/etc/sysconfig/selinux</span></tt></p>
+</div>
+<div class="section" id="selinux-policy-types">
+<h2><a class="toc-backref" href="#id154">SELinux Policy Types</a></h2>
+<dl class="docutils">
+<dt>Targeted (default)</dt>
+<dd>Default policy set that aims to protect the most high-risk system services.</dd>
+<dt>Strict</dt>
+<dd>(Deprecated? Unable to find RHEL6 information about this policy type. Replaced by MLS?)</dd>
+<dt>MLS</dt>
+<dd>Implements Multi-Level Security policies -- a much stricter policy set than the default</dd>
+<dt>Minimum</dt>
+<dd>A less intrusive implementation of minimal aspects of SELinux</dd>
+</dl>
+<p>The RHCE exam will likely only be concerned with the default &quot;Targeted&quot; policy set.</p>
+</div>
+<div class="section" id="selinux-contexts">
+<h2><a class="toc-backref" href="#id155">SELinux Contexts</a></h2>
+<p>When SELinux is not disabled, every file, directory, and process has an SELinux context label.  These labels are used to determine which protected service(s) can operate in this location.</p>
+<p>View SELinux contexts of processes:</p>
+<blockquote>
+<tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-eZ</span></tt>, <tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-axZ</span></tt>, <tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-Zc</span> <span class="pre">&lt;process</span> <span class="pre">name&gt;</span></tt>, etc.</blockquote>
+<p>View SELinux contexts of files and directories:</p>
+<blockquote>
+<tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-Zd</span> <span class="pre">/path/to/dir/</span></tt>, <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-Z</span> <span class="pre">/path/to/file</span></tt>, etc.</blockquote>
+<p>View SELinux contexts of users:</p>
+<blockquote>
+<tt class="docutils literal"><span class="pre">id</span> <span class="pre">-Z</span></tt></blockquote>
 <!-- + * Set enforcing and permissive modes for SELinux -->
 <!-- + * List and identify SELinux file and process context -->
 <!-- + * Restore default file contexts -->
 <!-- + * Use boolean settings to modify system SELinux settings -->
 <!-- + * Diagnose and address routine SELinux policy violations -->
 </div>
+<div class="section" id="setting-selinux-file-contexts">
+<h2><a class="toc-backref" href="#id156">Setting SELinux file contexts</a></h2>
+<p>The initial contexts are created based on a set of rules, which are also used by <tt class="docutils literal"><span class="pre">restorecon</span></tt> to restore contexts to the default.</p>
+<p>View these rules with:</p>
+<pre class="literal-block">
+# semanage fcontext -l
+</pre>
+<p>Or search for a specific service or path:</p>
+<pre class="literal-block">
+# semanage fcontext -l | grep &quot;/var/ftp&quot;
+/var/ftp(/.*)?                                     all files           system_u:object_r:public_content_t:s0
+/var/ftp/bin(/.*)?                                 all files          system_u:object_r:bin_t:s0
+/var/ftp/etc(/.*)?                                 all files          system_u:object_r:etc_t:s0
+/var/ftp/lib(64)?(/.*)?                            all files          system_u:object_r:lib_t:s0
+/var/ftp/lib(64)?/ld[^/]*\.so(\.[^/]*)*            regular file       system_u:object_r:ld_so_t:s0
+</pre>
+<p>In these rules the regular expression <tt class="docutils literal"><span class="pre">(/.*)?</span></tt> is a match for the preceding directory and everything within it, recursively.</p>
+<p>Add/delete/modify rules with:</p>
+<pre class="literal-block">
+#semanage fcontext -[a|d|m] -f &lt;ftype&gt; -t &lt;context&gt; '&lt;regex&gt;'
+</pre>
+</div>
+<div class="section" id="selinux-booleans">
+<h2><a class="toc-backref" href="#id157">SELinux Booleans</a></h2>
+<p>SELinux uses a collection of boolean variables to allow users to change SELinux policy in pre-defined ways without the need to reload or recompile SELinux policies.</p>
+<p>Show all booleans and their current values:</p>
+<pre class="literal-block">
+# getsebool -a
+</pre>
+<p>Show all booleans with current values and meanings:</p>
+<pre class="literal-block">
+# semanage boolean -l
+</pre>
+<p>Show a specific boolean value:</p>
+<pre class="literal-block">
+# getsebool &lt;boolean-name&gt;
+</pre>
+</div>
+<div class="section" id="modifying-selinux-booleans">
+<h2><a class="toc-backref" href="#id158">Modifying SELinux Booleans</a></h2>
+<p>Modify a boolean non-persistently (for testing, or temporary use):</p>
+<pre class="literal-block">
+# setsebool &lt;variablename&gt; &lt;value&gt;
+</pre>
+<p>Modify a boolean persistently:</p>
+<pre class="literal-block">
+# setsebool -P &lt;variablename&gt; &lt;value&gt;
+</pre>
+<p>Use the graphical tool: <tt class="docutils literal"><span class="pre">system-config-selinux</span></tt></p>
+</div>
+<div class="section" id="help-for-selinux-with-regard-to-specific-services">
+<h2><a class="toc-backref" href="#id159">Help for SELinux with regard to specific services</a></h2>
+<p>Many targeted services have specialised man pages dealing with SELinux configuration.</p>
+<p>Display these pages with:</p>
+<pre class="literal-block">
+# man -k '_selinux'
+ftpd_selinux         (8)  - Security-Enhanced Linux policy for ftp daemons
+httpd_selinux        (8)  - Security Enhanced Linux Policy for the httpd daemon
+kerberos_selinux     (8)  - Security Enhanced Linux Policy for Kerberos
+named_selinux        (8)  - Security Enhanced Linux Policy for the Internet Name server (named) daemon
+nfs_selinux          (8)  - Security Enhanced Linux Policy for NFS
+pam_selinux          (8)  - PAM module to set the default security context
+rsync_selinux        (8)  - Security Enhanced Linux Policy for the rsync daemon
+samba_selinux        (8)  - Security Enhanced Linux Policy for Samba
+ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
+</pre>
+</div>
+<div class="section" id="monitor-selinux-violations">
+<h2><a class="toc-backref" href="#id160">Monitor SELinux Violations</a></h2>
+<p>Installing <tt class="docutils literal"><span class="pre">setroubleshoot-server</span></tt> sends SELinux error messages to <tt class="docutils literal"><span class="pre">/var/log/messages</span></tt>.  These can be further parsed with <tt class="docutils literal"><span class="pre">sealert</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">audit2why</span></tt> and <tt class="docutils literal"><span class="pre">audit2allow</span></tt> can be used to parse the messages in /var/log/audit/audit.log and explain why access was denied, and how to modify your configuration to allow it.</p>
+</div>
 </div>
 <div class="section" id="session-6-virtualization">
-<h1><a class="toc-backref" href="#id145">Session 6 Virtualization</a></h1>
+<h1><a class="toc-backref" href="#id161">Session 6 Virtualization</a></h1>
 <p>o KVM Virtualization
 + * Configure a physical machine to host virtual guests
 + * Install Red Hat Enterprise Linux systems as virtual guests
@@ -2542,7 +2767,7 @@ NM_CONTROLLED=no
 + * Install Red Hat Enterprise Linux automatically using Kickstart</p>
 </div>
 <div class="section" id="session-7-logging-and-remote-access">
-<h1><a class="toc-backref" href="#id146">Session 7 Logging and remote access</a></h1>
+<h1><a class="toc-backref" href="#id162">Session 7 Logging and remote access</a></h1>
 <p>o + - Remote Logging
 + * Configure a system to log to a remote system
 + * Configure a system to accept logging from a remote system
@@ -2563,7 +2788,7 @@ o + - Remote Access
 # * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-8-network-time-protocol">
-<h1><a class="toc-backref" href="#id147">Session 8 Network Time Protocol</a></h1>
+<h1><a class="toc-backref" href="#id163">Session 8 Network Time Protocol</a></h1>
 <p>o NTP
 + * Install the packages needed to provide the service
 + * Configure SELinux to support the service
@@ -2572,21 +2797,21 @@ o + - Remote Access
 + * Configure host-based and user-based security for the service</p>
 </div>
 <div class="section" id="session-9-http-and-ftp">
-<h1><a class="toc-backref" href="#id148">Session 9 HTTP and FTP</a></h1>
+<h1><a class="toc-backref" href="#id164">Session 9 HTTP and FTP</a></h1>
 </div>
 <div class="section" id="session-10-nfs-and-samba">
-<h1><a class="toc-backref" href="#id149">Session 10 NFS and Samba</a></h1>
+<h1><a class="toc-backref" href="#id165">Session 10 NFS and Samba</a></h1>
 </div>
 <div class="section" id="session-11-dns-and-smtp">
-<h1><a class="toc-backref" href="#id150">Session 11 DNS and SMTP</a></h1>
+<h1><a class="toc-backref" href="#id166">Session 11 DNS and SMTP</a></h1>
 </div>
 <div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
-<h1><a class="toc-backref" href="#id151">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+<h1><a class="toc-backref" href="#id167">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
 </div>
 <div class="section" id="supplemental-topics">
-<h1><a class="toc-backref" href="#id152">Supplemental Topics</a></h1>
+<h1><a class="toc-backref" href="#id168">Supplemental Topics</a></h1>
 <div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
-<h2><a class="toc-backref" href="#id153">Manage Processes and Services: Schedule tasks using cron</a></h2>
+<h2><a class="toc-backref" href="#id169">Manage Processes and Services: Schedule tasks using cron</a></h2>
 </div>
 </div>
 </div>

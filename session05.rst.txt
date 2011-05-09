@@ -45,7 +45,7 @@ REJECT
     Drop the packet with a rejection message
 
 LOG
-    Combined with other targets, also log the action
+    Log the packet and move to next rule in the chain (which may then accept, drop, or reject)
 
 Connection Tracking States
 --------------------------------
@@ -66,8 +66,32 @@ INVALID
     The packet is associated with no known connection.
 
 
+Iptables Command Options
+------------------------------------
+
+``-vnl --line-numbers``
+    List all rules with line numbering
+
+``-A <chain> <rule> -j <target>``
+    Adds a rule to the end of the chain
+
+``-D <chain> <rule#>``
+    Deletes a rule by number
+
+``-F <chain>``
+    Flushes all rules from the chain
 
 
+Iptables Tips
+-------------------
+
+
+Use ``system-config-firewall`` to enable and select FTP and SSH to generate a sample set of rules and load the connection tracking module.
+
+
+Show connections being accepted or rejected in realtime::
+
+    # watch -d -n 2 `iptables -nvL`
 
 .. o IPTables
 .. + * Configure firewall settings using system-config-firewall or iptables
@@ -84,17 +108,87 @@ Purposes:
 * Implement Mandatory Access Control policies (required in some institutional contexts).
 * Protect the system and its data from system services that have been compromised.
 
+SELinux in Action
+---------------------
+
+* httpd allows remote anonymous access.
+* This allows the possibility of attempts to compromise the httpd daemon with security exploits.
+* httpd runs with the identity of the user "apache" and the group "apache" -- a successful exploit gains system access with the permissions granted to that user and group.
+* In addition to the filesystem areas needed to run a webserver, the apache user and group also have access to other "world-readable" and "world-writeable" location such as ``/tmp``.
+* SELinux ensures that a compromised service cannot gain access to these filesystem location where it should not need access in the normal course of events.
+
+
 SELinux Enforcement Modes
 ---------------------------------
 
 Disabled
-    No rules are enforced and the SELinux filesystem contexts are stripped away. Moving to or from this mode to one of the others requires a reboot.
+    No rules are enforced and the SELinux filesystem contexts are stripped away. Moving to or from this mode to one of the others requires a reboot -- during which the entire filesystem will be processed to add or remove the SELinux filesystem context labels.
 
 Permissive
     Rules are in place, violations are logged, but access is permitted (rules not enforced). Useful for troubleshooting.
 
 Enforcing
     Rules are in place and enforced.  Attempted violations are logged and access is denied.
+
+Important SELinux Filesystem locations
+--------------------------------------------
+
+``/etc/sysconfig/selinux``
+    Used to set enforcement mode and policy set.
+
+``/var/log/audit/audit.log``
+    Extensive log of SELinux messages
+    
+``/var/log/messages``
+    Contains short summaries of SELinux messages when ``setroubleshoot-server`` is installed and active
+    
+* Watch for "AVC" (Access Vector Cache) in log messages.
+
+Related Packages
+---------------------
+
+coreutils
+    Always installed.  Provides some default elements of SELinux.
+
+policycoreutils
+    Provides ``restorecon``, ``secon``, ``setfiles``, et al.
+
+libselinux-utils
+    Provides ``getenforce``, ``setenforce``, ``getsebool``, ``setsebool``, et al.
+
+policycoreutils-gui
+    Provides ``system-config-selinux`` and ``sepolgen``, et al.
+
+policycoreutils-python
+    Provides ``semanage``, ``audit2allow``, ``audit2why``, et al.
+    
+setroubleshoot
+    Provides ``seapplet``
+    
+setroubleshoot-server
+    Provides ``sealert``, ``sedispatch``, ``setroubleshootd``, et al.
+
+
+
+Useful Commands
+------------------
+
+``sestatus``
+    Displays information about the current SELinux parameters.
+
+``chcon``
+    Changes context labels on files (but non-persistently! Use with ``semanage`` for persistent changes.
+
+``semanage``
+    Modifies SELinux contexts persistently.
+
+
+
+Additional Documentation
+-----------------------------
+
+http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/index.html
+
 
 Setting the SELinux Enforcement Mode
 ----------------------------------------
@@ -110,11 +204,15 @@ Change the current setting::
     
 To make persistent changes, edit ``/etc/sysconfig/selinux``
 
+
 SELinux Policy Types
 --------------------------
 
 Targeted (default)
     Default policy set that aims to protect the most high-risk system services.
+
+Strict
+    (Deprecated? Unable to find RHEL6 information about this policy type. Replaced by MLS?)
 
 MLS
     Implements Multi-Level Security policies -- a much stricter policy set than the default
@@ -124,13 +222,112 @@ Minimum
 
 The RHCE exam will likely only be concerned with the default "Targeted" policy set.
 
+SELinux Contexts
+-------------------------
 
+When SELinux is not disabled, every file, directory, and process has an SELinux context label.  These labels are used to determine which protected service(s) can operate in this location.
 
+View SELinux contexts of processes:
+
+    ``ps -eZ``, ``ps -axZ``, ``ps -Zc <process name>``, etc.
+
+View SELinux contexts of files and directories:
+
+    ``ls -Zd /path/to/dir/``, ``ls -Z /path/to/file``, etc.
+
+View SELinux contexts of users:
+
+    ``id -Z``
 
 .. + * Set enforcing and permissive modes for SELinux
 .. + * List and identify SELinux file and process context
 .. + * Restore default file contexts
 .. + * Use boolean settings to modify system SELinux settings
 .. + * Diagnose and address routine SELinux policy violations
+
+Setting SELinux file contexts
+-----------------------------------
+
+The initial contexts are created based on a set of rules, which are also used by ``restorecon`` to restore contexts to the default.
+
+View these rules with::
+
+    # semanage fcontext -l
+
+Or search for a specific service or path::
+
+    # semanage fcontext -l | grep "/var/ftp"
+    /var/ftp(/.*)?                                     all files           system_u:object_r:public_content_t:s0 
+    /var/ftp/bin(/.*)?                                 all files          system_u:object_r:bin_t:s0 
+    /var/ftp/etc(/.*)?                                 all files          system_u:object_r:etc_t:s0 
+    /var/ftp/lib(64)?(/.*)?                            all files          system_u:object_r:lib_t:s0 
+    /var/ftp/lib(64)?/ld[^/]*\.so(\.[^/]*)*            regular file       system_u:object_r:ld_so_t:s0 
+
+In these rules the regular expression ``(/.*)?`` is a match for the preceding directory and everything within it, recursively.
+
+Add/delete/modify rules with::
+
+    #semanage fcontext -[a|d|m] -f <ftype> -t <context> '<regex>'
+
+SELinux Booleans
+----------------------
+
+SELinux uses a collection of boolean variables to allow users to change SELinux policy in pre-defined ways without the need to reload or recompile SELinux policies.
+
+Show all booleans and their current values::
+
+    # getsebool -a
+
+Show all booleans with current values and meanings::
+
+    # semanage boolean -l
+
+Show a specific boolean value::
+
+    # getsebool <boolean-name>
+
+
+Modifying SELinux Booleans
+--------------------------------
+
+Modify a boolean non-persistently (for testing, or temporary use)::
+
+    # setsebool <variablename> <value>
+
+Modify a boolean persistently::
+
+    # setsebool -P <variablename> <value>
+
+
+Use the graphical tool: ``system-config-selinux``
+
+Help for SELinux with regard to specific services
+----------------------------------------------------
+
+Many targeted services have specialised man pages dealing with SELinux configuration.
+
+Display these pages with::
+
+    # man -k '_selinux'
+    ftpd_selinux         (8)  - Security-Enhanced Linux policy for ftp daemons
+    httpd_selinux        (8)  - Security Enhanced Linux Policy for the httpd daemon
+    kerberos_selinux     (8)  - Security Enhanced Linux Policy for Kerberos
+    named_selinux        (8)  - Security Enhanced Linux Policy for the Internet Name server (named) daemon
+    nfs_selinux          (8)  - Security Enhanced Linux Policy for NFS
+    pam_selinux          (8)  - PAM module to set the default security context
+    rsync_selinux        (8)  - Security Enhanced Linux Policy for the rsync daemon
+    samba_selinux        (8)  - Security Enhanced Linux Policy for Samba
+    ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
+
+
+Monitor SELinux Violations
+----------------------------
+
+Installing ``setroubleshoot-server`` sends SELinux error messages to ``/var/log/messages``.  These can be further parsed with ``sealert``.
+
+``audit2why`` and ``audit2allow`` can be used to parse the messages in /var/log/audit/audit.log and explain why access was denied, and how to modify your configuration to allow it.
+
+
+
 
 
