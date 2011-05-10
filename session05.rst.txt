@@ -81,6 +81,37 @@ Iptables Command Options
 ``-F <chain>``
     Flushes all rules from the chain
 
+Matching packets
+------------------------
+
+A source IP or network::
+
+	-s 192.0.2.0/24
+
+A destination IP or network::
+
+	-d 10.0.0.1
+
+UDP/TCP and ports::
+
+	-p udp --sport 68 --dport 67
+
+ICMP and types::
+
+	-p icmp --icmp-type echo-reply
+
+Inbound network interface::
+
+	-i ETH0
+
+Outbound network interface::
+
+	-o ETH0
+
+State tracking::
+
+	-m state --state ESTABLISHED,RELATED	
+
 
 Iptables Tips
 -------------------
