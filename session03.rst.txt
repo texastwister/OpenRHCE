@@ -870,6 +870,7 @@ Manage system performance
 
 * Use /proc/sys and sysctl to modify and set kernel run-time parameters
 * Produce and deliver reports on system utilization (processor, memory, disk, and network)
+* Use iostat and vmstat to report on system performance
 * Use shell scripting to automate system maintenance tasks
 
 Manage Users and Groups
