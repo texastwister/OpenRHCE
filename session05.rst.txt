@@ -248,7 +248,7 @@ View SELinux contexts of users:
 Setting SELinux file contexts
 -----------------------------------
 
-The initial contexts are created based on a set of rules, which are also used by ``restorecon`` to restore contexts to the default.
+The initial contexts are created based on a set of rules, which are also used by ``restorecon`` to restore contexts to the default. When using the default "targeted" policy, these rules are stored in ``/etc/selinux/targeted/contexts/files/file_contexts``. New customized rules are stored in ``/etc/selinux/targeted/contexts/files/file_contexts.local``.
 
 View these rules with::
 
