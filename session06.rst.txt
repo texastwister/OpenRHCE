@@ -74,7 +74,7 @@ Virsh Commands
 
 Power on a virtual machine::
 
-    virsh start <vm name or id>
+    virsh start <vm name>
 
 Gracefully shut down a virtual machine::
 

@@ -96,7 +96,7 @@ Remember to investigate firewall and SELinux considerations.
 .. + *..  Configure a system to log to a remote system
 .. + * Configure a system to accept logging from a remote system
 .. o + - Remote Access
-
+.. iptables -I INPUT {x} -p udp -m udp --dport 514 -j ACCEPT
 
 Remote Access via SSH
 -----------------------------
@@ -193,11 +193,20 @@ In ``/etc/sysconfig/vncservers`` uncomment and modify the lines below::
     # VNCSERVERS="2:myusername"
     # VNCSERVERARGS[2]="-geometry 800x600 -nolisten tcp -localhost"
 
-Set a VNC password with ``vncpasswd``
+.. 
+	Multiple VNC servers can be configured on the same line, space-delimited, but each one requires its own set of vncserverargs on a separate line.
+
+As the user who will connect, set a VNC password with ``vncpasswd``.
 
 Start or restart the service.
 
-Connect from the remote system using a vnc client with the ``-via`` option.
+Connect to the remote system using a vnc client with the ``-via`` option::
+
+	vncviewer localhost:<x> -via y.y.y.y
+
+..
+
+	Where X is the display number and y.y.y.y is the IP address of the remote machine.
 
 Investigate SELinux implications for VNC
 -------------------------------------------
