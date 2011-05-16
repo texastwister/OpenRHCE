@@ -1,0 +1,107 @@
+Session 8 Network Time Protocol
+====================================
+
+NTP (Network Time Protocol) provides a standardized way for systems to provide and obtain correct time over the network.
+
+This service is increasingly critical for today's networking environments.  Synchronized time information is required for accurate handling of email, for clustering, for cloud computing, and for virtualization (just to name a few).
+
+NTP Packages
+----------------
+
+ntp
+    Provides the daemon and utilities
+
+system-config-date
+    Provides a graphical interface for changing the time and configuring an NTP client.
+
+ntpdate
+    Provides a command line utility for setting the date and time with NTP
+
+
+Installing, Starting, and Configuring Persistence
+---------------------------------------------------------
+
+Install the service (likely already installed)::
+
+    # yum -y install ntp
+
+Starting the service::
+
+    # service ntpd start
+
+Configuring it to be on persistently::
+
+    # chkconfig ntpd on
+
+
+
+Defining NTP Terms
+------------------------
+
+Stratum0
+    A clock device such as an atomic, radio, or GPS clock device. Not usually attached to the network but connected to a server.
+
+Stratum1
+    A server attached to a high accuracy time device that also allows queries for its time information.
+
+Stratum{2..16}
+    Servers that acquire time information from servers above them in the hierarchy and share that information with peers or clients.
+
+Server (in ntp.conf)
+    A time server that is a more authoritative time-source (higher stratum) than the system being configured, and from which this system obtains time information.
+
+Peer (in ntp.conf)
+    A time server that is considered equally authoritative (same stratum) with the system being configured, and with which this system shares time information.
+
+Configuration of NTP
+-----------------------------
+
+Configured in ``/etc/ntp.conf``
+
+``restrict`` lines
+    Define the access to be allowed or restricted for other hosts that communicate with this service. Each server or peer configured must be included in a ``restrict`` line.
+
+``server`` lines
+    Define a host to be queried as a more authoritative time source.
+
+``peer`` lines
+    Define a host to be queried as an equally authoritative time source.
+
+``broadcast`` or ``multicast`` lines
+    Define ways to obtain or provide time information apart from unicast queries.
+
+
+Configure as a Client
+------------------------------
+
+#. Include at least one server (three are preferred)::
+
+
+
+#. With the ntp service stopped, synchronize time with ntpdate::
+
+    # ntpdate -v <IP of ntp server>
+
+#. Start the ntp service.
+
+#. Verify that the service sees the configured servers::
+
+    # ntpq -p    
+
+Configure
+
+
+    
+.. NTP
+
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service.. 
+
+Reporting on System Performance
+-----------------------------------
+
+iostat, vmstat, scripting
+
