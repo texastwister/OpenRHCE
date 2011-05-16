@@ -1,5 +1,9 @@
-Session 8 Network Time Protocol
-====================================
+Session 8 Network Time Protocol and System Performance Reports
+====================================================================
+
+
+NTP Overview
+------------------------
 
 NTP (Network Time Protocol) provides a standardized way for systems to provide and obtain correct time over the network.
 
@@ -16,6 +20,27 @@ system-config-date
 
 ntpdate
     Provides a command line utility for setting the date and time with NTP
+
+NTP Documentation
+-----------------------
+
+Many man pages:
+
+    ntp.conf (5)
+
+    ntp_misc (5)
+
+    ntp_acc (5)
+
+    ntp_auth (5)
+
+    ntp_clock (5)
+
+    ntp_mon (5)
+
+    ntpd (8)
+
+    
 
 
 Installing, Starting, and Configuring Persistence
@@ -70,12 +95,42 @@ Configured in ``/etc/ntp.conf``
 ``broadcast`` or ``multicast`` lines
     Define ways to obtain or provide time information apart from unicast queries.
 
+NTP "restrict" options
+-----------------------------
+
+::
+
+    restrict <address> [mask <subnet mask> ] [flag] [flag] ...
+
+address and optional mask
+    The address, in dotted-quad notation, of the host or network to be restricted. Alternatively, the address can be a valid DNS name.
+
+ignore (flag)
+    Disallows all packets
+
+kod (flag)
+    Sends a "kiss of death" packet to misbehaving (usually fire-walled) clients.
+
+nomodify (flag)
+    Allows queries for information, but denies attempts to modify the time.
+
+noquery (flag)
+    Deny ntpq and ntpdc queries. The time service is unaffected.
+
+nopeer (flag)
+    Deny packets related to peering
+
+notrap  (flag)
+    Deny "trap" messages (used in logging).
+
 
 Configure as a Client
 ------------------------------
 
-#. Include at least one server (three are preferred)::
+#. Include at least one server (three are preferred) in ``/etc/ntp.conf``::
 
+    server <server1 IP> iburst
+    server <server2 IP> iburst
 
 
 #. With the ntp service stopped, synchronize time with ntpdate::
@@ -84,13 +139,65 @@ Configure as a Client
 
 #. Start the ntp service.
 
-#. Verify that the service sees the configured servers::
+#. Verify that the service sees the configured servers (this may take a few minutes)::
 
     # ntpq -p    
 
-Configure
+Configure as a Server
+------------------------------
+
+#. Follow the steps for Client Configuration.
+
+#. Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers)::
+
+    restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+    restrict 10.37.112.13 
+
+#. Restart the service after making changes.
+
+Configure as a Peer
+--------------------------
+
+#. Follow the steps for Client Configuration
+
+#. Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers)::
+
+    restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+    restrict 10.37.112.13 
+
+#. Add one or more peer lines::
+
+    peer <peer IP or hostname> [options]
+
+#. Restart the service after making changes.
+
+#. Verify that the service sees the configured peers and servers (this may take a few minutes)::
+
+    # ntpq -p    
 
 
+Investigate SELinux implications for NTP
+-------------------------------------------
+
+
+Find SELinux Filesystem contexts that might affect NTP::
+
+    # semanage fcontext -l | grep "ntp"
+
+Find SELinux port contexts that might affect NTP::
+
+    # semanage port -l | grep "ntp"
+    
+Find SELinux booleans that might affect NTP::
+
+    # semanage boolean -l | grep ntp
+
+Investigate Firewall Implications for NTP
+----------------------------------------------
+
+Find ports that may need to be opened for NTP::
+
+    # grep ntp /etc/services 
     
 .. NTP
 
@@ -103,5 +210,30 @@ Configure
 Reporting on System Performance
 -----------------------------------
 
-iostat, vmstat, scripting
+One of the more vague of the RHCE Objectives says: "Produce and deliver reports on system utilization (processor, memory, disk, and network)."
+
+This loosely defined objective can be very wide-ranging -- this section will cover some of the tools that might be useful in meeting it.
+
+Tools for System Utilization Reporting
+--------------------------------------------
+
+df
+    "diskfree", reports on disk space utilization for all mounted filesystems. Part of the coreutils package.
+    
+iostat
+    Provided by the sysstat package.
+
+vmstat
+    Provided by the procps package.
+
+top
+    Provided by the procps package.    
+
+Explore the man pages for these utilities and be prepared to use them with scripting to write reports to a file.
+
+
+
+
+
+
 

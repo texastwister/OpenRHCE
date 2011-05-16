@@ -1,0 +1,194 @@
+Session 9 HTTP and FTP
+==============================
+
+
+Apache Web Server
+----------------------------------------------------
+
+Service name: httpd
+
+Package name: httpd-{ver}.{arch}.rpm
+
+Main config: /etc/httpd/conf/httpd.conf
+
+Module config: /etc/httpd/conf.d
+
+Default DocRoot: /var/www/html
+
+Apache Configuration  Items
+----------------------------------------------------
+
+Min/Max Spare Servers
+
+Log files
+
+Host Name lookup
+
+Modules
+
+Virtual Hosts
+
+user/group settings
+
+Minimum Config for Basic Page
+----------------------------------------------------
+
+Install, start, and turn on the service
+
+# yum install httpd
+
+# chkconfig httpd on
+
+# service httpd start
+
+Put index.html in /var/www/html
+
+Virtual Host Configuration
+----------------------------------------------------
+
+Near the end of httpd.conf, uncomment the line:
+
+#NameVirtualHost \*:80
+
+Create a section for each vhost:
+
+Apache Access Control
+----------------------------------------------------
+
+Per-directory options
+
+
+
+
+
+
+
+
+
+Firewall and SELinux for httpd
+----------------------------------------------------
+
+
+
+.. o HTTP(s)
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure a virtual host
+.. + * Configure private directories
+.. + * Deploy a basic CGI application
+.. + * Configure group-managed content
+
+
+Very Secure File Transfer Protocol Daemon
+-------------------------------------------------
+
+``vsftpd`` is Red Hat's preferred FTP daemon.  The "Very Secure" descriptor refers to the daemon and not to the protocol!
+
+The only mention of FTP in the RHCSA objectives is concerned with enabling a default configuration
+
+The only mention of FTP in the RHCE objectives is concerned with securely configuring anonymous access.
+
+
+Installation and Basic Configuration
+------------------------------------------
+
+Package: vsftpd
+
+Install::
+
+    # yum -y install vsftpd
+
+Start and Configure Persistence::
+
+    # service vsftpd start; chkconfig vsftpd on
+
+In this default configuration, anonymous downloads are allowed from ``/pub`` (as shown to the client) and are placed in ``/var/ftp/pub/`` (as viewed on the server). Additionally, system users are able to login by username and password and access their home directories with read/write permissions. No anonymous uploads are permitted by default.
+
+FTP Documentation
+-------------------------
+
+Man Pages:
+
+    * vsftpd.conf (5)
+    * ftpd_selinux (8)
+    
+
+
+
+Investigate SELinux implications for FTP
+-------------------------------------------
+
+
+Find SELinux Filesystem contexts that might affect FTP::
+
+    # semanage fcontext -l | grep "ftp"
+
+Find SELinux port contexts that might affect FTP::
+
+    # semanage port -l | grep "ftp"
+    
+Find SELinux booleans that might affect FTP::
+
+    # semanage boolean -l | grep ftp
+
+
+
+Investigate Firewall Implications for FTP
+----------------------------------------------
+
+Find ports that may need to be opened for FTP::
+
+    # grep ftp /etc/services 
+
+    
+
+"Drop-Box" Configuration
+----------------------------------
+
+::
+
+
+
+    cd /var/ftp
+    mkdir incoming 
+    chgrp ftp incoming
+    chmod 730 incoming
+
+    man ftpd_selinux
+
+    semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
+    semanage boolean -l |grep anon
+
+    setsebool -P allow_ftpd_anon_write on
+
+    restorecon -rvv /var/ftp/
+
+    vim /etc/vsftpd/vsftpd.conf
+
+    anonymous_enable=YES
+    local_enable=NO
+    write_enable=YES
+    anon_upload_enable=YES
+    chown_uploads=YES
+    chown_username=daemon
+
+    restart service
+    configure firewall
+
+    in /etc/sysconfig/iptables:
+    IPTABELS_MODULES="nf_conntrack_ftp"
+    (GUI tool adds this automatically)
+
+
+.. o FTP
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure anonymous-only download
+
+

@@ -506,16 +506,43 @@ RHCE Preparation (RHEL6)
 <li><a class="reference internal" href="#investigate-selinux-implications-for-vnc" id="id183">Investigate SELinux implications for VNC</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-8-network-time-protocol" id="id184">Session 8 Network Time Protocol</a><ul>
-<li><a class="reference internal" href="#reporting-on-system-performance" id="id185">Reporting on System Performance</a></li>
+<li><a class="reference internal" href="#session-8-network-time-protocol-and-system-performance-reports" id="id184">Session 8 Network Time Protocol and System Performance Reports</a><ul>
+<li><a class="reference internal" href="#ntp-overview" id="id185">NTP Overview</a></li>
+<li><a class="reference internal" href="#ntp-packages" id="id186">NTP Packages</a></li>
+<li><a class="reference internal" href="#ntp-documentation" id="id187">NTP Documentation</a></li>
+<li><a class="reference internal" href="#installing-starting-and-configuring-persistence" id="id188">Installing, Starting, and Configuring Persistence</a></li>
+<li><a class="reference internal" href="#defining-ntp-terms" id="id189">Defining NTP Terms</a></li>
+<li><a class="reference internal" href="#configuration-of-ntp" id="id190">Configuration of NTP</a></li>
+<li><a class="reference internal" href="#ntp-restrict-options" id="id191">NTP &quot;restrict&quot; options</a></li>
+<li><a class="reference internal" href="#configure-as-a-client" id="id192">Configure as a Client</a></li>
+<li><a class="reference internal" href="#configure-as-a-server" id="id193">Configure as a Server</a></li>
+<li><a class="reference internal" href="#configure-as-a-peer" id="id194">Configure as a Peer</a></li>
+<li><a class="reference internal" href="#investigate-selinux-implications-for-ntp" id="id195">Investigate SELinux implications for NTP</a></li>
+<li><a class="reference internal" href="#investigate-firewall-implications-for-ntp" id="id196">Investigate Firewall Implications for NTP</a></li>
+<li><a class="reference internal" href="#reporting-on-system-performance" id="id197">Reporting on System Performance</a></li>
+<li><a class="reference internal" href="#tools-for-system-utilization-reporting" id="id198">Tools for System Utilization Reporting</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#session-9-http-and-ftp" id="id186">Session 9 HTTP and FTP</a></li>
-<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id187">Session 10 NFS and Samba</a></li>
-<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id188">Session 11 DNS and SMTP</a></li>
-<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id189">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
-<li><a class="reference internal" href="#supplemental-topics" id="id190">Supplemental Topics</a><ul>
-<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id191">Manage Processes and Services: Schedule tasks using cron</a></li>
+<li><a class="reference internal" href="#session-9-http-and-ftp" id="id199">Session 9 HTTP and FTP</a><ul>
+<li><a class="reference internal" href="#apache-web-server" id="id200">Apache Web Server</a></li>
+<li><a class="reference internal" href="#apache-configuration-items" id="id201">Apache Configuration  Items</a></li>
+<li><a class="reference internal" href="#minimum-config-for-basic-page" id="id202">Minimum Config for Basic Page</a></li>
+<li><a class="reference internal" href="#virtual-host-configuration" id="id203">Virtual Host Configuration</a></li>
+<li><a class="reference internal" href="#apache-access-control" id="id204">Apache Access Control</a></li>
+<li><a class="reference internal" href="#firewall-and-selinux-for-httpd" id="id205">Firewall and SELinux for httpd</a></li>
+<li><a class="reference internal" href="#very-secure-file-transfer-protocol-daemon" id="id206">Very Secure File Transfer Protocol Daemon</a></li>
+<li><a class="reference internal" href="#installation-and-basic-configuration" id="id207">Installation and Basic Configuration</a></li>
+<li><a class="reference internal" href="#ftp-documentation" id="id208">FTP Documentation</a></li>
+<li><a class="reference internal" href="#investigate-selinux-implications-for-ftp" id="id209">Investigate SELinux implications for FTP</a></li>
+<li><a class="reference internal" href="#investigate-firewall-implications-for-ftp" id="id210">Investigate Firewall Implications for FTP</a></li>
+<li><a class="reference internal" href="#drop-box-configuration" id="id211">&quot;Drop-Box&quot; Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#session-10-nfs-and-samba" id="id212">Session 10 NFS and Samba</a></li>
+<li><a class="reference internal" href="#session-11-dns-and-smtp" id="id213">Session 11 DNS and SMTP</a></li>
+<li><a class="reference internal" href="#session-12-finish-uncompleted-topics-review-or-practice-exam" id="id214">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></li>
+<li><a class="reference internal" href="#supplemental-topics" id="id215">Supplemental Topics</a><ul>
+<li><a class="reference internal" href="#manage-processes-and-services-schedule-tasks-using-cron" id="id216">Manage Processes and Services: Schedule tasks using cron</a></li>
 </ul>
 </li>
 </ul>
@@ -2891,7 +2918,7 @@ ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
 <h2><a class="toc-backref" href="#id167">Virsh Commands</a></h2>
 <p>Power on a virtual machine:</p>
 <pre class="literal-block">
-virsh start &lt;vm name or id&gt;
+virsh start &lt;vm name&gt;
 </pre>
 <p>Gracefully shut down a virtual machine:</p>
 <pre class="literal-block">
@@ -3051,6 +3078,7 @@ uucp,news.crit       /var/log/spooler
 <!-- + *..  Configure a system to log to a remote system -->
 <!-- + * Configure a system to accept logging from a remote system -->
 <!-- o + - Remote Access -->
+<!-- iptables -I INPUT {x} -p udp -m udp - -dport 514 -j ACCEPT -->
 </div>
 <div class="section" id="remote-access-via-ssh">
 <h2><a class="toc-backref" href="#id177">Remote Access via SSH</a></h2>
@@ -3134,9 +3162,16 @@ getsebool -a | grep ssh
 # VNCSERVERS=&quot;2:myusername&quot;
 # VNCSERVERARGS[2]=&quot;-geometry 800x600 -nolisten tcp -localhost&quot;
 </pre>
-<p>Set a VNC password with <tt class="docutils literal"><span class="pre">vncpasswd</span></tt></p>
+<!-- Multiple VNC servers can be configured on the same line, space-delimited, but each one requires its own set of vncserverargs on a separate line. -->
+<p>As the user who will connect, set a VNC password with <tt class="docutils literal"><span class="pre">vncpasswd</span></tt>.</p>
 <p>Start or restart the service.</p>
-<p>Connect from the remote system using a vnc client with the <tt class="docutils literal"><span class="pre">-via</span></tt> option.</p>
+<p>Connect to the remote system using a vnc client with the <tt class="docutils literal"><span class="pre">-via</span></tt> option:</p>
+<pre class="literal-block">
+vncviewer localhost:&lt;x&gt; -via y.y.y.y
+</pre>
+<!--  -->
+<blockquote>
+Where X is the display number and y.y.y.y is the IP address of the remote machine.</blockquote>
 </div>
 <div class="section" id="investigate-selinux-implications-for-vnc">
 <h2><a class="toc-backref" href="#id183">Investigate SELinux implications for VNC</a></h2>
@@ -3159,35 +3194,403 @@ getsebool -a | grep ssh
 <!-- # * Configure host-based and user-based security for the service -->
 </div>
 </div>
-<div class="section" id="session-8-network-time-protocol">
-<h1><a class="toc-backref" href="#id184">Session 8 Network Time Protocol</a></h1>
-<p>o NTP
-+ * Install the packages needed to provide the service
-+ * Configure SELinux to support the service
-+ * Configure the service to start when the system is booted
-+ * Configure the service for basic operation
-+ * Configure host-based and user-based security for the service</p>
+<div class="section" id="session-8-network-time-protocol-and-system-performance-reports">
+<h1><a class="toc-backref" href="#id184">Session 8 Network Time Protocol and System Performance Reports</a></h1>
+<div class="section" id="ntp-overview">
+<h2><a class="toc-backref" href="#id185">NTP Overview</a></h2>
+<p>NTP (Network Time Protocol) provides a standardized way for systems to provide and obtain correct time over the network.</p>
+<p>This service is increasingly critical for today's networking environments.  Synchronized time information is required for accurate handling of email, for clustering, for cloud computing, and for virtualization (just to name a few).</p>
+</div>
+<div class="section" id="ntp-packages">
+<h2><a class="toc-backref" href="#id186">NTP Packages</a></h2>
+<dl class="docutils">
+<dt>ntp</dt>
+<dd>Provides the daemon and utilities</dd>
+<dt>system-config-date</dt>
+<dd>Provides a graphical interface for changing the time and configuring an NTP client.</dd>
+<dt>ntpdate</dt>
+<dd>Provides a command line utility for setting the date and time with NTP</dd>
+</dl>
+</div>
+<div class="section" id="ntp-documentation">
+<h2><a class="toc-backref" href="#id187">NTP Documentation</a></h2>
+<p>Many man pages:</p>
+<blockquote>
+<p>ntp.conf (5)</p>
+<p>ntp_misc (5)</p>
+<p>ntp_acc (5)</p>
+<p>ntp_auth (5)</p>
+<p>ntp_clock (5)</p>
+<p>ntp_mon (5)</p>
+<p>ntpd (8)</p>
+</blockquote>
+</div>
+<div class="section" id="installing-starting-and-configuring-persistence">
+<h2><a class="toc-backref" href="#id188">Installing, Starting, and Configuring Persistence</a></h2>
+<p>Install the service (likely already installed):</p>
+<pre class="literal-block">
+# yum -y install ntp
+</pre>
+<p>Starting the service:</p>
+<pre class="literal-block">
+# service ntpd start
+</pre>
+<p>Configuring it to be on persistently:</p>
+<pre class="literal-block">
+# chkconfig ntpd on
+</pre>
+</div>
+<div class="section" id="defining-ntp-terms">
+<h2><a class="toc-backref" href="#id189">Defining NTP Terms</a></h2>
+<dl class="docutils">
+<dt>Stratum0</dt>
+<dd>A clock device such as an atomic, radio, or GPS clock device. Not usually attached to the network but connected to a server.</dd>
+<dt>Stratum1</dt>
+<dd>A server attached to a high accuracy time device that also allows queries for its time information.</dd>
+<dt>Stratum{2..16}</dt>
+<dd>Servers that acquire time information from servers above them in the hierarchy and share that information with peers or clients.</dd>
+<dt>Server (in ntp.conf)</dt>
+<dd>A time server that is a more authoritative time-source (higher stratum) than the system being configured, and from which this system obtains time information.</dd>
+<dt>Peer (in ntp.conf)</dt>
+<dd>A time server that is considered equally authoritative (same stratum) with the system being configured, and with which this system shares time information.</dd>
+</dl>
+</div>
+<div class="section" id="configuration-of-ntp">
+<h2><a class="toc-backref" href="#id190">Configuration of NTP</a></h2>
+<p>Configured in <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">restrict</span></tt> lines</dt>
+<dd>Define the access to be allowed or restricted for other hosts that communicate with this service. Each server or peer configured must be included in a <tt class="docutils literal"><span class="pre">restrict</span></tt> line.</dd>
+<dt><tt class="docutils literal"><span class="pre">server</span></tt> lines</dt>
+<dd>Define a host to be queried as a more authoritative time source.</dd>
+<dt><tt class="docutils literal"><span class="pre">peer</span></tt> lines</dt>
+<dd>Define a host to be queried as an equally authoritative time source.</dd>
+<dt><tt class="docutils literal"><span class="pre">broadcast</span></tt> or <tt class="docutils literal"><span class="pre">multicast</span></tt> lines</dt>
+<dd>Define ways to obtain or provide time information apart from unicast queries.</dd>
+</dl>
+</div>
+<div class="section" id="ntp-restrict-options">
+<h2><a class="toc-backref" href="#id191">NTP &quot;restrict&quot; options</a></h2>
+<pre class="literal-block">
+restrict &lt;address&gt; [mask &lt;subnet mask&gt; ] [flag] [flag] ...
+</pre>
+<dl class="docutils">
+<dt>address and optional mask</dt>
+<dd>The address, in dotted-quad notation, of the host or network to be restricted. Alternatively, the address can be a valid DNS name.</dd>
+<dt>ignore (flag)</dt>
+<dd>Disallows all packets</dd>
+<dt>kod (flag)</dt>
+<dd>Sends a &quot;kiss of death&quot; packet to misbehaving (usually fire-walled) clients.</dd>
+<dt>nomodify (flag)</dt>
+<dd>Allows queries for information, but denies attempts to modify the time.</dd>
+<dt>noquery (flag)</dt>
+<dd>Deny ntpq and ntpdc queries. The time service is unaffected.</dd>
+<dt>nopeer (flag)</dt>
+<dd>Deny packets related to peering</dd>
+<dt>notrap  (flag)</dt>
+<dd>Deny &quot;trap&quot; messages (used in logging).</dd>
+</dl>
+</div>
+<div class="section" id="configure-as-a-client">
+<h2><a class="toc-backref" href="#id192">Configure as a Client</a></h2>
+<ol class="arabic">
+<li><p class="first">Include at least one server (three are preferred) in <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt>:</p>
+<pre class="literal-block">
+server &lt;server1 IP&gt; iburst
+server &lt;server2 IP&gt; iburst
+</pre>
+</li>
+<li><p class="first">With the ntp service stopped, synchronize time with ntpdate:</p>
+<pre class="literal-block">
+# ntpdate -v &lt;IP of ntp server&gt;
+</pre>
+</li>
+<li><p class="first">Start the ntp service.</p>
+</li>
+<li><p class="first">Verify that the service sees the configured servers (this may take a few minutes):</p>
+<pre class="literal-block">
+# ntpq -p
+</pre>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-as-a-server">
+<h2><a class="toc-backref" href="#id193">Configure as a Server</a></h2>
+<ol class="arabic">
+<li><p class="first">Follow the steps for Client Configuration.</p>
+</li>
+<li><p class="first">Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers):</p>
+<pre class="literal-block">
+restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+restrict 10.37.112.13
+</pre>
+</li>
+<li><p class="first">Restart the service after making changes.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-as-a-peer">
+<h2><a class="toc-backref" href="#id194">Configure as a Peer</a></h2>
+<ol class="arabic">
+<li><p class="first">Follow the steps for Client Configuration</p>
+</li>
+<li><p class="first">Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers):</p>
+<pre class="literal-block">
+restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+restrict 10.37.112.13
+</pre>
+</li>
+<li><p class="first">Add one or more peer lines:</p>
+<pre class="literal-block">
+peer &lt;peer IP or hostname&gt; [options]
+</pre>
+</li>
+<li><p class="first">Restart the service after making changes.</p>
+</li>
+<li><p class="first">Verify that the service sees the configured peers and servers (this may take a few minutes):</p>
+<pre class="literal-block">
+# ntpq -p
+</pre>
+</li>
+</ol>
+</div>
+<div class="section" id="investigate-selinux-implications-for-ntp">
+<h2><a class="toc-backref" href="#id195">Investigate SELinux implications for NTP</a></h2>
+<p>Find SELinux Filesystem contexts that might affect NTP:</p>
+<pre class="literal-block">
+# semanage fcontext -l | grep &quot;ntp&quot;
+</pre>
+<p>Find SELinux port contexts that might affect NTP:</p>
+<pre class="literal-block">
+# semanage port -l | grep &quot;ntp&quot;
+</pre>
+<p>Find SELinux booleans that might affect NTP:</p>
+<pre class="literal-block">
+# semanage boolean -l | grep ntp
+</pre>
+</div>
+<div class="section" id="investigate-firewall-implications-for-ntp">
+<h2><a class="toc-backref" href="#id196">Investigate Firewall Implications for NTP</a></h2>
+<p>Find ports that may need to be opened for NTP:</p>
+<pre class="literal-block">
+# grep ntp /etc/services
+</pre>
+<!-- NTP -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service.. -->
+</div>
 <div class="section" id="reporting-on-system-performance">
-<h2><a class="toc-backref" href="#id185">Reporting on System Performance</a></h2>
-<p>iostat, vmstat, scripting</p>
+<h2><a class="toc-backref" href="#id197">Reporting on System Performance</a></h2>
+<p>One of the more vague of the RHCE Objectives says: &quot;Produce and deliver reports on system utilization (processor, memory, disk, and network).&quot;</p>
+<p>This loosely defined objective can be very wide-ranging -- this section will cover some of the tools that might be useful in meeting it.</p>
+</div>
+<div class="section" id="tools-for-system-utilization-reporting">
+<h2><a class="toc-backref" href="#id198">Tools for System Utilization Reporting</a></h2>
+<dl class="docutils">
+<dt>df</dt>
+<dd>&quot;diskfree&quot;, reports on disk space utilization for all mounted filesystems. Part of the coreutils package.</dd>
+<dt>iostat</dt>
+<dd>Provided by the sysstat package.</dd>
+<dt>vmstat</dt>
+<dd>Provided by the procps package.</dd>
+<dt>top</dt>
+<dd>Provided by the procps package.</dd>
+</dl>
+<p>Explore the man pages for these utilities and be prepared to use them with scripting to write reports to a file.</p>
 </div>
 </div>
 <div class="section" id="session-9-http-and-ftp">
-<h1><a class="toc-backref" href="#id186">Session 9 HTTP and FTP</a></h1>
+<h1><a class="toc-backref" href="#id199">Session 9 HTTP and FTP</a></h1>
+<div class="section" id="apache-web-server">
+<h2><a class="toc-backref" href="#id200">Apache Web Server</a></h2>
+<p>Service name: httpd</p>
+<p>Package name: httpd-{ver}.{arch}.rpm</p>
+<p>Main config: /etc/httpd/conf/httpd.conf</p>
+<p>Module config: /etc/httpd/conf.d</p>
+<p>Default DocRoot: /var/www/html</p>
+</div>
+<div class="section" id="apache-configuration-items">
+<h2><a class="toc-backref" href="#id201">Apache Configuration  Items</a></h2>
+<p>Min/Max Spare Servers</p>
+<p>Log files</p>
+<p>Host Name lookup</p>
+<p>Modules</p>
+<p>Virtual Hosts</p>
+<p>user/group settings</p>
+</div>
+<div class="section" id="minimum-config-for-basic-page">
+<h2><a class="toc-backref" href="#id202">Minimum Config for Basic Page</a></h2>
+<p>Install, start, and turn on the service</p>
+<p># yum install httpd</p>
+<p># chkconfig httpd on</p>
+<p># service httpd start</p>
+<p>Put index.html in /var/www/html</p>
+</div>
+<div class="section" id="virtual-host-configuration">
+<h2><a class="toc-backref" href="#id203">Virtual Host Configuration</a></h2>
+<p>Near the end of httpd.conf, uncomment the line:</p>
+<p>#NameVirtualHost *:80</p>
+<p>Create a section for each vhost:</p>
+</div>
+<div class="section" id="apache-access-control">
+<h2><a class="toc-backref" href="#id204">Apache Access Control</a></h2>
+<p>Per-directory options</p>
+</div>
+<div class="section" id="firewall-and-selinux-for-httpd">
+<h2><a class="toc-backref" href="#id205">Firewall and SELinux for httpd</a></h2>
+<!-- o HTTP(s) -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Configure a virtual host -->
+<!-- + * Configure private directories -->
+<!-- + * Deploy a basic CGI application -->
+<!-- + * Configure group-managed content -->
+</div>
+<div class="section" id="very-secure-file-transfer-protocol-daemon">
+<h2><a class="toc-backref" href="#id206">Very Secure File Transfer Protocol Daemon</a></h2>
+<p><tt class="docutils literal"><span class="pre">vsftpd</span></tt> is Red Hat's preferred FTP daemon.  The &quot;Very Secure&quot; descriptor refers to the daemon and not to the protocol!</p>
+<p>The only mention of FTP in the RHCSA objectives is concerned with enabling a default configuration</p>
+<p>The only mention of FTP in the RHCE objectives is concerned with securely configuring anonymous access.</p>
+</div>
+<div class="section" id="installation-and-basic-configuration">
+<h2><a class="toc-backref" href="#id207">Installation and Basic Configuration</a></h2>
+<p>Package: vsftpd</p>
+<p>Install:</p>
+<pre class="literal-block">
+# yum -y install vsftpd
+</pre>
+<p>Start and Configure Persistence:</p>
+<pre class="literal-block">
+# service vsftpd start; chkconfig vsftpd on
+</pre>
+<p>In this default configuration, anonymous downloads are allowed from <tt class="docutils literal"><span class="pre">/pub</span></tt> (as shown to the client) and are placed in <tt class="docutils literal"><span class="pre">/var/ftp/pub/</span></tt> (as viewed on the server). Additionally, system users are able to login by username and password and access their home directories with read/write permissions. No anonymous uploads are permitted by default.</p>
+</div>
+<div class="section" id="ftp-documentation">
+<h2><a class="toc-backref" href="#id208">FTP Documentation</a></h2>
+<p>Man Pages:</p>
+<blockquote>
+<ul class="simple">
+<li>vsftpd.conf (5)</li>
+<li>ftpd_selinux (8)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="investigate-selinux-implications-for-ftp">
+<h2><a class="toc-backref" href="#id209">Investigate SELinux implications for FTP</a></h2>
+<p>Find SELinux Filesystem contexts that might affect FTP:</p>
+<pre class="literal-block">
+# semanage fcontext -l | grep &quot;ftp&quot;
+</pre>
+<p>Find SELinux port contexts that might affect FTP:</p>
+<pre class="literal-block">
+# semanage port -l | grep &quot;ftp&quot;
+</pre>
+<p>Find SELinux booleans that might affect FTP:</p>
+<pre class="literal-block">
+# semanage boolean -l | grep ftp
+</pre>
+</div>
+<div class="section" id="investigate-firewall-implications-for-ftp">
+<h2><a class="toc-backref" href="#id210">Investigate Firewall Implications for FTP</a></h2>
+<p>Find ports that may need to be opened for FTP:</p>
+<pre class="literal-block">
+# grep ftp /etc/services
+</pre>
+</div>
+<div class="section" id="drop-box-configuration">
+<h2><a class="toc-backref" href="#id211">&quot;Drop-Box&quot; Configuration</a></h2>
+<pre class="literal-block">
+cd /var/ftp
+mkdir incoming
+chgrp ftp incoming
+chmod 730 incoming
+
+man ftpd_selinux
+
+semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
+semanage boolean -l |grep anon
+
+setsebool -P allow_ftpd_anon_write on
+
+restorecon -rvv /var/ftp/
+
+vim /etc/vsftpd/vsftpd.conf
+
+anonymous_enable=YES
+local_enable=NO
+write_enable=YES
+anon_upload_enable=YES
+chown_uploads=YES
+chown_username=daemon
+
+restart service
+configure firewall
+
+in /etc/sysconfig/iptables:
+IPTABELS_MODULES=&quot;nf_conntrack_ftp&quot;
+(GUI tool adds this automatically)
+</pre>
+<!-- o FTP -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Configure anonymous-only download -->
+</div>
 </div>
 <div class="section" id="session-10-nfs-and-samba">
-<h1><a class="toc-backref" href="#id187">Session 10 NFS and Samba</a></h1>
+<h1><a class="toc-backref" href="#id212">Session 10 NFS and Samba</a></h1>
+<!-- o NFS -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Provide network shares to specific clients -->
+<!-- + * Provide network shares suitable for group collaboration -->
+<!-- o Samba -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Provide network shares to specific clients -->
+<!-- + * Provide network shares suitable for group collaboration -->
 </div>
 <div class="section" id="session-11-dns-and-smtp">
-<h1><a class="toc-backref" href="#id188">Session 11 DNS and SMTP</a></h1>
+<h1><a class="toc-backref" href="#id213">Session 11 DNS and SMTP</a></h1>
+<!-- o DNS -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Configure a caching-only name server -->
+<!-- + * Configure a caching-only name server to forward DNS queries -->
+<!-- + * Note: Candidates are not expected to configure master or slave name servers -->
+<!-- o SMTP -->
+<!-- + * Install the packages needed to provide the service -->
+<!-- + * Configure SELinux to support the service -->
+<!-- + * Configure the service to start when the system is booted -->
+<!-- + * Configure the service for basic operation -->
+<!-- + * Configure host-based and user-based security for the service -->
+<!-- + * Configure a mail transfer agent (MTA) to accept inbound email from other systems -->
+<!-- + * Configure an MTA to forward (relay) email through a smart host -->
 </div>
 <div class="section" id="session-12-finish-uncompleted-topics-review-or-practice-exam">
-<h1><a class="toc-backref" href="#id189">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
+<h1><a class="toc-backref" href="#id214">Session 12 Finish uncompleted topics, Review, or Practice Exam</a></h1>
 </div>
 <div class="section" id="supplemental-topics">
-<h1><a class="toc-backref" href="#id190">Supplemental Topics</a></h1>
+<h1><a class="toc-backref" href="#id215">Supplemental Topics</a></h1>
 <div class="section" id="manage-processes-and-services-schedule-tasks-using-cron">
-<h2><a class="toc-backref" href="#id191">Manage Processes and Services: Schedule tasks using cron</a></h2>
+<h2><a class="toc-backref" href="#id216">Manage Processes and Services: Schedule tasks using cron</a></h2>
 </div>
 </div>
 </div>
