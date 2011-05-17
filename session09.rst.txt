@@ -15,40 +15,45 @@ Module config: /etc/httpd/conf.d
 
 Default DocRoot: /var/www/html
 
-Apache Configuration  Items
-----------------------------------------------------
+Installation and Basic Configuration
+--------------------------------------
 
-Min/Max Spare Servers
+#. Install the ``web-server`` package group::
 
-Log files
+	# yum groupinstall web-server
 
-Host Name lookup
+#. Install the ``mod_ssl`` package::
 
-Modules
+	# yum install mod_ssl
 
-Virtual Hosts
+#. Start and configure persistence::
 
-user/group settings
+	# service httpd start; chkconfig httpd on
 
-Minimum Config for Basic Page
-----------------------------------------------------
+In this default configuration, you can create an ``index.html`` page in ``/var/www/html/`` and it will be served out as your home page.
 
-Install, start, and turn on the service
+Installing a Signed SSL Certificate
+---------------------------------------
 
-# yum install httpd
+#. Place the certificate and private key in the appropriate locations in ``/etc/pki/tls/``
 
-# chkconfig httpd on
+#. Ensure that both files have the ``cert_t`` SELinux file context and that the private key is readable only by root.
 
-# service httpd start
+#. Modify ``/etc/httpd/conf.d/ssl.conf``:
 
-Put index.html in /var/www/html
+	* ``SSLCertificateFile`` points to your newly installed certificate.
+	* ``SSLCertificateKeyFile`` points to the corresponding private key.
+
+#. Restart the service
+
+
 
 Virtual Host Configuration
 ----------------------------------------------------
 
-Near the end of httpd.conf, uncomment the line:
+Near the end of httpd.conf, uncomment the line::
 
-#NameVirtualHost \*:80
+#NameVirtualHost *:80
 
 Create a section for each vhost:
 
@@ -177,9 +182,9 @@ Configuring a Secure "Drop-box" for Anon Upload
 
 #. Modify iptables for inbound ftp
 
-	* in ``/etc/sysconfig/iptables_config``::
+	* in ``/etc/sysconfig/iptables-config``::
 
-		    IPTABELS_MODULES="nf_conntrack_ftp nf_nat_ftp"
+		    IPTABLES_MODULES="nf_conntrack_ftp nf_nat_ftp"
 
 	* Set rules::
 
