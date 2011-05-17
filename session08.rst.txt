@@ -198,6 +198,12 @@ Investigate Firewall Implications for NTP
 Find ports that may need to be opened for NTP::
 
     # grep ntp /etc/services 
+
+Rules to open up the required ports::
+
+	-A INPUT -m state --state NEW -m tcp -p tcp --dport 123 -j ACCEPT
+	-A INPUT -m state --state NEW -m udp -p udp --dport 123 -j ACCEPT
+
     
 .. NTP
 

@@ -115,9 +115,6 @@ Man Pages:
     * vsftpd.conf (5)
     * ftpd_selinux (8)
     
-
-
-
 Investigate SELinux implications for FTP
 -------------------------------------------
 
@@ -144,29 +141,31 @@ Find ports that may need to be opened for FTP::
     # grep ftp /etc/services 
 
     
+Configuring a Secure "Drop-box" for Anon Upload
+-------------------------------------------------
 
-"Drop-Box" Configuration
-----------------------------------
-
-::
-
-
+#. Create an upload directory owned by ``root.ftp`` and with 730 permissions::
 
     cd /var/ftp
     mkdir incoming 
     chgrp ftp incoming
     chmod 730 incoming
 
-    man ftpd_selinux
 
-    semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
-    semanage boolean -l |grep anon
+#. Modify SELinux
 
-    setsebool -P allow_ftpd_anon_write on
+	* Set context of ``public_content_rw_t`` on the upload directory::
 
-    restorecon -rvv /var/ftp/
+		semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
+		restorecon -rvv /var/ftp/
 
-    vim /etc/vsftpd/vsftpd.conf
+
+	* Enable the ``allow_ftp_anon_write`` boolean::
+
+		setsebool -P allow_ftpd_anon_write on
+
+
+#. Modify ``/etc/vsftpd/vsftpd.conf`` as follows::
 
     anonymous_enable=YES
     local_enable=NO
@@ -174,13 +173,18 @@ Find ports that may need to be opened for FTP::
     anon_upload_enable=YES
     chown_uploads=YES
     chown_username=daemon
+    anon_umask = 077
 
-    restart service
-    configure firewall
+#. Modify iptables for inbound ftp
 
-    in /etc/sysconfig/iptables:
-    IPTABELS_MODULES="nf_conntrack_ftp"
-    (GUI tool adds this automatically)
+	* in ``/etc/sysconfig/iptables_config``::
+
+		    IPTABELS_MODULES="nf_conntrack_ftp nf_nat_ftp"
+
+	* Set rules::
+
+		# iptables -A INPUT -p tcp --dport 21 -j ALLOW
+		# iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ALLOW
 
 
 .. o FTP
