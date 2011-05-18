@@ -52,22 +52,50 @@ Installing a Signed SSL Certificate
 
 #. Restart the service
 
+Customized Basic Configuration
+----------------------------------
 
+In the default configuration, the webserver responds at loca
 
 Virtual Host Configuration
 ----------------------------------------------------
 
+"Virtual Hosts" come in two forms:
+
+    Standard Virtual Hosts
+        Exist on hosts that have been assigned multiple IP addresses. Queries for each separate IP address are served pages from a particular virtual host.
+
+    Name Virtual Hosts
+        Exist on hosts with multiple names aliased to one IP address. Queries for each separate name (regardless of IP address) are served as different virtual hosts.
+
+Name Virtual Host Configuration
+--------------------------------------
+
 Near the end of httpd.conf, uncomment the line::
 
-#NameVirtualHost *:80
+    #NameVirtualHost *:80
 
-Create a section for each vhost:
+Create a section for each vhost::
+
+    #<VirtualHost *:80>
+    #    ServerAdmin webmaster@dummy-host.example.com
+    #    DocumentRoot /www/docs/dummy-host.example.com
+    #    ServerName dummy-host.example.com
+    #    ErrorLog logs/dummy-host.example.com-error_log
+    #    CustomLog logs/dummy-host.example.com-access_log common
+    #</VirtualHost>
+
+Example Virtual Host Configuration
+----------------------------------------
+
+
+.. image:: images/VirtHostConf.png
+   :width: 90%
 
 Apache Access Control
 ----------------------------------------------------
 
 Per-directory options
-
 
 
 
