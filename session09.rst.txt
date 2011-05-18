@@ -18,17 +18,23 @@ Default DocRoot: /var/www/html
 Installation and Basic Configuration
 --------------------------------------
 
-#. Install the ``web-server`` package group::
+#. Install the ``web-server`` package group:
 
-	# yum groupinstall web-server
+	::
+	
+		# yum groupinstall web-server
+
+	.. 
+	
+	Note that this install several packages including the Apache Manual which is then locally accessible at http://localhost/manual
 
 #. Install the ``mod_ssl`` package::
 
-	# yum install mod_ssl
+		# yum install mod_ssl
 
 #. Start and configure persistence::
 
-	# service httpd start; chkconfig httpd on
+		# service httpd start; chkconfig httpd on
 
 In this default configuration, you can create an ``index.html`` page in ``/var/www/html/`` and it will be served out as your home page.
 
