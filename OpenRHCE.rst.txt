@@ -45,48 +45,11 @@ Course Outline
 
 .. include:: session09.rst.txt
 
+.. include:: session10.rst.txt
 
-Session 10 NFS and Samba
-================================
-
-.. o NFS
-.. + * Install the packages needed to provide the service
-.. + * Configure SELinux to support the service
-.. + * Configure the service to start when the system is booted
-.. + * Configure the service for basic operation
-.. + * Configure host-based and user-based security for the service
-.. + * Provide network shares to specific clients
-.. + * Provide network shares suitable for group collaboration
-.. o Samba
-.. + * Install the packages needed to provide the service
-.. + * Configure SELinux to support the service
-.. + * Configure the service to start when the system is booted
-.. + * Configure the service for basic operation
-.. + * Configure host-based and user-based security for the service
-.. + * Provide network shares to specific clients
-.. + * Provide network shares suitable for group collaboration
+.. include:: session11.rst.txt
 
 
-Session 11 DNS and SMTP
-===============================
-
-.. o DNS
-.. + * Install the packages needed to provide the service
-.. + * Configure SELinux to support the service
-.. + * Configure the service to start when the system is booted
-.. + * Configure the service for basic operation
-.. + * Configure host-based and user-based security for the service
-.. + * Configure a caching-only name server
-.. + * Configure a caching-only name server to forward DNS queries
-.. + * Note: Candidates are not expected to configure master or slave name servers
-.. o SMTP
-.. + * Install the packages needed to provide the service
-.. + * Configure SELinux to support the service
-.. + * Configure the service to start when the system is booted
-.. + * Configure the service for basic operation
-.. + * Configure host-based and user-based security for the service
-.. + * Configure a mail transfer agent (MTA) to accept inbound email from other systems
-.. + * Configure an MTA to forward (relay) email through a smart host
 
 Session 12 Finish uncompleted topics, Review, or Practice Exam 
 =======================================================================
@@ -100,4 +63,599 @@ Supplemental Topics
 Manage Processes and Services: Schedule tasks using cron
 --------------------------------------------------------------
 
+Cron
+----------------------------------------------------------------------------
+
+Scheduler
+
+man 5 crontab
+
+anacron
+
+crond
+
+/etc/cron.*
+
+/var/spool/cron
+
+
+
+Format of a crontab file
+----------------------------------------------------------------------------
+
+variable=value
+variable2=value
+
+minute hour dayofmonth month dayofweek  command
+
+example:
+
+
+  ``*/5 * * * * cleanup``
+    Runs cleanup every 5 minutes
+
+  ``1 23 * * 0 cleanup``
+    Runs cleanup 11:01 pm every Sunday
+
+  ``1 23 5 * 0 cleanup``
+    Runs cleanup at 11:01 on the 5th of each month, but only if it falls on a Sunday.
+
+
+
+
+Controlling Cron
+----------------------------------------------------------------------------
+
+cron -u username
+
+cron -l
+
+cron -r
+
+cron -e
+
+
+
+at Jobs
+----------------------------------------------------------------------------
+
+Runs job once at specified time.
+
+Understands now, midnight, noon, teatime, minutes, hours, day, week
+
+Examples:
+
+::
+
+  echo "/sbin/init 6" | at now + 10 minutes
+
+or
+
+::
+
+  at now + 10 minutes
+  at> /sbin/init 6
+  at> <CTRL-D>
+
+atq
+
+atrm
+
+
+
+Securing cron and at
+----------------------------------------------------------------------------
+
+/etc/cron.allow
+
+/etc/cron.deny
+
+/etc/at.allow
+
+/etc/at.deny
+
+
+
+
+
+
+User Admin with Config Files
+----------------------------------------------------------------------------
+
+/etc/passwd
+	World-readable file of user information
+
+/etc/shadow
+	Restricted-access file with password and expiry info.
+
+/etc/group
+	World-readable file of group information
+
+/etc/gshadow
+	Restricted-access group password, admin, membership info
+	
+If editing directly, ``vipw`` and ``vigr`` should be used.
+
+
+
+
+
+Structure of /etc/passwd
+----------------------------------------------------------------------------
+
+``Name:Password:UID:GID:Comments:Homedir:Shell``
+
+Sample Contents
+________________________________________________-
+
+::
+
+ $ cat /etc/passwd
+ root:x:0:0:root:/root:/bin/bash
+ sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+ ntp:x:38:38::/etc/ntp:/sbin/nologin
+ gdm:x:42:42::/var/gdm:/sbin/nologin
+ scott:x:500:500:Scott Purcell:/home/scott:/bin/bash
+
+
+
+
+
+Structure of /etc/shadow
+----------------------------------------------------------------------------
+
+``Name:Password:Lstchg:May:Must:Warn:Disable:Expire``
+
+Sample Contents
+______________________
+
+
+::
+
+ # cat /etc/shadow
+ root:$1$IyApEyOS$dZ5SMuC7Yw9/PDMyWi1H11:14373:0:99999:7:::
+ sshd:!!:14373:0:99999:7:::
+ ntp:!!:14373:0:99999:7:::
+ gdm:!!:14373:0:99999:7:::
+ scott:$1${...}:14374:0:99999:7:::
+ bob:$1${...}:14398:7:30:7:7:14457:
+
+
+
+
+
+Structure of /etc/group
+----------------------------------------------------------------------------
+
+``Name:Password:GID:Users``
+
+Sample Contents
+_____________________
+
+::
+
+ # cat /etc/group
+ root:x:0:root
+ scott:x:500:
+ bob:x:501:
+ mary:x:502:
+ sales:x:503:bob,mary
+ training:x:504:scott
+
+
+
+
+
+Structure of /etc/gshadow
+----------------------------------------------------------------------------
+
+``Name:Password:Admins:Members``
+
+Sample Contents
+___________________
+
+::
+
+ # cat /etc/gshadow
+ root:::root
+ scott:!!::
+ bob:!::
+ mary:!::
+ sales:!::bob,mary
+ training:!::scott
+
+
+
+
+
+User Admin with CLI tools
+----------------------------------------------------------------------------
+
+useradd, usermod, userdel
+	Create, delete, and modify user accounts
+
+groupadd, groupmod, groupdel
+	Create, delete, and modify group accounts
+
+chage
+	Modify password aging and expiration
+
+
+
+
+
+
+
+User Admin with GUI tools
+----------------------------------------------------------------------------
+
+The GUI tool for managing users and groups is the Red Hat User Manager. It can be launched from the menu at **System | Administration | Users and Groups** or from the CLI as ``system-config-users``. 
+
+	.. image:: images/UserMgr.png
+		:width: 80%
+
+
+
+
+
+
+User environment
+----------------------------------------------------------------------------
+
+Home directories 
+	/home/{user}/ or /root/
+
+/etc/skel
+	Contents copied to home directory of each new user.
+
+Common Contents:
+_____________________
+
+	.bashrc
+
+	.bash_logout
+
+	.bash_profile
+
+
+
+
+
+System-wide Shell Config Files
+----------------------------------------------------------------------------
+
+/etc/profile
+	Executed with each user login. Sets paths, variables, etc. Runs scripts in ``/etc/profile.d``.	
+	
+/etc/profile.d
+	Scripts that extend /etc/profile, usually added by applications.
+
+/etc/bashrc
+	System-wide functions and aliases
+
+
+
+
+
+User-configurable Environment Files
+----------------------------------------------------------------------------
+
+~/.bashrc
+	User aliases and functions
+
+~/.bash_profile
+	User paths, variables, and environment settings
+
+
+
+
+
+
+CUPS Printing System
+----------------------------------------------------------------------------
+
+uses IPP
+
+  Do not firewall port 631 udp/tcp from localhost or you will not print even to local printers.
+
+system-config-printer
+
+  Use it. Requires X.
+
+
+
+Controlling Jobs from the Command Line
+----------------------------------------------------------------------------
+
+lpr
+
+  send a job to a printer
+
+lpq
+
+  See what is in the print queue.
+
+lprm
+
+  Remove a job from the print queue.
+
+lpc
+ 
+  Check the status of the queues. "lpc status"
+
+
+
+CUPS Web-Based Interface
+----------------------------------------------------------------------------
+
+http://localhost:631
+
+
+
+
+
+
+
+Troubleshooting
+=========================
+
+Read the entire error or message and read it carefully.
+
+  * Pay attention to what it says.  
+
+Look at the logs.
+
+  * /var/log/messages
+
+  * /var/log/secure
+
+Look for typos in the command line or configuration file.
+  * A simple missing semicolon (;) or a dot (.) instead of a dash (-) could be the issue.
+
+Break the problem down into smaller parts and troubleshoot them.
+
+
+
+Booting
+----------------------------------------------------------------------------
+
+Think about the boot process and at which point you are failing.
+
+  * MBR (GRUB Stage 1)
+
+  * GRUB Stage 1.5 (Driver to read filesystem)
+
+  * GRUB Stage 2 (Menu)
+
+    * Kernel
+
+    * initrd (initial ramdisk)
+
+  * init process
+
+    * inittab
+
+  * rc.sysinit
+
+  * services
+
+
+Booting - (MBR)
+----------------------------------------------------------------------------
+
+The MBR boots the system and loads the next GRUB Stage.
+
+If MBR is on a partition, is it marked bootable according to fdisk ?
+
+
+Booting - GRUB Stage 1.5 (Driver to read filesystem)
+----------------------------------------------------------------------------
+
+If this does not exist or is corrupt, then Stage 2 may not be able to be loaded.
+
+
+Booting - GRUB Stage 2 (Menu)
+----------------------------------------------------------------------------
+
+This stage reads the grub.conf and displays the grub menu.
+
+Tells GRUB where and which kernel and initial ramdisk to load.
+
+Passes extra boot optons to the kernel.
+
+root (hd0,0) indicates the files from /boot are located on the first partition of the first drive.
+
+  * The kernel and initial ramdisk are loaded from this partition.
+
+  * The paths should begin / and not /boot.
+
+
+Booting - Kernel
+----------------------------------------------------------------------------
+
+Be careful to not create a typo when specifying the kernel.
+
+  * A common typo is a dash instead of a period.
+
+  * Make sure the "root=" specifies the correct locatation of the device containing root (/).
+
+
+
+Booting - initrd (initial ramdisk)
+----------------------------------------------------------------------------
+
+Be careful to not create a typo when specifying the kernel.
+  
+  * A common typo is a dash instead of a period.
+
+The initial ramdisk NEEDS ALL DRIVERS needed for loading the filesystem.
+
+  * That means storage drivers must be in it.
+
+  * That means network drivers must be in it for booting across the network.
+
+
+Booting - init process
+----------------------------------------------------------------------------
+
+/sbin/init needs to exist and be executable.
+
+Its the parent of all processes.
+
+
+Booting - inittab
+----------------------------------------------------------------------------
+
+This is inits configuration file.
+
+It calls rc.sysinit.
+
+It runs services for the appropriate run levels.
+
+This is a very important and very easy file to corrupt.
+
+If you get "Process spawning too rapidly" during boot, check this file or check to see if the commands it calls are there.
+
+
+Booting - rc.sysinit
+----------------------------------------------------------------------------
+
+Sets hostname
+
+Runs filesystem checks if needed
+
+Mounts file systems in fstab
+
+remounts / as read/write
+
+
+
+Booting - services
+----------------------------------------------------------------------------
+
+Maybe the boot issue is caused by a service.
+
+Boot into run level 1 and see if it boots.
+
+  * Run level 1 runs rc.sysinit and a couple of services.
+
+Boot into runlevel S.
+
+  * Run level S does not start any services and does not run rc.sysinit.
+
+
+Networking
+----------------------------------------------------------------------------
+
+/etc/resolv.conf
+
+  * dns resolution
+
+/etc/nsswitch
+
+/etc/sysconfig/network
+
+/etc/sysconfig/network-scripts/ifcfg-eth*
+
+
+
+X
+----------------------------------------------------------------------------
+
+system-config-display --reconfig --noui
+
+
+
+
+TCP_Wrappers
+----------------------------------------------------------------------------
+
+tcp_wrappers is an easy-to-configure security mechanism that protects some (but not all!) services using the hosts access files, /etc/hosts.allow and /etc/hosts.deny.
+
+* hosts.allow is processed first, then hosts.deny.
+
+* Each file is read from top down and the first matching rule is applied -- all subsequent rules are ignored.
+
+* If no matching rule is found, **access is granted!**
+
+* Changes take immediate effect -- no services need restarting.
+
+.. each can contain both allow and deny statements -- RedHat recommends use one or the other, not both.
+.. specific first, then general
+.. "deny all all" as last rule.
+
+Which Services are Protected?
+----------------------------------------------------------------------------
+
+* **ALL** services managed by xinetd
+	
+	* telnetd
+
+	* tftpd
+
+
+* Other services compiled against the libwrap.a library
+
+	* sshd
+	
+	* sendmail
+	
+	* vsftpd
+
+* Notably **NOT** included: httpd
+	
+	
+
+
+Indentifying Protected Services 
+----------------------------------------------------------------------------
+
+
+
+* Identify the binary used by the service in question::
+
+		# which sendmail
+		/usr/sbin/sendmail
+
+
+
+* Run ``ldd`` and ``strings`` against the binary and examine the output for "libwrap"::
+
+	# strings `which sendmail` |grep libwrap
+	# ldd `which sendmail` |grep libwrap
+	libwrap.so.0 => /lib64/libwrap.so.0 ...
+	
+
+
+
+* Nul output confirms the service does NOT use tcp_wrappers::
+
+	# ldd `which httpd` |grep libwrap
+	#
+
+
+Hosts Access Files Syntax
+----------------------------------------------------------------------------
+
+Basic format:  ``<daemon list>: <client list> [: <option>: <option>: ...]``
+
+* Lists are comma-separated.
+
+* The daemon list uses process names -- not always the same as the name of the service or daemon.  Wild cards and operators are available.
+
+* The client list is hostnames, IP addresses, patterns or wildcards
+
+* More details in ``man hosts_options``
+
+
+
+
+
+
+
+
+
+   :Info: See <https://github.com/texastwister/OpenRHCE> for the latest version of this doc.
+   :Author: Scott Purcell <scott@texastwister.info>
+   :Date:  Wednesday, May 18, 2011
 

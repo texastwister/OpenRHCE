@@ -1,0 +1,262 @@
+Session 10 NFS and Samba
+================================
+
+Network File System (NFS)
+--------------------------------
+
+Three available versions:
+
+* NFS v2 -- Original public NFS.
+
+* NFS v3 -- Extensions and enhancements to v2.
+
+* NFS v4 -- Complete redesign, Red Hat default, preferred except where backward compatibility is required.
+
+
+Packages
+----------------------------------------------------------------
+
+Group: nfs-file-server
+
+Packages:
+
+    nfs-utils
+
+    nfs4-acl-tools
+
+
+
+Configuration
+----------------------------------------------------------------
+
+/etc/sysconfig/nfs
+
+/etc/exports
+
+
+
+
+Configuring an NFS server (Network File System)
+----------------------------------------------------------------
+
+
+service nfs start
+
+
+chkconfig nfs on
+
+
+/etc/exports
+----------------------------------------------------------------
+
+::
+
+    /home 192.168.0.0/24(rw,root_squash) server1.example.com(rw,no_root_squash)
+    /pub  *(ro,root_squash)
+
+* Note: There is no space between the host or subnet and the options defined between the parentheses ().
+
+* If you put a space between them, then you will get a global export.
+
+
+
+Commands
+----------------------------------------------------------------
+
+exportfs -a
+
+exportfs -r
+
+exportfs -u
+
+showmount -e server
+
+
+
+
+
+SELinux
+----------------------------------------------------------------
+
+
+Mounting
+----------------------------------------------------------------
+
+mount nfsserv:/home /mnt/homes
+
+.. o NFS
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Provide network shares to specific clients
+.. + * Provide network shares suitable for group collaboration
+.. o Samba
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Provide network shares to specific clients
+.. + * Provide network shares suitable for group collaboration
+
+
+
+
+
+Automounter
+----------------------------------------------------------------
+
+Automatically mounts a directory when it is accessed.
+
+Unmounts the directory after a specified idle time.
+
+Autofs service controls this behavior.
+
+A master configuration file called.
+  /etc/auto.master
+
+Sub configuration files
+  Usually called /etc/auto.*
+
+
+
+Auto.master
+----------------------------------------------------------------
+
+Specifies directories to mount under when accessed.
+
+Specifies the auto.* file to use for the directories.
+
+Example:
+  /etc/auto.master
+    /misc    /etc/auto.misc
+    /data    /etc/auto.data
+
+  When a directory under /misc is accessed, the /etc/auto.misc file indicates how to mount it.
+
+  When a directory under /data is accessed, the /etc/auto.data file indicates how to mount it.
+
+
+
+Auto.*
+----------------------------------------------------------------
+
+Specifies directory name.
+
+Specifies options to use when mounting.
+
+Specifies what to mount.
+
+Example:
+  /etc/auto.data
+    pictures       -rw,soft,intr    nfs.example.com:/export/pics
+    mp3s           -ro              /dev/sdd1
+
+When the /data/pictures directory is accessed, the system will mount the nfs export /export/pics on nfs.example.com.
+
+When the /data/mp3s directory is accessed, the system will mount the local
+partition /dev/sdd1.
+
+
+
+Understanding Automount
+----------------------------------------------------------------
+
+You must access the destination directory in order for it to automount.
+  If nothing is automounted and you run "ls /data" then you will get no files listed.
+
+  If you run "ls /data/mpp3", you will get a listing.  You can now run "ls /data" and you will see the mp3s directory listed.  At least until the idle timeout is reached.
+
+Some commands will cause the directory to be mounted when ran but they do not
+produce any results.  In this case, you may need to run the command a second
+time.
+
+
+
+
+
+
+Samba
+----------------------------------------------------------------
+
+samba 
+
+system-config-samba
+
+
+
+SELinux
+----------------------------------------------------------------
+
+allow_smb_anon_write
+
+samba_enable_home_dirs
+
+samba_share_nfs
+
+use_samba_home_dirs
+
+
+
+Services
+----------------------------------------------------------------
+
+service smb start
+
+chkconfig smb on
+
+
+
+Mounting
+----------------------------------------------------------------
+
+mount -t cifs //server1/tmp /mnt -o username=windows_user%password
+
+smbclient -L server1 -U username
+
+
+
+/etc/samba/smb.conf (Global)
+----------------------------------------------------------------
+
+workgroup
+
+netbios name
+
+server string
+
+security
+
+
+
+/etc/samba/smb.conf (Shares)
+----------------------------------------------------------------
+
+::
+
+  [public]
+    comment = Public Share
+    path = /var/ftp/public
+    browsable = yes
+    writable = yes
+
+Path must have appropriate filesystem permissions.
+
+
+
+Samba Users
+----------------------------------------------------------------
+
+smbpasswd -a newuser
+
+
+
+Testing Configuration
+----------------------------------------------------------------
+
+testparm
+
+
+

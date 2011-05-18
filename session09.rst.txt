@@ -20,28 +20,30 @@ Installation and Basic Configuration
 
 #. Install the ``web-server`` package group:
 
-	::
+    ::
 	
-		# yum groupinstall web-server
+        # yum groupinstall web-server
 
-	.. 
+    .. 
 	
-	Note that this install several packages including the Apache Manual which is then locally accessible at http://localhost/manual
+    Note that this install several packages including the Apache Manual which is then locally accessible at http://localhost/manual
 
 #. Install the ``mod_ssl`` package::
 
-		# yum install mod_ssl
+        # yum install mod_ssl
 
 #. Start and configure persistence::
 
-		# service httpd start; chkconfig httpd on
+        # service httpd start; chkconfig httpd on
 
-In this default configuration, you can create an ``index.html`` page in ``/var/www/html/`` and it will be served out as your home page.
+.. 
+
+    In this default configuration, you can create an ``index.html`` page in ``/var/www/html/`` and it will be served out as your home page. Additionally, you can use https:// to connect securely to your webserver, but you will have to manually accept a self-signed certificate.
 
 Installing a Signed SSL Certificate
 ---------------------------------------
 
-#. Place the certificate and private key in the appropriate locations in ``/etc/pki/tls/``
+#. Place the certificate and private key in the appropriate locations in ``/etc/pki/tls/``.
 
 #. Ensure that both files have the ``cert_t`` SELinux file context and that the private key is readable only by root.
 
@@ -50,12 +52,9 @@ Installing a Signed SSL Certificate
 	* ``SSLCertificateFile`` points to your newly installed certificate.
 	* ``SSLCertificateKeyFile`` points to the corresponding private key.
 
-#. Restart the service
+#. Restart the service.
 
-Customized Basic Configuration
-----------------------------------
-
-In the default configuration, the webserver responds at loca
+    Now your website will present a certificate signed by an accepted CA.
 
 Virtual Host Configuration
 ----------------------------------------------------
@@ -66,7 +65,7 @@ Virtual Host Configuration
         Exist on hosts that have been assigned multiple IP addresses. Queries for each separate IP address are served pages from a particular virtual host.
 
     Name Virtual Hosts
-        Exist on hosts with multiple names aliased to one IP address. Queries for each separate name (regardless of IP address) are served as different virtual hosts.
+        Exist on hosts with multiple names aliased to one IP address (usually through DNS aliases, but can also be accomplished with ``/etc/hosts``). Queries for each separate name (regardless of IP address) are served as different virtual hosts.
 
 Name Virtual Host Configuration
 --------------------------------------
@@ -85,6 +84,10 @@ Create a section for each vhost::
     #    CustomLog logs/dummy-host.example.com-access_log common
     #</VirtualHost>
 
+* Uncomment the first and last lines in that block.  Uncomment and modify the lines for ServerName, DocumentRoot, and others that you want to customize.
+
+* Include a Vhost stanza for your default server instance and for each alternate name.
+
 Example Virtual Host Configuration
 ----------------------------------------
 
@@ -92,17 +95,152 @@ Example Virtual Host Configuration
 .. image:: images/VirtHostConf.png
    :width: 90%
 
+
+Configuring for CGI-BIN scripts
+--------------------------------------
+
+Refer to the Apache Manual (package: httpd-manual) for full details and a tutorial on *CGI: Dynamic Content*.
+
+The ``ScriptAlias`` line in ``httpd.conf`` designates the directory in which Apache expects to find CGI scripts.
+
+CGI scripts can be implemented in directories **outside** of the ``DocumentRoot`` path -- but this will require modification of the ``ScriptAlias`` line and the fcontext rules for SELinux.
+
+   
+
 Apache Access Control
 ----------------------------------------------------
 
-Per-directory options
+Per-directory options (example)::
+
+    <Directory /var/www/>
+        Order Deny,Allow
+        Deny from all
+        Allow from dev.example.com
+    </Directory>        
+
+* Three-pass access control:
+
+    #. Parse all statements of type specified first.
+    #. Parse all statements of type specified second. Matches overrides matches of previous type.
+    #. Process requests which matched nothing.
+
+* In ``Order`` statements, whichever directive comes **last** is the default in case of no match.
+
+
+
+Host Based Security directive formats
+--------------------------------------------
+
+``Deny from example.com``
+
+``Allow from 192.168.0.15``
+
+``Deny from 192.168.0.0/255.255.255.0``
+
+``Deny from 192.168.1.0/24``
+
+
+
+Access Control with .htaccess files
+------------------------------------------
+
+If permitted by httpd.conf, access may be controlled on a per-directory basis with ``.htaccess`` files in the directories where the content needs to be protected::
+
+
+  <Files ~ "^\.ht">
+      Order allow,deny
+      Allow from 192.168.5.200
+      Deny from all
+  </Files>
 
 
 
 
+User Based Security with htpasswd flat file
+---------------------------------------------------
+
+::
+
+  <Directory "/var/www/html/site">
+    AuthType Basic
+    AuthName "Password Protected"
+    AuthUserFile /etc/httpd/.htpasswd
+    Require valid-user
+  </Directory>
 
 
 
+Configuring Passwords
+-------------------------------
+
+* ``htpasswd -cm /etc/httpd/.htpasswd good_user``
+
+* ``htpasswd -m /etc/httpd/.htpasswd another_user``
+
+
+User Based Security with LDAP authentication
+---------------------------------------------------
+
+#. Obtain the LDAP certificate.
+
+#. Add a line to your http.conf (usually in your Vhost definition)::
+
+    LDAPTrustedGlobalCert CA_BASE64 /path/to/cert
+
+#. Configure a Directory Block::
+
+    <Directory /var/www/html/private>
+        AuthName "Private with LDAP access"
+        AuthType  basic
+        AuthBasicProvider ldap
+        AuthLDAPUrl "ldap://fqdn/prefix" TLS
+        Require valid-user
+    </Directory>
+
+..
+
+    Modify the cert path, and the FQDN and prefix of the LDAP Server to match your infrastructure.
+    
+
+
+SELinux Implications for HTTP
+----------------------------------------
+
+Find SELinux Filesystem contexts that might affect HTTP::
+
+    # semanage fcontext -l | grep "http"
+
+Find SELinux port contexts that might affect HTTP::
+
+    # semanage port -l | grep "http"
+    
+Find SELinux booleans that might affect HTTP::
+
+    # semanage boolean -l | grep http
+
+Read the man page ``httpd_selinux (8)``
+
+Make SELinux more verbose::
+
+    # semanage dontaudit off
+
+..
+
+    This disables setroubleshoot-server, sealert, and the issuing of SELinux messages into ``/var/log/messages`` -- so you'll need to view the messages in ``/var/log/audit/audit.log``.
+
+..         # sealert -a /var/log/audit/audit.log -H > audit.html
+
+Important SELinux Contexts
+---------------------------------
+
+httpd_sys_content_t
+    For general files and directories to be served by httpd.
+
+httpd_sys_script_exec_t
+    For scripts (CGI) to be executed by the web server.
+
+public_content_t
+    For files that are to be shared with other SELinux protected services
 
 Firewall and SELinux for httpd
 ----------------------------------------------------
