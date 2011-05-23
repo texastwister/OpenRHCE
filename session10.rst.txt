@@ -181,22 +181,68 @@ time.
 Samba
 ----------------------------------------------------------------
 
-samba 
+Samba is a project providing software capable of utilizing the SMB (Server Message Block) and CIFS (Common Internet File System) protocols to interoperate with systems using MS-Windows-style file and printer sharing.
 
-system-config-samba
+Linux systems can use Samba to:
 
+* Act as a client to SMB/CIFS servers
 
+* Provide file and printer sharing services to clients
+
+* Provide domain controller functionality in a limited subset of possible configurations.
+
+Accessing SMB/CIFS Shares
+------------------------------
+
+* Graphically, using Nautilus:
+
+    Use **Places | Connect to Server**, choose ``Windows share`` as the **Service Type**  and provide the required credentials. 
+
+* Occasional, FTP-like access from the command line::
+
+    # smbclient //server/share/ -U username -W [domain or workgroup] 
+
+* Through filesystem mounts::
+
+    # mount -t cifs //server1/tmp /mnt/share -o credentials=/root/credentials
+
+* ``/etc/fstab`` entry::
+
+    # //server/share /mnt/point cifs credentials=/root/credentials 0 0
+
+* Credentials File contents::
+
+    user=<username>
+    pass=<password>
+    domain=<domainname>
+    
+Samba Packages:
+--------------------
+
+* samba 
+* samba-client
+* samba-common
+* samba-windbind
+* samba-domainjoin-gui (Optional Repository)
 
 SELinux
 ----------------------------------------------------------------
 
-allow_smb_anon_write
+SELinux notes are at the top of the config file (``/etc/samba/smb.conf``) and the man page samba_selinux (8).
 
-samba_enable_home_dirs
+SELinux Port Settings for Samba::
 
-samba_share_nfs
+    # semanage port -l  |grep smb
+    smbd_port_t                    tcp      137-139, 445
 
-use_samba_home_dirs
+SELinux Booleans for Samba::
+
+    # semanage boolean -l  |grep "smb\|samba"
+    
+SELinux fcontexts for Samba::
+
+    # semanage fcontext -l  |grep "smb\|samba"
+
 
 
 
@@ -209,25 +255,53 @@ chkconfig smb on
 
 
 
-Mounting
-----------------------------------------------------------------
-
-mount -t cifs //server1/tmp /mnt -o username=windows_user%password
-
-smbclient -L server1 -U username
-
-
 
 /etc/samba/smb.conf (Global)
 ----------------------------------------------------------------
 
 workgroup
-
-netbios name
+    Specifies a shared Windows Workgroup or Domain name.
 
 server string
+    Provides a description of the server.
 
-security
+netbios name
+    Specifies a name for the server for in implementations where NetBIOS is still used.
+
+Interfaces
+    Used to bind the service only to particular network adapters or IP addresses.
+
+Hosts Allow
+    Used for host-based access control.
+    
+
+/etc/samba/smb.conf Security Types
+---------------------------------------
+
+The security line establishes the security model for the server.  This would be one of the following:
+
+    user
+        Indicates that user credentials are held on the local server. 
+
+    share
+        Indicates that credentials are not kept globally on an individual basis.  All who report membership in the same workgroup are permitted access to the server and user authentication in configured in the share settings.
+
+    domain
+        Used when the Samba Server has been added to a Windows NT Domain.  User access is authenticated through a primary or secondary domain controller.
+        
+
+    server
+        User access is authenticated through a peer server that is not a domain controller.
+
+    ads
+        User access is authenticated through an Active Directory controller. Kerberos must be installed and configured to authenticate this machine's membership in the Domain.
+
+Samba Users and Passwords    
+-------------------------------
+
+When the security model set to ``user``, local Samba users and passwords must be created.  Typically, these accounts use the same user names as those configured on the local system.  ``smbpasswd`` is the command used::
+
+    # smbpasswd -a winuser 
 
 
 
@@ -246,17 +320,73 @@ Path must have appropriate filesystem permissions.
 
 
 
-Samba Users
-----------------------------------------------------------------
-
-smbpasswd -a newuser
-
-
 
 Testing Configuration
 ----------------------------------------------------------------
 
-testparm
+Syntax of the smb.conf file can be tested before restarting the service::
+
+    # testparm
+
+
+Samba Firewalling Considerations
+-------------------------------------
+
+Samba, in its latest version, uses TCP port 445.  
+
+For backwards compatibility, UDP ports 137 and 138 and TCP port 139 may also need to be opened in some instances.
+
+HowTo: Enable Home Directory sharing via Samba
+---------------------------------------------------
+
+#. Install the appropriate packages.
+
+#. Start and enable the service.
+
+#. Configure the workgroup name in smb.conf.
+
+#. Create the required Samba users and passwords.
+
+#. Enable the SELinux boolean permitting home directory access.
+
+#. Configure the firewall.
+
+#. Restart the service.
+
+#. Test from another system.
+
+HowTo: Configure a Group Share
+-----------------------------------
+
+#. Create the appropriate group if required.
+
+#. Create a collaborative directory.
+
+#. Set the SELinux contexts on the shared directory.
+
+#. Define the share in smb.conf.
+
+    Set the following values::
+
+        valid users = @groupname
+        writeable = yes
+
+    .. 
+
+        (Ensure that the directory permissions are 2770.)
+
+    or, to allow broader read-only permission::
+
+        writeable = no
+        write list = @groupname
+
+    ..
+
+        (And relax the directory permissions to 2775.)        
+#. Restart the service.
+
+#. Test from another system.
+
 
 
 

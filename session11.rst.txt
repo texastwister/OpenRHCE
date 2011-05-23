@@ -1,6 +1,35 @@
 Session 11 DNS and SMTP
 ===============================
 
+Types of DNS servers
+-----------------------------
+
+Authoritative
+
+* Master (primary)
+
+* Slave (secondary)
+
+Non-authoritative
+
+* Caching-only
+
+Current RHCE Objectives only require ability to configure a few behaviors of a caching-only name server. The default configuration is now a caching-only nameserver listening only to localhost.
+
+Installing and enabling Bind
+------------------------------
+
+::
+
+    # yum -y install bind
+
+    # service named start
+    
+    # chkconfig named on
+
+
+
+
 .. o DNS
 .. + * Install the packages needed to provide the service
 .. + * Configure SELinux to support the service
