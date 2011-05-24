@@ -30,6 +30,27 @@ Installing and enabling Bind
 
 
 
+Useful Commands
+------------------------
+
+.. rndc
+..   control the bind service.
+
+host
+  Queries for DNS resolution.  Uses /etc/nsswitch and /etc/resolv.conf.
+
+dig
+  Queries a DNS server directly.  By-passing local config files if you want.
+
+  dig www.dell.com
+    Gets dns server from resolv.conf
+
+  dig @dns_server www.dell.com
+    Queries DNS server directly.
+
+
+
+
 .. o DNS
 .. + * Install the packages needed to provide the service
 .. + * Configure SELinux to support the service
@@ -39,6 +60,61 @@ Installing and enabling Bind
 .. + * Configure a caching-only name server
 .. + * Configure a caching-only name server to forward DNS queries
 .. + * Note: Candidates are not expected to configure master or slave name servers
+
+
+
+
+Email TLAs:  MTA, MUA, MDA
+---------------------------------
+
+MTA - Mail Transfer Agent
+
+	Conveys mail from Server to Server (ex: sendmail, postfix)
+
+MUA - Mail User Agent
+
+	Conveys mail between Client and Server (ex: Evolution, Thunderbird, mutt, mail, elm)
+
+MDA - Mail Delivery Agent
+
+	Conveys mail from Server to local mail spools 
+
+
+Red Hat's New Default MTA: Postfix
+--------------------------------------
+
+
+Packages
+  postfix
+
+/etc/postfix/main.cf
+
+  myhostname = server.dell.com
+
+  mydomain = dell.com
+
+  myorigin = $mydomain
+
+  inet_interfaces = all
+  
+  mynetworks = 192.168.0.0/16, 10.0.0.0/8
+  
+  
+Postfix configuration tool
+-----------------------------------
+
+postconf
+
+	Applies configuration changes on the fly (not persistent).  Can also display available directives and default directives.
+
+Reading Mail
+--------------------
+
+mail
+
+mutt
+
+
 .. o SMTP
 .. + * Install the packages needed to provide the service
 .. + * Configure SELinux to support the service

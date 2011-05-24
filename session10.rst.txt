@@ -200,15 +200,18 @@ Accessing SMB/CIFS Shares
 
 * Occasional, FTP-like access from the command line::
 
-    # smbclient //server/share/ -U username -W [domain or workgroup] 
+    # smbclient //server/share/ -U username \
+    -W [domain or workgroup]
 
 * Through filesystem mounts::
 
-    # mount -t cifs //server1/tmp /mnt/share -o credentials=/root/credentials
+    # mount -t cifs //server1/tmp /mnt/share \
+    -o credentials=/root/credentials``
 
 * ``/etc/fstab`` entry::
 
-    # //server/share /mnt/point cifs credentials=/root/credentials 0 0
+    # //server/share /mnt/point cifs \
+    credentials=/root/credentials 0 0``
 
 * Credentials File contents::
 
