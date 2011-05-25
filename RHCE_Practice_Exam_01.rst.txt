@@ -10,6 +10,135 @@ You should configure your physical server and three virtual machines as follows:
     :header: "", "Physical Host", "vm1", "vm2", "vm3"
     :widths: 20, 20, 20, 20, 20
 
-    "Hostname", "s<x>host.linux-acc.local" , "s<x>server.linux-acc.local" , "s<x>client.linux-acc.local" , "s<x>notrust.linux-acc.local"
+    "Hostname", "s<x>host.linux-acc.local" , "s<x>server.linux-acc.local" , "s<x>client.linux-acc.local" , "s<x>untrusted.linux-acc.local"
     "IP Address", "192.168.5.<x>0", "192.168.5.<x>1", "192.168.5.<x>2", "DHCP"
-    "Def. GW", "192.168.4.1", 
+    "Subnet", "/22 or 255.255.252.0", "/22 or 255.255.252.0", "/22 or 255.255.252.0", "n/a"
+    "Def. GW", "192.168.4.1", "192.168.4.1", "192.168.4.1", "192.168.4.1"
+
+Networks:
+
+    Local network
+        192.168.4.0/22 (255.255.252.0), GW 192.168.4.0, DNS 192.168.7.254
+
+    Trusted subnet
+        192.168.5.0/24 (255.255.255.0)
+
+    Untrusted subnet
+        192.168.4.0/24 (255.255.255.0)
+        
+Configuration Common to all three VMs
+=========================================
+
+Obtain the .repo file from ftp://192.168.5.200 and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of:
+
+
+Untrusted VM Configuration
+================================
+
+On the untrusted host, use DHCP networking and install/configure only that components that are required for testing prohibited access to the services described below.
+
+Configuration Common to both the Server and Client VMs
+============================================================
+
+* Create Users:
+    * ford (UID=1005)
+    * carter (UID=1006)
+    * reagan (UID=1007)
+    * clinton (UID=1008)
+
+
+* Create Groups:
+
+    * presidents (GID=1000; members=ford, carter, reagan, clinton)
+    * republicans (GID=1001; members=ford, reagan)
+    * democrats (GID=1002; members=carter, clinton)
+
+Server Configuration
+========================
+
+
+* SSH connections should be allowed from throughout the 192.168.4.0/22 network.
+* For all other services, connections should be allowed from addresses within the trusted network (192.168.5.0/24), but disallowed from 192.168.4.0/24.
+* Configure an SMTP server that allows connections from the trusted subnet.
+* Connect to the iSCSI target provided by the target portal at 192.168.5.200.
+* Partition the iSCSI disk
+* Configure this virtual machine to boot to a command-line only.
+
+* Add add'l swap space
+
+* Create a PV, VG, and LV
+
+* Create directories:
+
+    ``/share/presidents``
+    
+        * All four users must be able to write here. 
+        * This directory must be owned by root and the group presidents.
+        * Only users in this group should have any access to the directory.
+        * Files created here should be owned by the group presidents.
+        * Users should not be able to delete files they did not create.
+        * This directory should have an SELinux fcontext that will permit it to be shared by multiple services.
+        
+    
+    ``/share/presidents/republicans``
+
+        * This directory should be owned by root and the group republicans.
+        * Files created here should be owned by the group republicans.
+        * Only users in this group should have any access to the directory.
+        * Users should not be able to delete files they did not create.
+        * This directory should have an SELinux fcontext that will permit it to be shared by multiple services.
+
+    ``/share/presidents/democrats``
+
+        * This directory should be owned by root and the group democrats.
+        * Files created here should be owned by the group democrats.
+        * Only users in this group should have any access to the directory.
+        * Users should not be able to delete files they did not create.
+        * This directory should have an SELinux fcontext that will permit it to be shared by multiple services.
+
+* Configure each of these four directories to be shared via NFS to any system in the trusted subnet.  Ensure that root privileges cannot be gained from a remote mount.
+
+* Configure an FTP server to allow anonymous downloads from ``/var/ftp/pub`` and anonymous uploads to ``/var/ftp/pub/inbound`` (create this directory and set permissions appropriately). Ensure that uploaded files cannot be viewed or downloaded without admin intervention.
+
+* Configure a Web server to serve the following vhosts:
+
+    Access to pres.s<x>server.linux-acc.local
+        serves an index page located in /share/presidents/
+        
+    Access to rep.s<x>server.linux-acc.local
+        serves an index page located in /share/presidents/republicans/
+
+    Access to dem.s<x>server.linux-acc.local
+        serves an index page located in /share/presidents/democrats/    
+
+    Use filesystem ACLs to resolve any permissions issues you encounter.
+
+    Place and index file in each of these locations that indicates which directory it is in and under which name it should be served out.
+
+
+* Configure Samba to share the /share/presidents directory using a share name of presidents. Make it readable for ford and carter and writable for reagan and clinton. 
+
+
+* SELinux should run in Enforcing mode and not interfering with any desired services.
+
+* The firewall should be enabled and not interfering with any desired services.
+
+
+
+Client Configuration
+=========================
+
+Mount an NFS share from the server
+
+Mount a SAMBA share from the server
+
+Configure this virtual machine to boot to the Gnome GUI.
+
+* Create a directory ``/home/remote``.
+
+* Configure the automounter such that attempt to access locations in ``/home/remote/presidents/`` cause the nfs share ``/share/presidents`` from your server to be mounted at ``/home/remote/presidents``.
+
+* Configure static name resolution so that s<x>server.linux-acc.local, s<x>server, pres.s<x>server.linux-acc.local, rep.s<x>server.linux-acc.local, and dem.s<x>server.linux-acc.local all resolve to the ip address of your server VM.
+
+
+ 

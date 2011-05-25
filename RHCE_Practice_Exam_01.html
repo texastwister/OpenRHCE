@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
 <title>RHCE Practice Exam #01</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -157,32 +157,11 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left, .figure.align-left{
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
+img.align-left {
+  clear: left }
 
-img.align-right, .figure.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
-
-.align-left {
-  text-align: left }
-
-.align-center {
-  clear: both ;
-  text-align: center }
-
-.align-right {
-  text-align: right }
-
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: left }
-
-/* div.align-center * { */
-/*   text-align: left } */
+img.align-right {
+  clear: right }
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -237,7 +216,8 @@ p.topic-title {
 pre.address {
   margin-bottom: 0 ;
   margin-top: 0 ;
-  font: inherit }
+  font-family: serif ;
+  font-size: 100% }
 
 pre.literal-block, pre.doctest-block {
   margin-left: 2em ;
@@ -322,7 +302,7 @@ ul.auto-toc {
 <tr><th class="head">&nbsp;</th>
 <th class="head">Physical Host</th>
 <th class="head">vm1</th>
-<th class="head">vm2&quot;</th>
+<th class="head">vm2</th>
 <th class="head">vm3</th>
 </tr>
 </thead>
@@ -331,7 +311,7 @@ ul.auto-toc {
 <td>s&lt;x&gt;host.linux-acc.local</td>
 <td>s&lt;x&gt;server.linux-acc.local</td>
 <td>s&lt;x&gt;client.linux-acc.local</td>
-<td>s&lt;x&gt;notrust.linux-acc.local</td>
+<td>s&lt;x&gt;untrusted.linux-acc.local</td>
 </tr>
 <tr><td>IP Address</td>
 <td>192.168.5.&lt;x&gt;0</td>
@@ -339,8 +319,158 @@ ul.auto-toc {
 <td>192.168.5.&lt;x&gt;2</td>
 <td>DHCP</td>
 </tr>
+<tr><td>Subnet</td>
+<td>/22 or 255.255.252.0</td>
+<td>/22 or 255.255.252.0</td>
+<td>/22 or 255.255.252.0</td>
+<td>n/a</td>
+</tr>
+<tr><td>Def. GW</td>
+<td>192.168.4.1</td>
+<td>192.168.4.1</td>
+<td>192.168.4.1</td>
+<td>192.168.4.1</td>
+</tr>
 </tbody>
 </table>
+<p>Networks:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Local network</dt>
+<dd>192.168.4.0/22 (255.255.252.0), GW 192.168.4.0, DNS 192.168.7.254</dd>
+<dt>Trusted subnet</dt>
+<dd>192.168.5.0/24 (255.255.255.0)</dd>
+<dt>Untrusted subnet</dt>
+<dd>192.168.4.0/24 (255.255.255.0)</dd>
+</dl>
+</blockquote>
+<div class="section" id="configuration-common-to-all-three-vms">
+<h1>Configuration Common to all three VMs</h1>
+<p>Obtain the .repo file from <a class="reference external" href="ftp://192.168.5.200">ftp://192.168.5.200</a> and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of:</p>
+</div>
+<div class="section" id="untrusted-vm-configuration">
+<h1>Untrusted VM Configuration</h1>
+<p>On the untrusted host, use DHCP networking and install/configure only that components that are required for testing prohibited access to the services described below.</p>
+</div>
+<div class="section" id="configuration-common-to-both-the-server-and-client-vms">
+<h1>Configuration Common to both the Server and Client VMs</h1>
+<ul>
+<li><dl class="first docutils">
+<dt>Create Users:</dt>
+<dd><ul class="first last simple">
+<li>ford (UID=1005)</li>
+<li>carter (UID=1006)</li>
+<li>reagan (UID=1007)</li>
+<li>clinton (UID=1008)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Create Groups:</p>
+<blockquote>
+<ul class="simple">
+<li>presidents (GID=1000; members=ford, carter, reagan, clinton)</li>
+<li>republicans (GID=1001; members=ford, reagan)</li>
+<li>democrats (GID=1002; members=carter, clinton)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="server-configuration">
+<h1>Server Configuration</h1>
+<ul>
+<li><p class="first">SSH connections should be allowed from throughout the 192.168.4.0/22 network.</p>
+</li>
+<li><p class="first">For all other services, connections should be allowed from addresses within the trusted network (192.168.5.0/24), but disallowed from 192.168.4.0/24.</p>
+</li>
+<li><p class="first">Configure an SMTP server that allows connections from the trusted subnet.</p>
+</li>
+<li><p class="first">Connect to the iSCSI target provided by the target portal at 192.168.5.200.</p>
+</li>
+<li><p class="first">Partition the iSCSI disk</p>
+</li>
+<li><p class="first">Configure this virtual machine to boot to a command-line only.</p>
+</li>
+<li><p class="first">Add add'l swap space</p>
+</li>
+<li><p class="first">Create a PV, VG, and LV</p>
+</li>
+<li><p class="first">Create directories:</p>
+<blockquote>
+<p><tt class="docutils literal"><span class="pre">/share/presidents</span></tt></p>
+<blockquote>
+<ul class="simple">
+<li>All four users must be able to write here.</li>
+<li>This directory must be owned by root and the group presidents.</li>
+<li>Only users in this group should have any access to the directory.</li>
+<li>Files created here should be owned by the group presidents.</li>
+<li>Users should not be able to delete files they did not create.</li>
+<li>This directory should have an SELinux fcontext that will permit it to be shared by multiple services.</li>
+</ul>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">/share/presidents/republicans</span></tt></p>
+<blockquote>
+<ul class="simple">
+<li>This directory should be owned by root and the group republicans.</li>
+<li>Files created here should be owned by the group republicans.</li>
+<li>Only users in this group should have any access to the directory.</li>
+<li>Users should not be able to delete files they did not create.</li>
+<li>This directory should have an SELinux fcontext that will permit it to be shared by multiple services.</li>
+</ul>
+</blockquote>
+<p><tt class="docutils literal"><span class="pre">/share/presidents/democrats</span></tt></p>
+<blockquote>
+<ul class="simple">
+<li>This directory should be owned by root and the group democrats.</li>
+<li>Files created here should be owned by the group democrats.</li>
+<li>Only users in this group should have any access to the directory.</li>
+<li>Users should not be able to delete files they did not create.</li>
+<li>This directory should have an SELinux fcontext that will permit it to be shared by multiple services.</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+<li><p class="first">Configure each of these four directories to be shared via NFS to any system in the trusted subnet.  Ensure that root privileges cannot be gained from a remote mount.</p>
+</li>
+<li><p class="first">Configure an FTP server to allow anonymous downloads from <tt class="docutils literal"><span class="pre">/var/ftp/pub</span></tt> and anonymous uploads to <tt class="docutils literal"><span class="pre">/var/ftp/pub/inbound</span></tt> (create this directory and set permissions appropriately). Ensure that uploaded files cannot be viewed or downloaded without admin intervention.</p>
+</li>
+<li><p class="first">Configure a Web server to serve the following vhosts:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Access to pres.s&lt;x&gt;server.linux-acc.local</dt>
+<dd><p class="first last">serves an index page located in /share/presidents/</p>
+</dd>
+<dt>Access to rep.s&lt;x&gt;server.linux-acc.local</dt>
+<dd><p class="first last">serves an index page located in /share/presidents/republicans/</p>
+</dd>
+<dt>Access to dem.s&lt;x&gt;server.linux-acc.local</dt>
+<dd><p class="first last">serves an index page located in /share/presidents/democrats/</p>
+</dd>
+</dl>
+<p>Use filesystem ACLs to resolve any permissions issues you encounter.</p>
+<p>Place and index file in each of these locations that indicates which directory it is in and under which name it should be served out.</p>
+</blockquote>
+</li>
+<li><p class="first">Configure Samba to share the /share/presidents directory using a share name of presidents. Make it readable for ford and carter and writable for reagan and clinton.</p>
+</li>
+<li><p class="first">SELinux should run in Enforcing mode and not interfering with any desired services.</p>
+</li>
+<li><p class="first">The firewall should be enabled and not interfering with any desired services.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="client-configuration">
+<h1>Client Configuration</h1>
+<p>Mount an NFS share from the server</p>
+<p>Mount a SAMBA share from the server</p>
+<p>Configure this virtual machine to boot to the Gnome GUI.</p>
+<ul class="simple">
+<li>Create a directory <tt class="docutils literal"><span class="pre">/home/remote</span></tt>.</li>
+<li>Configure the automounter such that attempt to access locations in <tt class="docutils literal"><span class="pre">/home/remote/presidents/</span></tt> cause the nfs share <tt class="docutils literal"><span class="pre">/share/presidents</span></tt> from your server to be mounted at <tt class="docutils literal"><span class="pre">/home/remote/presidents</span></tt>.</li>
+<li>Configure static name resolution so that s&lt;x&gt;server.linux-acc.local, s&lt;x&gt;server, pres.s&lt;x&gt;server.linux-acc.local, rep.s&lt;x&gt;server.linux-acc.local, and dem.s&lt;x&gt;server.linux-acc.local all resolve to the ip address of your server VM.</li>
+</ul>
+</div>
 </div>
 </body>
 </html>
