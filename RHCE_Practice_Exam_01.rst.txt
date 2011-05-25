@@ -1,0 +1,15 @@
+==============================
+RHCE Practice Exam #01
+==============================
+
+These tasks are taken from the objectives Red Hat has publicly posted and should therefore approximate the type of tasks one might find on the RHCE exam.  It is expressly NOT based on actual contents of a Red Hat Exam.
+
+You should configure your physical server and three virtual machines as follows:
+
+.. csv-table:: Systems Configuration
+    :header: "", "Physical Host", "vm1", "vm2", "vm3"
+    :widths: 20, 20, 20, 20, 20
+
+    "Hostname", "s<x>host.linux-acc.local" , "s<x>server.linux-acc.local" , "s<x>client.linux-acc.local" , "s<x>notrust.linux-acc.local"
+    "IP Address", "192.168.5.<x>0", "192.168.5.<x>1", "192.168.5.<x>2", "DHCP"
+    "Def. GW", "192.168.4.1", 
