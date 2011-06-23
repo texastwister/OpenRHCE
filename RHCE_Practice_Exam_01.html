@@ -331,6 +331,12 @@ ul.auto-toc {
 <td>192.168.4.1</td>
 <td>192.168.4.1</td>
 </tr>
+<tr><td>Nameserver</td>
+<td>192.168.7.254</td>
+<td>192.168.7.254</td>
+<td>192.168.7.254</td>
+<td>192.168.7.254</td>
+</tr>
 </tbody>
 </table>
 <p>Networks:</p>
@@ -346,7 +352,7 @@ ul.auto-toc {
 </blockquote>
 <div class="section" id="configuration-common-to-all-three-vms">
 <h1>Configuration Common to all three VMs</h1>
-<p>Obtain the .repo file from <a class="reference external" href="ftp://192.168.5.200">ftp://192.168.5.200</a> and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of:</p>
+<p>Obtain the .repo file from <a class="reference external" href="ftp://192.168.5.200/pub/classroom.repo">ftp://192.168.5.200/pub/classroom.repo</a> and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of: <a class="reference external" href="ftp://192.168.5.200/pub/rhel6">ftp://192.168.5.200/pub/rhel6</a>.</p>
 </div>
 <div class="section" id="untrusted-vm-configuration">
 <h1>Untrusted VM Configuration</h1>
@@ -388,7 +394,13 @@ ul.auto-toc {
 </li>
 <li><p class="first">Connect to the iSCSI target provided by the target portal at 192.168.5.200.</p>
 </li>
-<li><p class="first">Partition the iSCSI disk</p>
+<li><p class="first">Partition the iSCSI disk into 2 approximately equal partitions.</p>
+<blockquote>
+<ul class="simple">
+<li>Use one for extra swap space.</li>
+<li>Use one for an ext4 filesystem mounted at /data</li>
+</ul>
+</blockquote>
 </li>
 <li><p class="first">Configure this virtual machine to boot to a command-line only.</p>
 </li>
@@ -471,6 +483,11 @@ ul.auto-toc {
 <li>Configure static name resolution so that s&lt;x&gt;server.linux-acc.local, s&lt;x&gt;server, pres.s&lt;x&gt;server.linux-acc.local, rep.s&lt;x&gt;server.linux-acc.local, and dem.s&lt;x&gt;server.linux-acc.local all resolve to the ip address of your server VM.</li>
 </ul>
 </div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Generated on: 2011-05-25 23:54 UTC.
+
 </div>
 </body>
 </html>

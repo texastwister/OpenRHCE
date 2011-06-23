@@ -14,6 +14,7 @@ You should configure your physical server and three virtual machines as follows:
     "IP Address", "192.168.5.<x>0", "192.168.5.<x>1", "192.168.5.<x>2", "DHCP"
     "Subnet", "/22 or 255.255.252.0", "/22 or 255.255.252.0", "/22 or 255.255.252.0", "n/a"
     "Def. GW", "192.168.4.1", "192.168.4.1", "192.168.4.1", "192.168.4.1"
+    "Nameserver", "192.168.7.254", "192.168.7.254", "192.168.7.254", "192.168.7.254"
 
 Networks:
 
@@ -29,7 +30,7 @@ Networks:
 Configuration Common to all three VMs
 =========================================
 
-Obtain the .repo file from ftp://192.168.5.200 and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of:
+Obtain the .repo file from ftp://192.168.5.200/pub/classroom.repo and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of: ftp://192.168.5.200/pub/rhel6.
 
 
 Untrusted VM Configuration
@@ -61,7 +62,11 @@ Server Configuration
 * For all other services, connections should be allowed from addresses within the trusted network (192.168.5.0/24), but disallowed from 192.168.4.0/24.
 * Configure an SMTP server that allows connections from the trusted subnet.
 * Connect to the iSCSI target provided by the target portal at 192.168.5.200.
-* Partition the iSCSI disk
+* Partition the iSCSI disk into 2 approximately equal partitions.
+
+	* Use one for extra swap space.
+	* Use one for an ext4 filesystem mounted at /data
+
 * Configure this virtual machine to boot to a command-line only.
 
 * Add add'l swap space
