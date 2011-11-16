@@ -59,41 +59,104 @@ ________________________________
 * Something fun about yourself.
 
 
-
 Introductions: The Course
 -------------------------------
 
-Expectations
-__________________
+Course Goals
+_____________________
+
+Primary Goal:
+    Preparation to Pass the RHCE Exam (assumes passage of the RHCSA Exam)
+
+Secondary Goal:
+    Preparation to Pass the RHCSA Exam
+    
+Tertiary Goal:
+    Acquiring high-level Enterprise-oriented Linux skills
+    
+NOT a Goal of this course:
+    Acquiring basic or user-oriented Linux skills.  These are assumed as prerequisite for this course.
+
+
+Introductions: Reasonable Expectations
+-------------------------------------------
 
 * Should I be able to pass the RHCE on this class alone?
 
-    A stunning number of seasoned professionals taking Red Hat's own prep courses fail to pass on first attempt.
+    A stunning number (estimated at 50% or more) of seasoned professionals taking Red Hat's own prep courses fail to pass on first attempt.
 
 * Planning for more than one attempt is prudent.
 
+    Pass rates go up substantially on 2nd attempts.
+
 * Maximizing your out-of-class preparation time is prudent.
 
-Preparation Recommendations
-_______________________________
 
-* Practice/Study Environment
 
-   * 2 or 3 systems or VMs, networked together.  Virtualized hosting providers may be an alternative.
+Introductions: Preparation Recommendations 
+-----------------------------------------------
 
-   * RHEL 6 (eval), CENTOS 6 (when available), or Fedora (Fedora 13 will be closest to RHEL 6)
+**1. Build a Practice/Study Environment**
 
-   * Red Hat docs at: 
+    * Scenario 1 -- A single virtualization-capable system with multiple vm "guests".
+    
+        * Host must have a 64 bit CPU with HW virtualization extensions
+        * 4 GB or more of RAM recommended as a minimum -- 2GB is likely an absolute minimum
+        * 60 GB of HDD space recommended as a minimum -- enough for the host OS and several VMs.
 
-        http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html
+    * Scenario 2 -- Several physical systems, networked together.
+    
+        * These can be 32-bit (i386 / i686) or 64-bit (x86_64) systems
+        * Each should have 768 MB of RAM as a minimum.
+        * Each should have 12-20 GB of HDD space as a minimum.
 
-   * RHCE Objectives and other information at:
+        .. caution::
 
-        http://www.redhat.com/certification/
+            You may be unable to practice a few of the objectives (those related to virtualization) in this scenario.
 
-   * Take initiative -- form a study group.
+Introductions: Preparation Recommendations 
+-----------------------------------------------
 
-   * Practice, practice, practice!
+**2. Take initiative -- form a study group.**
+
+    Find Participants:
+    
+        * In class
+        * At work
+        * Linked-In groups
+        * MeetUp
+
+**3. Practice, practice, practice!**
+
+Introductions: An OS for Practice and Study
+----------------------------------------------
+
+RHEL 6
+    http://www.redhat.com/wapps/eval/index.html?evaluation_id=1008
+
+
+CENTOS 6
+    https://www.centos.org/
+
+ClearOS Core (*Not* Enterprise)
+    http://www.clearfoundation.com/Software/downloads (64-bit only)
+    
+Scientific Linux
+    http://www.scientificlinux.org/
+
+Fedora 13
+    http://mirrors.fedoraproject.org/publiclist/Fedora/13/x86_64/
+    
+Introductions: Online Information
+----------------------------------------------
+
+Red Hat docs:
+    http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html
+
+RHCE Objectives and other information at:
+    http://www.redhat.com/certification/
+
+
 
 Red Hat Enterprise Linux
 -----------------------------
