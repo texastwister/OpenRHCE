@@ -2252,7 +2252,7 @@ Switching between Controlling Services
 To disable NetworkManager and enable network::
 
     # service NetworkManager stop; chkconfig NetworkManager off
-    # service network start; chkconfig network start
+    # service network start; chkconfig network on
 
 To disable network and enable NetworkManager::
 
