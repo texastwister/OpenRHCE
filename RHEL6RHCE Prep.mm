@@ -1,18 +1,18 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1319728294704" ID="ID_1153882205" MODIFIED="1319728294704" TEXT="RHEL6RHCE Prep">
-<node CREATED="1319728294704" ID="ID_215955514" MODIFIED="1319728294704" POSITION="right" TEXT="Class Schedule">
-<node CREATED="1319728294704" FOLDED="true" ID="ID_1331121639" MODIFIED="1321477670313" TEXT="Session 1">
+<node CREATED="1319728294704" ID="ID_1153882205" MODIFIED="1321569811978" TEXT="RHEL6RHCE Prep">
+<node CREATED="1319728294704" ID="ID_215955514" MODIFIED="1321570565832" POSITION="right" TEXT="Class Schedule">
+<node CREATED="1319728294704" ID="ID_1331121639" MODIFIED="1321570588132" TEXT="Session 1">
 <node CREATED="1319728294704" ID="ID_1146856243" MODIFIED="1319728294704" TEXT="Introductions"/>
 <node CREATED="1319728294704" ID="ID_1908516405" MODIFIED="1319728294704" TEXT="Prerequisites and Expectations"/>
 <node CREATED="1319728294705" ID="ID_1566155996" MODIFIED="1319728294705" TEXT="Operating a System">
-<node CREATED="1319728294705" ID="ID_1188743769" MODIFIED="1319728294705" TEXT="* Boot, reboot, and shut down a system normally"/>
-<node CREATED="1319728294705" ID="ID_890183301" MODIFIED="1319728294705" TEXT="* Boot systems into different runlevels manually"/>
-<node CREATED="1319728294705" ID="ID_470858787" MODIFIED="1319728294705" TEXT="* Use single-user mode to gain access to a system"/>
-<node CREATED="1319728294705" ID="ID_1540561576" MODIFIED="1319728294705" TEXT="* Locate and interpret system log files"/>
-<node CREATED="1319728294705" ID="ID_371605150" MODIFIED="1319728294705" TEXT="* Access a virtual machine&apos;s console"/>
-<node CREATED="1319728294705" ID="ID_541761131" MODIFIED="1319728294705" TEXT="* Start and stop virtual machines"/>
-<node CREATED="1319728294705" ID="ID_484926133" MODIFIED="1319728294705" TEXT="* Start, stop and check the status of network services"/>
+<node CREATED="1319728294705" ID="ID_1188743769" MODIFIED="1321572648857" TEXT="* Boot, reboot, and shut down a system normally"/>
+<node CREATED="1319728294705" ID="ID_890183301" MODIFIED="1321571551511" TEXT="* Boot systems into different runlevels manually"/>
+<node CREATED="1319728294705" ID="ID_470858787" MODIFIED="1321571550768" TEXT="* Use single-user mode to gain access to a system"/>
+<node CREATED="1319728294705" ID="ID_1540561576" MODIFIED="1321571550048" TEXT="* Locate and interpret system log files"/>
+<node CREATED="1319728294705" ID="ID_371605150" MODIFIED="1321571549280" TEXT="* Access a virtual machine&apos;s console"/>
+<node CREATED="1319728294705" ID="ID_541761131" MODIFIED="1321571548463" TEXT="* Start and stop virtual machines"/>
+<node CREATED="1319728294705" ID="ID_484926133" MODIFIED="1321571547528" TEXT="* Start, stop and check the status of network services"/>
 <node CREATED="1319728294705" ID="ID_1451929210" MODIFIED="1319728294705" TEXT="* Modify the system bootloader"/>
 </node>
 <node CREATED="1319728893530" ID="ID_916122289" MODIFIED="1319728903602" TEXT="Reading">
@@ -26,7 +26,7 @@
 <node CREATED="1319728294705" ID="ID_1012915486" MODIFIED="1319728294705" TEXT="Manipulate the CUPS service"/>
 </node>
 </node>
-<node CREATED="1319728294706" FOLDED="true" ID="ID_411909771" MODIFIED="1321477669307" TEXT="Session 2">
+<node CREATED="1319728294706" ID="ID_411909771" MODIFIED="1321572982993" TEXT="Session 2">
 <node CREATED="1319728294726" ID="ID_1435922068" MODIFIED="1319728294726" TEXT="Manage Users and Groups">
 <node CREATED="1319728294726" ID="ID_333179605" MODIFIED="1319728294726" TEXT="* Create, delete, and modify local user accounts"/>
 <node CREATED="1319728294726" ID="ID_1509453225" MODIFIED="1319728294726" TEXT="* Change passwords and adjust password aging for local user accounts"/>
@@ -89,7 +89,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1319728294724" FOLDED="true" ID="ID_101719393" MODIFIED="1321477668176" TEXT="Session 3">
+<node CREATED="1319728294724" ID="ID_101719393" MODIFIED="1321572988317" TEXT="Session 3">
 <node CREATED="1319728294724" ID="ID_982131387" MODIFIED="1319728294724" TEXT="Managing Software">
 <node CREATED="1319728294724" ID="ID_1705921072" MODIFIED="1319728294724" TEXT="RHN"/>
 <node CREATED="1319728294724" ID="ID_299890750" MODIFIED="1319728294724" TEXT="Repos"/>
@@ -114,7 +114,7 @@
 </node>
 <node CREATED="1319729153097" ID="ID_1179355196" MODIFIED="1319729156905" TEXT="Labs"/>
 </node>
-<node CREATED="1319728294726" FOLDED="true" ID="ID_1397400519" MODIFIED="1321477667192" TEXT="Session 4">
+<node CREATED="1319728294726" ID="ID_1397400519" MODIFIED="1321573003146" TEXT="Session 4">
 <node CREATED="1319728294725" ID="ID_1948530387" MODIFIED="1319728294725" TEXT="Manage system performance">
 <node CREATED="1319728294725" ID="ID_1294289732" MODIFIED="1319728294725" TEXT="* Use /proc/sys and sysctl to modify and set kernel run-time parameters"/>
 <node CREATED="1319728294726" ID="ID_1754138943" MODIFIED="1319728294726" TEXT="* Produce and deliver reports on system utilization (processor, memory, disk, and network)"/>
@@ -129,7 +129,7 @@
 </node>
 <node CREATED="1319729153097" ID="ID_1450505672" MODIFIED="1319729156905" TEXT="Labs"/>
 </node>
-<node CREATED="1319728294727" FOLDED="true" ID="ID_136442725" MODIFIED="1321477666312" TEXT="Session 5">
+<node CREATED="1319728294727" ID="ID_136442725" MODIFIED="1321573018159" TEXT="Session 5">
 <node CREATED="1319728294727" ID="ID_484638153" MODIFIED="1319728294727" TEXT="IPTables">
 <node CREATED="1319728294727" ID="ID_1679262005" MODIFIED="1319728294727" TEXT="* Configure firewall settings using system-config-firewall or iptables"/>
 </node>
@@ -145,7 +145,7 @@
 </node>
 <node CREATED="1319729153097" ID="ID_925561324" MODIFIED="1319729156905" TEXT="Labs"/>
 </node>
-<node CREATED="1319728294728" FOLDED="true" ID="ID_1726926865" MODIFIED="1321477665240" TEXT="Session 6">
+<node CREATED="1319728294728" FOLDED="true" ID="ID_1726926865" MODIFIED="1321570575358" TEXT="Session 6">
 <node CREATED="1319728294728" ID="ID_858871914" MODIFIED="1319728294728" TEXT="KVM Virtualization">
 <node CREATED="1319728294728" ID="ID_1625423502" MODIFIED="1319728294728" TEXT="* Configure a physical machine to host virtual guests"/>
 <node CREATED="1319728294728" ID="ID_462113621" MODIFIED="1319728294728" TEXT="* Install Red Hat Enterprise Linux systems as virtual guests"/>
@@ -277,110 +277,113 @@
 </node>
 <node CREATED="1319728294735" ID="ID_1234650037" MODIFIED="1319728294735" TEXT="Optional Session"/>
 </node>
+<node CREATED="1321570720271" ID="ID_348930139" MODIFIED="1321570882847" POSITION="left" TEXT="Icon Usage Key">
+<node CREATED="1321570739357" ID="ID_224917239" MODIFIED="1321570872158" TEXT="Prerequisites -- covered only incidentally">
+<icon BUILTIN="yes"/>
+</node>
+</node>
 <node CREATED="1319728294735" ID="ID_961927711" MODIFIED="1319742696319" POSITION="left" TEXT="Objectives">
 <node CREATED="1319728294735" ID="ID_17703519" MODIFIED="1319728294735" TEXT="RHCSA">
-<node CREATED="1319728294735" ID="ID_641950962" MODIFIED="1319742708204" TEXT="Understand and use Essential Tools">
-<icon BUILTIN="flag"/>
-<node CREATED="1319728294735" ID="ID_325426217" MODIFIED="1319728294735" TEXT="* Access a shell prompt and issue commands with correct syntax">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294735" ID="ID_641950962" MODIFIED="1321574381038" TEXT="Understand and use Essential Tools">
+<node CREATED="1319728294735" ID="ID_325426217" MODIFIED="1321574178700" TEXT="* Access a shell prompt and issue commands with correct syntax">
+<arrowlink DESTINATION="ID_1989070138" ENDARROW="Default" ENDINCLINATION="722;0;" ID="Arrow_ID_1937611447" STARTARROW="None" STARTINCLINATION="722;0;"/>
+<icon BUILTIN="yes"/>
 </node>
-<node CREATED="1319728294735" ID="ID_643842696" MODIFIED="1319728294735" TEXT="* Use input-output redirection (&gt;, &gt;&gt;, |, 2&gt;, etc.)">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294735" ID="ID_643842696" MODIFIED="1321574219729" TEXT="* Use input-output redirection (&gt;, &gt;&gt;, |, 2&gt;, etc.)">
+<arrowlink DESTINATION="ID_1989070138" ENDARROW="Default" ENDINCLINATION="637;0;" ID="Arrow_ID_643831899" STARTARROW="None" STARTINCLINATION="637;0;"/>
+<icon BUILTIN="yes"/>
 </node>
-<node CREATED="1319728294736" ID="ID_329059332" MODIFIED="1319728294736" TEXT="* Use grep and regular expressions to analyze text">
-<icon BUILTIN="flag"/>
-<icon BUILTIN="clanbomber"/>
+<node CREATED="1319728294736" ID="ID_329059332" MODIFIED="1321574287162" TEXT="* Use grep and regular expressions to analyze text">
+<arrowlink DESTINATION="ID_1989070138" ENDARROW="Default" ENDINCLINATION="626;0;" ID="Arrow_ID_1812966197" STARTARROW="None" STARTINCLINATION="626;0;"/>
+<icon BUILTIN="yes"/>
 </node>
-<node CREATED="1319728294736" ID="ID_1912648374" MODIFIED="1319728294736" TEXT="* Access remote systems using ssh and VNC"/>
-<node CREATED="1319728294736" ID="ID_139344539" MODIFIED="1319728294736" TEXT="* Log in and switch users in multi-user runlevels">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294736" ID="ID_1912648374" MODIFIED="1321574388961" TEXT="* Access remote systems using ssh and VNC">
+<arrowlink DESTINATION="ID_1022098037" ENDARROW="Default" ENDINCLINATION="724;0;" ID="Arrow_ID_1652470262" STARTARROW="None" STARTINCLINATION="724;0;"/>
+<arrowlink DESTINATION="ID_4830557" ENDARROW="Default" ENDINCLINATION="543;0;" ID="Arrow_ID_545363497" STARTARROW="None" STARTINCLINATION="543;0;"/>
 </node>
-<node CREATED="1319728294736" ID="ID_1967394677" MODIFIED="1319728294736" TEXT="* Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294736" ID="ID_139344539" MODIFIED="1321574540596" TEXT="* Log in and switch users in multi-user runlevels">
+<arrowlink DESTINATION="ID_827036733" ENDARROW="Default" ENDINCLINATION="749;0;" ID="Arrow_ID_506338472" STARTARROW="None" STARTINCLINATION="749;0;"/>
 </node>
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* Create and edit text files">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294736" ID="ID_1967394677" MODIFIED="1321574571474" TEXT="* Archive, compress, unpack and uncompress files using tar, star, gzip, and bzip2">
+<arrowlink DESTINATION="ID_1022098037" ENDARROW="Default" ENDINCLINATION="836;0;" ID="Arrow_ID_437343754" STARTARROW="None" STARTINCLINATION="836;0;"/>
 </node>
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* Create, delete, copy and move files and directories">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294736" ID="ID_1805327093" MODIFIED="1321570540819" TEXT="* Create and edit text files"/>
+<node CREATED="1319728294736" ID="ID_807994682" MODIFIED="1321570540819" TEXT="* Create, delete, copy and move files and directories"/>
+<node CREATED="1319728294736" ID="ID_1997918630" MODIFIED="1321570540819" TEXT="* Create hard and soft links"/>
+<node CREATED="1319728294736" ID="ID_1286792656" MODIFIED="1321570540819" TEXT="* List, set and change standard ugo/rwx permissions"/>
+<node CREATED="1319728294736" ID="ID_1417581789" MODIFIED="1321570540818" TEXT="* Locate, read and use system documentation including man, info, and files in /usr/share/doc."/>
 </node>
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* Create hard and soft links"/>
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* List, set and change standard ugo/rwx permissions"/>
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* Locate, read and use system documentation including man, info, and files in /usr/share/doc.">
-<icon BUILTIN="flag"/>
+<node CREATED="1319728294736" FOLDED="true" ID="ID_909479171" MODIFIED="1321574077873" TEXT="Operate Running Systems">
+<node CREATED="1319728294736" ID="ID_639581414" MODIFIED="1321572648856" TEXT="* Boot, reboot, and shut down a system normally"/>
+<node CREATED="1319728294737" ID="ID_1130085524" MODIFIED="1321571551511" TEXT="* Boot systems into different runlevels manually"/>
+<node CREATED="1319728294737" ID="ID_1307754721" MODIFIED="1321571550767" TEXT="* Use single-user mode to gain access to a system"/>
+<node CREATED="1319728294737" ID="ID_1818152261" MODIFIED="1319728294737" TEXT="* Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes"/>
+<node CREATED="1319728294737" ID="ID_1734487902" MODIFIED="1321571550047" TEXT="* Locate and interpret system log files"/>
+<node CREATED="1319728294737" ID="ID_234682751" MODIFIED="1321571549280" TEXT="* Access a virtual machine&apos;s console"/>
+<node CREATED="1319728294737" ID="ID_509643284" MODIFIED="1321571548463" TEXT="* Start and stop virtual machines"/>
+<node CREATED="1319728294737" ID="ID_461496343" MODIFIED="1321571547528" TEXT="* Start, stop and check the status of network services"/>
 </node>
+<node CREATED="1319728294737" FOLDED="true" ID="ID_579073141" MODIFIED="1321572576250" TEXT="Configure Local Storage">
+<node CREATED="1319728294737" ID="ID_898428028" MODIFIED="1319728294737" TEXT="* List, create, delete and set partition type for primary, extended, and logical partitions"/>
+<node CREATED="1319728294737" ID="ID_202574578" MODIFIED="1319728294737" TEXT="* Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes"/>
+<node CREATED="1319728294737" ID="ID_1141070827" MODIFIED="1319728294737" TEXT="* Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot"/>
+<node CREATED="1319728294737" ID="ID_1328088753" MODIFIED="1319728294737" TEXT="* Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label"/>
+<node CREATED="1319728294737" ID="ID_1601811820" MODIFIED="1319728294737" TEXT="* Add new partitions, logical volumes, and swap to a system non-destructively"/>
 </node>
-<node CREATED="1319728294736" ID="ID_909479171" MODIFIED="1319742721585" TEXT="Operate Running Systems">
-<node CREATED="1319728294736" MODIFIED="1319728294736" TEXT="* Boot, reboot, and shut down a system normally"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Boot systems into different runlevels manually"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Use single-user mode to gain access to a system"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Identify CPU/memory intensive processes, adjust process priority with renice, and kill processes"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Locate and interpret system log files"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Access a virtual machine&apos;s console"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Start and stop virtual machines"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Start, stop and check the status of network services"/>
-</node>
-<node CREATED="1319728294737" ID="ID_579073141" MODIFIED="1319742734261" TEXT="Configure Local Storage">
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* List, create, delete and set partition type for primary, extended, and logical partitions"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label"/>
-<node CREATED="1319728294737" MODIFIED="1319728294737" TEXT="* Add new partitions, logical volumes, and swap to a system non-destructively"/>
-</node>
-<node CREATED="1319728294737" ID="ID_1247713159" MODIFIED="1319729776324" TEXT="Create and Configure File Systems">
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Create, mount, unmount and use ext2, ext3 and ext4 file systems"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Mount, unmount and use ~LUKS-encrypted file systems"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Mount and unmount CIFS and NFS network file systems"/>
+<node CREATED="1319728294737" FOLDED="true" ID="ID_1247713159" MODIFIED="1321572578374" TEXT="Create and Configure File Systems">
+<node CREATED="1319728294738" ID="ID_1438856973" MODIFIED="1319728294738" TEXT="* Create, mount, unmount and use ext2, ext3 and ext4 file systems"/>
+<node CREATED="1319728294738" ID="ID_1569730228" MODIFIED="1319728294738" TEXT="* Mount, unmount and use ~LUKS-encrypted file systems"/>
+<node CREATED="1319728294738" ID="ID_1317992522" MODIFIED="1319728294738" TEXT="* Mount and unmount CIFS and NFS network file systems"/>
 <node CREATED="1319728294738" ID="ID_697175495" MODIFIED="1319728294738" TEXT="* Configure systems to mount ext4, ~LUKS-encrypted and network file systems automatically"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Extend existing unencrypted ext4-formatted logical volumes"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Create and configure set-GID directories for collaboration"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Create and manage Access Control Lists"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Diagnose and correct file permission problems"/>
+<node CREATED="1319728294738" ID="ID_1357229574" MODIFIED="1319728294738" TEXT="* Extend existing unencrypted ext4-formatted logical volumes"/>
+<node CREATED="1319728294738" ID="ID_902872730" MODIFIED="1319728294738" TEXT="* Create and configure set-GID directories for collaboration"/>
+<node CREATED="1319728294738" ID="ID_508882493" MODIFIED="1319728294738" TEXT="* Create and manage Access Control Lists"/>
+<node CREATED="1319728294738" ID="ID_1054237350" MODIFIED="1319728294738" TEXT="* Diagnose and correct file permission problems"/>
 </node>
-<node CREATED="1319728294738" ID="ID_1542966792" MODIFIED="1319742744934" TEXT="Deploy, Configure, and Maintain Systems">
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Configure networking and hostname resolution statically or dynamically"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Schedule tasks using cron"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Configure systems to boot into a specific runlevel automatically"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Install Red Hat Enterprise Linux automatically using Kickstart"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Configure a physical machine to host virtual guests"/>
-<node CREATED="1319728294738" MODIFIED="1319728294738" TEXT="* Install Red Hat Enterprise Linux systems as virtual guests"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Configure systems to launch virtual machines at boot"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Configure network services to start automatically at boot"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Configure a system to run a default configuration HTTP server"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Configure a system to run a default configuration FTP server"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Update the kernel package appropriately to ensure a bootable system"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Modify the system bootloader"/>
+<node CREATED="1319728294738" FOLDED="true" ID="ID_1542966792" MODIFIED="1321574270197" TEXT="Deploy, Configure, and Maintain Systems">
+<node CREATED="1319728294738" ID="ID_635665961" MODIFIED="1319728294738" TEXT="* Configure networking and hostname resolution statically or dynamically"/>
+<node CREATED="1319728294738" ID="ID_1965047564" MODIFIED="1319728294738" TEXT="* Schedule tasks using cron"/>
+<node CREATED="1319728294738" ID="ID_700205491" MODIFIED="1319728294738" TEXT="* Configure systems to boot into a specific runlevel automatically"/>
+<node CREATED="1319728294738" ID="ID_1758908363" MODIFIED="1319728294738" TEXT="* Install Red Hat Enterprise Linux automatically using Kickstart"/>
+<node CREATED="1319728294738" ID="ID_1426603912" MODIFIED="1319728294738" TEXT="* Configure a physical machine to host virtual guests"/>
+<node CREATED="1319728294738" ID="ID_186627382" MODIFIED="1319728294738" TEXT="* Install Red Hat Enterprise Linux systems as virtual guests"/>
+<node CREATED="1319728294739" ID="ID_965186508" MODIFIED="1319728294739" TEXT="* Configure systems to launch virtual machines at boot"/>
+<node CREATED="1319728294739" ID="ID_290221313" MODIFIED="1319728294739" TEXT="* Configure network services to start automatically at boot"/>
+<node CREATED="1319728294739" ID="ID_1463340196" MODIFIED="1319728294739" TEXT="* Configure a system to run a default configuration HTTP server"/>
+<node CREATED="1319728294739" ID="ID_1635882128" MODIFIED="1319728294739" TEXT="* Configure a system to run a default configuration FTP server"/>
+<node CREATED="1319728294739" ID="ID_329450675" MODIFIED="1319728294739" TEXT="* Install and update software packages from Red Hat Network, a remote repository, or from the local filesystem"/>
+<node CREATED="1319728294739" ID="ID_1468352257" MODIFIED="1319728294739" TEXT="* Update the kernel package appropriately to ensure a bootable system"/>
+<node CREATED="1319728294739" ID="ID_1311014302" MODIFIED="1319728294739" TEXT="* Modify the system bootloader"/>
 </node>
-<node CREATED="1319728294739" ID="ID_858939255" MODIFIED="1319742750706" TEXT="Manage Users and Groups">
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Create, delete, and modify local user accounts"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Change passwords and adjust password aging for local user accounts"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Create, delete and modify local groups and group memberships"/>
-<node CREATED="1319728294739" MODIFIED="1319728294739" TEXT="* Configure a system to use an existing LDAP directory service for user and group information"/>
+<node CREATED="1319728294739" FOLDED="true" ID="ID_858939255" MODIFIED="1321572582663" TEXT="Manage Users and Groups">
+<node CREATED="1319728294739" ID="ID_1482141194" MODIFIED="1319728294739" TEXT="* Create, delete, and modify local user accounts"/>
+<node CREATED="1319728294739" ID="ID_164754772" MODIFIED="1319728294739" TEXT="* Change passwords and adjust password aging for local user accounts"/>
+<node CREATED="1319728294739" ID="ID_472525704" MODIFIED="1319728294739" TEXT="* Create, delete and modify local groups and group memberships"/>
+<node CREATED="1319728294739" ID="ID_1840108622" MODIFIED="1319728294739" TEXT="* Configure a system to use an existing LDAP directory service for user and group information"/>
 </node>
-<node CREATED="1319728294739" ID="ID_1452784926" MODIFIED="1319742762652" TEXT="Manage Security">
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Configure firewall settings using system-config-firewall or iptables"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Set enforcing and permissive modes for SELinux"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* List and identify SELinux file and process context"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Restore default file contexts"/>
+<node CREATED="1319728294739" FOLDED="true" ID="ID_1452784926" MODIFIED="1321572583711" TEXT="Manage Security">
+<node CREATED="1319728294740" ID="ID_1516849336" MODIFIED="1319728294740" TEXT="* Configure firewall settings using system-config-firewall or iptables"/>
+<node CREATED="1319728294740" ID="ID_581805251" MODIFIED="1319728294740" TEXT="* Set enforcing and permissive modes for SELinux"/>
+<node CREATED="1319728294740" ID="ID_769020147" MODIFIED="1319728294740" TEXT="* List and identify SELinux file and process context"/>
+<node CREATED="1319728294740" ID="ID_1646131156" MODIFIED="1319728294740" TEXT="* Restore default file contexts"/>
 <node CREATED="1319728294740" ID="ID_14739443" MODIFIED="1319728294740" TEXT="* Use boolean settings to modify system SELinux settings"/>
 <node CREATED="1319728294740" ID="ID_1010713596" MODIFIED="1319728294740" TEXT="* Diagnose and address routine SELinux policy violations"/>
 </node>
 </node>
-<node CREATED="1319728294740" ID="ID_410340339" MODIFIED="1319742779239" TEXT="RHCE">
-<node CREATED="1319728294740" ID="ID_168347514" MODIFIED="1319742860319" TEXT="System Configuration and Management">
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Use iptables to implement packet filtering and configure NAT"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Use /proc/sys and sysctl to modify and set kernel run-time parameters"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Configure system to authenticate using Kerberos"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Build a simple RPM that packages a single file"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Configure a system as an iSCSI initiator that persistently mounts an iSCSI target"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Produce and deliver reports on system utilization (processor, memory, disk, and network)"/>
+<node CREATED="1319728294740" FOLDED="true" ID="ID_410340339" MODIFIED="1321574082856" TEXT="RHCE">
+<node CREATED="1319728294740" FOLDED="true" ID="ID_168347514" MODIFIED="1321574076257" TEXT="System Configuration and Management">
+<node CREATED="1319728294740" ID="ID_1203307063" MODIFIED="1319728294740" TEXT="* Use iptables to implement packet filtering and configure NAT"/>
+<node CREATED="1319728294740" ID="ID_37558949" MODIFIED="1319728294740" TEXT="* Use /proc/sys and sysctl to modify and set kernel run-time parameters"/>
+<node CREATED="1319728294740" ID="ID_1681670236" MODIFIED="1319728294740" TEXT="* Configure system to authenticate using Kerberos"/>
+<node CREATED="1319728294740" ID="ID_773869685" MODIFIED="1319728294740" TEXT="* Build a simple RPM that packages a single file"/>
+<node CREATED="1319728294740" ID="ID_746183820" MODIFIED="1319728294740" TEXT="* Configure a system as an iSCSI initiator that persistently mounts an iSCSI target"/>
+<node CREATED="1319728294740" ID="ID_42704621" MODIFIED="1319728294740" TEXT="* Produce and deliver reports on system utilization (processor, memory, disk, and network)"/>
 <node CREATED="1319728294740" ID="ID_1641282131" MODIFIED="1319728294740" TEXT="* Use shell scripting to automate system maintenance tasks"/>
-<node CREATED="1319728294740" MODIFIED="1319728294740" TEXT="* Configure a system to log to a remote system"/>
-<node CREATED="1319728294741" MODIFIED="1319728294741" TEXT="* Configure a system to accept logging from a remote system"/>
-<node CREATED="1319728294741" MODIFIED="1319728294741" TEXT="* Route IP traffic and create static routes"/>
+<node CREATED="1319728294740" ID="ID_1385154567" MODIFIED="1319728294740" TEXT="* Configure a system to log to a remote system"/>
+<node CREATED="1319728294741" ID="ID_1236115187" MODIFIED="1319728294741" TEXT="* Configure a system to accept logging from a remote system"/>
+<node CREATED="1319728294741" ID="ID_1035196433" MODIFIED="1319728294741" TEXT="* Route IP traffic and create static routes"/>
 </node>
-<node CREATED="1319728294741" ID="ID_384131469" MODIFIED="1319728294741" TEXT="Network Services">
+<node CREATED="1319728294741" FOLDED="true" ID="ID_384131469" MODIFIED="1321574080275" TEXT="Network Services">
 <node CREATED="1319728294741" ID="ID_1029786026" MODIFIED="1319742858445" TEXT="General Requirements for each service">
 <node CREATED="1319728294741" MODIFIED="1319728294741" TEXT="* Install the packages needed to provide the service"/>
 <node CREATED="1319728294741" ID="ID_1902508089" MODIFIED="1319728294741" TEXT="* Configure SELinux to support the service"/>
@@ -422,7 +425,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1319729788382" ID="ID_1575403577" MODIFIED="1320203946071" POSITION="left" TEXT="Jang Outline">
+<node CREATED="1319729788382" ID="ID_1575403577" MODIFIED="1321574106990" POSITION="left" TEXT="Jang Outline">
 <node CREATED="1319729937927" FOLDED="true" ID="ID_1371854199" MODIFIED="1319740974202" TEXT="1 Preparing for RHCE Certs">
 <node CREATED="1319729807109" ID="ID_1692387673" MODIFIED="1319729833699" TEXT="1.01 RHCSA and RHCE"/>
 <node CREATED="1319729834354" ID="ID_583170018" MODIFIED="1319729848123" TEXT="1.02 Basic Hardware Reqs"/>
@@ -432,7 +435,7 @@
 <node CREATED="1319729892335" ID="ID_1205579213" MODIFIED="1319729903072" TEXT="1.06 System Setup Opts"/>
 <node CREATED="1319729904912" ID="ID_346218883" MODIFIED="1319729928657" TEXT="1.07 Configuring Default File Sharing Services"/>
 </node>
-<node CREATED="1319730124182" ID="ID_4830557" MODIFIED="1319741431822" TEXT="2 VMs and Automated Installs">
+<node CREATED="1319730124182" FOLDED="true" ID="ID_4830557" MODIFIED="1321574369017" TEXT="2 VMs and Automated Installs">
 <node CREATED="1319730128425" ID="ID_10856573" MODIFIED="1319730141752" TEXT="2.01 Configure KVM"/>
 <node CREATED="1319730142230" ID="ID_1791617405" MODIFIED="1319730158017" TEXT="2.02 Configure a VM on KVM"/>
 <node CREATED="1319730158506" ID="ID_1335828736" MODIFIED="1319730174976" TEXT="2.03 Automated Installation Options"/>
@@ -445,7 +448,7 @@
 <node CREATED="1319730313641" ID="ID_1359741029" MODIFIED="1319730315780" TEXT="lftp"/>
 </node>
 </node>
-<node CREATED="1319730354737" ID="ID_1989070138" MODIFIED="1319742091622" TEXT="3 Fundamental Command Line Skills">
+<node CREATED="1319730354737" ID="ID_1989070138" MODIFIED="1321574287161" TEXT="3 Fundamental Command Line Skills">
 <node CREATED="1319730359475" ID="ID_1717131603" MODIFIED="1319730365892" TEXT="3.01 Shells"/>
 <node CREATED="1319730366306" ID="ID_1874250382" MODIFIED="1319730381539" TEXT="3.02 Standard Command Line Tools"/>
 <node CREATED="1319730381820" ID="ID_328191749" MODIFIED="1319730398687" TEXT="3.03 Management of text files"/>
@@ -453,13 +456,13 @@
 <node CREATED="1319730406511" ID="ID_1286091233" MODIFIED="1319730422685" TEXT="3.05 A Networking Primer"/>
 <node CREATED="1319730438585" ID="ID_1515867980" MODIFIED="1319730460092" TEXT="3.06 Network Configuration and Troubleshooting"/>
 </node>
-<node CREATED="1319730539665" ID="ID_1264083334" MODIFIED="1319742044075" TEXT="4 RHCSA-Level Security Options">
+<node CREATED="1319730539665" FOLDED="true" ID="ID_1264083334" MODIFIED="1321574123840" TEXT="4 RHCSA-Level Security Options">
 <node CREATED="1319730691378" ID="ID_865416632" MODIFIED="1319730702359" TEXT="4.01 Basic File Permissions"/>
 <node CREATED="1319730702694" ID="ID_63431288" MODIFIED="1319730870513" TEXT="4.02 Access Control Lists and More"/>
 <node CREATED="1319730871722" ID="ID_1361954795" MODIFIED="1319730885762" TEXT="4.03 Basic Firewall Control"/>
 <node CREATED="1319730887473" ID="ID_1410505905" MODIFIED="1319730908283" TEXT="4.04 A Security-Enhanced Linux Primer"/>
 </node>
-<node CREATED="1319732986287" ID="ID_1434233356" MODIFIED="1319742273517" TEXT="5 The Boot Process">
+<node CREATED="1319732986287" FOLDED="true" ID="ID_1434233356" MODIFIED="1321574125808" TEXT="5 The Boot Process">
 <node CREATED="1319733190025" ID="ID_690376327" MODIFIED="1319733210020" TEXT="5.01 The BIOS and UEFI"/>
 <node CREATED="1319733210801" ID="ID_466632972" MODIFIED="1319733276135" TEXT="5.02 Bootloaders and GRUB"/>
 <node CREATED="1319733277160" ID="ID_696623167" MODIFIED="1319733290613" TEXT="5.03 Between GRUB and Login"/>
@@ -467,7 +470,7 @@
 <node CREATED="1319733309698" ID="ID_209573496" MODIFIED="1319733319773" TEXT="5.05 Network Configuration"/>
 <node CREATED="1319733320437" ID="ID_1927919829" MODIFIED="1319733337351" TEXT="5.06 Time Synchronization"/>
 </node>
-<node CREATED="1319733348730" ID="ID_1697273064" MODIFIED="1319741967613" TEXT="6 Filesystem Administration">
+<node CREATED="1319733348730" FOLDED="true" ID="ID_1697273064" MODIFIED="1321574127721" TEXT="6 Filesystem Administration">
 <node CREATED="1319733447624" ID="ID_1361461688" MODIFIED="1319733463532" TEXT="6.01 Storage Management and Partitions"/>
 <node CREATED="1319733464397" ID="ID_1376846168" MODIFIED="1319733476247" TEXT="6.02 Filesystem Formats"/>
 <node CREATED="1319733476907" ID="ID_496027971" MODIFIED="1319733498489" TEXT="6.03 Basic Linux Filesystems and Directories"/>
@@ -481,14 +484,14 @@
 <node CREATED="1319733743561" ID="ID_946807880" MODIFIED="1319733758333" TEXT="7.03 Dependencies and the yum Command"/>
 <node CREATED="1319733759191" ID="ID_186350051" MODIFIED="1319733788680" TEXT="7.04 More Package Management Tools"/>
 </node>
-<node CREATED="1319733862108" FOLDED="true" ID="ID_827036733" MODIFIED="1319740951758" TEXT="8 User Administration">
+<node CREATED="1319733862108" FOLDED="true" ID="ID_827036733" MODIFIED="1321574540597" TEXT="8 User Administration">
 <node CREATED="1319733873398" ID="ID_905641216" MODIFIED="1319733895058" TEXT="8.01 User Account Management"/>
 <node CREATED="1319733895763" ID="ID_1992051956" MODIFIED="1319733907888" TEXT="8.02 Administrative Control"/>
 <node CREATED="1319733908540" ID="ID_1830851192" MODIFIED="1319733925531" TEXT="8.03 User and Shell Configuration"/>
 <node CREATED="1319733926173" ID="ID_1386347734" MODIFIED="1319733947095" TEXT="8.04 Users and Network Authentication"/>
 <node CREATED="1319733947937" ID="ID_1116163181" MODIFIED="1319733962504" TEXT="8.05 Special Groups"/>
 </node>
-<node CREATED="1319734559914" ID="ID_1022098037" MODIFIED="1319741738407" TEXT="9 RHCSA-Level System Admin Tasks">
+<node CREATED="1319734559914" FOLDED="true" ID="ID_1022098037" MODIFIED="1321574571474" TEXT="9 RHCSA-Level System Admin Tasks">
 <node CREATED="1319734586217" ID="ID_285319096" MODIFIED="1319734616255" TEXT="9.01 Configure VNC Access"/>
 <node CREATED="1319734616833" ID="ID_1064378571" MODIFIED="1319734637572" TEXT="9.02 Basic System Admin Commands"/>
 <node CREATED="1319734638092" ID="ID_1167211766" MODIFIED="1319734656374" TEXT="9.03 System Automation with Cron and At"/>
@@ -502,13 +505,13 @@
 <node CREATED="1319734823190" ID="ID_554453120" MODIFIED="1319734835744" TEXT="10.05 PAM"/>
 <node CREATED="1319734836346" ID="ID_1708633231" MODIFIED="1319734891013" TEXT="10.06 GPG"/>
 </node>
-<node CREATED="1319735008093" ID="ID_1322886149" MODIFIED="1319741858799" TEXT="11 System Services and SELinux">
+<node CREATED="1319735008093" FOLDED="true" ID="ID_1322886149" MODIFIED="1321574142305" TEXT="11 System Services and SELinux">
 <node CREATED="1319735144325" ID="ID_30670155" MODIFIED="1319735159643" TEXT="11.01 Red Hat System Config"/>
 <node CREATED="1319735160326" ID="ID_183364532" MODIFIED="1319735170745" TEXT="11.02 SELinux"/>
 <node CREATED="1319735171226" ID="ID_1058246363" MODIFIED="1319735180303" TEXT="11.03 SSH"/>
 <node CREATED="1319735181091" ID="ID_21537671" MODIFIED="1319735218679" TEXT="11.04 A Security and Config Checklist"/>
 </node>
-<node CREATED="1319735352537" ID="ID_1266380858" MODIFIED="1319741803246" TEXT="12 RHCE Admin Tasks">
+<node CREATED="1319735352537" FOLDED="true" ID="ID_1266380858" MODIFIED="1321574143673" TEXT="12 RHCE Admin Tasks">
 <node CREATED="1319735367997" ID="ID_4681269" MODIFIED="1319735380182" TEXT="12.01 Automate System Maintenance"/>
 <node CREATED="1319735380572" ID="ID_159052656" MODIFIED="1319735408695" TEXT="12.02 Kernel Run-Time Parameters"/>
 <node CREATED="1319735409558" ID="ID_902865817" MODIFIED="1319735429963" TEXT="12.03 Create an RPM Package"/>

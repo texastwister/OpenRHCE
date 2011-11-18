@@ -3279,13 +3279,15 @@ Basic format:  ``<daemon list>: <client list> [: <option>: <option>: ...]``
 
 
 
+.. |date| date:: %B %d, %Y
 
 
 
-
+Source Repository
+=====================
 
 
    :Info: See <https://github.com/texastwister/OpenRHCE> for the latest version of this doc.
    :Author: Scott Purcell <scott@texastwister.info>
-   :Date:  Wednesday, May 18, 2011
+   :Date:  |date|
 
