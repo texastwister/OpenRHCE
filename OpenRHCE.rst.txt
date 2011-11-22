@@ -218,14 +218,39 @@ The Red Hat Certification Landscape
 
     RHCSA is new, replacing the RHCT.  It is the "core" sysadmin certification from Red Hat. To earn RHCE and other system administration certs will require first earning the RHCSA.
 
+        * `RHCSA Details`_
+
+            .. _`RHCSA Details`: https://www.redhat.com/courses/ex200_rhcsa_exam/
+
+        * `RHCSA Objectives`_
+
+            .. _`RHCSA Objectives`: https://www.redhat.com/certification/rhcsa/objectives/
+            
 * RHCE
 
     RHCE is a senior system administration certification. It is an eligibility requirement for taking any COE exams and is thus a requirement for the upper-level credentials as well.
     
+        * `RHCE Details`_
 
+            .. _`RHCE Details`: https://www.redhat.com/courses/ex300_red_hat_certified_engineer_exam/
+
+        * `RHCE Objectives`_
+
+            .. _`RHCE Objectives`: https://www.redhat.com/certification/rhce/objectives/
+
+.. raw:: pdf
+
+    PageBreak oneColumn
+    
+    
 * Certificates of Expertise
 
     COEs are incremental credentials demonstrating skills and knowledge in specialized areas. They are worthy credentials in their own right, but also the building blocks of the upper level credentials.
+
+        * `Overview of COEs`_
+
+            .. _`Overview of COEs`: https://www.redhat.com/certification/certificates_of_expertise/
+
 
 * RHCSS, RHCDS, RHCA
 
@@ -2667,17 +2692,1529 @@ Installing ``setroubleshoot-server`` sends SELinux error messages to ``/var/log/
 
 
 
-.. include:: session06.rst.txt
+Session 6 Virtualization
+================================
 
-.. include:: session07.rst.txt
+Virtualization Terms
+--------------------------
 
-.. include:: session08.rst.txt
+Physical Machine
+    The actual physical machine with RAM, disk space, etc.
 
-.. include:: session09.rst.txt
+Virtual Machine 
+    A logical construct provided by hardware and/or software capabilities that can run an independent OS and perform work as though it were a physical machine.
 
-.. include:: session10.rst.txt
+Hypervisor
+    A specialized OS that provides virtual machines.
 
-.. include:: session11.rst.txt
+Xen
+    A hypervisor previously available on Red Hat operating systems that was implemented as a modified version of the Linux kernel.
+
+KVM
+    Kernel Virtual Machine, the hypervisor Red Hat currently supports on RHEL6. It is implemented within (as a set of kernel modules) the mainstream Linux kernel.
+
+Guest
+    The operating system that runs on a virtual machine.
+
+Host
+    The operating system that runs on a physical machine hosting virtual machines (i.e. the hypervisor).
+
+RHEL6 KVM requirements
+-------------------------
+
+* 64-bit Intel or AMD processor
+
+    To confirm, search ``/proc/cpuinfo`` for the string ``lm`` on the flags line.
+
+* CPU Hardware assisted virtualization extensions (enabled in BIOS)
+
+    To confirm, search ``/proc/cpuinfo`` for the string ``vmx`` (for Intel) or ``svm`` (for AMD)
+
+* 64-bit version of RHEL6
+
+    To confirm, look for ``x86_64`` in the output of ``uname -m``.
+    
+
+KVM Virtualization Components
+-----------------------------------
+
+* KVM kernel modules
+
+* libvirt
+
+* ``virsh`` virtualization shell
+
+* ``virt-manager``
+
+Installing Virtualization Capabilities
+---------------------------------------------
+
+At OS Installation:
+    Select the ``Virtual Host`` server role --or-- customize packages and select the ``Virtualization`` package group. In a kickstart file, these packages can be installed as a group with the ``@kvm`` group name.
+
+After Installation:
+    With entitlement to the Virtualization packages, or access to them through a 3rd party repository,: ``yum install kvm``
+
+Other recommended packages:
+
+    * python-virtinst
+    * libvirt
+    * libvirt-python
+    * virt-manager
+    * libvirt-client
+
+Virsh Commands
+--------------------
+
+Power on a virtual machine::
+
+    virsh start <vm name>
+
+Gracefully shut down a virtual machine::
+
+    virsh shutdown <vm name or id>
+
+Power off a virtual machine::
+
+    virsh destroy <vm name or id>
+
+Connect to a virtual machine console (requires guest configuration)::
+
+    virsh console <vm name or id>
+
+Disconnect from a console of a virtual machine::
+
+    ^]  ( "ctrl + ]" )
+
+Set a VM to start at boot::
+
+    virsh autostart <vm name or id>
+    
+Creating Virtual Machines with Virt-Manager
+-------------------------------------------------
+
+Demonstrated and practiced in the classroom.
+
+
+Creating Virtual Machines with virt-install
+---------------------------------------------
+
+``virt-install`` is a command-line tool used to create virtual machines.
+
+See the syntax with ``man virt-install`` or ``virt-install --help``.
+
+Sample command::
+
+    # virt-install --name StXVM3 --ram 768 \
+    --disk path=/var/lib/libvirt/images/StXVM3disk1.img,size=8\
+    --network network=default --cdrom /dev/cdrom
+
+
+
+SELinux considerations
+-----------------------------
+
+* SELinux expects file-based guest images to be stored in ``/var/lib/libvirt/images/``. Use of other locations with SELinux enforcing will require adding the location to the SELinux policies.
+
+#. Find the context applied to the expected location::
+    
+    # ll -Z /var/lib/libvirt/
+
+    drwx--x--x. root root system_u:object_r:virt_image_t:s0 images
+
+#. Add a new context policy::
+
+    # semanage fcontext -a -t virt_image_t "/virtstorage(/.*)?"
+
+#. Set the context to match the newly created policy::
+
+    # restorecon -R -v /virtstorage/
+    restorecon reset /virtstorage context unconfined_u:object_r:
+    default_t:s0->system_u:object_r:virt_image_t:s0
+
+
+
+.. o KVM Virtualization
+.. + * Configure a physical machine to host virtual guests
+.. + * Install Red Hat Enterprise Linux systems as virtual guests
+.. + * Configure systems to launch virtual machines at boot
+.. + * Install Red Hat Enterprise Linux automatically using Kickstart
+
+
+
+Session 7 Logging and remote access
+=========================================
+
+RHEL 6 Logging with Rsyslog
+-------------------------------
+
+Red Hat uses ``rsyslog`` for its logging facility.  ``rsyslog`` can be configured to for local logging only, to send log messages to a remote destination as well, and to recieve log messages from other systems as well.
+
+**Terms**
+
+facility
+    A name that indicates what the message concerns or from what service it originates.
+
+priority
+    A name that indicates the importance of the messages in that category.
+
+The man pages for logger(1) and syslog(3) have more information.
+
+``rsyslog`` is configured in ``/etc/rsyslog.conf`` and defaults to using port 514 (TCP or UDP) to send and receive messages.
+
+Accepting Remote Logs
+------------------------------------
+
+By default, ``rsyslog`` is configured for only local logging.  To enable it to receive log messages from other systems, uncomment one of the following groups of lines in the config file (depending on which transport protocol, tcp or udp, you prefer to use):
+
+For UDP (more widely supported but less reliable)::
+
+
+    # Provides UDP syslog reception
+    #$ModLoad imudp.so
+    #$UDPServerRun 514
+
+
+    
+
+For TCP (less widely supported but more reliable)::
+
+    # Provides TCP syslog reception
+    #$ModLoad imtcp.so  
+    #$InputTCPServerRun 514
+
+After changing the appropriate lines, restart the service.
+
+Rsyslog Configuration: Message Selection
+---------------------------------------------
+
+In ``/etc/rsyslog.conf`` in the "RULES" section, ensure that a rule exists (or write one) for the kind of messages you want to send.  The format is::
+
+    <facility>.<priority>        <action>
+
+facility
+    One of: auth, authpriv, cron, daemon, kern, lpr, mail, news, syslog, user, uucp, local0-7, or "*"
+
+priority
+    One of (in ascending priority): debug, info, notice, warning (warn), err (error), crit, alert, emerg (panic), none, or "*" 
+
+* Multiple facilities can be specified with the same priority with the use of a comma.
+
+    ::
+    
+        uucp,news.crit       /var/log/spooler
+
+
+* Multiple selectors (facility/priority pairs) can be specified for the same action with the use of a semicolon.
+
+    ::
+    
+        *.info;mail.none;authpriv.none;cron.none   /var/log/messages
+
+
+
+Rsyslog Configuration: Actions
+----------------------------------
+
+action
+    One of the following:
+
+        * A file, specified with a full path name.
+        * A named pipe (fifo)
+        * A terminal (tty) or console
+        * A remote machine's IP or hostname, prefaced with "@" (for UDP), "@@" (for TCP), or ":omrelp:" for the RELP protocol.
+        * A list of users (comma-delimited). This notifies them via console message if they are logged in. An asterisk (*) includes all logged-in users
+        * A tilde, to indicate that these messages should be discarded.
+        * See the documentation for others.
+        
+Practice
+--------------
+
+Configure one system to receive remote log messages.  Configure the other to log only a particular facility or priority to the remote syslog server.
+
+Use ``logger`` to generate test messages.
+
+Remember to investigate firewall and SELinux considerations.
+
+.. o + - Remote Logging
+.. + *..  Configure a system to log to a remote system
+.. + * Configure a system to accept logging from a remote system
+.. o + - Remote Access
+.. iptables -I INPUT {x} -p udp -m udp --dport 514 -j ACCEPT
+
+Remote Access via SSH
+-----------------------------
+
+RedHat installs by default both the OpenSSH client package (openssh) and the server package (openssh-server)
+
+Client behavior is configured in ``/etc/ssh/ssh_config``
+
+Server behavior is configured in ``/etc/ssh/sshd_config``
+
+Start the service::
+
+    # service sshd start
+
+Configure it persistently on::
+
+    # chkconfig sshd on
+    
+Investigate SELinux implications for SSH
+-------------------------------------------
+
+Find SELinux Filesystem contexts that might affect ssh::
+
+    semanage fcontext -l | grep "ssh"
+
+Find SELinux port contexts that might affect ssh::
+
+    semanage port -l | grep "ssh"
+    
+
+Find SELinux booleans that might affect ssh::
+
+    getsebool -a | grep ssh
+
+SSH key-based authentication
+----------------------------------
+
+Generate a key with ``ssh-keygen``
+
+Transmit a key to a remote system with ``ssh-copy-id``
+
+    * The key you want is usually named ``~/.ssh/id_rsa.pub``.  Be certain to use the .pub version of the key instead of the private key!
+
+
+SSH Security Considerations
+------------------------------
+
+Allow root logins?
+    Disallow with ``PermitRootLogin no`` in ``/etc/ssh/sshd_config``
+
+Listen on specific interfaces?
+    Specify with ``ListenAddress x.x.x.x`` in ``/etc/ssh/sshd_config``
+
+Allow legacy versions?
+    Specify allowed versions of the protocol in ``/etc/ssh/sshd_config`` (read comments).
+
+Allow X11 forwarding?
+    Configure with ``X11Forwarding yes|no`` in ``/etc/ssh/sshd_config``
+     
+Specify alternate port?
+    Configure with ``Port xx`` in ``/etc/ssh/sshd_config``. Multiple ports on multiple lines accepted. Don't forget firewall and SELinux implications though!
+
+    
+.. # * Install the packages needed to provide the service
+.. # * Configure SELinux to support the service
+.. # * Configure the service to start when the system is booted
+.. # * Configure the service for basic operation
+.. # * Configure host-based and user-based security for the service
+.. # * Configure key-based authentication
+.. # * Configure additional SSH options described in documentation
+
+Remote Access via VNC
+----------------------------
+
+For remote management when a GUI is desired or required, Red Hat provides VNC services through tigervnc.
+
+Install the package with ``yum -y install tigervnc-server``.
+
+Configure the service at /etc/sysconfig/vncservers
+
+Start the service::
+
+    # service vncserver start
+
+Configure it persistently on::
+
+    # chkconfig vncserver on 
+
+Configuring a VNC remote display
+----------------------------------
+
+In ``/etc/sysconfig/vncservers`` uncomment and modify the lines below::
+
+    # VNCSERVERS="2:myusername"
+    # VNCSERVERARGS[2]="-geometry 800x600 -nolisten tcp -localhost"
+
+.. 
+	Multiple VNC servers can be configured on the same line, space-delimited, but each one requires its own set of vncserverargs on a separate line.
+
+As the user who will connect, set a VNC password with ``vncpasswd``.
+
+Start or restart the service.
+
+Connect to the remote system using a vnc client with the ``-via`` option::
+
+	vncviewer localhost:<x> -via y.y.y.y
+
+..
+
+	Where X is the display number and y.y.y.y is the IP address of the remote machine.
+
+Investigate SELinux implications for VNC
+-------------------------------------------
+
+Find SELinux Filesystem contexts that might affect vnc::
+
+    # semanage fcontext -l | grep "vnc"
+
+Find SELinux port contexts that might affect vnc::
+
+    # semanage port -l | grep "vnc"
+    
+Find SELinux booleans that might affect vnc::
+
+    # getsebool -a | grep vnc
+
+    
+.. # * Install the packages needed to provide the service
+.. # * Configure SELinux to support the service
+.. # * Configure the service to start when the system is booted
+.. # * Configure the service for basic operation
+.. # * Configure host-based and user-based security for the service
+
+
+Session 8 Network Time Protocol and System Performance Reports
+====================================================================
+
+
+NTP Overview
+------------------------
+
+NTP (Network Time Protocol) provides a standardized way for systems to provide and obtain correct time over the network.
+
+This service is increasingly critical for today's networking environments.  Synchronized time information is required for accurate handling of email, for clustering, for cloud computing, and for virtualization (just to name a few).
+
+NTP Packages
+----------------
+
+ntp
+    Provides the daemon and utilities
+
+system-config-date
+    Provides a graphical interface for changing the time and configuring an NTP client.
+
+ntpdate
+    Provides a command line utility for setting the date and time with NTP
+
+NTP Documentation
+-----------------------
+
+Many man pages:
+
+    ntp.conf (5)
+
+    ntp_misc (5)
+
+    ntp_acc (5)
+
+    ntp_auth (5)
+
+    ntp_clock (5)
+
+    ntp_mon (5)
+
+    ntpd (8)
+
+    
+
+
+Installing, Starting, and Configuring Persistence
+---------------------------------------------------------
+
+Install the service (likely already installed)::
+
+    # yum -y install ntp
+
+Starting the service::
+
+    # service ntpd start
+
+Configuring it to be on persistently::
+
+    # chkconfig ntpd on
+
+
+
+Defining NTP Terms
+------------------------
+
+Stratum0
+    A clock device such as an atomic, radio, or GPS clock device. Not usually attached to the network but connected to a server.
+
+Stratum1
+    A server attached to a high accuracy time device that also allows queries for its time information.
+
+Stratum{2..16}
+    Servers that acquire time information from servers above them in the hierarchy and share that information with peers or clients.
+
+Server (in ntp.conf)
+    A time server that is a more authoritative time-source (higher stratum) than the system being configured, and from which this system obtains time information.
+
+Peer (in ntp.conf)
+    A time server that is considered equally authoritative (same stratum) with the system being configured, and with which this system shares time information.
+
+Configuration of NTP
+-----------------------------
+
+Configured in ``/etc/ntp.conf``
+
+``restrict`` lines
+    Define the access to be allowed or restricted for other hosts that communicate with this service. Each server or peer configured must be included in a ``restrict`` line.
+
+``server`` lines
+    Define a host to be queried as a more authoritative time source.
+
+``peer`` lines
+    Define a host to be queried as an equally authoritative time source.
+
+``broadcast`` or ``multicast`` lines
+    Define ways to obtain or provide time information apart from unicast queries.
+
+NTP "restrict" options
+-----------------------------
+
+::
+
+    restrict <address> [mask <subnet mask> ] [flag] [flag] ...
+
+address and optional mask
+    The address, in dotted-quad notation, of the host or network to be restricted. Alternatively, the address can be a valid DNS name.
+
+ignore (flag)
+    Disallows all packets
+
+kod (flag)
+    Sends a "kiss of death" packet to misbehaving (usually fire-walled) clients.
+
+nomodify (flag)
+    Allows queries for information, but denies attempts to modify the time.
+
+noquery (flag)
+    Deny ntpq and ntpdc queries. The time service is unaffected.
+
+nopeer (flag)
+    Deny packets related to peering
+
+notrap  (flag)
+    Deny "trap" messages (used in logging).
+
+
+Configure as a Client
+------------------------------
+
+#. Include at least one server (three are preferred) in ``/etc/ntp.conf``::
+
+    server <server1 IP> iburst
+    server <server2 IP> iburst
+
+
+#. With the ntp service stopped, synchronize time with ntpdate::
+
+    # ntpdate -v <IP of ntp server>
+
+#. Start the ntp service.
+
+#. Verify that the service sees the configured servers (this may take a few minutes)::
+
+    # ntpq -p    
+
+Configure as a Server
+------------------------------
+
+#. Follow the steps for Client Configuration.
+
+#. Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers)::
+
+    restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+    restrict 10.37.112.13 
+
+#. Restart the service after making changes.
+
+Configure as a Peer
+--------------------------
+
+#. Follow the steps for Client Configuration
+
+#. Add one or more restrict lines to allow appropriate access from those systems that will be clients (or peers)::
+
+    restrict 10.37.112.0 mask 255.255.240.0 nomodify notrap
+    restrict 10.37.112.13 
+
+#. Add one or more peer lines::
+
+    peer <peer IP or hostname> [options]
+
+#. Restart the service after making changes.
+
+#. Verify that the service sees the configured peers and servers (this may take a few minutes)::
+
+    # ntpq -p    
+
+
+Investigate SELinux implications for NTP
+-------------------------------------------
+
+
+Find SELinux Filesystem contexts that might affect NTP::
+
+    # semanage fcontext -l | grep "ntp"
+
+Find SELinux port contexts that might affect NTP::
+
+    # semanage port -l | grep "ntp"
+    
+Find SELinux booleans that might affect NTP::
+
+    # semanage boolean -l | grep ntp
+
+Investigate Firewall Implications for NTP
+----------------------------------------------
+
+Find ports that may need to be opened for NTP::
+
+    # grep ntp /etc/services 
+
+Rules to open up the required ports::
+
+	-A INPUT -m state --state NEW -m tcp -p tcp --dport 123 -j ACCEPT
+	-A INPUT -m state --state NEW -m udp -p udp --dport 123 -j ACCEPT
+
+    
+.. NTP
+
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service.. 
+
+Reporting on System Performance
+-----------------------------------
+
+One of the more vague of the RHCE Objectives says: "Produce and deliver reports on system utilization (processor, memory, disk, and network)."
+
+This loosely defined objective can be very wide-ranging -- this section will cover some of the tools that might be useful in meeting it.
+
+Tools for System Utilization Reporting
+--------------------------------------------
+
+df
+    "diskfree", reports on disk space utilization for all mounted filesystems. Part of the coreutils package.
+    
+iostat
+    Provided by the sysstat package.
+
+vmstat
+    Provided by the procps package.
+
+top
+    Provided by the procps package.    
+
+Explore the man pages for these utilities and be prepared to use them with scripting to write reports to a file.
+
+
+
+
+
+
+
+Session 9 HTTP and FTP
+==============================
+
+
+Apache Web Server
+----------------------------------------------------
+
+Service name: httpd
+
+Package name: httpd-{ver}.{arch}.rpm
+
+Main config: /etc/httpd/conf/httpd.conf
+
+Module config: /etc/httpd/conf.d
+
+Default DocRoot: /var/www/html
+
+Installation and Basic Configuration
+--------------------------------------
+
+#. Install the ``web-server`` package group:
+
+    ::
+	
+        # yum groupinstall web-server
+
+    .. 
+	
+    Note that this install several packages including the Apache Manual which is then locally accessible at http://localhost/manual
+
+#. Install the ``mod_ssl`` package::
+
+        # yum install mod_ssl
+
+#. Start and configure persistence::
+
+        # service httpd start; chkconfig httpd on
+
+.. 
+
+    In this default configuration, you can create an ``index.html`` page in ``/var/www/html/`` and it will be served out as your home page. Additionally, you can use https:// to connect securely to your webserver, but you will have to manually accept a self-signed certificate.
+
+Installing a Signed SSL Certificate
+---------------------------------------
+
+#. Place the certificate and private key in the appropriate locations in ``/etc/pki/tls/``.
+
+#. Ensure that both files have the ``cert_t`` SELinux file context and that the private key is readable only by root.
+
+#. Modify ``/etc/httpd/conf.d/ssl.conf``:
+
+	* ``SSLCertificateFile`` points to your newly installed certificate.
+	* ``SSLCertificateKeyFile`` points to the corresponding private key.
+
+#. Restart the service.
+
+    Now your website will present a certificate signed by an accepted CA.
+
+Virtual Host Configuration
+----------------------------------------------------
+
+"Virtual Hosts" come in two forms:
+
+    Standard Virtual Hosts
+        Exist on hosts that have been assigned multiple IP addresses. Queries for each separate IP address are served pages from a particular virtual host.
+
+    Name Virtual Hosts
+        Exist on hosts with multiple names aliased to one IP address (usually through DNS aliases, but can also be accomplished with ``/etc/hosts``). Queries for each separate name (regardless of IP address) are served as different virtual hosts.
+
+Name Virtual Host Configuration
+--------------------------------------
+
+Near the end of httpd.conf, uncomment the line::
+
+    #NameVirtualHost *:80
+
+Create a section for each vhost::
+
+    #<VirtualHost *:80>
+    #    ServerAdmin webmaster@dummy-host.example.com
+    #    DocumentRoot /www/docs/dummy-host.example.com
+    #    ServerName dummy-host.example.com
+    #    ErrorLog logs/dummy-host.example.com-error_log
+    #    CustomLog logs/dummy-host.example.com-access_log common
+    #</VirtualHost>
+
+* Uncomment the first and last lines in that block.  Uncomment and modify the lines for ServerName, DocumentRoot, and others that you want to customize.
+
+* Include a Vhost stanza for your default server instance and for each alternate name.
+
+Example Virtual Host Configuration
+----------------------------------------
+
+
+.. image:: images/VirtHostConf.png
+   :width: 90%
+
+
+Configuring for CGI-BIN scripts
+--------------------------------------
+
+Refer to the Apache Manual (package: httpd-manual) for full details and a tutorial on *CGI: Dynamic Content*.
+
+The ``ScriptAlias`` line in ``httpd.conf`` designates the directory in which Apache expects to find CGI scripts.
+
+CGI scripts can be implemented in directories **outside** of the ``DocumentRoot`` path -- but this will require modification of the ``ScriptAlias`` line and the fcontext rules for SELinux.
+
+   
+
+Apache Access Control
+----------------------------------------------------
+
+Per-directory options (example)::
+
+    <Directory /var/www/>
+        Order Deny,Allow
+        Deny from all
+        Allow from dev.example.com
+    </Directory>        
+
+* Three-pass access control:
+
+    #. Parse all statements of type specified first.
+    #. Parse all statements of type specified second. Matches overrides matches of previous type.
+    #. Process requests which matched nothing.
+
+* In ``Order`` statements, whichever directive comes **last** is the default in case of no match.
+
+
+
+Host Based Security directive formats
+--------------------------------------------
+
+``Deny from example.com``
+
+``Allow from 192.168.0.15``
+
+``Deny from 192.168.0.0/255.255.255.0``
+
+``Deny from 192.168.1.0/24``
+
+
+
+Access Control with .htaccess files
+------------------------------------------
+
+If permitted by httpd.conf, access may be controlled on a per-directory basis with ``.htaccess`` files in the directories where the content needs to be protected::
+
+
+  <Files ~ "^\.ht">
+      Order allow,deny
+      Allow from 192.168.5.200
+      Deny from all
+  </Files>
+
+
+
+
+User Based Security with htpasswd flat file
+---------------------------------------------------
+
+::
+
+  <Directory "/var/www/html/site">
+    AuthType Basic
+    AuthName "Password Protected"
+    AuthUserFile /etc/httpd/.htpasswd
+    Require valid-user
+  </Directory>
+
+
+
+Configuring Passwords
+-------------------------------
+
+* ``htpasswd -cm /etc/httpd/.htpasswd good_user``
+
+* ``htpasswd -m /etc/httpd/.htpasswd another_user``
+
+
+User Based Security with LDAP authentication
+---------------------------------------------------
+
+#. Obtain the LDAP certificate.
+
+#. Add a line to your http.conf (usually in your Vhost definition)::
+
+    LDAPTrustedGlobalCert CA_BASE64 /path/to/cert
+
+#. Configure a Directory Block::
+
+    <Directory /var/www/html/private>
+        AuthName "Private with LDAP access"
+        AuthType  basic
+        AuthBasicProvider ldap
+        AuthLDAPUrl "ldap://fqdn/prefix" TLS
+        Require valid-user
+    </Directory>
+
+..
+
+    Modify the cert path, and the FQDN and prefix of the LDAP Server to match your infrastructure.
+    
+
+
+SELinux Implications for HTTP
+----------------------------------------
+
+Find SELinux Filesystem contexts that might affect HTTP::
+
+    # semanage fcontext -l | grep "http"
+
+Find SELinux port contexts that might affect HTTP::
+
+    # semanage port -l | grep "http"
+    
+Find SELinux booleans that might affect HTTP::
+
+    # semanage boolean -l | grep http
+
+Read the man page ``httpd_selinux (8)``
+
+Make SELinux more verbose::
+
+    # semanage dontaudit off
+
+..
+
+    This disables setroubleshoot-server, sealert, and the issuing of SELinux messages into ``/var/log/messages`` -- so you'll need to view the messages in ``/var/log/audit/audit.log``.
+
+..         # sealert -a /var/log/audit/audit.log -H > audit.html
+
+Important SELinux Contexts
+---------------------------------
+
+httpd_sys_content_t
+    For general files and directories to be served by httpd.
+
+httpd_sys_script_exec_t
+    For scripts (CGI) to be executed by the web server.
+
+public_content_t
+    For files that are to be shared with other SELinux protected services
+
+Firewall and SELinux for httpd
+----------------------------------------------------
+
+
+
+.. o HTTP(s)
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure a virtual host
+.. + * Configure private directories
+.. + * Deploy a basic CGI application
+.. + * Configure group-managed content
+
+
+Very Secure File Transfer Protocol Daemon
+-------------------------------------------------
+
+``vsftpd`` is Red Hat's preferred FTP daemon.  The "Very Secure" descriptor refers to the daemon and not to the protocol!
+
+The only mention of FTP in the RHCSA objectives is concerned with enabling a default configuration
+
+The only mention of FTP in the RHCE objectives is concerned with securely configuring anonymous access.
+
+
+Installation and Basic Configuration
+------------------------------------------
+
+Package: vsftpd
+
+Install::
+
+    # yum -y install vsftpd
+
+Start and Configure Persistence::
+
+    # service vsftpd start; chkconfig vsftpd on
+
+In this default configuration, anonymous downloads are allowed from ``/pub`` (as shown to the client) and are placed in ``/var/ftp/pub/`` (as viewed on the server). Additionally, system users are able to login by username and password and access their home directories with read/write permissions. No anonymous uploads are permitted by default.
+
+FTP Documentation
+-------------------------
+
+Man Pages:
+
+    * vsftpd.conf (5)
+    * ftpd_selinux (8)
+    
+Investigate SELinux implications for FTP
+-------------------------------------------
+
+
+Find SELinux Filesystem contexts that might affect FTP::
+
+    # semanage fcontext -l | grep "ftp"
+
+Find SELinux port contexts that might affect FTP::
+
+    # semanage port -l | grep "ftp"
+    
+Find SELinux booleans that might affect FTP::
+
+    # semanage boolean -l | grep ftp
+
+
+
+Investigate Firewall Implications for FTP
+----------------------------------------------
+
+Find ports that may need to be opened for FTP::
+
+    # grep ftp /etc/services 
+
+    
+Configuring a Secure "Drop-box" for Anon Upload
+-------------------------------------------------
+
+#. Create an upload directory owned by ``root.ftp`` and with 730 permissions::
+
+    cd /var/ftp
+    mkdir incoming 
+    chgrp ftp incoming
+    chmod 730 incoming
+
+
+#. Modify SELinux
+
+	* Set context of ``public_content_rw_t`` on the upload directory::
+
+		semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
+		restorecon -rvv /var/ftp/
+
+
+	* Enable the ``allow_ftp_anon_write`` boolean::
+
+		setsebool -P allow_ftpd_anon_write on
+
+
+#. Modify ``/etc/vsftpd/vsftpd.conf`` as follows::
+
+    anonymous_enable=YES
+    local_enable=NO
+    write_enable=YES
+    anon_upload_enable=YES
+    chown_uploads=YES
+    chown_username=daemon
+    anon_umask = 077
+
+#. Modify iptables for inbound ftp
+
+	* in ``/etc/sysconfig/iptables-config``::
+
+		    IPTABLES_MODULES="nf_conntrack_ftp nf_nat_ftp"
+
+	* Set rules::
+
+		# iptables -A INPUT -p tcp --dport 21 -j ALLOW
+		# iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ALLOW
+
+
+.. o FTP
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure anonymous-only download
+
+
+Session 10 NFS and Samba
+================================
+
+Network File System (NFS)
+--------------------------------
+
+Three available versions:
+
+* NFS v2 -- Original public NFS.
+
+* NFS v3 -- Extensions and enhancements to v2.
+
+* NFS v4 -- Complete redesign, Red Hat default, preferred except where backward compatibility is required.
+
+
+Packages
+----------------------------------------------------------------
+
+Group: nfs-file-server
+
+Packages:
+
+    nfs-utils
+
+    nfs4-acl-tools
+
+
+
+Configuration
+----------------------------------------------------------------
+
+/etc/sysconfig/nfs
+
+/etc/exports
+
+
+
+
+Configuring an NFS server (Network File System)
+----------------------------------------------------------------
+
+
+service nfs start
+
+
+chkconfig nfs on
+
+
+/etc/exports
+----------------------------------------------------------------
+
+::
+
+    /home 192.168.0.0/24(rw,root_squash) server1.example.com(rw,no_root_squash)
+    /pub  *(ro,root_squash)
+
+* Note: There is no space between the host or subnet and the options defined between the parentheses ().
+
+* If you put a space between them, then you will get a global export.
+
+
+
+Commands
+----------------------------------------------------------------
+
+exportfs -a
+
+exportfs -r
+
+exportfs -u
+
+showmount -e server
+
+
+
+
+
+SELinux
+----------------------------------------------------------------
+
+
+Mounting
+----------------------------------------------------------------
+
+mount nfsserv:/home /mnt/homes
+
+.. o NFS
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Provide network shares to specific clients
+.. + * Provide network shares suitable for group collaboration
+.. o Samba
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Provide network shares to specific clients
+.. + * Provide network shares suitable for group collaboration
+
+
+
+
+
+Automounter
+----------------------------------------------------------------
+
+Automatically mounts a directory when it is accessed.
+
+Unmounts the directory after a specified idle time.
+
+Autofs service controls this behavior.
+
+A master configuration file called.
+  /etc/auto.master
+
+Sub configuration files
+  Usually called /etc/auto.*
+
+
+
+Auto.master
+----------------------------------------------------------------
+
+Specifies directories to mount under when accessed.
+
+Specifies the auto.* file to use for the directories.
+
+Example:
+  /etc/auto.master
+    /misc    /etc/auto.misc
+    /data    /etc/auto.data
+
+  When a directory under /misc is accessed, the /etc/auto.misc file indicates how to mount it.
+
+  When a directory under /data is accessed, the /etc/auto.data file indicates how to mount it.
+
+
+
+Auto.*
+----------------------------------------------------------------
+
+Specifies directory name.
+
+Specifies options to use when mounting.
+
+Specifies what to mount.
+
+Example:
+  /etc/auto.data
+    pictures       -rw,soft,intr    nfs.example.com:/export/pics
+    mp3s           -ro              /dev/sdd1
+
+When the /data/pictures directory is accessed, the system will mount the nfs export /export/pics on nfs.example.com.
+
+When the /data/mp3s directory is accessed, the system will mount the local
+partition /dev/sdd1.
+
+
+
+Understanding Automount
+----------------------------------------------------------------
+
+You must access the destination directory in order for it to automount.
+  If nothing is automounted and you run "ls /data" then you will get no files listed.
+
+  If you run "ls /data/mpp3", you will get a listing.  You can now run "ls /data" and you will see the mp3s directory listed.  At least until the idle timeout is reached.
+
+Some commands will cause the directory to be mounted when ran but they do not
+produce any results.  In this case, you may need to run the command a second
+time.
+
+
+
+
+
+
+Samba
+----------------------------------------------------------------
+
+Samba is a project providing software capable of utilizing the SMB (Server Message Block) and CIFS (Common Internet File System) protocols to interoperate with systems using MS-Windows-style file and printer sharing.
+
+Linux systems can use Samba to:
+
+* Act as a client to SMB/CIFS servers
+
+* Provide file and printer sharing services to clients
+
+* Provide domain controller functionality in a limited subset of possible configurations.
+
+Accessing SMB/CIFS Shares
+------------------------------
+
+* Graphically, using Nautilus:
+
+    Use **Places | Connect to Server**, choose ``Windows share`` as the **Service Type**  and provide the required credentials. 
+
+* Occasional, FTP-like access from the command line::
+
+    # smbclient //server/share/ -U username \
+    -W [domain or workgroup]
+
+* Through filesystem mounts::
+
+    # mount -t cifs //server1/tmp /mnt/share \
+    -o credentials=/root/credentials``
+
+* ``/etc/fstab`` entry::
+
+    # //server/share /mnt/point cifs \
+    credentials=/root/credentials 0 0``
+
+* Credentials File contents::
+
+    user=<username>
+    pass=<password>
+    domain=<domainname>
+    
+Samba Packages:
+--------------------
+
+* samba 
+* samba-client
+* samba-common
+* samba-windbind
+* samba-domainjoin-gui (Optional Repository)
+
+SELinux
+----------------------------------------------------------------
+
+SELinux notes are at the top of the config file (``/etc/samba/smb.conf``) and the man page samba_selinux (8).
+
+SELinux Port Settings for Samba::
+
+    # semanage port -l  |grep smb
+    smbd_port_t                    tcp      137-139, 445
+
+SELinux Booleans for Samba::
+
+    # semanage boolean -l  |grep "smb\|samba"
+    
+SELinux fcontexts for Samba::
+
+    # semanage fcontext -l  |grep "smb\|samba"
+
+
+
+
+Services
+----------------------------------------------------------------
+
+service smb start
+
+chkconfig smb on
+
+
+
+
+/etc/samba/smb.conf (Global)
+----------------------------------------------------------------
+
+workgroup
+    Specifies a shared Windows Workgroup or Domain name.
+
+server string
+    Provides a description of the server.
+
+netbios name
+    Specifies a name for the server for in implementations where NetBIOS is still used.
+
+Interfaces
+    Used to bind the service only to particular network adapters or IP addresses.
+
+Hosts Allow
+    Used for host-based access control.
+    
+
+/etc/samba/smb.conf Security Types
+---------------------------------------
+
+The security line establishes the security model for the server.  This would be one of the following:
+
+    user
+        Indicates that user credentials are held on the local server. 
+
+    share
+        Indicates that credentials are not kept globally on an individual basis.  All who report membership in the same workgroup are permitted access to the server and user authentication in configured in the share settings.
+
+    domain
+        Used when the Samba Server has been added to a Windows NT Domain.  User access is authenticated through a primary or secondary domain controller.
+        
+
+    server
+        User access is authenticated through a peer server that is not a domain controller.
+
+    ads
+        User access is authenticated through an Active Directory controller. Kerberos must be installed and configured to authenticate this machine's membership in the Domain.
+
+Samba Users and Passwords    
+-------------------------------
+
+When the security model set to ``user``, local Samba users and passwords must be created.  Typically, these accounts use the same user names as those configured on the local system.  ``smbpasswd`` is the command used::
+
+    # smbpasswd -a winuser 
+
+
+
+/etc/samba/smb.conf (Shares)
+----------------------------------------------------------------
+
+::
+
+  [public]
+    comment = Public Share
+    path = /var/ftp/public
+    browsable = yes
+    writable = yes
+
+Path must have appropriate filesystem permissions.
+
+
+
+
+Testing Configuration
+----------------------------------------------------------------
+
+Syntax of the smb.conf file can be tested before restarting the service::
+
+    # testparm
+
+
+Samba Firewalling Considerations
+-------------------------------------
+
+Samba, in its latest version, uses TCP port 445.  
+
+For backwards compatibility, UDP ports 137 and 138 and TCP port 139 may also need to be opened in some instances.
+
+HowTo: Enable Home Directory sharing via Samba
+---------------------------------------------------
+
+#. Install the appropriate packages.
+
+#. Start and enable the service.
+
+#. Configure the workgroup name in smb.conf.
+
+#. Create the required Samba users and passwords.
+
+#. Enable the SELinux boolean permitting home directory access.
+
+#. Configure the firewall.
+
+#. Restart the service.
+
+#. Test from another system.
+
+HowTo: Configure a Group Share
+-----------------------------------
+
+#. Create the appropriate group if required.
+
+#. Create a collaborative directory.
+
+#. Set the SELinux contexts on the shared directory.
+
+#. Define the share in smb.conf.
+
+    Set the following values::
+
+        valid users = @groupname
+        writeable = yes
+
+    .. 
+
+        (Ensure that the directory permissions are 2770.)
+
+    or, to allow broader read-only permission::
+
+        writeable = no
+        write list = @groupname
+
+    ..
+
+        (And relax the directory permissions to 2775.)        
+#. Restart the service.
+
+#. Test from another system.
+
+
+
+
+Session 11 DNS and SMTP
+===============================
+
+Types of DNS servers
+-----------------------------
+
+Authoritative
+
+* Master (primary)
+
+* Slave (secondary)
+
+Non-authoritative
+
+* Caching-only
+
+Current RHCE Objectives only require ability to configure a few behaviors of a caching-only name server. The default configuration is now a caching-only nameserver listening only to localhost.
+
+Installing and enabling Bind
+------------------------------
+
+::
+
+    # yum -y install bind
+
+    # service named start
+    
+    # chkconfig named on
+
+
+
+
+Useful Commands
+------------------------
+
+.. rndc
+..   control the bind service.
+
+host
+  Queries for DNS resolution.  Uses /etc/nsswitch and /etc/resolv.conf.
+
+dig
+  Queries a DNS server directly.  By-passing local config files if you want.
+
+  dig www.dell.com
+    Gets dns server from resolv.conf
+
+  dig @dns_server www.dell.com
+    Queries DNS server directly.
+
+
+
+
+.. o DNS
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure a caching-only name server
+.. + * Configure a caching-only name server to forward DNS queries
+.. + * Note: Candidates are not expected to configure master or slave name servers
+
+
+
+
+Email TLAs:  MTA, MUA, MDA
+---------------------------------
+
+MTA - Mail Transfer Agent
+
+	Conveys mail from Server to Server (ex: sendmail, postfix)
+
+MUA - Mail User Agent
+
+	Conveys mail between Client and Server (ex: Evolution, Thunderbird, mutt, mail, elm)
+
+MDA - Mail Delivery Agent
+
+	Conveys mail from Server to local mail spools 
+
+
+Red Hat's New Default MTA: Postfix
+--------------------------------------
+
+
+Packages
+  postfix
+
+/etc/postfix/main.cf
+
+  myhostname = server.dell.com
+
+  mydomain = dell.com
+
+  myorigin = $mydomain
+
+  inet_interfaces = all
+  
+  mynetworks = 192.168.0.0/16, 10.0.0.0/8
+  
+  
+Postfix configuration tool
+-----------------------------------
+
+postconf
+
+	Applies configuration changes on the fly (not persistent).  Can also display available directives and default directives.
+
+Reading Mail
+--------------------
+
+mail
+
+mutt
+
+
+.. o SMTP
+.. + * Install the packages needed to provide the service
+.. + * Configure SELinux to support the service
+.. + * Configure the service to start when the system is booted
+.. + * Configure the service for basic operation
+.. + * Configure host-based and user-based security for the service
+.. + * Configure a mail transfer agent (MTA) to accept inbound email from other systems
+.. + * Configure an MTA to forward (relay) email through a smart host
 
 
 
@@ -3237,7 +4774,7 @@ Which Services are Protected?
 	
 
 
-Indentifying Protected Services 
+Identifying Protected Services 
 ----------------------------------------------------------------------------
 
 
@@ -3279,13 +4816,15 @@ Basic format:  ``<daemon list>: <client list> [: <option>: <option>: ...]``
 
 
 
+.. |date| date:: %B %d, %Y
 
 
 
-
+Source Repository
+=====================
 
 
    :Info: See <https://github.com/texastwister/OpenRHCE> for the latest version of this doc.
    :Author: Scott Purcell <scott@texastwister.info>
-   :Date:  Wednesday, May 18, 2011
+   :Date:  |date|
 
