@@ -4116,7 +4116,10 @@ Included DNS Servers
 BIND
 	Berkely Internet Name Daemon
 	
-D
+Dnsmasq
+	Lightweight Caching DNS server designed for small networks behind NAT routing.
+	
+We'll focus on BIND, but if you have existing familiarity with dnsmasq, you may be able to satisfy the RHCE requirements using it instae
 
 Installing and enabling Bind
 ------------------------------
