@@ -4093,9 +4093,6 @@ HowTo: Configure a Group Share
 Session 11 DNS and SMTP
 ===============================
 
-Packages
--------------
-
 
 
 Types of DNS servers
@@ -4112,6 +4109,14 @@ Non-authoritative
 * Caching-only
 
 Current RHCE Objectives only require ability to configure a few behaviors of a caching-only name server. The default configuration is now a caching-only nameserver listening only to localhost.
+
+Included DNS Servers
+--------------------------
+
+BIND
+	Berkely Internet Name Daemon
+	
+D
 
 Installing and enabling Bind
 ------------------------------
