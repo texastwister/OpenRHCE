@@ -4093,6 +4093,8 @@ HowTo: Configure a Group Share
 Session 11 DNS and SMTP
 ===============================
 
+
+
 Types of DNS servers
 -----------------------------
 
@@ -4107,6 +4109,39 @@ Non-authoritative
 * Caching-only
 
 Current RHCE Objectives only require ability to configure a few behaviors of a caching-only name server. The default configuration is now a caching-only nameserver listening only to localhost.
+
+Included DNS Servers
+--------------------------
+
+BIND
+	Berkely Internet Name Daemon
+	
+Dnsmasq
+	Lightweight Caching DNS server designed for small networks behind NAT routing.
+	
+We'll focus on BIND, but if you have existing familiarity with dnsmasq, you may be able to satisfy the RHCE requirements using it instead.
+
+BIND Packages
+--------------------
+
+bind 
+	The Berkeley Internet Name Domain (BIND) DNS (Domain Name System)
+
+bind-utils
+	Utilities for querying DNS name servers
+
+bind-chroot
+	A chroot runtime environment for the ISC BIND DNS server,
+
+bind-devel
+	Header files and libraries needed for BIND DNS development
+
+bind-libs
+	Libraries used by the BIND DNS packages
+
+bind-sdb
+	BIND server with database backends and DLZ support
+
 
 Installing and enabling Bind
 ------------------------------
@@ -4125,8 +4160,8 @@ Installing and enabling Bind
 Useful Commands
 ------------------------
 
-.. rndc
-..   control the bind service.
+rndc
+   Interface to BIND.
 
 host
   Queries for DNS resolution.  Uses /etc/nsswitch and /etc/resolv.conf.
@@ -4140,8 +4175,25 @@ dig
   dig @dns_server www.dell.com
     Queries DNS server directly.
 
+Configuration Files
+--------------------------
 
 
+
+Enabling caching-only for localhost
+---------------------------------------
+
+Allowing queries from other systems
+-----------------------------------------
+
+Enabling Forwarding
+--------------------------
+
+Firewall Considerations
+---------------------------
+
+SELinux Considerations
+--------------------------
 
 .. o DNS
 .. + * Install the packages needed to provide the service
