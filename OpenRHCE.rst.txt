@@ -4093,6 +4093,11 @@ HowTo: Configure a Group Share
 Session 11 DNS and SMTP
 ===============================
 
+Packages
+-------------
+
+
+
 Types of DNS servers
 -----------------------------
 
@@ -4125,8 +4130,8 @@ Installing and enabling Bind
 Useful Commands
 ------------------------
 
-.. rndc
-..   control the bind service.
+rndc
+   Interface to BIND.
 
 host
   Queries for DNS resolution.  Uses /etc/nsswitch and /etc/resolv.conf.
