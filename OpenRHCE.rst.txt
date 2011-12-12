@@ -4124,14 +4124,23 @@ We'll focus on BIND, but if you have existing familiarity with dnsmasq, you may 
 BIND Packages
 --------------------
 
-bind.x86_64 : The Berkeley Internet Name Domain (BIND) DNS (Domain Name System)
-bind-utils.x86_64 : Utilities for querying DNS name servers
-bind-chroot.x86_64 : A chroot runtime environment for the ISC BIND DNS server,
-bind-devel.i686 : Header files and libraries needed for BIND DNS development
-bind-devel.x86_64 : Header files and libraries needed for BIND DNS development
-bind-libs.x86_64 : Libraries used by the BIND DNS packages
-bind-libs.i686 : Libraries used by the BIND DNS packages
-bind-sdb.x86_64 : BIND server with database backends and DLZ support
+bind 
+	The Berkeley Internet Name Domain (BIND) DNS (Domain Name System)
+
+bind-utils
+	Utilities for querying DNS name servers
+
+bind-chroot
+	A chroot runtime environment for the ISC BIND DNS server,
+
+bind-devel
+	Header files and libraries needed for BIND DNS development
+
+bind-libs
+	Libraries used by the BIND DNS packages
+
+bind-sdb
+	BIND server with database backends and DLZ support
 
 
 Installing and enabling Bind
@@ -4166,7 +4175,10 @@ dig
   dig @dns_server www.dell.com
     Queries DNS server directly.
 
+Enabling 
 
+Enabling Forwarding
+--------------------------
 
 
 .. o DNS
