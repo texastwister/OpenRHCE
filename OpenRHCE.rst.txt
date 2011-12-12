@@ -4175,11 +4175,25 @@ dig
   dig @dns_server www.dell.com
     Queries DNS server directly.
 
-Enabling 
+Configuration Files
+--------------------------
+
+
+
+Enabling caching-only for localhost
+---------------------------------------
+
+Allowing queries from other systems
+-----------------------------------------
 
 Enabling Forwarding
 --------------------------
 
+Firewall Considerations
+---------------------------
+
+SELinux Considerations
+--------------------------
 
 .. o DNS
 .. + * Install the packages needed to provide the service
