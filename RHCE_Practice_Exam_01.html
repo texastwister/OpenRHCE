@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
-<title>RHCE Practice Exam #01</title>
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>RHCSA / RHCE Practice Exam #01</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -157,11 +157,32 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left {
-  clear: left }
+img.align-left, .figure.align-left{
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
 
-img.align-right {
-  clear: right }
+img.align-right, .figure.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -216,8 +237,7 @@ p.topic-title {
 pre.address {
   margin-bottom: 0 ;
   margin-top: 0 ;
-  font-family: serif ;
-  font-size: 100% }
+  font: inherit }
 
 pre.literal-block, pre.doctest-block {
   margin-left: 2em ;
@@ -284,13 +304,22 @@ ul.auto-toc {
 </style>
 </head>
 <body>
-<div class="document" id="rhce-practice-exam-01">
-<h1 class="title">RHCE Practice Exam #01</h1>
+<div class="document" id="rhcsa-rhce-practice-exam-01">
+<h1 class="title">RHCSA / RHCE Practice Exam #01</h1>
 
-<p>These tasks are taken from the objectives Red Hat has publicly posted and should therefore approximate the type of tasks one might find on the RHCE exam.  It is expressly NOT based on actual contents of a Red Hat Exam.</p>
-<p>You should configure your physical server and three virtual machines as follows:</p>
+<!-- Sequence of section adornments: -->
+<!-- ==- - -->
+<!-- ==- -==- -__++~~^^ -->
+<div class="section" id="this-exam">
+<h1>This Exam:</h1>
+<p>These tasks are taken from the objectives Red Hat has publicly posted and should therefore approximate the type of tasks one might find on the RHCSA and RHCE exams.  It is expressly NOT based on actual contents of actual Red Hat Exams.</p>
+<p>For the most authentic experience, this sample exam should be undertaken in a &quot;closed-book&quot; manner – referring to nothing but what is on the system or contained on the Red Hat Enterprise Linux installation tree that will be made available to you.  However, because this Sample Exam is intended in part as a learning experience in itself, should you get seriously stuck you may refer to the Study Guide, to online resources, or to assistance from the instructor.  Recognize, though, that such a decision may indicate a need for additional preparation before undertaking the Red Hat Exam.</p>
+</div>
+<div class="section" id="your-test-environment">
+<h1>Your Test Environment:</h1>
+<p>You should configure your physical server and three virtual machines as follows (where &lt;x&gt; is your station number):</p>
 <table border="1" class="docutils">
-<caption>Systems Configuration</caption>
+<caption><strong>Systems Configuration</strong></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -343,36 +372,44 @@ ul.auto-toc {
 <blockquote>
 <dl class="docutils">
 <dt>Local network</dt>
-<dd>192.168.4.0/22 (255.255.252.0), GW 192.168.4.0, DNS 192.168.7.254</dd>
+<dd>192.168.4.0/22 (255.255.252.0), GW 192.168.4.1, DNS 192.168.7.254</dd>
 <dt>Trusted subnet</dt>
 <dd>192.168.5.0/24 (255.255.255.0)</dd>
 <dt>Untrusted subnet</dt>
 <dd>192.168.4.0/24 (255.255.255.0)</dd>
 </dl>
 </blockquote>
-<div class="section" id="configuration-common-to-all-three-vms">
-<h1>Configuration Common to all three VMs</h1>
-<p>Obtain the .repo file from <a class="reference external" href="ftp://192.168.5.200/pub/classroom.repo">ftp://192.168.5.200/pub/classroom.repo</a> and install it in the appropriate location for yum configuration.  Or configure a repo using a source URL of: <a class="reference external" href="ftp://192.168.5.200/pub/rhel6">ftp://192.168.5.200/pub/rhel6</a>.</p>
+<p>An installation tree has been made available to you at <a class="reference external" href="ftp://192.168.5.200/pub/rhel6">ftp://192.168.5.200/pub/rhel6</a> which can serve as the basis for a yum repository.</p>
 </div>
-<div class="section" id="untrusted-vm-configuration">
-<h1>Untrusted VM Configuration</h1>
-<p>On the untrusted host, use DHCP networking and install/configure only that components that are required for testing prohibited access to the services described below.</p>
-</div>
-<div class="section" id="configuration-common-to-both-the-server-and-client-vms">
-<h1>Configuration Common to both the Server and Client VMs</h1>
-<ul>
-<li><dl class="first docutils">
-<dt>Create Users:</dt>
-<dd><ul class="first last simple">
-<li>ford (UID=1005)</li>
-<li>carter (UID=1006)</li>
-<li>reagan (UID=1007)</li>
-<li>clinton (UID=1008)</li>
+<div class="section" id="requirements-common-to-both-exams">
+<h1>Requirements Common to Both Exams</h1>
+<ul class="simple">
+<li>SELinux must, at the end of the exam, be running in enforcing mode on both the client and server virtual machines after a reboot of each.</li>
+<li>The IPTables firewall must be enabled and configured to permit the types of traffic set forth in these requirements.</li>
+<li>On the untrusted host, use DHCP networking and install/configure only that components that are required for testing prohibited access to the services described below.</li>
 </ul>
-</dd>
-</dl>
+</div>
+<div class="section" id="rhcsa-requirements">
+<h1>RHCSA Requirements</h1>
+<p>Complete the following in approximately 2 hours:</p>
+<ul>
+<li><p class="first">Obtain access to your virtual machines (you do not know the root passwords) and reset the root passwords to &quot;linuxacc&quot;.</p>
 </li>
-<li><p class="first">Create Groups:</p>
+<li><p class="first">Ensure that the network configuration matches that in the table above.</p>
+</li>
+<li><p class="first">Create users and groups on both your server and client virtual machines:</p>
+<blockquote>
+<p>Users:</p>
+<blockquote>
+<ul class="simple">
+<li>tester (UID=1004), password: linuxacc</li>
+<li>ford (UID=1005), password: linuxacc</li>
+<li>carter (UID=1006), password: linuxacc</li>
+<li>reagan (UID=1007), password: linuxacc</li>
+<li>clinton (UID=1008), password: linuxacc</li>
+</ul>
+</blockquote>
+<p>Groups:</p>
 <blockquote>
 <ul class="simple">
 <li>presidents (GID=1000; members=ford, carter, reagan, clinton)</li>
@@ -380,40 +417,14 @@ ul.auto-toc {
 <li>democrats (GID=1002; members=carter, clinton)</li>
 </ul>
 </blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="server-configuration">
-<h1>Server Configuration</h1>
-<ul>
-<li><p class="first">SSH connections should be allowed from throughout the 192.168.4.0/22 network.</p>
-</li>
-<li><p class="first">For all other services, connections should be allowed from addresses within the trusted network (192.168.5.0/24), but disallowed from 192.168.4.0/24.</p>
-</li>
-<li><p class="first">Configure an SMTP server that allows connections from the trusted subnet.</p>
-</li>
-<li><p class="first">Connect to the iSCSI target provided by the target portal at 192.168.5.200.</p>
-</li>
-<li><p class="first">Partition the iSCSI disk into 2 approximately equal partitions.</p>
-<blockquote>
-<ul class="simple">
-<li>Use one for extra swap space.</li>
-<li>Use one for an ext4 filesystem mounted at /data</li>
-</ul>
 </blockquote>
 </li>
-<li><p class="first">Configure this virtual machine to boot to a command-line only.</p>
-</li>
-<li><p class="first">Add add'l swap space</p>
-</li>
-<li><p class="first">Create a PV, VG, and LV</p>
-</li>
-<li><p class="first">Create directories:</p>
+<li><p class="first">On the server virtual machine, create the following directories:</p>
 <blockquote>
-<p><tt class="docutils literal"><span class="pre">/share/presidents</span></tt></p>
+<p><tt class="docutils literal">/share/presidents</tt></p>
 <blockquote>
 <ul class="simple">
-<li>All four users must be able to write here.</li>
+<li>All four (&quot;presidential&quot;) users must be able to write here.</li>
 <li>This directory must be owned by root and the group presidents.</li>
 <li>Only users in this group should have any access to the directory.</li>
 <li>Files created here should be owned by the group presidents.</li>
@@ -421,7 +432,7 @@ ul.auto-toc {
 <li>This directory should have an SELinux fcontext that will permit it to be shared by multiple services.</li>
 </ul>
 </blockquote>
-<p><tt class="docutils literal"><span class="pre">/share/presidents/republicans</span></tt></p>
+<p><tt class="docutils literal">/share/presidents/republicans</tt></p>
 <blockquote>
 <ul class="simple">
 <li>This directory should be owned by root and the group republicans.</li>
@@ -431,7 +442,7 @@ ul.auto-toc {
 <li>This directory should have an SELinux fcontext that will permit it to be shared by multiple services.</li>
 </ul>
 </blockquote>
-<p><tt class="docutils literal"><span class="pre">/share/presidents/democrats</span></tt></p>
+<p><tt class="docutils literal">/share/presidents/democrats</tt></p>
 <blockquote>
 <ul class="simple">
 <li>This directory should be owned by root and the group democrats.</li>
@@ -443,51 +454,74 @@ ul.auto-toc {
 </blockquote>
 </blockquote>
 </li>
-<li><p class="first">Configure each of these four directories to be shared via NFS to any system in the trusted subnet.  Ensure that root privileges cannot be gained from a remote mount.</p>
+<li><p class="first">The Client Virtual machine should boot into a GNOME desktop</p>
 </li>
-<li><p class="first">Configure an FTP server to allow anonymous downloads from <tt class="docutils literal"><span class="pre">/var/ftp/pub</span></tt> and anonymous uploads to <tt class="docutils literal"><span class="pre">/var/ftp/pub/inbound</span></tt> (create this directory and set permissions appropriately). Ensure that uploaded files cannot be viewed or downloaded without admin intervention.</p>
+<li><p class="first">The Server Virtual machine should boot into runlevel 3 (CLI only), but should provide a desktop for root and for tester through secure VNC.</p>
+</li>
+<li><p class="first">Configure static name resolution such that FQDN of each VM resolves correctly (even without DNS) from each of the other VMs.</p>
+</li>
+<li><p class="first">Configure each of the following names as aliases for <tt class="docutils literal"><span class="pre">s&lt;x&gt;server.linux-acc.local</span></tt>:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">pres.s&lt;x&gt;server.linux-acc.local</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">rep.s&lt;x&gt;server.linux-acc.local</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">dem.s&lt;x&gt;server.linux-acc.local</span></tt></li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">On the Client virtual machine, create a directory <tt class="docutils literal">/home/remote</tt>.</p>
+</li>
+<li><p class="first">On the Client virtual machine, configure the automounter such that attempts to access locations in <tt class="docutils literal">/home/remote/presidents/</tt> cause the nfs share <tt class="docutils literal">/share/presidents</tt> from your server to be mounted at <tt class="docutils literal">/home/remote/presidents</tt>.</p>
+</li>
+<li><p class="first">On the Client virtual machine, install the <tt class="docutils literal">slang</tt> package.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rhce-requirements">
+<h1>RHCE Requirements</h1>
+<p>Complete the following in approximately 2 hours:</p>
+<ul>
+<li><p class="first">Ensure that both the Server and Client Virtual machines are obtaining their time from NTP. Your server virtual machine should obtain its time from <tt class="docutils literal">ntppub.tamu.edu</tt> and from <tt class="docutils literal">ntp.bytestacker.com</tt>.  Your client virtual machine should get its time from your server virtual machine.</p>
+</li>
+<li><p class="first">SSH connections should be allowed from throughout the <tt class="docutils literal">192.168.4.0/22</tt> network.</p>
+</li>
+<li><p class="first">For all other services, connections should be allowed from addresses within the trusted network (<tt class="docutils literal">192.168.5.0/24</tt>), but disallowed from <tt class="docutils literal">192.168.4.0/24</tt>.</p>
+</li>
+<li><p class="first">Configure an SMTP server that allows connections from the trusted subnet.</p>
+</li>
+<li><p class="first">Connect to the iSCSI target provided by the target portal at <tt class="docutils literal">192.168.5.200</tt>.</p>
+</li>
+<li><p class="first">Configure <tt class="docutils literal">/share/presidents</tt>, <tt class="docutils literal">/share/presidents/republicans</tt>, and <tt class="docutils literal">/share/presidents/democrats</tt> to be shared via NFS to any system in the trusted subnet.  Ensure that root privileges cannot be gained from a remote mount.</p>
+</li>
+<li><p class="first">Configure an FTP server to allow anonymous downloads from <tt class="docutils literal">/var/ftp/pub</tt> and anonymous uploads to <tt class="docutils literal">/var/ftp/pub/inbound</tt> (create this directory and set permissions appropriately). Ensure that uploaded files cannot be viewed or downloaded without admin intervention.</p>
 </li>
 <li><p class="first">Configure a Web server to serve the following vhosts:</p>
 <blockquote>
 <dl class="docutils">
-<dt>Access to pres.s&lt;x&gt;server.linux-acc.local</dt>
-<dd><p class="first last">serves an index page located in /share/presidents/</p>
+<dt>Access to <tt class="docutils literal"><span class="pre">pres.s&lt;x&gt;server.linux-acc.local</span></tt></dt>
+<dd><p class="first last">serves an index page located in <tt class="docutils literal">/share/presidents/</tt></p>
 </dd>
-<dt>Access to rep.s&lt;x&gt;server.linux-acc.local</dt>
-<dd><p class="first last">serves an index page located in /share/presidents/republicans/</p>
+<dt>Access to <tt class="docutils literal"><span class="pre">rep.s&lt;x&gt;server.linux-acc.local</span></tt></dt>
+<dd><p class="first last">serves an index page located in <tt class="docutils literal">/share/presidents/republicans/</tt></p>
 </dd>
-<dt>Access to dem.s&lt;x&gt;server.linux-acc.local</dt>
-<dd><p class="first last">serves an index page located in /share/presidents/democrats/</p>
+<dt>Access to <tt class="docutils literal"><span class="pre">dem.s&lt;x&gt;server.linux-acc.local</span></tt></dt>
+<dd><p class="first last">serves an index page located in <tt class="docutils literal">/share/presidents/democrats/</tt></p>
 </dd>
 </dl>
 <p>Use filesystem ACLs to resolve any permissions issues you encounter.</p>
-<p>Place and index file in each of these locations that indicates which directory it is in and under which name it should be served out.</p>
+<p>Place an index file in each of these locations that indicates which directory it is in and under which name it should be served out.</p>
 </blockquote>
 </li>
-<li><p class="first">Configure Samba to share the /share/presidents directory using a share name of presidents. Make it readable for ford and carter and writable for reagan and clinton.</p>
+<li><p class="first">Configure Samba to share the <tt class="docutils literal">/share/presidents</tt> directory using a share name of presidents. Make it readable for <tt class="docutils literal">ford</tt> and <tt class="docutils literal">carter</tt> and writable for <tt class="docutils literal">reagan</tt> and <tt class="docutils literal">clinton</tt>.</p>
 </li>
-<li><p class="first">SELinux should run in Enforcing mode and not interfering with any desired services.</p>
+<li><p class="first">Create a bash script that uses <tt class="docutils literal">top</tt> non-interactively to write 2 interations of its report to the file <tt class="docutils literal">/root/logs/top_report.txt</tt>.  Configure a cron job that performs this task every 20 minutes.</p>
 </li>
-<li><p class="first">The firewall should be enabled and not interfering with any desired services.</p>
+<li><p class="first">Configure your Server VM to provide a caching DNS server and to allow queries from the trusted network. Configure your Client VM to obtain its DNS name resolution from your Server VM.</p>
+</li>
+<li><p class="first">Tune the kernel behavior of your Server VM so that it will respond to broadcast pings (ICMP ECHO broadcasts).  This must persist after a reboot.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="client-configuration">
-<h1>Client Configuration</h1>
-<p>Mount an NFS share from the server</p>
-<p>Mount a SAMBA share from the server</p>
-<p>Configure this virtual machine to boot to the Gnome GUI.</p>
-<ul class="simple">
-<li>Create a directory <tt class="docutils literal"><span class="pre">/home/remote</span></tt>.</li>
-<li>Configure the automounter such that attempt to access locations in <tt class="docutils literal"><span class="pre">/home/remote/presidents/</span></tt> cause the nfs share <tt class="docutils literal"><span class="pre">/share/presidents</span></tt> from your server to be mounted at <tt class="docutils literal"><span class="pre">/home/remote/presidents</span></tt>.</li>
-<li>Configure static name resolution so that s&lt;x&gt;server.linux-acc.local, s&lt;x&gt;server, pres.s&lt;x&gt;server.linux-acc.local, rep.s&lt;x&gt;server.linux-acc.local, and dem.s&lt;x&gt;server.linux-acc.local all resolve to the ip address of your server VM.</li>
-</ul>
-</div>
-</div>
-<div class="footer">
-<hr class="footer" />
-Generated on: 2011-05-25 23:54 UTC.
-
 </div>
 </body>
 </html>

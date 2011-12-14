@@ -1,4 +1,4 @@
-%PDF-1.3
+%PDF-1.4
 %“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
 % 'BasicFonts': class PDFDictionary 
 1 0 obj
@@ -6,7 +6,8 @@
 << /F1 2 0 R
  /F2 3 0 R
  /F3 4 0 R
- /F4 6 0 R >>
+ /F4 7 0 R
+ /F5 9 0 R >>
 endobj
 % 'F1': class PDFType1Font 
 2 0 obj
@@ -35,15 +36,31 @@ endobj
  /Subtype /Type1
  /Type /Font >>
 endobj
-% 'Page1': class PDFPage 
+% 'Annot.NUMBER1': class PDFDictionary 
 5 0 obj
+<< /A << /S /URI
+ /Type /Action
+ /URI (ftp://192.168.5.200/pub/rhel6) >>
+ /Border [ 0
+ 0
+ 0 ]
+ /Rect [ 312.8799
+ 237.7736
+ 444.5356
+ 249.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page1': class PDFPage 
+6 0 obj
 % Page dictionary
-<< /Contents 16 0 R
+<< /Annots [ 5 0 R ]
+ /Contents 21 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 15 0 R
+ /Parent 20 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -55,7 +72,7 @@ endobj
  /Type /Page >>
 endobj
 % 'F4': class PDFType1Font 
-6 0 obj
+7 0 obj
 % Font Courier
 << /BaseFont /Courier
  /Encoding /WinAnsiEncoding
@@ -64,14 +81,14 @@ endobj
  /Type /Font >>
 endobj
 % 'Page2': class PDFPage 
-7 0 obj
+8 0 obj
 % Page dictionary
-<< /Contents 17 0 R
+<< /Contents 22 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 15 0 R
+ /Parent 20 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -82,275 +99,430 @@ endobj
  /Trans <<  >>
  /Type /Page >>
 endobj
-% 'R8': class PDFCatalog 
-8 0 obj
+% 'F5': class PDFType1Font 
+9 0 obj
+% Font Courier-Bold
+<< /BaseFont /Courier-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F5
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page3': class PDFPage 
+10 0 obj
+% Page dictionary
+<< /Contents 23 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 20 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page4': class PDFPage 
+11 0 obj
+% Page dictionary
+<< /Contents 24 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 20 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R12': class PDFCatalog 
+12 0 obj
 % Document Root
-<< /Outlines 10 0 R
- /PageLabels 18 0 R
+<< /Outlines 14 0 R
+ /PageLabels 25 0 R
  /PageMode /UseNone
- /Pages 15 0 R
+ /Pages 20 0 R
  /Type /Catalog >>
 endobj
-% 'R9': class PDFInfo 
-9 0 obj
+% 'R13': class PDFInfo 
+13 0 obj
 << /Author ()
- /CreationDate (D:20110525141209+06'00')
+ /CreationDate (D:20111214160248+06'00')
+ /Creator (\(unspecified\))
  /Keywords ()
- /Producer (ReportLab http://www.reportlab.com)
+ /Producer (ReportLab PDF Library - www.reportlab.com)
  /Subject (\(unspecified\))
- /Title (RHCE Practice Exam #01) >>
+ /Title (RHCSA / RHCE Practice Exam #01) >>
 endobj
-% 'R10': class PDFOutlines 
-10 0 obj
-<< /Count 4
- /First 11 0 R
- /Last 14 0 R
+% 'R14': class PDFOutlines 
+14 0 obj
+<< /Count 5
+ /First 15 0 R
+ /Last 19 0 R
  /Type /Outlines >>
 endobj
 % 'Outline.0': class OutlineEntryObject 
-11 0 obj
-<< /Dest [ 5 0 R
+15 0 obj
+<< /Dest [ 6 0 R
  /XYZ
  62.69291
- 444.0236
+ 729.0236
  0 ]
- /Next 12 0 R
- /Parent 10 0 R
- /Title (Untrusted VM Configuration) >>
+ /Next 16 0 R
+ /Parent 14 0 R
+ /Title (This Exam:) >>
 endobj
 % 'Outline.1': class OutlineEntryObject 
-12 0 obj
-<< /Dest [ 5 0 R
+16 0 obj
+<< /Dest [ 6 0 R
  /XYZ
  62.69291
- 381.0236
+ 576.0236
  0 ]
- /Next 13 0 R
- /Parent 10 0 R
- /Prev 11 0 R
- /Title (Configuration Common to both the Server and Client VMs) >>
+ /Next 17 0 R
+ /Parent 14 0 R
+ /Prev 15 0 R
+ /Title (Your Test Environment:) >>
 endobj
 % 'Outline.2': class OutlineEntryObject 
-13 0 obj
-<< /Dest [ 5 0 R
+17 0 obj
+<< /Dest [ 6 0 R
  /XYZ
  62.69291
- 150.0236
+ 213.0236
  0 ]
- /Next 14 0 R
- /Parent 10 0 R
- /Prev 12 0 R
- /Title (Server Configuration) >>
+ /Next 18 0 R
+ /Parent 14 0 R
+ /Prev 16 0 R
+ /Title (Requirements Common to Both Exams) >>
 endobj
 % 'Outline.3': class OutlineEntryObject 
-14 0 obj
-<< /Dest [ 7 0 R
+18 0 obj
+<< /Dest [ 8 0 R
  /XYZ
  62.69291
- 207.0236
+ 765.0236
  0 ]
- /Parent 10 0 R
- /Prev 13 0 R
- /Title (Client Configuration) >>
+ /Next 19 0 R
+ /Parent 14 0 R
+ /Prev 17 0 R
+ /Title (RHCSA Requirements) >>
 endobj
-% 'R15': class PDFPages 
-15 0 obj
+% 'Outline.4': class OutlineEntryObject 
+19 0 obj
+<< /Dest [ 10 0 R
+ /XYZ
+ 62.69291
+ 459.0236
+ 0 ]
+ /Parent 14 0 R
+ /Prev 18 0 R
+ /Title (RHCE Requirements) >>
+endobj
+% 'R20': class PDFPages 
+20 0 obj
 % page tree
-<< /Count 2
- /Kids [ 5 0 R
- 7 0 R ]
+<< /Count 4
+ /Kids [ 6 0 R
+ 8 0 R
+ 10 0 R
+ 11 0 R ]
  /Type /Pages >>
 endobj
-% 'R16': class PDFStream 
-16 0 obj
+% 'R21': class PDFStream 
+21 0 obj
 % page stream
-<< /Length 10275 >>
+<< /Length 9755 >>
 stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
 1 0 0 1 62.69291 741.0236 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 9.64 Tm /F2 20 Tf 24 TL 116.0049 0 Td (RHCE Practice Exam #01) Tj T* -116.0049 0 Td ET
+BT 1 0 0 1 0 4 Tm 72.11488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (RHCSA / RHCE Practice Exam #01) Tj T* -72.11488 0 Td ET
 Q
 Q
 q
-1 0 0 1 62.69291 695.0236 cm
+1 0 0 1 62.69291 708.0236 cm
 q
-BT 1 0 0 1 0 28.82 Tm .373555 Tw 12 TL /F1 10 Tf 0 0 0 rg (These tasks are taken from the objectives Red Hat has publicly posted and should therefore approximate) Tj T* 0 Tw .955988 Tw (the type of tasks one might find on the RHCE exam. It is expressly NOT based on actual contents of a) Tj T* 0 Tw (Red Hat Exam.) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (This Exam:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 677.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (You should configure your physical server and three virtual machines as follows:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 671.0236 cm
-Q
-q
-1 0 0 1 62.69291 647.0236 cm
+1 0 0 1 62.69291 666.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F3 10 Tf 12 TL 180.2149 0 Td (Systems Configuration) Tj T* -180.2149 0 Td ET
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .348651 Tw (These tasks are taken from the objectives Red Hat has publicly posted and should therefore approximate) Tj T* 0 Tw .890514 Tw (the type of tasks one might find on the RHCSA and RHCE exams. It is expressly NOT based on actual) Tj T* 0 Tw (contents of actual Red Hat Exams.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 569.0236 cm
+1 0 0 1 62.69291 588.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 62 Tm /F1 10 Tf 12 TL .579318 Tw (For the most authentic experience, this sample exam should be undertaken in a "closed-book" manner \226) Tj T* 0 Tw 1.026457 Tw (referring to nothing but what is on the system or contained on the Red Hat Enterprise Linux installation) Tj T* 0 Tw 1.526098 Tw (tree that will be made available to you. However, because this Sample Exam is intended in part as a) Tj T* 0 Tw .994104 Tw (learning experience in itself, should you get seriously stuck you may refer to the Study Guide, to online) Tj T* 0 Tw 1.127318 Tw (resources, or to assistance from the instructor. Recognize, though, that such a decision may indicate a) Tj T* 0 Tw (need for additional preparation before undertaking the Red Hat Exam.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 555.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Your Test Environment:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 525.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .016235 Tw 12 TL /F1 10 Tf 0 0 0 rg (You should configure your physical server and three virtual machines as follows \(where <) Tj (x) Tj (> is your station) Tj T* 0 Tw (number\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 519.0236 cm
+Q
+q
+1 0 0 1 62.69291 495.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 180.2149 0 Td (Systems Configuration) Tj T* -180.2149 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 369.0236 cm
 1 1 1 rg
-n 0 72 469.8898 -18 re f*
+n 0 120 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 54 469.8898 -18 re f*
+n 0 102 469.8898 -18 re f*
+1 1 1 rg
+n 0 84 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 66 469.8898 -30 re f*
 1 1 1 rg
 n 0 36 469.8898 -18 re f*
 .878431 .878431 .878431 rg
 n 0 18 469.8898 -18 re f*
 .960784 .960784 .862745 rg
-n 0 72 469.8898 -18 re f*
+n 0 120 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 99.97795 57 cm
+1 0 0 1 99.97795 105 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 81.97795 12 re f*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.70398 0 Td (Physical Host) Tj T* -10.70398 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.70398 0 Td (Physical Host) Tj T* -10.70398 0 Td ET
 Q
 Q
 q
-1 0 0 1 193.9559 57 cm
-q
-.960784 .960784 .862745 rg
-n 0 0 81.97795 12 re f*
-Q
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm1) Tj T* -31.54398 0 Td ET
-Q
-Q
-q
-1 0 0 1 287.9339 57 cm
+1 0 0 1 193.9559 105 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 81.97795 12 re f*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm2) Tj T* -31.54398 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm1) Tj T* -31.54398 0 Td ET
 Q
 Q
 q
-1 0 0 1 381.9118 57 cm
+1 0 0 1 287.9339 105 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 81.97795 12 re f*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm3) Tj T* -31.54398 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm2) Tj T* -31.54398 0 Td ET
 Q
 Q
 q
-1 0 0 1 6 39 cm
+1 0 0 1 381.9118 105 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 81.97795 12 re f*
+Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Hostname) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 31.54398 0 Td (vm3) Tj T* -31.54398 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Hostname) Tj T* ET
+Q
+Q
+q
+1 0 0 1 99.97795 87 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (host.linux-acc.local) Tj T* ET
+Q
+Q
+q
+1 0 0 1 193.9559 87 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+q
+1 0 0 1 287.9339 87 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (client.linux-acc.local) Tj T* ET
+Q
+Q
+q
+1 0 0 1 381.9118 87 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (untrusted.linux-acc.local) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (IP Address) Tj T* ET
+Q
+Q
+q
+1 0 0 1 99.97795 69 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 193.9559 69 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (1) Tj T* ET
+Q
+Q
+q
+1 0 0 1 287.9339 69 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (2) Tj T* ET
+Q
+Q
+q
+1 0 0 1 381.9118 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (DHCP) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Subnet) Tj T* ET
 Q
 Q
 q
 1 0 0 1 99.97795 39 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (host.linux-acc.local) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (/22 or) Tj T* (255.255.252.0) Tj T* ET
 Q
 Q
 q
 1 0 0 1 193.9559 39 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (/22 or) Tj T* (255.255.252.0) Tj T* ET
 Q
 Q
 q
 1 0 0 1 287.9339 39 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (client.linux-acc.local) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (/22 or) Tj T* (255.255.252.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 381.9118 39 cm
+1 0 0 1 381.9118 51 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (s) Tj (<) Tj (x) Tj (>) Tj (untrusted.linux-acc.local) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (n/a) Tj T* ET
 Q
 Q
 q
 1 0 0 1 6 21 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (IP Address) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Def. GW) Tj T* ET
 Q
 Q
 q
 1 0 0 1 99.97795 21 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (0) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
 Q
 Q
 q
 1 0 0 1 193.9559 21 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (1) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
 Q
 Q
 q
 1 0 0 1 287.9339 21 cm
 q
-BT 1 0 0 1 0 4.82 Tm 12 TL /F1 10 Tf 0 0 0 rg (192.168.5.) Tj (<) Tj (x) Tj (>) Tj (2) Tj T* ET
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
 Q
 Q
 q
 1 0 0 1 381.9118 21 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (DHCP) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
 Q
 Q
 q
 1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Def. GW) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Nameserver) Tj T* ET
 Q
 Q
 q
 1 0 0 1 99.97795 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.7.254) Tj T* ET
 Q
 Q
 q
 1 0 0 1 193.9559 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.7.254) Tj T* ET
 Q
 Q
 q
 1 0 0 1 287.9339 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.7.254) Tj T* ET
 Q
 Q
 q
 1 0 0 1 381.9118 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.7.254) Tj T* ET
 Q
 Q
 q
@@ -358,98 +530,100 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 54 m 469.8898 54 l S
+n 0 102 m 469.8898 102 l S
+n 0 84 m 469.8898 84 l S
+n 0 66 m 469.8898 66 l S
 n 0 36 m 469.8898 36 l S
 n 0 18 m 469.8898 18 l S
-n 93.97795 0 m 93.97795 72 l S
-n 187.9559 0 m 187.9559 72 l S
-n 281.9339 0 m 281.9339 72 l S
-n 375.9118 0 m 375.9118 72 l S
-n 0 72 m 469.8898 72 l S
+n 93.97795 0 m 93.97795 120 l S
+n 187.9559 0 m 187.9559 120 l S
+n 281.9339 0 m 281.9339 120 l S
+n 375.9118 0 m 375.9118 120 l S
+n 0 120 m 469.8898 120 l S
 n 0 0 m 469.8898 0 l S
-n 0 0 m 0 72 l S
-n 469.8898 0 m 469.8898 72 l S
+n 0 0 m 0 120 l S
+n 469.8898 0 m 469.8898 120 l S
 Q
 Q
 q
-1 0 0 1 62.69291 569.0236 cm
+1 0 0 1 62.69291 369.0236 cm
 Q
 q
-1 0 0 1 62.69291 551.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Networks:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 545.0236 cm
-Q
-q
-1 0 0 1 62.69291 456.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 77 cm
+1 0 0 1 62.69291 351.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL (Local network) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Networks:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20 62 cm
+1 0 0 1 62.69291 345.0236 cm
+Q
+q
+1 0 0 1 62.69291 255.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
 q
-1 0 0 1 20 0 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.0/22 \(255.255.252.0\), GW 192.168.4.0, DNS 192.168.7.254) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 46 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL (Trusted subnet) Tj T* ET
-Q
-Q
-q
-1 0 0 1 20 31 cm
+1 0 0 1 20 60 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (Local network) Tj T* ET
+Q
+Q
 BT 1 0 0 1 0 2 Tm  T* ET
 q
-1 0 0 1 20 0 cm
+1 0 0 1 10 0 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.5.0/24 \(255.255.255.0\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.0/22 \(255.255.252.0\), GW 192.168.4.1, DNS 192.168.7.254) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 20 15 cm
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL (Untrusted subnet) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (Trusted subnet) Tj T* ET
+Q
+Q
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 10 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.5.0/24 \(255.255.255.0\)) Tj T* ET
+Q
+Q
+q
 Q
 Q
 q
 1 0 0 1 20 0 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (Untrusted subnet) Tj T* ET
+Q
+Q
 BT 1 0 0 1 0 2 Tm  T* ET
 q
-1 0 0 1 20 0 cm
+1 0 0 1 10 0 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (192.168.4.0/24 \(255.255.255.0\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (192.168.4.0/24 \(255.255.255.0\)) Tj T* ET
 Q
 Q
 q
@@ -459,151 +633,478 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 456.0236 cm
+1 0 0 1 62.69291 255.0236 cm
 Q
 q
-1 0 0 1 62.69291 423.0236 cm
+1 0 0 1 62.69291 225.0236 cm
 q
-BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Untrusted VM Configuration) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 393.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL .293555 Tw (On the untrusted host, use DHCP networking and install/configure only that components that are required) Tj T* 0 Tw (for testing prohibited access to the services described below.) Tj T* ET
+BT 1 0 0 1 0 14 Tm 1.005697 Tw 12 TL /F1 10 Tf 0 0 0 rg (An installation tree has been made available to you at ) Tj 0 0 .501961 rg (ftp://192.168.5.200/pub/rhel6 ) Tj 0 0 0 rg (which can serve as) Tj T* 0 Tw (the basis for a yum repository.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 339.0236 cm
+1 0 0 1 62.69291 192.0236 cm
 q
-BT 1 0 0 1 0 29.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Configuration Common to both the Server and Client) Tj T* (VMs) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Requirements Common to Both Exams) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 327.0236 cm
+1 0 0 1 62.69291 180.0236 cm
 Q
 q
-1 0 0 1 62.69291 327.0236 cm
+1 0 0 1 62.69291 180.0236 cm
 Q
 q
-1 0 0 1 62.69291 240.0236 cm
+1 0 0 1 62.69291 150.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 72 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 72 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F2 10 Tf 12 TL (Create Users:) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .894431 Tw (SELinux must, at the end of the exam, be running in enforcing mode on both the client and server) Tj T* 0 Tw (virtual machines after a reboot of each.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+Q
+Q
+q
+1 0 0 1 62.69291 150.0236 cm
+Q
+q
+1 0 0 1 62.69291 150.0236 cm
+Q
+q
+1 0 0 1 62.69291 120.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 62 Tm  T* ET
 q
-1 0 0 1 20 66 cm
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
 Q
 q
-1 0 0 1 20 66 cm
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .458221 Tw (The IPTables firewall must be enabled and configured to permit the types of traffic set forth in these) Tj T* 0 Tw (requirements.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 120.0236 cm
+Q
+q
+1 0 0 1 62.69291 120.0236 cm
+Q
+q
+1 0 0 1 62.69291 90.02362 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.58229 Tw (On the untrusted host, use DHCP networking and install/configure only that components that are) Tj T* 0 Tw (required for testing prohibited access to the services described below.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 90.02362 cm
+Q
+q
+1 0 0 1 62.69291 90.02362 cm
+Q
+ 
+endstream
+endobj
+% 'R22': class PDFStream 
+22 0 obj
+% page stream
+<< /Length 11833 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 744.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (RHCSA Requirements) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 726.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Complete the following in approximately 2 hours:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 720.0236 cm
+Q
+q
+1 0 0 1 62.69291 720.0236 cm
+Q
+q
+1 0 0 1 62.69291 690.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.529985 Tw (Obtain access to your virtual machines \(you do not know the root passwords\) and reset the root) Tj T* 0 Tw (passwords to "linuxacc".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 690.0236 cm
+Q
+q
+1 0 0 1 62.69291 690.0236 cm
+Q
+q
+1 0 0 1 62.69291 672.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Ensure that the network configuration matches that in the table above.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 672.0236 cm
+Q
+q
+1 0 0 1 62.69291 672.0236 cm
+Q
+q
+1 0 0 1 62.69291 450.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 207 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 207 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Create users and groups on both your server and client virtual machines:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 201 cm
+Q
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 186 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Users:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 180 cm
+Q
+q
+1 0 0 1 20 84 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 90 cm
+Q
+q
+1 0 0 1 20 90 cm
+Q
+q
+1 0 0 1 20 72 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (tester \(UID=1004\), password: linuxacc) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 72 cm
+Q
+q
+1 0 0 1 20 72 cm
 Q
 q
 1 0 0 1 20 54 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (ford \(UID=1005\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (ford \(UID=1005\), password: linuxacc) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 20 48 cm
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 54 cm
 Q
 q
 1 0 0 1 20 36 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (carter \(UID=1006\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (carter \(UID=1006\), password: linuxacc) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 20 30 cm
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 36 cm
 Q
 q
 1 0 0 1 20 18 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (reagan \(UID=1007\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (reagan \(UID=1007\), password: linuxacc) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 20 12 cm
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 18 cm
 Q
 q
 1 0 0 1 20 0 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (clinton \(UID=1008\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (clinton \(UID=1008\), password: linuxacc) Tj T* ET
 Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 66 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Groups:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 60 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (presidents \(GID=1000; members=ford, carter, reagan, clinton\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (republicans \(GID=1001; members=ford, reagan\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (democrats \(GID=1002; members=carter, clinton\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+1 0 0 1 20 0 cm
 Q
 q
 Q
@@ -615,31 +1116,37 @@ q
 Q
 Q
 q
+1 0 0 1 23 3 cm
+Q
+q
 Q
 Q
 q
-1 0 0 1 62.69291 234.0236 cm
+1 0 0 1 62.69291 450.0236 cm
 Q
 q
-1 0 0 1 62.69291 162.0236 cm
+1 0 0 1 62.69291 450.0236 cm
+Q
+q
+1 0 0 1 62.69291 76.86614 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 57 cm
+1 0 0 1 6 358.1575 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 57 cm
+1 0 0 1 23 358.1575 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Create Groups:) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (On the server virtual machine, create the following directories:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 51 cm
+1 0 0 1 23 352.1575 cm
 Q
 q
 1 0 0 1 23 -3 cm
@@ -647,27 +1154,150 @@ q
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
 q
-1 0 0 1 20 48 cm
+1 0 0 1 20 348 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (/share/presidents) Tj T* ET
+Q
 Q
 q
-1 0 0 1 20 48 cm
+1 0 0 1 20 342 cm
 Q
 q
-1 0 0 1 20 36 cm
+1 0 0 1 20 216 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 120 cm
+Q
+q
+1 0 0 1 20 120 cm
+Q
+q
+1 0 0 1 20 102 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (presidents \(GID=1000; members=ford, carter, reagan, clinton\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (All four \("presidential"\) users must be able to write here.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 102 cm
+Q
+q
+1 0 0 1 20 102 cm
+Q
+q
+1 0 0 1 20 84 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (This directory must be owned by root and the group presidents.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 66 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 48 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group presidents.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
 Q
 Q
 q
@@ -677,45 +1307,294 @@ q
 1 0 0 1 20 30 cm
 Q
 q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 216 cm
+Q
+q
+1 0 0 1 20 198 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (/share/presidents/republicans) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 192 cm
+Q
+q
+1 0 0 1 20 84 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 102 cm
+Q
+q
+1 0 0 1 20 102 cm
+Q
+q
+1 0 0 1 20 84 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (This directory should be owned by root and the group republicans.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 66 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group republicans.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 48 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 84 cm
+Q
+q
+1 0 0 1 20 66 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (/share/presidents/democrats) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 60 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (This directory should be owned by root and the group democrats.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
 1 0 0 1 20 18 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (republicans \(GID=1001; members=ford, reagan\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group democrats.) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 20 12 cm
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 18 cm
 Q
 q
 1 0 0 1 20 0 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (democrats \(GID=1002; members=carter, clinton\)) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
 Q
 Q
 q
@@ -725,199 +1604,159 @@ q
 1 0 0 1 20 0 cm
 Q
 q
-Q
-Q
-q
-1 0 0 1 23 -3 cm
+1 0 0 1 20 0 cm
 Q
 q
-Q
-Q
-q
-1 0 0 1 62.69291 162.0236 cm
-Q
-q
-1 0 0 1 62.69291 129.0236 cm
-q
-BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Server Configuration) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 117.0236 cm
-Q
-q
-1 0 0 1 62.69291 117.0236 cm
-Q
-q
-1 0 0 1 62.69291 105.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (SELinux should run in Enforcing mode.) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 99.02362 cm
 Q
-q
-1 0 0 1 62.69291 87.02362 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (SSH connections should be allowed from throughout the 192.168.4.0/22 network.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 81.02362 cm
 Q
  
 endstream
-
 endobj
-% 'R17': class PDFStream 
-17 0 obj
+% 'R23': class PDFStream 
+23 0 obj
 % page stream
-<< /Length 10454 >>
+<< /Length 12064 >>
 stream
-1 0 0 1 0 0 cm BT /F1 12 Tf 14.4 TL ET
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 741.0236 cm
+1 0 0 1 62.69291 711.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 41 Tm  T* ET
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 9 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 1.884597 Tw (For all other services, connections should be allowed from addresses within the trusted network) Tj T* 0 Tw (\(192.168.5.0/24\), but disallowed from 192.168.4.0/24.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 735.0236 cm
-Q
-q
-1 0 0 1 62.69291 723.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Configure an SMTP server that allows connections from the trusted subnet.) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 717.0236 cm
+1 0 0 1 20 30 cm
 Q
 q
-1 0 0 1 62.69291 705.0236 cm
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 0 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Connect to the iSCSI target provided by the target portal at 192.168.5.200.) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 699.0236 cm
+1 0 0 1 20 0 cm
 Q
 q
-1 0 0 1 62.69291 687.0236 cm
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Partition the iSCSI disk) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The Client Virtual machine should boot into a GNOME desktop) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 681.0236 cm
+1 0 0 1 62.69291 693.0236 cm
 Q
 q
-1 0 0 1 62.69291 669.0236 cm
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 663.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Configure this virtual machine to boot to a command-line only.) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .76561 Tw (The Server Virtual machine should boot into runlevel 3 \(CLI only\), but should provide a desktop for) Tj T* 0 Tw (root and for tester through secure VNC.) Tj T* ET
 Q
 Q
 q
@@ -927,45 +1766,647 @@ q
 1 0 0 1 62.69291 663.0236 cm
 Q
 q
-1 0 0 1 62.69291 651.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Add add'l swap space) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 645.0236 cm
+1 0 0 1 62.69291 663.0236 cm
 Q
 q
 1 0 0 1 62.69291 633.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 -3 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 -3 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Create a PV, VG, and LV) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .402126 Tw (Configure static name resolution such that FQDN of each VM resolves correctly \(even without DNS\)) Tj T* 0 Tw (from each of the other VMs.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 633.0236 cm
+Q
+q
+1 0 0 1 62.69291 633.0236 cm
+Q
+q
+1 0 0 1 62.69291 549.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 69 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Configure each of the following names as aliases for ) Tj /F4 10 Tf (s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 63 cm
+Q
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (pres.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 36 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (rep.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 18 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (dem.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 549.0236 cm
+Q
+q
+1 0 0 1 62.69291 549.0236 cm
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (On the Client virtual machine, create a directory ) Tj /F4 10 Tf (/home/remote) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+Q
+q
+1 0 0 1 62.69291 489.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 26 Tm .993555 Tw 12 TL /F1 10 Tf 0 0 0 rg (On the Client virtual machine, configure the automounter such that attempts to access locations in) Tj T* 0 Tw .424976 Tw /F4 10 Tf (/home/remote/presidents/ ) Tj /F1 10 Tf (cause the nfs share ) Tj /F4 10 Tf (/share/presidents ) Tj /F1 10 Tf (from your server to be) Tj T* 0 Tw (mounted at ) Tj /F4 10 Tf (/home/remote/presidents) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 489.0236 cm
+Q
+q
+1 0 0 1 62.69291 489.0236 cm
+Q
+q
+1 0 0 1 62.69291 471.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (On the Client virtual machine, install the ) Tj /F4 10 Tf (slang ) Tj /F1 10 Tf (package.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 471.0236 cm
+Q
+q
+1 0 0 1 62.69291 471.0236 cm
+Q
+q
+1 0 0 1 62.69291 438.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (RHCE Requirements) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 420.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Complete the following in approximately 2 hours:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 414.0236 cm
+Q
+q
+1 0 0 1 62.69291 414.0236 cm
+Q
+q
+1 0 0 1 62.69291 360.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 38 Tm 1.558651 Tw 12 TL /F1 10 Tf 0 0 0 rg (Ensure that both the Server and Client Virtual machines are obtaining their time from NTP. Your) Tj T* 0 Tw 9.135976 Tw (server virtual machine should obtain its time from ) Tj /F4 10 Tf (ntppub.tamu.edu ) Tj /F1 10 Tf (and from) Tj T* 0 Tw 1.806647 Tw /F4 10 Tf (ntp.bytestacker.com) Tj /F1 10 Tf (. Your client virtual machine should get its time from your server virtual) Tj T* 0 Tw (machine.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 360.0236 cm
+Q
+q
+1 0 0 1 62.69291 360.0236 cm
+Q
+q
+1 0 0 1 62.69291 342.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (SSH connections should be allowed from throughout the ) Tj /F4 10 Tf (192.168.4.0/22 ) Tj /F1 10 Tf (network.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 342.0236 cm
+Q
+q
+1 0 0 1 62.69291 342.0236 cm
+Q
+q
+1 0 0 1 62.69291 312.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.884597 Tw 12 TL /F1 10 Tf 0 0 0 rg (For all other services, connections should be allowed from addresses within the trusted network) Tj T* 0 Tw (\() Tj /F4 10 Tf (192.168.5.0/24) Tj /F1 10 Tf (\), but disallowed from ) Tj /F4 10 Tf (192.168.4.0/24) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 312.0236 cm
+Q
+q
+1 0 0 1 62.69291 312.0236 cm
+Q
+q
+1 0 0 1 62.69291 294.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Configure an SMTP server that allows connections from the trusted subnet.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 294.0236 cm
+Q
+q
+1 0 0 1 62.69291 294.0236 cm
+Q
+q
+1 0 0 1 62.69291 276.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Connect to the iSCSI target provided by the target portal at ) Tj /F4 10 Tf (192.168.5.200) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 276.0236 cm
+Q
+q
+1 0 0 1 62.69291 276.0236 cm
+Q
+q
+1 0 0 1 62.69291 234.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 26 Tm 32.31992 Tw 12 TL /F1 10 Tf 0 0 0 rg (Configure ) Tj /F4 10 Tf (/share/presidents) Tj /F1 10 Tf (, ) Tj /F4 10 Tf (/share/presidents/republicans) Tj /F1 10 Tf (, and) Tj T* 0 Tw 2.29498 Tw /F4 10 Tf (/share/presidents/democrats ) Tj /F1 10 Tf (to be shared via NFS to any system in the trusted subnet.) Tj T* 0 Tw (Ensure that root privileges cannot be gained from a remote mount.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 234.0236 cm
+Q
+q
+1 0 0 1 62.69291 234.0236 cm
+Q
+q
+1 0 0 1 62.69291 192.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 27 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 26 Tm 1.906342 Tw 12 TL /F1 10 Tf 0 0 0 rg (Configure an FTP server to allow anonymous downloads from ) Tj /F4 10 Tf (/var/ftp/pub ) Tj /F1 10 Tf (and anonymous) Tj T* 0 Tw 2.555529 Tw (uploads to ) Tj /F4 10 Tf (/var/ftp/pub/inbound ) Tj /F1 10 Tf (\(create this directory and set permissions appropriately\).) Tj T* 0 Tw (Ensure that uploaded files cannot be viewed or downloaded without admin intervention.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 192.0236 cm
+Q
+q
+1 0 0 1 62.69291 192.0236 cm
+Q
+q
+1 0 0 1 62.69291 76.86614 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 100.1575 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 100.1575 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Configure a Web server to serve the following vhosts:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 94.15748 cm
+Q
+q
+1 0 0 1 23 4.15748 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 60 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 0 rg (Access to ) Tj /F5 10 Tf (pres.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 10 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (serves an index page located in ) Tj /F4 10 Tf (/share/presidents/) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 0 rg (Access to ) Tj /F5 10 Tf (rep.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 10 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (serves an index page located in ) Tj /F4 10 Tf (/share/presidents/republicans/) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 15 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 0 rg (Access to ) Tj /F5 10 Tf (dem.s) Tj (<) Tj (x) Tj (>) Tj (server.linux-acc.local) Tj T* ET
+Q
+Q
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 10 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (serves an index page located in ) Tj /F4 10 Tf (/share/presidents/democrats/) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+q
+Q
+Q
+ 
+endstream
+endobj
+% 'R24': class PDFStream 
+24 0 obj
+% page stream
+<< /Length 3104 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 717.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 35 Tm  T* ET
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Use filesystem ACLs to resolve any permissions issues you encounter.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.341751 Tw (Place an index file in each of these locations that indicates which directory it is in and under) Tj T* 0 Tw (which name it should be served out.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 717.0236 cm
+Q
+q
+1 0 0 1 62.69291 717.0236 cm
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 14 Tm .913314 Tw 12 TL /F1 10 Tf 0 0 0 rg (Configure Samba to share the ) Tj /F4 10 Tf (/share/presidents ) Tj /F1 10 Tf (directory using a share name of presidents.) Tj T* 0 Tw (Make it readable for ) Tj /F4 10 Tf (ford ) Tj /F1 10 Tf (and ) Tj /F4 10 Tf (carter ) Tj /F1 10 Tf (and writable for ) Tj /F4 10 Tf (reagan ) Tj /F1 10 Tf (and ) Tj /F4 10 Tf (clinton) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+Q
+q
+1 0 0 1 62.69291 657.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.532339 Tw 12 TL /F1 10 Tf 0 0 0 rg (Create a bash script that uses ) Tj /F4 10 Tf (top ) Tj /F1 10 Tf (non-interactively to write 2 interations of its report to the file) Tj T* 0 Tw /F4 10 Tf (/root/logs/top_report.txt) Tj /F1 10 Tf (. Configure a cron job that performs this task every 20 minutes.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 657.0236 cm
+Q
+q
+1 0 0 1 62.69291 657.0236 cm
+Q
+q
+1 0 0 1 62.69291 627.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.253735 Tw (Configure your Server VM to provide a caching DNS server and to allow queries from the trusted) Tj T* 0 Tw (network. Configure your Client VM to obtain its DNS name resolution from your Server VM.) Tj T* ET
 Q
 Q
 q
@@ -975,590 +2416,114 @@ q
 1 0 0 1 62.69291 627.0236 cm
 Q
 q
-1 0 0 1 62.69291 219.0236 cm
+1 0 0 1 62.69291 627.0236 cm
+Q
+q
+1 0 0 1 62.69291 597.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 393 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 393 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Create directories:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 23 387 cm
-Q
-q
-1 0 0 1 23 -3 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 378 cm
+1 0 0 1 23 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (/share/presidents) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .55881 Tw (Tune the kernel behavior of your Server VM so that it will respond to broadcast pings \(ICMP ECHO) Tj T* 0 Tw (broadcasts\). This must persist after a reboot.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 20 372 cm
 Q
-q
-1 0 0 1 20 252 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 114 cm
-Q
-q
-1 0 0 1 20 114 cm
-Q
-q
-1 0 0 1 20 102 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (All four users must be able to write here.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 96 cm
-Q
-q
-1 0 0 1 20 84 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (This directory must be owned by root and the group presidents.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 78 cm
-Q
-q
-1 0 0 1 20 66 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 60 cm
-Q
-q
-1 0 0 1 20 48 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group presidents.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 42 cm
-Q
-q
-1 0 0 1 20 30 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 24 cm
-Q
-q
-1 0 0 1 20 0 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 0 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 252 cm
-Q
-q
-1 0 0 1 20 234 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (/share/presidents/republicans) Tj T* ET
-Q
-Q
-q
-1 0 0 1 20 228 cm
-Q
-q
-1 0 0 1 20 126 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 96 cm
-Q
-q
-1 0 0 1 20 96 cm
-Q
-q
-1 0 0 1 20 84 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (This directory should be owned by root and the group republicans.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 78 cm
-Q
-q
-1 0 0 1 20 66 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group republicans.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 60 cm
-Q
-q
-1 0 0 1 20 48 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
-Q
-Q
-q
 Q
-Q
-q
-1 0 0 1 20 42 cm
-Q
-q
-1 0 0 1 20 30 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 24 cm
-Q
-q
-1 0 0 1 20 0 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 0 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 126 cm
-Q
-q
-1 0 0 1 20 108 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 5.71 Tm /F4 10 Tf 12 TL (/share/presidents/democrats) Tj T* ET
-Q
-Q
-q
-1 0 0 1 20 102 cm
-Q
-q
-1 0 0 1 20 0 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 96 cm
-Q
-q
-1 0 0 1 20 96 cm
-Q
-q
-1 0 0 1 20 84 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (This directory should be owned by root and the group democrats.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 78 cm
-Q
-q
-1 0 0 1 20 66 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Files created here should be owned by the group democrats.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 60 cm
-Q
-q
-1 0 0 1 20 48 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Only users in this group should have any access to the directory.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 42 cm
-Q
-q
-1 0 0 1 20 30 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Users should not be able to delete files they did not create.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 24 cm
-Q
-q
-1 0 0 1 20 0 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
 q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 16.82 Tm /F1 10 Tf 12 TL 2.092126 Tw (This directory should have an SELinux fcontext that will permit it to be shared by) Tj T* 0 Tw (multiple services.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 0 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 0 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 219.0236 cm
-Q
-q
-1 0 0 1 62.69291 186.0236 cm
-q
-BT 1 0 0 1 0 8.435 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Client Configuration) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 168.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Mount an NFS share from the server) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 150.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Mount a SAMBA share from the server) Tj T* ET
+1 0 0 1 62.69291 597.0236 cm
 Q
-Q
 q
-1 0 0 1 62.69291 132.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 4.82 Tm /F1 10 Tf 12 TL (Configure this virtual machine to boot to the Gnome GUI.) Tj T* ET
-Q
+1 0 0 1 62.69291 597.0236 cm
 Q
  
 endstream
-
 endobj
-% 'R18': class PDFPageLabels 
-18 0 obj
+% 'R25': class PDFPageLabels 
+25 0 obj
 % Document Root
 << /Nums [ 0
- 19 0 R
+ 26 0 R
  1
- 20 0 R ] >>
+ 27 0 R
+ 2
+ 28 0 R
+ 3
+ 29 0 R ] >>
 endobj
-% 'R19': class PDFPageLabel 
-19 0 obj
+% 'R26': class PDFPageLabel 
+26 0 obj
 % None
 << /S /D
  /St 1 >>
 endobj
-% 'R20': class PDFPageLabel 
-20 0 obj
+% 'R27': class PDFPageLabel 
+27 0 obj
 % None
 << /S /D
  /St 2 >>
 endobj
+% 'R28': class PDFPageLabel 
+28 0 obj
+% None
+<< /S /D
+ /St 3 >>
+endobj
+% 'R29': class PDFPageLabel 
+29 0 obj
+% None
+<< /S /D
+ /St 4 >>
+endobj
 xref
-0 21
+0 30
 0000000000 65535 f
 0000000113 00000 n
-0000000245 00000 n
-0000000410 00000 n
-0000000585 00000 n
-0000000772 00000 n
-0000001053 00000 n
-0000001212 00000 n
+0000000257 00000 n
+0000000422 00000 n
+0000000597 00000 n
+0000000798 00000 n
+0000001031 00000 n
+0000001332 00000 n
 0000001491 00000 n
-0000001648 00000 n
-0000001881 00000 n
-0000002006 00000 n
-0000002192 00000 n
-0000002421 00000 n
-0000002616 00000 n
-0000002780 00000 n
-0000002895 00000 n
-0000013272 00000 n
-0000023832 00000 n
-0000023938 00000 n
-0000024015 00000 n
+0000001772 00000 n
+0000001941 00000 n
+0000002221 00000 n
+0000002502 00000 n
+0000002661 00000 n
+0000002939 00000 n
+0000003064 00000 n
+0000003234 00000 n
+0000003431 00000 n
+0000003639 00000 n
+0000003832 00000 n
+0000003994 00000 n
+0000004127 00000 n
+0000013981 00000 n
+0000025914 00000 n
+0000038078 00000 n
+0000041285 00000 n
+0000041417 00000 n
+0000041494 00000 n
+0000041571 00000 n
+0000041648 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(>\375\367\034*p7k\351\233\372\363\253\002h\247) (>\375\367\034*p7k\351\233\372\363\253\002h\247)] 
+ [(\216~\362\212y\012L\300\330\033a\252\317?v\015) (\216~\362\212y\012L\300\330\033a\252\317?v\015)] 
 
- /Info 9 0 R
- /Root 8 0 R
- /Size 21 >>
+ /Info 13 0 R
+ /Root 12 0 R
+ /Size 30 >>
 startxref
-24062
+41695
 %%EOF
