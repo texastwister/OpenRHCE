@@ -145,7 +145,9 @@ Introductions: Preparation Recommendations
         * 4 GB or more of RAM recommended as a minimum -- 2GB is likely an absolute minimum
         * 60 GB of HDD space recommended as a minimum -- enough for the host OS and several VMs.
 
-    * Scenario 2 -- Several physical systems, networked together.
+    * Scenario 2 -- Several Rackspace or Amazon VMs.
+
+    * Scenario 3 -- Several physical systems, networked together.
     
         * These can be 32-bit (i386 / i686) or 64-bit (x86_64) systems
         * Each should have 768 MB of RAM as a minimum.
