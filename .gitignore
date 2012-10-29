@@ -1,1 +1,4 @@
 Non-release_Support_Docs
+*.~
+*.pdf
+*~

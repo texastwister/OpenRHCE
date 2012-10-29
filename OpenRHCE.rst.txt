@@ -6,7 +6,7 @@
 
 .. footer::
 
-    Copyright |copy| 2011, Scott Purcell, CC BY-NC-SA 3.0
+    Copyright |copy| 2012, Scott Purcell, CC BY-NC-SA 3.0
     
 =========================
 RHCSA / RHCE Preparation
@@ -49,34 +49,29 @@ http://twitter.com/texastwister
 
 http://www.facebook.com/Scott.L.Purcell
 
+**Qualifications**
 
-Introductions: Your Instructor
------------------------------------------
+    * RHCSA, RHCE #110-008-877 (RHEL6)
 
-Qualifications:
-_____________________
+    * Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
 
-* RHCSA, RHCE #110-008-877 (RHEL6)
+    * Curriculum Developer and Trainer for a major computer manufacturer for 15 years
 
-* Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
+    * Linux Enthusiast since 2000
 
-* Curriculum Developer and Trainer for a major computer manufacturer for going on 11 years
+**Personal**
 
-* Linux Enthusiast since 2000
+    * Disciple of Jesus Christ, Husband, Father, Eagle Scout, Computer Geek, Balloon Entertainer, and occasional coach of youth sports or leader of scouting units.
 
-Personal:
-_____________
+**Fun**
 
-* Husband, father, disciple and 
-
-* Fun: Part-time Balloon Entertainer
+    * Fun: Part-time Balloon Entertainer
 
 
 Introductions: Fellow Students
 --------------------------------------
 
-Please Introduce Yourselves
-________________________________
+**Please Introduce Yourselves**
 
 * Name
 
@@ -119,7 +114,7 @@ NOT a Goal of this course:
     Acquiring basic or user-oriented Linux skills.  These are assumed as prerequisite for this course.
 
 
-Introductions: Reasonable Expectations
+Reasonable Expectations
 -------------------------------------------
 
 * Should I be able to pass the RHCE on this class alone?
@@ -134,7 +129,7 @@ Introductions: Reasonable Expectations
 
 
 
-Introductions: Preparation Recommendations 
+Preparation Recommendations 
 -----------------------------------------------
 
 **1. Build a Practice/Study Environment**
@@ -157,7 +152,7 @@ Introductions: Preparation Recommendations
 
             You may be unable to practice a few of the objectives (those related to virtualization) in this scenario.
 
-Introductions: Preparation Recommendations 
+Preparation Recommendations 
 -----------------------------------------------
 
 **2. Take initiative -- form a study group.**
@@ -172,7 +167,7 @@ Introductions: Preparation Recommendations
 
 **3. Practice, practice, practice!**
 
-Introductions: An OS for Practice and Study
+An OS for Practice and Study
 ----------------------------------------------
 
 RHEL 6
@@ -190,7 +185,7 @@ Scientific Linux
 Fedora 13
     http://mirrors.fedoraproject.org/publiclist/Fedora/13/x86_64/
     
-Introductions: Online Information
+Online Information
 ----------------------------------------------
 
 Red Hat docs:
@@ -200,7 +195,7 @@ RHCSA/RHCE Objectives and other information at:
     http://www.redhat.com/certification/
 
 
-Introductions: Classroom Infrastructure
+Classroom Infrastructure
 ------------------------------------------------
 
 RHEL6
@@ -782,12 +777,22 @@ On your client virtual machines, perform these tasks:
 
 Several meanings for the term:
 
-* The way files are physically written to storage devices, as in  the ext3, Fat-32, NTFS filesystems, or etc.
+#. The way files are physically written to storage devices, as in  the ext3, Fat-32, NTFS filesystems, or etc.
+    
+    Example: "Create a VFAT filesystem on a USB drive if you want a device that works for both Windows and Linux.
 
-* The unified directory structure which logically organizes files
+#. The collection of files and directories stored on a particular storage device.
 
-* The standard which defines how directories should be structured and utilized in Linux
+    Example: "On any device using Ext 2/3/4, you should find a "lost+found" directory at the root level of the filesystem"
 
+#. The unified directory structure which logically organizes files.
+
+    Example: "In contrast with Windows, which accesses drives with various drive letters, on Linux all storage devices are mounted into a single filesystem."
+
+#. The standard which defines how directories should be structured and utilized in Linux
+
+    Example: "In a Linux filesystem, third party applications should generally be installed in /opt."
+    
 Linux Filesystem Hierarchy
 ---------------------------------------------
 
