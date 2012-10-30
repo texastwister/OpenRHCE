@@ -4192,6 +4192,8 @@ Enabling Forwarding
 Firewall Considerations
 ---------------------------
 
+Port 53 must be open for both UDP and TCP
+
 SELinux Considerations
 --------------------------
 
@@ -4233,15 +4235,22 @@ Packages
 
 /etc/postfix/main.cf
 
-  myhostname = server.dell.com
+Important Directives:
 
-  mydomain = dell.com
+	inet_interfaces
+		Controls which interfaces the mailserver listens on (by default, only localhost!)
 
-  myorigin = $mydomain
+	myhostname
+		provides the hostname for this server
 
-  inet_interfaces = all
+	mydomain
+		provides the mail domain for this server (often different than a DNS domain)  		
+
+	myorigin
+		provides the host/domain that should be shown as the origin for outbound mail from my system.
   
-  mynetworks = 192.168.0.0/16, 10.0.0.0/8
+	mynetworks 
+		Comma-separated list of IP addresses and networks that can relay through this mailserver (ex: 92.168.0.0/16, 10.0.0.0/8)
   
   
 Postfix configuration tool
@@ -4257,6 +4266,16 @@ Reading Mail
 mail
 
 mutt
+
+
+Firewall Considerations
+----------------------------
+
+
+
+SELinux Considerations
+-----------------------------
+
 
 
 .. o SMTP
