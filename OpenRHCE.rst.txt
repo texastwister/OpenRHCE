@@ -23,10 +23,10 @@ A Creative Commons Courseware
     
 
 
-Course Outline
-=======================
+.. Course Outline
+.. =======================
 
-.. contents::
+.. .. contents::
 
 
 
@@ -167,18 +167,21 @@ Preparation Recommendations
 
 **3. Practice, practice, practice!**
 
+    Take the exam objectives and work to ensure that you can configure and secure every service, and implement every feature named in the course objectives.
+    
+    Highlight areas on the objectives where you need review and bring your questions to class or post them on the Google Groups site: 
+    
+    https://groups.google.com/d/forum/acc-ce-linux-learners
+
 An OS for Practice and Study
 ----------------------------------------------
 
 RHEL 6
-    http://www.redhat.com/wapps/eval/index.html?evaluation_id=1008
+    https://www.redhat.com/rhel/details/eval/
 
 CENTOS 6
-    https://www.centos.org/
+    https://www.centos.org/ or http://vault.centos.org/
 
-ClearOS Core (*Not* Enterprise)
-    http://www.clearfoundation.com/Software/downloads (64-bit only)
-    
 Scientific Linux
     http://www.scientificlinux.org/
 
@@ -189,24 +192,35 @@ Online Information
 ----------------------------------------------
 
 Red Hat docs:
-    http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/index.html
+    https://access.redhat.com/knowledge/docs/Red_Hat_Enterprise_Linux/
 
 RHCSA/RHCE Objectives and other information at:
-    http://www.redhat.com/certification/
+    https://www.redhat.com/training/certifications/
 
 
 Classroom Infrastructure
 ------------------------------------------------
 
-RHEL6
+RHEL6 Server installed on virtualization-capable Dell Optiplex workstations.
+
+We will be creating multiple virtual machines on the hosts on which the Lab Exercises will be performed.
+
 
 Red Hat Enterprise Linux
 -----------------------------
 
 * Overview
+
+    Well-tested Linux distro focusing on Enterprise features and stability and a long lifecycle
+    
 * Server and Desktop variants
 * Add-on Functionality
+
+    Support for high-end features such as Load Balancing, Clustering, Management, High Performance networking, etc.
+
 * LifeCycle
+
+    https://access.redhat.com/support/policy/updates/errata/
 
 The Red Hat Certification Landscape
 -----------------------------------------
@@ -246,7 +260,7 @@ The Red Hat Certification Landscape
 
         * `Overview of COEs`_
 
-            .. _`Overview of COEs`: https://www.redhat.com/certification/certificates_of_expertise/
+            .. _`Overview of COEs`: https://www.redhat.com/training/certifications/expertise/
 
 
 * RHCSS, RHCDS, RHCA
@@ -530,7 +544,7 @@ Exercise 1-4: View Logs from an x-term and a virtual terminal
 
 * Launch a gnome-terminal session and browse the ``/var/log/messages`` file.
 
-* Invoke a virtual terminal, login as root, and view ``/var/log/secure``
+* Switch to a virtual terminal, login as root, and view ``/var/log/secure``
 
 Start/Stop Virtual Machines
 --------------------------------------------------
@@ -573,6 +587,31 @@ Virtual Machine Text Console Caveat
 Start, stop, and check the status of network services
 ------------------------------------------------------------------------------
 
+Distinguish between starting a service and configuring it to be persistently on.
+
+* Start services with:
+
+    ::
+
+        # service <servicename> start
+
+    .. 
+
+    or  
+
+    ::
+    
+        # /etc/init.d/<servicescript> start
+
+* Configure services to run on each reboot with:
+
+    ::
+    
+        # chkconfig <servicename> on 
+
+    ..
+    
+    or with ``ntsysv`` or ``system-config-services``
 
 Exercise 1-5: Manipulate the cups service
 ---------------------------------------------
@@ -584,6 +623,15 @@ Exercise 1-5: Manipulate the cups service
 
 Modify the system bootloader
 -----------------------------------------------------
+
+* Edit the GRUB config file::
+
+    # vim /boot/grub/grub.conf
+    
+* Interactively edit the GRUB menu system.
+
+* Directly manipulate GRUB through its shell.
+
 
 Supplemental Reading
 =======================
@@ -897,17 +945,17 @@ Exercise 2-3: Work with Logical Volume Management
 
 On your Client virtual machine:
 
-#. From the unallocated space on the disk you added in the previous exercise, create a 5 GB partition (type 8e) for LVM
-#. Initialize it with pvcreate
-#. Use vgcreate to create a volume group named "shared" from the physical volume.
-#. Use lvcreate to create a 2.5 GB logical volume called "goodguys" from the "shared" volume group.
-#. Create an ext3 filesystem on ``/dev/shared/goodguys``.
-#. Create a directory ``/shared/goodguys`` and mount the LV there.
-#. Create an entry in ``/etc/fstab`` for persistance.
-#. Use ``df -h`` to verify the available space.
-#. Use lvextend to add another 1 GB to ``/dev/shared/goodguys``.
-#. Use resize2fs to grow the filesystem on ``/dev/shared/goodguys`` to use the new space.
-#. use ``df -h`` to verify the available space.
+    #. From the unallocated space on the disk you added in the previous exercise, create a 5 GB partition (type 8e) for LVM
+    #. Initialize it with pvcreate
+    #. Use vgcreate to create a volume group named "shared" from the physical volume.
+    #. Use lvcreate to create a 2.5 GB logical volume called "goodguys" from the "shared" volume group.
+    #. Create an ext3 filesystem on ``/dev/shared/goodguys``.
+    #. Create a directory ``/shared/goodguys`` and mount the LV there.
+    #. Create an entry in ``/etc/fstab`` for persistance.
+    #. Use ``df -h`` to verify the available space.
+    #. Use lvextend to add another 1 GB to ``/dev/shared/goodguys``.
+    #. Use resize2fs to grow the filesystem on ``/dev/shared/goodguys`` to use the new space.
+    #. use ``df -h`` to verify the available space.
 
 
 Commands to Know
@@ -915,23 +963,27 @@ Commands to Know
 
 fdisk
 
-* Always use -u and -c for best compatibility with newer storage devices
-* Can't create partitions >= 2TB, use parted with GPT instead
+    * Always use -u and -c for best compatibility with newer storage devices
+    * Can't create partitions >= 2TB, use parted with GPT instead
+    
+parted
+
+    * fdisk-replacement that is GPT-aware.  Required for drives > 2TB.
 
 mkfs
 
-* Used to create filesystems on devices
-* Front-end for other filesystem-specific tools (usually named mkfs.<fstype>)
+    * Used to create filesystems on devices
+    * Front-end for other filesystem-specific tools (usually named mkfs.<fstype>)
 
 blkid
 
-* Shows device name, Fileystem Labels, and UUID of detected block devices.
-* May not show block devices until a filesystem is created on them.
-* May not show block devices used in non-standard ways (for example, a filesystem on a whole disk instead of on a partition)
+    * Shows device name, Fileystem Labels, and UUID of detected block devices.
+    * May not show block devices until a filesystem is created on them.
+    * May not show block devices used in non-standard ways (for example, a filesystem on a whole disk instead of on a partition)
 
 mount
 
-* used to make a new filesystem available 
+    * used to make a new filesystem available 
 
 Working with LUKS encrypted storage
 -----------------------------------------------------

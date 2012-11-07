@@ -125,7 +125,7 @@
 
     bodytext:
       parent: normal
-      spaceBefore: 3
+      spaceBefore: 2
       alignment: TA_JUSTIFY
       hyphenation: true
 
@@ -244,9 +244,11 @@
              [VALIGN, [ 0, 0 ], [ -1, -1 ], TOP ]
              [RIGHTPADDING, [ 0, 0 ], [ 1, -1 ], 0 ]
       colWidths: ["5", null]
-
+      spaceAfter: 3
+      
     bullet-list-item:
       parent: bodytext
+      
 
     item-list:
       parent: bodytext
