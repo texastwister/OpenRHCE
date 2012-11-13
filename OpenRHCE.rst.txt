@@ -868,7 +868,11 @@ On your client virtual machines, perform these tasks:
 	
 		# sort -t: -k3 -n /etc/group
 
-
+	The following command is useful for converting dates in /etc/shadow to calendar dates::
+		
+		# date -d "1 January 1970 + lastchg days"
+		
+		
 "Filesystem" - Disambiguation
 ------------------------------------
 
