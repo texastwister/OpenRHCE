@@ -126,7 +126,7 @@
     bodytext:
       parent: normal
       spaceBefore: 2
-      alignment: TA_JUSTIFY
+      alignment: TA_LEFT
       hyphenation: true
 
     toc:

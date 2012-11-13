@@ -551,7 +551,19 @@ Start/Stop Virtual Machines
 
 * Using virt-manager
 
-* Using virsh commands
+    Select the desired VM. There are several approaches to these operations in the GUI.
+
+* Using virsh commands::
+
+    # virsh list --all
+    
+    # virsh start <VM ID or Name>
+
+    # virsh stop <VM ID or Name>
+
+..
+
+
 
 
 
@@ -560,8 +572,15 @@ Virtual Machine Consoles
 
 * virt-manager
 
+    Double-click the Virtual Machine desired.
+
 * virt-viewer
 
+    ::
+    
+    # virt-viewer <VM ID or Name>
+
+    
 
 Virtual Machine Text Console
 ------------------------------------------------------
@@ -672,8 +691,10 @@ User Administration with Config Files
 
 /etc/gshadow
 	Restricted-access group password, admin, membership info
+
+.. important::
 	
-If editing directly, ``vipw`` and ``vigr`` should be used.
+    If editing directly, ``vipw`` and ``vigr`` should be used.
 
 Structure of /etc/passwd
 ----------------------------------------------------------------------------
@@ -691,10 +712,14 @@ Structure of /etc/passwd
  gdm:x:42:42::/var/gdm:/sbin/nologin
  scott:x:500:500:Scott Purcell:/home/scott:/bin/bash
 
+..
+
+The "x" in the password field indicates that the actual password hashes have been moved to /etc/shadow in order to implement the shadow password system.
+
 Structure of /etc/shadow
 ----------------------------------------------------------------------------
 
-``Name:Password:Lstchg:May:Must:Warn:Disable:Expire``
+``Name:Password:Lastchange:May:Must:Warn:Disable:Expire``
 
 **Sample Contents**
 
@@ -707,6 +732,12 @@ Structure of /etc/shadow
  gdm:!!:14373:0:99999:7:::
  scott:$1${...}:14374:0:99999:7:::
  bob:$1${...}:14398:7:30:7:7:14457:
+
+..
+
+The values in field 3 and field 8 are dates -- rendered as a count of days elapsed since the start of the "Unix Epoch" (1/1/1970).
+
+The "{...}" marks where the actual encrypted password is stored.
 
 Structure of /etc/group
 ----------------------------------------------------------------------------
@@ -792,6 +823,13 @@ System-wide Shell Config Files
 
 /etc/bashrc
 	System-wide functions and aliases
+	
+.. tip::	
+	
+    In order to remember what types of content goes in which of these files, it is helpful to remember the origin of each file.  /etc/profile was the config file for the Bourne shell and thus supported only the older and more limited feature set of that shell. /etc/bashrc is the newer, bash-specific config file.
+
+    Thus, the newer features such as functions and aliases can only go in bashrc, while older features such as environment variables can go in profile.
+
 
 User-configurable Environment Files
 ----------------------------------------------------------------------------
@@ -827,11 +865,11 @@ Several meanings for the term:
 
 #. The way files are physically written to storage devices, as in  the ext3, Fat-32, NTFS filesystems, or etc.
     
-    Example: "Create a VFAT filesystem on a USB drive if you want a device that works for both Windows and Linux.
+    Example: "Create a VFAT filesystem on a USB drive if you want a device that works for both Windows and Linux."
 
 #. The collection of files and directories stored on a particular storage device.
 
-    Example: "On any device using Ext 2/3/4, you should find a "lost+found" directory at the root level of the filesystem"
+    Example: "On any device using Ext 2/3/4, you should find a "lost+found" directory at the root level of the filesystem."
 
 #. The unified directory structure which logically organizes files.
 
@@ -848,9 +886,9 @@ The directory structure of a Linux system is standardized through the Filesystem
 
 The Linux Manual system has an abbreviated reference:
 
-``$ man 7 hier``
+    ``$ man 7 hier``
 
-Red Hat has a more complete description, along with RedHat-specific implementation decisions in their **Deployment Guide** at http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-filesystem.html
+Red Hat has a more complete description, along with RedHat-specific implementation decisions in their **Storage Administration Guide** at https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-filesystem-fhs.html
 
 .. for future development, consider expanding this...
 
