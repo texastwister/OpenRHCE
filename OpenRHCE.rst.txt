@@ -561,8 +561,13 @@ Start/Stop Virtual Machines
 
     # virsh stop <VM ID or Name>
 
+	# virsh destroy <VM ID or Name>
+	
 ..
 
+.. note::
+
+"stop" requests a graceful shutdown.  "destroy" forces a poweroff -- data loss could result.
 
 
 
@@ -636,6 +641,8 @@ Exercise 1-5: Manipulate the cups service
 ---------------------------------------------
 
 * Check the status of the cups service
+	* Is it running now?
+	* Is it configured to run on future boots? In which runlevels?
 * Stop the cups service.
 * Start the cups service.
 * Configure cups to start only on runlevels 3 and 5
@@ -855,7 +862,11 @@ On your client virtual machines, perform these tasks:
 
 #. Set sam's account to expire in 30 days ("wabbit season" ends!)
 
+.. tip::
 
+	The following command is useful for sorting the existing GIDs in order to choose unique out-of-sequence GIDs for the instructions above::
+	
+		# sort -t: -k3 -n /etc/group
 
 
 "Filesystem" - Disambiguation
