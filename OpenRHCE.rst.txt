@@ -926,6 +926,8 @@ Disk and Filesystem tools
 
 * ``partx`` -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.
 
+* ``partprobe`` 
+
 Working with Partitions
 -------------------------------------------
 
