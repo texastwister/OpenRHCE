@@ -1,25 +1,40 @@
-#!/bin/bash
+### Create a Gedit "External Tool" configuration as follows, named rst2pdf, using a shortcut key of Ctrl+F5:
+
+
+#!/bin/sh
 
 SRCNAME=$GEDIT_CURRENT_DOCUMENT_PATH
 
 TMPNAME=$(echo $SRCNAME | sed s/.rst.txt//)
 DSTNAME=${TMPNAME}.pdf
+STYLENAME=${TMPNAME}.style
 
-rst2pdf  "${SRCNAME}" -b 0 -o "${DSTNAME}" 
+rst2pdf  "${SRCNAME}" --smart-quotes 2 -b 0 -s "${STYLENAME}" -o "${DSTNAME}" 
+
+nohup evince "${DSTNAME}" &
 
 
 
-#!/bin/bash
+### Create a Gedit "External Tool" configuration as follows, named rst2pdfslides, using a shortcut key of Ctrl+F6:
+
+
+#!/bin/sh
 
 SRCNAME=$GEDIT_CURRENT_DOCUMENT_PATH
 
 TMPNAME=$(echo $SRCNAME | sed s/.rst.txt//)
 DSTNAME=${TMPNAME}_slides.pdf
+STYLENAME=${TMPNAME}.slidestyle
 
-rst2pdf  "${SRCNAME}" -b3 -s slides.style -o "${DSTNAME}" 
+rst2pdf  "${SRCNAME}" -b 4 -s "${STYLENAME}" -o "${DSTNAME}" 
+
+nohup evince "${DSTNAME}" &
 
 
-#!/bin/bash
+### Create a Gedit "External Tool" configuration as follows, named rst2html, using a shortcut key of Ctrl+F4:
+
+
+#!/bin/sh
 
 SRCNAME=$GEDIT_CURRENT_DOCUMENT_PATH
 
@@ -27,4 +42,6 @@ TMPNAME=$(echo $SRCNAME | sed s/.rst.txt//)
 DSTNAME=${TMPNAME}.html
 
 rst2html "${SRCNAME}" "${DSTNAME}" 
+
+firefox "${DSTNAME}"
 

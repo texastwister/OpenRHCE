@@ -561,8 +561,13 @@ Start/Stop Virtual Machines
 
     # virsh stop <VM ID or Name>
 
+	# virsh destroy <VM ID or Name>
+	
 ..
 
+.. note::
+
+    "stop" requests a graceful shutdown.  "destroy" forces a poweroff -- data loss could result.
 
 
 
@@ -636,6 +641,8 @@ Exercise 1-5: Manipulate the cups service
 ---------------------------------------------
 
 * Check the status of the cups service
+	* Is it running now?
+	* Is it configured to run on future boots? In which runlevels?
 * Stop the cups service.
 * Start the cups service.
 * Configure cups to start only on runlevels 3 and 5
@@ -855,9 +862,17 @@ On your client virtual machines, perform these tasks:
 
 #. Set sam's account to expire in 30 days ("wabbit season" ends!)
 
+.. tip::
 
+	The following command is useful for sorting the existing GIDs in order to choose unique out-of-sequence GIDs for the instructions above::
+	
+		# sort -t: -k3 -n /etc/group
 
-
+	The following command is useful for converting dates in /etc/shadow to calendar dates::
+		
+		# date -d "1 January 1970 + lastchg days"
+		
+		
 "Filesystem" - Disambiguation
 ------------------------------------
 
@@ -910,6 +925,8 @@ Disk and Filesystem tools
 * ``df`` -- used to display the capacity and utilization % of mounted filesystems.
 
 * ``partx`` -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.
+
+* ``partprobe`` 
 
 Working with Partitions
 -------------------------------------------
@@ -1061,6 +1078,13 @@ To persistently mount it
 
 .. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
 
+Exercise 2-4: Create a LUKS-encrypted volume
+------------------------------------------------
+
+
+
+
+
 Working with SWAP
 --------------------------------------
 
@@ -1090,6 +1114,12 @@ Overview of process for adding SWAP space using a file:
     /path/to/<swapfile> swap swap defaults 0 0
     
 * Activate the new swap space with: ``swapon -a``
+
+Exercise 2-5: Add additional Swap
+------------------------------------
+
+
+
 
 Mounting Using UUIDs and Filesystem Labels
 ------------------------------------------------------
@@ -1184,6 +1214,8 @@ The ``chmod`` command is used to set permissions on both files and directories. 
 
 Setting Permissions with Numeric Options
 -------------------------------------------------
+
+
 
 +--------------+-----------+-----------+-----------+
 |              | User      |  Group    | Other     |
@@ -4289,6 +4321,8 @@ Enabling Forwarding
 Firewall Considerations
 ---------------------------
 
+Port 53 must be open for both UDP and TCP
+
 SELinux Considerations
 --------------------------
 
@@ -4330,15 +4364,22 @@ Packages
 
 /etc/postfix/main.cf
 
-  myhostname = server.dell.com
+Important Directives:
 
-  mydomain = dell.com
+	inet_interfaces
+		Controls which interfaces the mailserver listens on (by default, only localhost!)
 
-  myorigin = $mydomain
+	myhostname
+		provides the hostname for this server
 
-  inet_interfaces = all
+	mydomain
+		provides the mail domain for this server (often different than a DNS domain)  		
+
+	myorigin
+		provides the host/domain that should be shown as the origin for outbound mail from my system.
   
-  mynetworks = 192.168.0.0/16, 10.0.0.0/8
+	mynetworks 
+		Comma-separated list of IP addresses and networks that can relay through this mailserver (ex: 92.168.0.0/16, 10.0.0.0/8)
   
   
 Postfix configuration tool
@@ -4354,6 +4395,16 @@ Reading Mail
 mail
 
 mutt
+
+
+Firewall Considerations
+----------------------------
+
+
+
+SELinux Considerations
+-----------------------------
+
 
 
 .. o SMTP
