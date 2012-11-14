@@ -567,7 +567,8 @@ Start/Stop Virtual Machines
 
 .. note::
 
-"stop" requests a graceful shutdown.  "destroy" forces a poweroff -- data loss could result.
+
+    "stop" requests a graceful shutdown.  "destroy" forces a poweroff -- data loss could result.
 
 
 
@@ -1078,6 +1079,13 @@ To persistently mount it
 
 .. Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot
 
+Exercise 2-4: Create a LUKS-encrypted volume
+------------------------------------------------
+
+
+
+
+
 Working with SWAP
 --------------------------------------
 
@@ -1107,6 +1115,12 @@ Overview of process for adding SWAP space using a file:
     /path/to/<swapfile> swap swap defaults 0 0
     
 * Activate the new swap space with: ``swapon -a``
+
+Exercise 2-5: Add additional Swap
+------------------------------------
+
+
+
 
 Mounting Using UUIDs and Filesystem Labels
 ------------------------------------------------------
@@ -1201,6 +1215,8 @@ The ``chmod`` command is used to set permissions on both files and directories. 
 
 Setting Permissions with Numeric Options
 -------------------------------------------------
+
+
 
 +--------------+-----------+-----------+-----------+
 |              | User      |  Group    | Other     |

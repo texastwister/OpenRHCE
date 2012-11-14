@@ -494,12 +494,13 @@
       alignment : TA_CENTER
       valign : BOTTOM
       borderPadding : 0
+      fontSize: 80%
 
     table-body:
       parent : normal
-      spaceBefore:20
-      spaceAfter:20
-
+      spaceBefore:10
+      spaceAfter:10
+      fontSize: 80%
 
     dedication:
       parent : normal
