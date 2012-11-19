@@ -1115,9 +1115,36 @@ Overview of process for adding SWAP space using a file:
     
 * Activate the new swap space with: ``swapon -a``
 
-Exercise 2-5: Add additional Swap
-------------------------------------
+Exercise 2-5: Add a new SWAP partition
+----------------------------------------
 
+On your Client virtual machine:
+
+    #. Use ``free -m`` to report the amount of swap in mebibytes (MiB) [#1]_  your system is configured to use. Note that number.
+    #. Create a new partition (this may be a new primary partition, or a logical partition on an extended partition, or you may need to add a new virtual disk, depending on your needs -- consult your instructor if you need help making this determination) of 512 MiB and make it a "Linux Swap" partition (type 82).
+    #. Initialize it with ``mkswap``. Note the "UUID=..." in the output.
+    #. Configure ``/etc/fstab`` to use that device by device name or, preferably, by UUID as swap.
+    #. Activate the new swap partition with ``swapon``.
+    #. Use ``free -m`` to confirm that the new swap space is available.
+    
+    
+    
+.. [#1] A mebibyte (MiB) is the *proper* term for the unit containing 1024 units (kibibytes or KiB) of 1024 bytes. This is in contrast to the term "megabyte" which properly refers to a unit containing 1000 units (kilobytes or kB) of 1000 bytes. For more information, see the `short summary by The National Institute of Standards and Technology (NIST) <http://physics.nist.gov/cuu/Units/binary.html>`_ or the `reference article on Wikipedia <http://en.wikipedia.org/wiki/Binary_prefix>`_
+
+Exercise 2-6: Add a new SWAP file
+--------------------------------------
+
+On your Client virtual machine:
+
+    #. Use ``free -m`` to report the amount of swap in mebibytes (MiB) [#1]_  your system is configured to use. Note that number.
+    #. Create a new file for swap by using ``dd`` to write zeros to a file of 128 MiB.
+    
+    #. Initialize it with ``mkswap``.
+    #. Configure ``/etc/fstab`` to use that file (by pathname) as swap.
+    #. Activate the new swap partition with ``swapon``.
+    #. Use ``free -m`` to confirm that the new swap space is available.
+    
+    
 
 
 
@@ -1143,11 +1170,23 @@ Filesystem Permissions: Basic Permissions
 
 Linux permissions are organized around:
 
-* Three sets of permissions -- User, Group, and Other
+    **Three sets of permissions**
 
-* Three types of permissions -- Read, Write, and Execute
+        * User, 
+        * Group, and 
+        * Other
 
-* Three extended attributes -- SUID, SGID, and Stickybit
+    **Three types of permissions**
+    
+        * Read, 
+        * Write, and 
+        * Execute
+
+    **Three extended attributes** 
+    
+        * SUID, 
+        * SGID, and 
+        * Stickybit
 
 Three Sets of Permissions:
 -------------------------------
@@ -1188,7 +1227,7 @@ Three Extended Attributes:
         On an executable, runs a process under the UID of the file owner rather than that of the user executing it. 
 
 * SGID (Set Group ID)
-        On a directory, causes any files created in the directory to belong to the group owning the directory.
+        On a directory, causes any files created in the directory to belong to the group owning the directory. On an executable, runs a process under the GID of the group owning the file rather the logged-in group of the user executing it. 
 
 * "Stickybit"  
         On a directory, ensures that only the owner of a file or the owner of the directory can delete it, even if all users or other members of a group have write access to the directory.
@@ -1212,32 +1251,82 @@ The ``chmod`` command is used to set permissions on both files and directories. 
 ``chmod [option] XXXX filename``
     where XXXX is a number representing the complete permissions on the file.
 
+Setting Permissions with Symbolic Options
+--------------------------------------------
+
+The following symbols are used:
+
+============    =================================   ====================
+Which Set?      What to do?                         Which Permissions?
+============    =================================   ====================
+u  user         \+  add this permission             r  read
+g  group        \-  remove this permission          w  write
+o  other        =  set exactly this permission      x  execute
+a  all
+============    =================================   ====================
+
+Examples::
+
+    $ chmod a+x /home/scott/Downloads/somescript.sh
+    
+    $ chmod u=rw,g=r,o-rwx ./myfile.txt
+    
+
+
+
+
 Setting Permissions with Numeric Options
 -------------------------------------------------
 
+Each permission is assigned a numeric value:
+
+    4  read
+    
+    2  write
+    
+    1  execute
+    
+=======================     =========   =========
+r, w, x Permissions         Binary      Octal
+=======================     =========   =========
+---                         000         0
+--x                         001         1
+-w-                         010         2
+-wx                         011         3
+r--                         100         4
+r-x                         101         5
+rw-                         110         6
+rwx                         111         7
+=======================     =========   =========
 
 
-+--------------+-----------+-----------+-----------+
-|              | User      |  Group    | Other     |
-+==============+===+===+===+===+===+===+===+===+===+
-|Permissions   | r | w | x | r | w | x | r | w | x |
-+--------------+---+---+---+---+---+---+---+---+---+
-|Numeric Value | 4 | 2 | 1 | 4 | 2 | 1 | 4 | 2 | 1 |
-+--------------+---+---+---+---+---+---+---+---+---+
-|Sum           |   0-7     |    0-7    |    0-7    |
-+--------------+-----------+-----------+-----------+
+Each set of permission is added separately so that a three-digit octal number fully represents the basic permissions of a file or directory::
 
-+--------------+-----------+-----------+-----------+
-| example.txt  | User      |  Group    | Other     |
-+==============+===+===+===+===+===+===+===+===+===+
-|Permissions   | r | w | x | r |\- | x |\- |\- | x |
-+--------------+---+---+---+---+---+---+---+---+---+
-|Numeric Value | 4 | 2 | 1 | 4 | 0 | 1 | 0 | 0 | 1 |
-+--------------+---+---+---+---+---+---+---+---+---+
-|Sum           |     7     |    5      |     1     |
-+--------------+-----------+-----------+-----------+
+    $ chmod 640 ~/myfile.txt
+    
+    $ chmod 751 /shared/scripts/myscript.sh
+    
 
-``# chmod 751 myfile.txt``
+.. +--------------+-----------+-----------+-----------+
+.. .. |              | User      |  Group    | Other     |
+.. +==============+===+===+===+===+===+===+===+===+===+
+.. .. |Permissions   | r | w | x | r | w | x | r | w | x |
+.. +--------------+---+---+---+---+---+---+---+---+---+
+.. .. |Numeric Value | 4 | 2 | 1 | 4 | 2 | 1 | 4 | 2 | 1 |
+.. +--------------+---+---+---+---+---+---+---+---+---+
+.. .. |Sum           |   0-7     |    0-7    |    0-7    |
+.. +--------------+-----------+-----------+-----------+
+.. 
+.. +--------------+-----------+-----------+-----------+
+.. .. | example.txt  | User      |  Group    | Other     |
+.. +==============+===+===+===+===+===+===+===+===+===+
+.. .. |Permissions   | r | w | x | r |\- | x |\- |\- | x |
+.. +--------------+---+---+---+---+---+---+---+---+---+
+.. .. |Numeric Value | 4 | 2 | 1 | 4 | 0 | 1 | 0 | 0 | 1 |
+.. +--------------+---+---+---+---+---+---+---+---+---+
+.. .. |Sum           |     7     |    5      |     1     |
+.. +--------------+-----------+-----------+-----------+
+
 
 Setting Extended Attributes with Numeric Options
 --------------------------------------------------
@@ -1246,18 +1335,29 @@ chmod numeric options are actually 4 digits (not three).  Missing digits are ass
 
 The leftmost place is for extended attributes:
 
-+-----------+-------+-------+-----------+
-| Attribute | SUID  | SGID  | Stickybit |
-+===========+=======+=======+===========+
-| Value     | 4     | 2     | 1         |
-+-----------+-------+-------+-----------+
+Each attribute is assigned a numeric value:
 
-**Example:** ``$ chmod 3775 MySharedDir``
+    4  SUID 
+    
+    2  SGID
+    
+    1  Stickybit
+    
+
+.. .. +-----------+-------+-------+-----------+
+.. .. | Attribute | SUID  | SGID  | Stickybit |
+.. .. +===========+=======+=======+===========+
+.. .. | Value     | 4     | 2     | 1         |
+.. .. +-----------+-------+-------+-----------+
+
+Example::
+    
+    $ chmod 3775 MySharedDir
 
 Setting Extended Attributes with Symbolic Values:
 --------------------------------------------------------
 
-``chmod +t {filename}``
+``chmod o+t {filename}``
         Sets the sticky bit
 
 ``chmod u+s {filename}``
@@ -1321,11 +1421,19 @@ File Access Control Lists
 
 * Provide more granular control of permissions.
 
-* Filesystem must be mounted with the 'acl' option or be compiled with that option by default
+* Filesystem must be mounted with the 'acl' option or be configured with that option by default.
+
+    * Use mount with a ``-o acl`` option to mount (non-persistently) with ACLs enabled.
+    * Add "acl" in the options field of ``/etc/fstab`` to persistently enable ACLs
+    * or use ``tune2fs -o user_xattr,acl /path/to/device`` to configure those attributes as default mount options
+
+
 
 getfacl
+    Used to view file ACLs
 
 setfacl
+    Used to set file ACLs
 
 getfacl
 ------------------

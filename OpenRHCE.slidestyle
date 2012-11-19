@@ -125,7 +125,7 @@
 
     bodytext:
       parent: normal
-      spaceBefore: 2
+      spaceBefore: 4
       alignment: TA_LEFT
       hyphenation: true
 
@@ -607,7 +607,7 @@
             [VALIGN, [ 0, 0 ], [ -1, -1 ], TOP ]
             [TOPPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
         colWidths: [3cm, null]
-        spaceBefore: 6
+        spaceBefore: 4
 
     option-list:
         commands: []
