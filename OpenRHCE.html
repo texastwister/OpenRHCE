@@ -1522,7 +1522,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <h2>Filesystem Permissions: Basic Permissions</h2>
 <p>Linux permissions are organized around:</p>
 <blockquote>
-<p>Three sets of permissions</p>
+<p><strong>Three sets of permissions</strong></p>
 <blockquote>
 <ul class="simple">
 <li>User,</li>
@@ -1530,7 +1530,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <li>Other</li>
 </ul>
 </blockquote>
-<p>Three types of permissions</p>
+<p><strong>Three types of permissions</strong></p>
 <blockquote>
 <ul class="simple">
 <li>Read,</li>
@@ -1538,7 +1538,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <li>Execute</li>
 </ul>
 </blockquote>
-<p>Three extended attributes</p>
+<p><strong>Three extended attributes</strong></p>
 <blockquote>
 <ul class="simple">
 <li>SUID,</li>
@@ -1597,7 +1597,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </li>
 <li><dl class="first docutils">
 <dt>SGID (Set Group ID)</dt>
-<dd><p class="first last">On a directory, causes any files created in the directory to belong to the group owning the directory.</p>
+<dd><p class="first last">On a directory, causes any files created in the directory to belong to the group owning the directory. On an executable, runs a process under the GID of the group owning the file rather the logged-in group of the user executing it.</p>
 </dd>
 </dl>
 </li>
@@ -1626,142 +1626,152 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <dd>where XXXX is a number representing the complete permissions on the file.</dd>
 </dl>
 </div>
+<div class="section" id="setting-permissions-with-symbolic-options">
+<h2>Setting Permissions with Symbolic Options</h2>
+<p>The following symbols are used:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="51%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Which Set?</th>
+<th class="head">What to do?</th>
+<th class="head">Which Permissions?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>u  user</td>
+<td>+  add this permission</td>
+<td>r  read</td>
+</tr>
+<tr><td>g  group</td>
+<td>-  remove this permission</td>
+<td>w  write</td>
+</tr>
+<tr><td>o  other</td>
+<td>=  set exactly this permission</td>
+<td>x  execute</td>
+</tr>
+<tr><td>a  all</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<pre class="literal-block">
+$ chmod a+x /home/scott/Downloads/somescript.sh
+
+$ chmod u=rw,g=r,o-rwx ./myfile.txt
+</pre>
+</div>
 <div class="section" id="setting-permissions-with-numeric-options">
 <h2>Setting Permissions with Numeric Options</h2>
+<p>Each permission is assigned a numeric value:</p>
+<blockquote>
+<p>4  read</p>
+<p>2  write</p>
+<p>1  execute</p>
+</blockquote>
 <table border="1" class="docutils">
 <colgroup>
-<col width="34%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
+<col width="56%" />
+<col width="22%" />
+<col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">&nbsp;</th>
-<th class="head" colspan="3">User</th>
-<th class="head" colspan="3">Group</th>
-<th class="head" colspan="3">Other</th>
+<tr><th class="head">r, w, x Permissions</th>
+<th class="head">Binary</th>
+<th class="head">Octal</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>Permissions</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
+<tr><td>---</td>
+<td>000</td>
+<td>0</td>
 </tr>
-<tr><td>Numeric Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>2</td>
+<tr><td>--x</td>
+<td>001</td>
 <td>1</td>
 </tr>
-<tr><td>Sum</td>
-<td colspan="3">0-7</td>
-<td colspan="3">0-7</td>
-<td colspan="3">0-7</td>
+<tr><td>-w-</td>
+<td>010</td>
+<td>2</td>
+</tr>
+<tr><td>-wx</td>
+<td>011</td>
+<td>3</td>
+</tr>
+<tr><td>r--</td>
+<td>100</td>
+<td>4</td>
+</tr>
+<tr><td>r-x</td>
+<td>101</td>
+<td>5</td>
+</tr>
+<tr><td>rw-</td>
+<td>110</td>
+<td>6</td>
+</tr>
+<tr><td>rwx</td>
+<td>111</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="34%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">example.txt</th>
-<th class="head" colspan="3">User</th>
-<th class="head" colspan="3">Group</th>
-<th class="head" colspan="3">Other</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Permissions</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>-</td>
-<td>x</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-</tr>
-<tr><td>Numeric Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr><td>Sum</td>
-<td colspan="3">7</td>
-<td colspan="3">5</td>
-<td colspan="3">1</td>
-</tr>
-</tbody>
-</table>
-<p><tt class="docutils literal"># chmod 751 myfile.txt</tt></p>
+<p>Each set of permission is added separately so that a three-digit octal number fully represents the basic permissions of a file or directory:</p>
+<pre class="literal-block">
+$ chmod 640 ~/myfile.txt
+
+$ chmod 751 /shared/scripts/myscript.sh
+</pre>
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. |              | User      |  Group    | Other     | -->
+<!-- +==============+===+===+===+===+===+===+===+===+===+ -->
+<!-- .. |Permissions   | r | w | x | r | w | x | r | w | x | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Numeric Value | 4 | 2 | 1 | 4 | 2 | 1 | 4 | 2 | 1 | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Sum           |   0-7     |    0-7    |    0-7    | -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!--  -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. | example.txt  | User      |  Group    | Other     | -->
+<!-- +==============+===+===+===+===+===+===+===+===+===+ -->
+<!-- .. |Permissions   | r | w | x | r |\- | x |\- |\- | x | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Numeric Value | 4 | 2 | 1 | 4 | 0 | 1 | 0 | 0 | 1 | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Sum           |     7     |    5      |     1     | -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
 </div>
 <div class="section" id="setting-extended-attributes-with-numeric-options">
 <h2>Setting Extended Attributes with Numeric Options</h2>
 <p>chmod numeric options are actually 4 digits (not three).  Missing digits are assumed to be leading zeroes.</p>
 <p>The leftmost place is for extended attributes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="31%" />
-<col width="19%" />
-<col width="19%" />
-<col width="31%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Attribute</th>
-<th class="head">SUID</th>
-<th class="head">SGID</th>
-<th class="head">Stickybit</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example:</strong> <tt class="docutils literal">$ chmod 3775 MySharedDir</tt></p>
+<p>Each attribute is assigned a numeric value:</p>
+<blockquote>
+<p>4  SUID</p>
+<p>2  SGID</p>
+<p>1  Stickybit</p>
+</blockquote>
+<!-- .. +- - - - - - - - - - -+- - - - - - -+- - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. | Attribute | SUID  | SGID  | Stickybit | -->
+<!-- .. +===========+=======+=======+===========+ -->
+<!-- .. | Value     | 4     | 2     | 1         | -->
+<!-- .. +- - - - - - - - - - -+- - - - - - -+- - - - - - -+- - - - - - - - - - -+ -->
+<p>Example:</p>
+<pre class="literal-block">
+$ chmod 3775 MySharedDir
+</pre>
 </div>
 <div class="section" id="setting-extended-attributes-with-symbolic-values">
 <h2>Setting Extended Attributes with Symbolic Values:</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">chmod +t {filename}</tt></dt>
+<dt><tt class="docutils literal">chmod o+t {filename}</tt></dt>
 <dd>Sets the sticky bit</dd>
 <dt><tt class="docutils literal">chmod u+s {filename}</tt></dt>
 <dd>Sets suid</dd>
@@ -1838,12 +1848,25 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </div>
 <div class="section" id="file-access-control-lists">
 <h2>File Access Control Lists</h2>
+<ul>
+<li><p class="first">Provide more granular control of permissions.</p>
+</li>
+<li><p class="first">Filesystem must be mounted with the 'acl' option or be configured with that option by default.</p>
+<blockquote>
 <ul class="simple">
-<li>Provide more granular control of permissions.</li>
-<li>Filesystem must be mounted with the 'acl' option or be compiled with that option by default</li>
+<li>Use mount with a <tt class="docutils literal"><span class="pre">-o</span> acl</tt> option to mount (non-persistently) with ACLs enabled.</li>
+<li>Add &quot;acl&quot; in the options field of <tt class="docutils literal">/etc/fstab</tt> to persistently enable ACLs</li>
+<li>or use <tt class="docutils literal">tune2fs <span class="pre">-o</span> user_xattr,acl /path/to/device</tt> to configure those attributes as default mount options</li>
 </ul>
-<p>getfacl</p>
-<p>setfacl</p>
+</blockquote>
+</li>
+</ul>
+<dl class="docutils">
+<dt>getfacl</dt>
+<dd>Used to view file ACLs</dd>
+<dt>setfacl</dt>
+<dd>Used to set file ACLs</dd>
+</dl>
 </div>
 <div class="section" id="getfacl">
 <h2>getfacl</h2>
