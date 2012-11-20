@@ -921,10 +921,16 @@ Publication Date: June 17, 2011 | Edition: 6</blockquote>
 # virsh start &lt;VM ID or Name&gt;
 
 # virsh stop &lt;VM ID or Name&gt;
+
+    # virsh destroy &lt;VM ID or Name&gt;
 </pre>
 </li>
 </ul>
 <!--  -->
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">&quot;stop&quot; requests a graceful shutdown.  &quot;destroy&quot; forces a poweroff -- data loss could result.</p>
+</div>
 </div>
 <div class="section" id="virtual-machine-consoles">
 <h2>Virtual Machine Consoles</h2>
@@ -992,11 +998,22 @@ After this change, some messages that appear only on the default console will be
 </div>
 <div class="section" id="exercise-1-5-manipulate-the-cups-service">
 <h2>Exercise 1-5: Manipulate the cups service</h2>
-<ul class="simple">
-<li>Check the status of the cups service</li>
-<li>Stop the cups service.</li>
-<li>Start the cups service.</li>
-<li>Configure cups to start only on runlevels 3 and 5</li>
+<ul>
+<li><dl class="first docutils">
+<dt>Check the status of the cups service</dt>
+<dd><ul class="first last simple">
+<li>Is it running now?</li>
+<li>Is it configured to run on future boots? In which runlevels?</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Stop the cups service.</p>
+</li>
+<li><p class="first">Start the cups service.</p>
+</li>
+<li><p class="first">Configure cups to start only on runlevels 3 and 5</p>
+</li>
 </ul>
 </div>
 <div class="section" id="modify-the-system-bootloader">
@@ -1191,6 +1208,17 @@ training:!::scott
 <li><p class="first">Set sam's account to expire in 30 days (&quot;wabbit season&quot; ends!)</p>
 </li>
 </ol>
+<div class="tip">
+<p class="first admonition-title">Tip</p>
+<p>The following command is useful for sorting the existing GIDs in order to choose unique out-of-sequence GIDs for the instructions above:</p>
+<pre class="literal-block">
+# sort -t: -k3 -n /etc/group
+</pre>
+<p>The following command is useful for converting dates in /etc/shadow to calendar dates:</p>
+<pre class="last literal-block">
+# date -d &quot;1 January 1970 + lastchg days&quot;
+</pre>
+</div>
 </div>
 <div class="section" id="filesystem-disambiguation">
 <h2>&quot;Filesystem&quot; - Disambiguation</h2>
@@ -1238,6 +1266,7 @@ training:!::scott
 <li><tt class="docutils literal">blkid</tt> -- used to identify filesystems or other in-use devices by UUID or filesystem labels.</li>
 <li><tt class="docutils literal">df</tt> -- used to display the capacity and utilization % of mounted filesystems.</li>
 <li><tt class="docutils literal">partx</tt> -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.</li>
+<li><tt class="docutils literal">partprobe</tt></li>
 </ul>
 </div>
 <div class="section" id="working-with-partitions">
@@ -1400,6 +1429,9 @@ training:!::scott
 </blockquote>
 <!-- Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot -->
 </div>
+<div class="section" id="exercise-2-4-create-a-luks-encrypted-volume">
+<h2>Exercise 2-4: Create a LUKS-encrypted volume</h2>
+</div>
 <div class="section" id="working-with-swap">
 <h2>Working with SWAP</h2>
 <p>Overview of process for adding SWAP space using a partition:</p>
@@ -1439,6 +1471,40 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </li>
 </ul>
 </div>
+<div class="section" id="exercise-2-5-add-a-new-swap-partition">
+<h2>Exercise 2-5: Add a new SWAP partition</h2>
+<p>On your Client virtual machine:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id4">[2]</a>  your system is configured to use. Note that number.</li>
+<li>Create a new partition (this may be a new primary partition, or a logical partition on an extended partition, or you may need to add a new virtual disk, depending on your needs -- consult your instructor if you need help making this determination) of 512 MiB and make it a &quot;Linux Swap&quot; partition (type 82).</li>
+<li>Initialize it with <tt class="docutils literal">mkswap</tt>. Note the &quot;UUID=...&quot; in the output.</li>
+<li>Configure <tt class="docutils literal">/etc/fstab</tt> to use that device by device name or, preferably, by UUID as swap.</li>
+<li>Activate the new swap partition with <tt class="docutils literal">swapon</tt>.</li>
+<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
+</ol>
+</blockquote>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> A mebibyte (MiB) is the <em>proper</em> term for the unit containing 1024 units (kibibytes or KiB) of 1024 bytes. This is in contrast to the term &quot;megabyte&quot; which properly refers to a unit containing 1000 units (kilobytes or kB) of 1000 bytes. For more information, see the <a class="reference external" href="http://physics.nist.gov/cuu/Units/binary.html">short summary by The National Institute of Standards and Technology (NIST)</a> or the <a class="reference external" href="http://en.wikipedia.org/wiki/Binary_prefix">reference article on Wikipedia</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise-2-6-add-a-new-swap-file">
+<h2>Exercise 2-6: Add a new SWAP file</h2>
+<p>On your Client virtual machine:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id6">[2]</a>  your system is configured to use. Note that number.</li>
+<li>Create a new file for swap by using <tt class="docutils literal">dd</tt> to write zeros to a file of 128 MiB.</li>
+<li>Initialize it with <tt class="docutils literal">mkswap</tt>.</li>
+<li>Configure <tt class="docutils literal">/etc/fstab</tt> to use that file (by pathname) as swap.</li>
+<li>Activate the new swap partition with <tt class="docutils literal">swapon</tt>.</li>
+<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
+</ol>
+</blockquote>
+</div>
 <div class="section" id="mounting-using-uuids-and-filesystem-labels">
 <h2>Mounting Using UUIDs and Filesystem Labels</h2>
 <p>Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label</p>
@@ -1455,11 +1521,32 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <div class="section" id="filesystem-permissions-basic-permissions">
 <h2>Filesystem Permissions: Basic Permissions</h2>
 <p>Linux permissions are organized around:</p>
+<blockquote>
+<p><strong>Three sets of permissions</strong></p>
+<blockquote>
 <ul class="simple">
-<li>Three sets of permissions -- User, Group, and Other</li>
-<li>Three types of permissions -- Read, Write, and Execute</li>
-<li>Three extended attributes -- SUID, SGID, and Stickybit</li>
+<li>User,</li>
+<li>Group, and</li>
+<li>Other</li>
 </ul>
+</blockquote>
+<p><strong>Three types of permissions</strong></p>
+<blockquote>
+<ul class="simple">
+<li>Read,</li>
+<li>Write, and</li>
+<li>Execute</li>
+</ul>
+</blockquote>
+<p><strong>Three extended attributes</strong></p>
+<blockquote>
+<ul class="simple">
+<li>SUID,</li>
+<li>SGID, and</li>
+<li>Stickybit</li>
+</ul>
+</blockquote>
+</blockquote>
 </div>
 <div class="section" id="three-sets-of-permissions">
 <h2>Three Sets of Permissions:</h2>
@@ -1510,7 +1597,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </li>
 <li><dl class="first docutils">
 <dt>SGID (Set Group ID)</dt>
-<dd><p class="first last">On a directory, causes any files created in the directory to belong to the group owning the directory.</p>
+<dd><p class="first last">On a directory, causes any files created in the directory to belong to the group owning the directory. On an executable, runs a process under the GID of the group owning the file rather the logged-in group of the user executing it.</p>
 </dd>
 </dl>
 </li>
@@ -1539,142 +1626,152 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <dd>where XXXX is a number representing the complete permissions on the file.</dd>
 </dl>
 </div>
+<div class="section" id="setting-permissions-with-symbolic-options">
+<h2>Setting Permissions with Symbolic Options</h2>
+<p>The following symbols are used:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="51%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Which Set?</th>
+<th class="head">What to do?</th>
+<th class="head">Which Permissions?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>u  user</td>
+<td>+  add this permission</td>
+<td>r  read</td>
+</tr>
+<tr><td>g  group</td>
+<td>-  remove this permission</td>
+<td>w  write</td>
+</tr>
+<tr><td>o  other</td>
+<td>=  set exactly this permission</td>
+<td>x  execute</td>
+</tr>
+<tr><td>a  all</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<pre class="literal-block">
+$ chmod a+x /home/scott/Downloads/somescript.sh
+
+$ chmod u=rw,g=r,o-rwx ./myfile.txt
+</pre>
+</div>
 <div class="section" id="setting-permissions-with-numeric-options">
 <h2>Setting Permissions with Numeric Options</h2>
+<p>Each permission is assigned a numeric value:</p>
+<blockquote>
+<p>4  read</p>
+<p>2  write</p>
+<p>1  execute</p>
+</blockquote>
 <table border="1" class="docutils">
 <colgroup>
-<col width="34%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
+<col width="56%" />
+<col width="22%" />
+<col width="22%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">&nbsp;</th>
-<th class="head" colspan="3">User</th>
-<th class="head" colspan="3">Group</th>
-<th class="head" colspan="3">Other</th>
+<tr><th class="head">r, w, x Permissions</th>
+<th class="head">Binary</th>
+<th class="head">Octal</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>Permissions</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
+<tr><td>---</td>
+<td>000</td>
+<td>0</td>
 </tr>
-<tr><td>Numeric Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>2</td>
+<tr><td>--x</td>
+<td>001</td>
 <td>1</td>
 </tr>
-<tr><td>Sum</td>
-<td colspan="3">0-7</td>
-<td colspan="3">0-7</td>
-<td colspan="3">0-7</td>
+<tr><td>-w-</td>
+<td>010</td>
+<td>2</td>
+</tr>
+<tr><td>-wx</td>
+<td>011</td>
+<td>3</td>
+</tr>
+<tr><td>r--</td>
+<td>100</td>
+<td>4</td>
+</tr>
+<tr><td>r-x</td>
+<td>101</td>
+<td>5</td>
+</tr>
+<tr><td>rw-</td>
+<td>110</td>
+<td>6</td>
+</tr>
+<tr><td>rwx</td>
+<td>111</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils">
-<colgroup>
-<col width="34%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-<col width="7%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">example.txt</th>
-<th class="head" colspan="3">User</th>
-<th class="head" colspan="3">Group</th>
-<th class="head" colspan="3">Other</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Permissions</td>
-<td>r</td>
-<td>w</td>
-<td>x</td>
-<td>r</td>
-<td>-</td>
-<td>x</td>
-<td>-</td>
-<td>-</td>
-<td>x</td>
-</tr>
-<tr><td>Numeric Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr><td>Sum</td>
-<td colspan="3">7</td>
-<td colspan="3">5</td>
-<td colspan="3">1</td>
-</tr>
-</tbody>
-</table>
-<p><tt class="docutils literal"># chmod 751 myfile.txt</tt></p>
+<p>Each set of permission is added separately so that a three-digit octal number fully represents the basic permissions of a file or directory:</p>
+<pre class="literal-block">
+$ chmod 640 ~/myfile.txt
+
+$ chmod 751 /shared/scripts/myscript.sh
+</pre>
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. |              | User      |  Group    | Other     | -->
+<!-- +==============+===+===+===+===+===+===+===+===+===+ -->
+<!-- .. |Permissions   | r | w | x | r | w | x | r | w | x | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Numeric Value | 4 | 2 | 1 | 4 | 2 | 1 | 4 | 2 | 1 | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Sum           |   0-7     |    0-7    |    0-7    | -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!--  -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. | example.txt  | User      |  Group    | Other     | -->
+<!-- +==============+===+===+===+===+===+===+===+===+===+ -->
+<!-- .. |Permissions   | r | w | x | r |\- | x |\- |\- | x | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Numeric Value | 4 | 2 | 1 | 4 | 0 | 1 | 0 | 0 | 1 | -->
+<!-- +- - - - - - - - - - - - - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+- - -+ -->
+<!-- .. |Sum           |     7     |    5      |     1     | -->
+<!-- +- - - - - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+- - - - - - - - - - -+ -->
 </div>
 <div class="section" id="setting-extended-attributes-with-numeric-options">
 <h2>Setting Extended Attributes with Numeric Options</h2>
 <p>chmod numeric options are actually 4 digits (not three).  Missing digits are assumed to be leading zeroes.</p>
 <p>The leftmost place is for extended attributes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="31%" />
-<col width="19%" />
-<col width="19%" />
-<col width="31%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Attribute</th>
-<th class="head">SUID</th>
-<th class="head">SGID</th>
-<th class="head">Stickybit</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Value</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example:</strong> <tt class="docutils literal">$ chmod 3775 MySharedDir</tt></p>
+<p>Each attribute is assigned a numeric value:</p>
+<blockquote>
+<p>4  SUID</p>
+<p>2  SGID</p>
+<p>1  Stickybit</p>
+</blockquote>
+<!-- .. +- - - - - - - - - - -+- - - - - - -+- - - - - - -+- - - - - - - - - - -+ -->
+<!-- .. | Attribute | SUID  | SGID  | Stickybit | -->
+<!-- .. +===========+=======+=======+===========+ -->
+<!-- .. | Value     | 4     | 2     | 1         | -->
+<!-- .. +- - - - - - - - - - -+- - - - - - -+- - - - - - -+- - - - - - - - - - -+ -->
+<p>Example:</p>
+<pre class="literal-block">
+$ chmod 3775 MySharedDir
+</pre>
 </div>
 <div class="section" id="setting-extended-attributes-with-symbolic-values">
 <h2>Setting Extended Attributes with Symbolic Values:</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">chmod +t {filename}</tt></dt>
+<dt><tt class="docutils literal">chmod o+t {filename}</tt></dt>
 <dd>Sets the sticky bit</dd>
 <dt><tt class="docutils literal">chmod u+s {filename}</tt></dt>
 <dd>Sets suid</dd>
@@ -1751,12 +1848,25 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </div>
 <div class="section" id="file-access-control-lists">
 <h2>File Access Control Lists</h2>
+<ul>
+<li><p class="first">Provide more granular control of permissions.</p>
+</li>
+<li><p class="first">Filesystem must be mounted with the 'acl' option or be configured with that option by default.</p>
+<blockquote>
 <ul class="simple">
-<li>Provide more granular control of permissions.</li>
-<li>Filesystem must be mounted with the 'acl' option or be compiled with that option by default</li>
+<li>Use mount with a <tt class="docutils literal"><span class="pre">-o</span> acl</tt> option to mount (non-persistently) with ACLs enabled.</li>
+<li>Add &quot;acl&quot; in the options field of <tt class="docutils literal">/etc/fstab</tt> to persistently enable ACLs</li>
+<li>or use <tt class="docutils literal">tune2fs <span class="pre">-o</span> user_xattr,acl /path/to/device</tt> to configure those attributes as default mount options</li>
 </ul>
-<p>getfacl</p>
-<p>setfacl</p>
+</blockquote>
+</li>
+</ul>
+<dl class="docutils">
+<dt>getfacl</dt>
+<dd>Used to view file ACLs</dd>
+<dt>setfacl</dt>
+<dd>Used to set file ACLs</dd>
+</dl>
 </div>
 <div class="section" id="getfacl">
 <h2>getfacl</h2>
@@ -1857,7 +1967,7 @@ iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP&gt; -o delete
 <li>Man pages for fdisk(8), fstab(5), mkfs(8), blkid(8), partprobe(8), mount(8), parted(8), cryptsetup(8), and crypttab(5)</li>
 </ul>
 </div>
-<div class="section" id="id4">
+<div class="section" id="id7">
 <h2>Reading</h2>
 <dl class="docutils">
 <dt>Topics from this class:</dt>
@@ -3913,7 +4023,7 @@ This disables setroubleshoot-server, sealert, and the issuing of SELinux message
 <p>The only mention of FTP in the RHCSA objectives is concerned with enabling a default configuration</p>
 <p>The only mention of FTP in the RHCE objectives is concerned with securely configuring anonymous access.</p>
 </div>
-<div class="section" id="id5">
+<div class="section" id="id8">
 <h2>Installation and Basic Configuration</h2>
 <p>Package: vsftpd</p>
 <p>Install:</p>
@@ -4072,7 +4182,7 @@ IPTABLES_MODULES=&quot;nf_conntrack_ftp nf_nat_ftp&quot;
 <p>exportfs -u</p>
 <p>showmount -e server</p>
 </div>
-<div class="section" id="id6">
+<div class="section" id="id9">
 <h2>SELinux</h2>
 </div>
 <div class="section" id="mounting">
@@ -4219,7 +4329,7 @@ domain=&lt;domainname&gt;
 <li>samba-domainjoin-gui (Optional Repository)</li>
 </ul>
 </div>
-<div class="section" id="id7">
+<div class="section" id="id10">
 <h2>SELinux</h2>
 <p>SELinux notes are at the top of the config file (<tt class="docutils literal">/etc/samba/smb.conf</tt>) and the man page samba_selinux (8).</p>
 <p>SELinux Port Settings for Samba:</p>
@@ -4407,7 +4517,7 @@ write list = &#64;groupname
 # chkconfig named on
 </pre>
 </div>
-<div class="section" id="id8">
+<div class="section" id="id11">
 <h2>Useful Commands</h2>
 <dl class="docutils">
 <dt>rndc</dt>
@@ -4439,8 +4549,9 @@ write list = &#64;groupname
 </div>
 <div class="section" id="firewall-considerations">
 <h2>Firewall Considerations</h2>
+<p>Port 53 must be open for both UDP and TCP</p>
 </div>
-<div class="section" id="id9">
+<div class="section" id="id12">
 <h2>SELinux Considerations</h2>
 <!-- o DNS -->
 <!-- + * Install the packages needed to provide the service -->
@@ -4471,12 +4582,20 @@ Conveys mail from Server to local mail spools</blockquote>
 <dd>postfix</dd>
 </dl>
 <p>/etc/postfix/main.cf</p>
+<p>Important Directives:</p>
 <blockquote>
-<p>myhostname = server.dell.com</p>
-<p>mydomain = dell.com</p>
-<p>myorigin = $mydomain</p>
-<p>inet_interfaces = all</p>
-<p>mynetworks = 192.168.0.0/16, 10.0.0.0/8</p>
+<dl class="docutils">
+<dt>inet_interfaces</dt>
+<dd>Controls which interfaces the mailserver listens on (by default, only localhost!)</dd>
+<dt>myhostname</dt>
+<dd>provides the hostname for this server</dd>
+<dt>mydomain</dt>
+<dd>provides the mail domain for this server (often different than a DNS domain)</dd>
+<dt>myorigin</dt>
+<dd>provides the host/domain that should be shown as the origin for outbound mail from my system.</dd>
+<dt>mynetworks</dt>
+<dd>Comma-separated list of IP addresses and networks that can relay through this mailserver (ex: 92.168.0.0/16, 10.0.0.0/8)</dd>
+</dl>
 </blockquote>
 </div>
 <div class="section" id="postfix-configuration-tool">
@@ -4489,6 +4608,12 @@ Applies configuration changes on the fly (not persistent).  Can also display ava
 <h2>Reading Mail</h2>
 <p>mail</p>
 <p>mutt</p>
+</div>
+<div class="section" id="id13">
+<h2>Firewall Considerations</h2>
+</div>
+<div class="section" id="id14">
+<h2>SELinux Considerations</h2>
 <!-- o SMTP -->
 <!-- + * Install the packages needed to provide the service -->
 <!-- + * Configure SELinux to support the service -->
@@ -4578,7 +4703,7 @@ at&gt; &lt;CTRL-D&gt;
 </dl>
 <p>If editing directly, <tt class="docutils literal">vipw</tt> and <tt class="docutils literal">vigr</tt> should be used.</p>
 </div>
-<div class="section" id="id10">
+<div class="section" id="id15">
 <h2>Structure of /etc/passwd</h2>
 <p><tt class="docutils literal">Name:Password:UID:GID:Comments:Homedir:Shell</tt></p>
 <p>Sample Contents
@@ -4592,7 +4717,7 @@ gdm:x:42:42::/var/gdm:/sbin/nologin
 scott:x:500:500:Scott Purcell:/home/scott:/bin/bash
 </pre>
 </div>
-<div class="section" id="id11">
+<div class="section" id="id16">
 <h2>Structure of /etc/shadow</h2>
 <p><tt class="docutils literal">Name:Password:Lstchg:May:Must:Warn:Disable:Expire</tt></p>
 <div class="section" id="sample-contents">
@@ -4608,10 +4733,10 @@ bob:$1${...}:14398:7:30:7:7:14457:
 </pre>
 </div>
 </div>
-<div class="section" id="id12">
+<div class="section" id="id17">
 <h2>Structure of /etc/group</h2>
 <p><tt class="docutils literal">Name:Password:GID:Users</tt></p>
-<div class="section" id="id13">
+<div class="section" id="id18">
 <h3>Sample Contents</h3>
 <pre class="literal-block">
 # cat /etc/group
@@ -4624,10 +4749,10 @@ training:x:504:scott
 </pre>
 </div>
 </div>
-<div class="section" id="id14">
+<div class="section" id="id19">
 <h2>Structure of /etc/gshadow</h2>
 <p><tt class="docutils literal">Name:Password:Admins:Members</tt></p>
-<div class="section" id="id15">
+<div class="section" id="id20">
 <h3>Sample Contents</h3>
 <pre class="literal-block">
 # cat /etc/gshadow
@@ -4640,7 +4765,7 @@ training:!::scott
 </pre>
 </div>
 </div>
-<div class="section" id="id16">
+<div class="section" id="id21">
 <h2>User Admin with CLI tools</h2>
 <dl class="docutils">
 <dt>useradd, usermod, userdel</dt>
@@ -4651,14 +4776,14 @@ training:!::scott
 <dd>Modify password aging and expiration</dd>
 </dl>
 </div>
-<div class="section" id="id17">
+<div class="section" id="id22">
 <h2>User Admin with GUI tools</h2>
 <p>The GUI tool for managing users and groups is the Red Hat User Manager. It can be launched from the menu at <strong>System | Administration | Users and Groups</strong> or from the CLI as <tt class="docutils literal"><span class="pre">system-config-users</span></tt>.</p>
 <blockquote>
 <img alt="images/UserMgr.png" src="images/UserMgr.png" style="width: 80%;" />
 </blockquote>
 </div>
-<div class="section" id="id18">
+<div class="section" id="id23">
 <h2>User environment</h2>
 <dl class="docutils">
 <dt>Home directories</dt>
@@ -4666,7 +4791,7 @@ training:!::scott
 <dt>/etc/skel</dt>
 <dd>Contents copied to home directory of each new user.</dd>
 </dl>
-<div class="section" id="id19">
+<div class="section" id="id24">
 <h3>Common Contents:</h3>
 <blockquote>
 <p>.bashrc</p>
@@ -4675,7 +4800,7 @@ training:!::scott
 </blockquote>
 </div>
 </div>
-<div class="section" id="id20">
+<div class="section" id="id25">
 <h2>System-wide Shell Config Files</h2>
 <dl class="docutils">
 <dt>/etc/profile</dt>
@@ -4686,7 +4811,7 @@ training:!::scott
 <dd>System-wide functions and aliases</dd>
 </dl>
 </div>
-<div class="section" id="id21">
+<div class="section" id="id26">
 <h2>User-configurable Environment Files</h2>
 <dl class="docutils">
 <dt>~/.bashrc</dt>
@@ -4951,7 +5076,7 @@ libwrap.so.0 =&gt; /lib64/libwrap.so.0 ...
 </tr>
 <tr class="field"><th class="field-name">Author:</th><td class="field-body">Scott Purcell &lt;<a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a>&gt;</td>
 </tr>
-<tr class="field"><th class="field-name">Date:</th><td class="field-body">November 12, 2012</td>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">November 19, 2012</td>
 </tr>
 </tbody>
 </table>
