@@ -2160,7 +2160,7 @@ Database is kept in /var/lib/rpm</blockquote>
 </div>
 <div class="section" id="package-naming-example">
 <h2>Package Naming Example</h2>
-<p>bash-3.2-24.el5.x86_64.rpm</p>
+<p>bash-4.1.2-8.el6.x86_64</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="14%" />
@@ -2177,13 +2177,13 @@ Database is kept in /var/lib/rpm</blockquote>
 </thead>
 <tbody valign="top">
 <tr><td>bash</td>
-<td>3.2</td>
-<td>24.el5</td>
+<td>4.1.2</td>
+<td>8.el6</td>
 <td>x86_64</td>
 </tr>
 </tbody>
 </table>
-<p>This package starts with version 3.2 of bash (from ftp.gnu.org/gnu/bash), applies a RH patch identified as 24.el5 to it, and is then built to run on an Intel/AMD 64 bit processor.</p>
+<p>This package starts with version 4.1.2 of bash (from ftp.gnu.org/gnu/bash), applies a RH patch identified as 8.el6 to it, and is then built to run on an Intel/AMD 64 bit processor.</p>
 </div>
 <div class="section" id="installing-and-upgrading-packages">
 <h2>Installing and Upgrading Packages</h2>
@@ -2392,8 +2392,24 @@ S.5....T    /usr/bin/aspell
 </div>
 <div class="section" id="managing-software-building-rpms">
 <h2>Managing Software:  Building RPMs</h2>
-<p>As of this writing, Red Hat is pointing users to the following RPM Guide from the Fedora project for more information on RPM creation:</p>
-<p><a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/">http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/</a></p>
+<p>As of this writing, Red Hat provides little documentation on their own site about RPM creation.  Instead, they provide pointers to the following resources:</p>
+<ul>
+<li><p class="first"><a class="reference external" href="http://www.rpm.org/">The RPM.org site</a></p>
+<blockquote>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/">The Fedora RMP Guide</a></p>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+<p>The RPM.org site, in turn, links to a PDF available from Gurulabs:</p>
+<ul>
+<li><p class="first"><a class="reference external" href="http://www.gurulabs.com/downloads/GURULABS-RPM-LAB/GURULABS-RPM-GUIDE-v1.0.PDF">GuruLabs RPM Guide</a></p>
+<blockquote>
+</blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="inside-an-rpm-package">
 <h2>Inside an RPM package</h2>
@@ -2420,13 +2436,22 @@ S.5....T    /usr/bin/aspell
 <li>Changelog recording the changes made to the package with each revision.</li>
 </ul>
 </div>
+<div class="section" id="format-of-the-spec-file">
+<h2>Format of the .spec file</h2>
+<dl class="docutils">
+<dt>Preamble (aka &quot;Header&quot;)</dt>
+<dd>Optional macro definitions and directives that define the package</dd>
+<dt>Stanzas</dt>
+<dd>Sections that perform specific functions, identified by tokens like <tt class="docutils literal">%prep</tt> and <tt class="docutils literal">%build</tt>.</dd>
+</dl>
+</div>
 <div class="section" id="preamble-directives">
 <h2>Preamble directives</h2>
 <dl class="docutils">
 <dt>Name</dt>
-<dd>Name of the package</dd>
+<dd>Name of the package.  Should not include whitespace.</dd>
 <dt>Version</dt>
-<dd>Version identifier</dd>
+<dd>Version identifier.  Should not include dashes.</dd>
 <dt>Release</dt>
 <dd>Indicates incremental changes within a version.</dd>
 <dt>Group</dt>
@@ -2447,13 +2472,22 @@ S.5....T    /usr/bin/aspell
 </div>
 <div class="section" id="required-spec-file-sections">
 <h2>Required Spec file sections</h2>
-<p>%description</p>
-<p>%prep</p>
-<p>%build</p>
-<p>%install</p>
-<p>%clean</p>
-<p>%files</p>
-<p>%changelog</p>
+<dl class="docutils">
+<dt>%description</dt>
+<dd>Longer description.  Lines starting flush-left will be automatically wrapped when displayed. Lines starting with leading whitespace are treated as pre-formatted text and not wrapped. Blank Lines separate paragraphs.</dd>
+<dt>%prep</dt>
+<dd>Prepares the environment for the build.  May need no more than the macro: <tt class="docutils literal">%setup <span class="pre">-q</span></tt>.</dd>
+<dt>%build</dt>
+<dd>Builds the binaries from source.  This section must include the commands that would be used to manually build the software.</dd>
+<dt>%install</dt>
+<dd>&quot;Installs&quot; the compiled application -- but into the build environment instead of on your working filesystem.</dd>
+<dt>%clean</dt>
+<dd>Removes the contents of the build environment.</dd>
+<dt>%files</dt>
+<dd>Lists, and sets attibutes for, all the files and directories to be placed on the target system by your finished RPM</dd>
+<dt>%changelog</dt>
+<dd>Time-stamps and describes the changes in each revision of the RPM.</dd>
+</dl>
 </div>
 <div class="section" id="package-building-tools">
 <h2>Package Building Tools</h2>
@@ -2506,8 +2540,8 @@ $ rpmdev-setuptree
 </dl>
 <p>Use <tt class="docutils literal">rpmbuild <span class="pre">--help</span></tt> or <tt class="docutils literal">man rpmbuild</tt> for other options.</p>
 </div>
-<div class="section" id="rpm-building-exercise">
-<h2>RPM Building Exercise</h2>
+<div class="section" id="exercise-building-a-custom-rpm">
+<h2>Exercise: Building a Custom RPM</h2>
 <p>As root, install rpm-build, rpmlint, rpmdevtools:</p>
 <pre class="literal-block">
 # yum -y install rpmbuild rpmdevtools rpmlint
@@ -2531,23 +2565,47 @@ $ tar cvzf hello-1.0.tar.gz ~/hello-1.0/
 <pre class="literal-block">
 $ rpmdev-setuptree
 </pre>
-<p>Move the tarball to the SOURCES directory</p>
+<p>Move the tarball to the SOURCES directory:</p>
+<pre class="literal-block">
+$ mv hello-1.0 rpmbuild/SOURCES/
+</pre>
 <p>Create a .spec file in the SPECS directory:</p>
 <pre class="literal-block">
-$ vim pkgname.spec
+$ vim rpmbuild/SPECS/hello-1.0.spec
 </pre>
 <p>or:</p>
 <pre class="literal-block">
-$ rpmdev-newspec -o pkgname.spec
+$ rpmdev-newspec -o rpmbuild/SPECS/hello-1.0.spec
 </pre>
-<p>Insert a name (Match the pkgname on the tarball and direcotory)</p>
-<p>Insert a version (Match the version)</p>
+<p>Insert a name (Match the pkgname on the tarball and directory):</p>
+<pre class="literal-block">
+Name:           hello
+</pre>
+<p>Insert a version (Match the version):</p>
+<pre class="literal-block">
+Version:        1.0
+</pre>
 <p>Leave the release alone</p>
-<p>Insert a summary (one line)</p>
-<p>Insert a group (package group)</p>
-<p>Insert a license</p>
-<p>Insert a URL or delete the line</p>
-<p>Insert on the Source0 line, the name of your tarball</p>
+<p>Insert a summary (one line):</p>
+<pre class="literal-block">
+Summary:        Simple Hello script created as a test package
+</pre>
+<p>Insert a group (package group):</p>
+<pre class="literal-block">
+Group:          Applications/Text
+</pre>
+<p>Insert a license:</p>
+<pre class="literal-block">
+License:        Public Domain
+</pre>
+<p>Insert a URL or delete the line:</p>
+<pre class="literal-block">
+URL:            http://www.example.com/hello-1.0/
+</pre>
+<p>Insert on the Source0 line, the name of your tarball:</p>
+<pre class="literal-block">
+Source0:        hello-1.0.tar.gz
+</pre>
 <p>Leave the BuildRoot line alone</p>
 <p>Unless your package has prerequisites needed before it can be compiled, delete the BuildRequires line</p>
 <p>Unless your package has prerequisites needed before it can work, delete the Requires line</p>
@@ -2558,18 +2616,23 @@ $ rpmdev-newspec -o pkgname.spec
 <p>Under the %install section, leave the rm line alone.</p>
 <p>If your package does not need to be built, modify the make install line to something like this:</p>
 <pre class="literal-block">
-install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
+install -D hello.sh $RPM_BUILD_ROOT/usr/local/bin/hello.sh
 </pre>
 <p>Leave the %clean and the rm -rf lines alone.</p>
 <p>Under %files, use the following syntax to list each of the files your package will place on the target system:</p>
 <pre class="literal-block">
-%attr(770,owner,group)/path/to/file
+%attr(777,root,root)/usr/local/bin/hello.sh
 </pre>
-<p>Use the following syntax to list each of the directories you package will place on the target system:</p>
+<p>Use the following syntax to list each of the directories your package will place on the target system:</p>
 <pre class="literal-block">
-%dir /root/bin
+%dir /usr/local/bin
 </pre>
 <p>The changelog section can be deleted or left alone.</p>
+<p>Save and exit the .spec file and then test your build with:</p>
+<pre class="literal-block">
+$ rpmbuild -ba rpmbuild/SPECS/hello-1.0.spec
+</pre>
+<p>If it fails, troubleshoot using the various partial invocations of rpmbuild (described on a previous page) and using the tree command to see what is actually being placed on your system.</p>
 <!-- + Build a simple RPM that packages a single file -->
 </div>
 <div class="section" id="signing-your-rpms">
@@ -5076,7 +5139,7 @@ libwrap.so.0 =&gt; /lib64/libwrap.so.0 ...
 </tr>
 <tr class="field"><th class="field-name">Author:</th><td class="field-body">Scott Purcell &lt;<a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a>&gt;</td>
 </tr>
-<tr class="field"><th class="field-name">Date:</th><td class="field-body">November 19, 2012</td>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">November 26, 2012</td>
 </tr>
 </tbody>
 </table>

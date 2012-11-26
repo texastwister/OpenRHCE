@@ -1758,15 +1758,15 @@ RPM Package Naming
 Package Naming Example
 ----------------------------
 
-bash-3.2-24.el5.x86_64.rpm
+bash-4.1.2-8.el6.x86_64
 
 ======      =================   ============     ========
  Name        Project Version     RH Release       Arch
 ======      =================   ============     ========
- bash        3.2                 24.el5           x86_64
+ bash        4.1.2               8.el6           x86_64
 ======      =================   ============     ========
 
-This package starts with version 3.2 of bash (from ftp.gnu.org/gnu/bash), applies a RH patch identified as 24.el5 to it, and is then built to run on an Intel/AMD 64 bit processor.
+This package starts with version 4.1.2 of bash (from ftp.gnu.org/gnu/bash), applies a RH patch identified as 8.el6 to it, and is then built to run on an Intel/AMD 64 bit processor.
 
 
 
@@ -1971,10 +1971,21 @@ Query the RPM database for the packages installed right now::
 Managing Software:  Building RPMs
 -------------------------------------
 
+As of this writing, Red Hat provides little documentation on their own site about RPM creation.  Instead, they provide pointers to the following resources:
 
-As of this writing, Red Hat is pointing users to the following RPM Guide from the Fedora project for more information on RPM creation:
- 
-http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+* `The RPM.org site`_
+
+     .. _`The RPM.org site`: http://www.rpm.org/
+
+* `The Fedora RMP Guide`_
+
+    .. _`The Fedora RMP Guide`: http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/
+    
+The RPM.org site, in turn, links to a PDF available from Gurulabs:
+
+* `GuruLabs RPM Guide`_
+
+    .. _`GuruLabs RPM Guide`: http://www.gurulabs.com/downloads/GURULABS-RPM-LAB/GURULABS-RPM-GUIDE-v1.0.PDF
 
 Inside an RPM package
 -------------------------
@@ -2004,14 +2015,23 @@ Main contents of a .spec file
 
 * Changelog recording the changes made to the package with each revision.
 
+Format of the .spec file
+-----------------------------
+
+Preamble (aka "Header")
+    Optional macro definitions and directives that define the package
+    
+Stanzas 
+    Sections that perform specific functions, identified by tokens like ``%prep`` and ``%build``.
+
 Preamble directives
 ----------------------
 
 Name
-    Name of the package
+    Name of the package.  Should not include whitespace.
 
 Version
-    Version identifier
+    Version identifier.  Should not include dashes.
 	
 Release
     Indicates incremental changes within a version.
@@ -2042,19 +2062,25 @@ Required Spec file sections
 ------------------------------
 
 %description
+    Longer description.  Lines starting flush-left will be automatically wrapped when displayed. Lines starting with leading whitespace are treated as pre-formatted text and not wrapped. Blank Lines separate paragraphs.
 
 %prep
+    Prepares the environment for the build.  May need no more than the macro: ``%setup -q``.
 
 %build
+    Builds the binaries from source.  This section must include the commands that would be used to manually build the software.
 
 %install
+    "Installs" the compiled application -- but into the build environment instead of on your working filesystem.
 
 %clean
-
+    Removes the contents of the build environment.
+    
 %files
+    Lists, and sets attibutes for, all the files and directories to be placed on the target system by your finished RPM
 
 %changelog
-
+    Time-stamps and describes the changes in each revision of the RPM.
 
 Package Building Tools
 -------------------------
@@ -2118,8 +2144,8 @@ With the source files in place and a properly configured ``.spec`` file written,
 
 Use ``rpmbuild --help`` or ``man rpmbuild`` for other options.
 
-RPM Building Exercise
---------------------------
+Exercise: Building a Custom RPM
+--------------------------------
 
 As root, install rpm-build, rpmlint, rpmdevtools::
 
@@ -2146,31 +2172,47 @@ Create an rpm development environment::
 
     $ rpmdev-setuptree
 
-Move the tarball to the SOURCES directory
+Move the tarball to the SOURCES directory::
+
+    $ mv hello-1.0 rpmbuild/SOURCES/
 
 Create a .spec file in the SPECS directory::
 
-    $ vim pkgname.spec
+    $ vim rpmbuild/SPECS/hello-1.0.spec
 
 or::
 
-    $ rpmdev-newspec -o pkgname.spec
+    $ rpmdev-newspec -o rpmbuild/SPECS/hello-1.0.spec
 
-Insert a name (Match the pkgname on the tarball and direcotory)
+Insert a name (Match the pkgname on the tarball and directory)::
 
-Insert a version (Match the version)
+    Name:           hello
+
+Insert a version (Match the version)::
+
+    Version:        1.0
 
 Leave the release alone
 
-Insert a summary (one line)
+Insert a summary (one line)::
 
-Insert a group (package group)
+    Summary:        Simple Hello script created as a test package
 
-Insert a license
+Insert a group (package group)::
 
-Insert a URL or delete the line
+    Group:          Applications/Text 
 
-Insert on the Source0 line, the name of your tarball
+Insert a license::
+
+    License:        Public Domain
+
+Insert a URL or delete the line::
+
+    URL:            http://www.example.com/hello-1.0/
+
+Insert on the Source0 line, the name of your tarball::
+
+    Source0:        hello-1.0.tar.gz
 
 Leave the BuildRoot line alone
 
@@ -2190,21 +2232,25 @@ Under the %install section, leave the rm line alone.
 
 If your package does not need to be built, modify the make install line to something like this::
 
-    install -D myfile $RPM_BUILD_ROOT/path/to/install/dest/myfile
+    install -D hello.sh $RPM_BUILD_ROOT/usr/local/bin/hello.sh
 
 Leave the %clean and the rm -rf lines alone.
 
 Under %files, use the following syntax to list each of the files your package will place on the target system::
 
-    %attr(770,owner,group)/path/to/file
+    %attr(777,root,root)/usr/local/bin/hello.sh
 
-Use the following syntax to list each of the directories you package will place on the target system::
+Use the following syntax to list each of the directories your package will place on the target system::
 
-    %dir /root/bin
+    %dir /usr/local/bin
 
 The changelog section can be deleted or left alone.
 
+Save and exit the .spec file and then test your build with::
 
+    $ rpmbuild -ba rpmbuild/SPECS/hello-1.0.spec 
+    
+If it fails, troubleshoot using the various partial invocations of rpmbuild (described on a previous page) and using the tree command to see what is actually being placed on your system.
 
 
 ..                + Build a simple RPM that packages a single file
