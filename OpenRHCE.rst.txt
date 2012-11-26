@@ -1464,13 +1464,22 @@ Working with CIFS network file systems
 
 Will be covered in more detail later.
 
-Mount and unmount CIFS network file systems
+Mounting::
+
+	mount -t cifs //server/share /path/to/mountpoint -o options
+
+
+
 
 Working with NFS file systems
 --------------------------------------------------
 
-Mount and unmount NFS file systems
+Will be covered in more detail later.
 
+Mounting::
+
+	mount -t nfs server:/path/to/export /path/to/mountpoint -o options	
+	
 iSCSI Devices
 -------------------------------------------------------------------------
 
