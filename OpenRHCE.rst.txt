@@ -2159,7 +2159,7 @@ Exercise: Building a Custom RPM
 
 As root, install rpm-build, rpmlint, rpmdevtools::
 
-    # yum -y install rpmbuild rpmdevtools rpmlint
+    # yum -y install rpm-build rpmdevtools rpmlint
 
 As a non-privileged user, create a project directory, named according to the convention: <projname>-<majorver>.<minorver>::
 
@@ -2184,7 +2184,7 @@ Create an rpm development environment::
 
 Move the tarball to the SOURCES directory::
 
-    $ mv hello-1.0 rpmbuild/SOURCES/
+    $ mv hello-1.0.tar.gz rpmbuild/SOURCES/
 
 Create a .spec file in the SPECS directory::
 
