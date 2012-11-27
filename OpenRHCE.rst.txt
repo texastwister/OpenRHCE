@@ -2176,7 +2176,7 @@ Create bash script: ~/hello-1.0/hello.sh
 
 Create a tarball of the project directory::
 
-    $ tar cvzf hello-1.0.tar.gz ~/hello-1.0/
+    $ tar cvzf hello-1.0.tar.gz hello-1.0/
 
 Create an rpm development environment::
 
