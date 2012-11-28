@@ -2490,6 +2490,69 @@ Manage system performance
 * Use iostat and vmstat to report on system performance
 * Use shell scripting to automate system maintenance tasks
 
+/proc/sys
+____________
+
+/proc is a virtual filesystem containing "virtual" files and directories that serve as an interface to the data being held in RAM by the kernel.  
+
+Many of these files deal with running processes.  Others deal with hardware information. But the /proc/sys directory tree contains files defining system performance and can be used for performance tuning.
+
+These performance parameters can be directly read with ``cat``::
+
+    # cat /proc/sys/net/ipv4/icmp_echo_ignore_all 
+    0
+
+Or modified directly with ``echo``::
+
+    # echo 1 >/proc/sys/net/ipv4/icmp_echo_ignore_all
+    # cat /proc/sys/net/ipv4/icmp_echo_ignore_all 
+    1
+
+sysctl
+____________
+
+The ``sysctl`` command is an easier and safer way to work with these parameters
+
+To view all of the tunable parameters::
+
+    # sysctl -A 
+    kernel.sched_child_runs_first = 0
+    kernel.sched_min_granularity_ns = 1000000
+    kernel.sched_latency_ns = 5000000
+    ...
+
+To search for a tunable parameter related to a keyword::
+
+    # sysctl -A | grep icmp
+    ...
+    net.ipv4.icmp_echo_ignore_all = 0
+    net.ipv4.icmp_echo_ignore_broadcasts = 1
+    ...
+
+The `RHEL Deployment Guide`_ has an appendix that documents many of the more common parameters that might be of use.  
+
+    .. _`RHEL Deployment Guide`: https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/index.html
+
+Changing Tunable Parameters with sysctl
+_____________________________________________
+
+Modify a parameter using ``sysctl`` with a ``-w`` parameter::
+
+    # sysctl -w net.ipv4.icmp_echo_ignore_all=1
+    net.ipv4.icmp_echo_ignore_all = 1
+
+The example above sets the system to ignore all ping requests.
+
+Making changes persistent with /etc/sysctl.conf
+___________________________________________________
+
+Changes to these parameters can be made persistent by inclusion in ``/etc/sysctl.conf``.
+
+The format for this file is exactly the same as that of the output of ``sysctl -A`` -- so you can find the parameter you want to modify, insert it into ``/etc/sysctl.conf`` and then modify it.
+
+The file documents a significant number of the most often modified performance tuning parameters so that finding and modifying these values is easy.
+
+``sysctl -p`` allows you to immediately process ``/etc/sysctl.conf`` (or an alternate file) to make its settings effective immediately.
 
 Session 4 Networking and Routing
 =======================================
@@ -2513,22 +2576,23 @@ IP Address and Subnet Mask
 
 * Verifying configuration
 
-    ``ip a``, ``ifconfig``
+    ``ip a``, ``ifconfig``, ``nm_applet`` (partial), ``system-config-network`` (partial), ``cat /etc/sysconfig/network-scripts/ifcfg-eth<#>``
+
 
 * Changing configuration
 
-    ``nm_applet``, ``system-config-network``, manual editing of interface config files
+    ``ip a``  (not persistent), ``ifconfig``  (not persistent), ``nm-applet``, ``system-config-network``, manual editing of interface config files
 
 Routing and Default Gateway
 -----------------------------
 
 * Verifying configuration
 
-    ``route``, ``ip r``
+    ``route``, ``ip r``, ``netstat -r``
 
 * Changing configuration
 
-    ``route``, ``ip r``, manual editing of route config files,
+    ``route`` (not persistent), ``ip r`` (not persistent), manual editing of route config files,  ``nm_applet``, ``system-config-network``
     
 
 Hostname
@@ -2536,8 +2600,11 @@ Hostname
 
 * Verifying configuration
 
+    ``hostname``, ``system-config-network``, ``cat /etc/sysconfig/network``
+
 * Changing configuration
 
+    ``system-config-network``, manual editing of ``/etc/sysconfig/network``
 
 
 Name Resolution
@@ -2545,8 +2612,15 @@ Name Resolution
 
 * Verifying configuration
 
+    ``cat /etc/resolv.conf``,  ``nm_applet``, ``system-config-network``
+
+* Testing functionality
+
+    ``dig``, ``nslookup``, ``host``
+
 * Changing configuration
 
+    ``nm-applet``, ``system-config-network``, manual editing of ``/etc/resolv.conf`` and ``/etc/hosts``
     
 
 Two Controlling Services
