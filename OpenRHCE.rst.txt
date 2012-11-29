@@ -2554,6 +2554,46 @@ The file documents a significant number of the most often modified performance t
 
 ``sysctl -p`` allows you to immediately process ``/etc/sysctl.conf`` (or an alternate file) to make its settings effective immediately.
 
+Monitoring System Utilization
+----------------------------------
+
+free
+	Reports memory and swap usage
+
+ps
+	Reports CPU and memory utilization by process
+	
+top
+	Reports memory, CPU, and process utilization of the most active processes
+	
+df
+	Reports utilization of mounted filesystems
+	
+du
+	Reports utilization of diskspace by files and directories
+	
+netstat
+	Reports network utilization
+	
+gnome-system-monitor
+	Graphical tool to monitor all of the above		
+
+Analyzing System Performance
+------------------------------
+
+iostat
+	Used for reporting the I/O performance of storage devices, partitions, and network storage.
+	
+vmstat
+	Used for reportion the performance of the virtual memory subsystem.
+	
+Bash Scripting
+-----------------
+
+<Content to be Added>
+
+
+
 Session 4 Networking and Routing
 =======================================
 
