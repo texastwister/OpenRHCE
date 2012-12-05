@@ -4,6 +4,14 @@
 
 .. |copy| unicode:: 0xA9 .. copyright sign
 
+.. To exclude elements with a certain class from the PDF, use "--strip-elements-with-class=classname" when producing a PDF.
+
+.. To print a copy for other instructors, exclude the class "custom"
+
+.. To print PDF slides (for classroom use), exclude the class "handout"
+
+.. To print a handout version with additional explanatory notes, exclude the class "slides"
+
 .. footer::
 
     Copyright |copy| 2012, Scott Purcell, CC BY-NC-SA 3.0
@@ -15,8 +23,6 @@ RHCSA / RHCE Preparation
 A Creative Commons Courseware 
 -------------------------------------------------------
 
-
- 
 .. raw:: pdf
 
     PageBreak oneColumn
@@ -24,48 +30,46 @@ A Creative Commons Courseware
 
 
 .. Course Outline
-.. =======================
+.. ===========================
 
 .. .. contents::
-
-
 
 Session One: Introductions
 ================================
 
-
 Introductions: Your Instructor
 -----------------------------------------
 
+.. class:: custom
 
-Scott Purcell
+    Scott Purcell
 
-scott@texastwister.info
+    scott@texastwister.info
 
 
-http://www.linkedin.com/in/scottpurcell
+    http://www.linkedin.com/in/scottpurcell
 
-http://twitter.com/texastwister
+    http://twitter.com/texastwister
 
-http://www.facebook.com/Scott.L.Purcell
+    http://www.facebook.com/Scott.L.Purcell
 
-**Qualifications**
+    **Qualifications**
 
-    * RHCSA, RHCE #110-008-877 (RHEL6)
+        * RHCSA, RHCE #110-008-877 (RHEL6)
 
-    * Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
+        * Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+
 
-    * Curriculum Developer and Trainer for a major computer manufacturer for 15 years
+        * Curriculum Developer and Trainer for a major computer manufacturer for 15 years
 
-    * Linux Enthusiast since 2000
+        * Linux Enthusiast since 2000
 
-**Personal**
+    **Personal**
 
-    * Disciple of Jesus Christ, Husband, Father, Eagle Scout, Computer Geek, Balloon Entertainer, and occasional coach of youth sports or leader of scouting units.
+        * Disciple of Jesus Christ, Husband, Father, Eagle Scout, Computer Geek, Balloon Entertainer, and occasional coach of youth sports or leader of scouting units.
 
-**Fun**
+    **Fun**
 
-    * Fun: Part-time Balloon Entertainer
+        * Fun: Part-time Balloon Entertainer
 
 
 Introductions: Fellow Students
@@ -3334,6 +3338,22 @@ action
         * A tilde, to indicate that these messages should be discarded.
         * See the documentation for others.
         
+Investigate SELinux implications for Syslog
+-----------------------------------------------
+
+Find SELinux Filesystem contexts that might affect rsyslog::
+
+    # semanage fcontext -l  |grep syslog
+
+Find SELinux port contexts that might affect rsyslog::
+
+    # semanage port -l  |grep syslog
+
+Find SELinux booleans that might affect rsyslog::
+
+    # getsebool -a  |grep syslog
+
+
 Practice
 --------------
 

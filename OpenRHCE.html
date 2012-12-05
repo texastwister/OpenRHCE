@@ -321,20 +321,24 @@ ul.auto-toc {
 <!-- Sequence of section adornments: -->
 <!-- ==- - -->
 <!-- ==- -==- -__++~~^^ -->
+<!-- To exclude elements with a certain class from the PDF, use "- -strip-elements-with-class=classname" when producing a PDF. -->
+<!-- To print a copy for other instructors, exclude the class "custom" -->
+<!-- To print PDF slides (for classroom use), exclude the class "handout" -->
+<!-- To print a handout version with additional explanatory notes, exclude the class "slides" -->
 <!-- Course Outline -->
-<!-- ======================= -->
+<!-- =========================== -->
 <!-- .. contents:: -->
 <div class="section" id="session-one-introductions">
 <h1>Session One: Introductions</h1>
 <div class="section" id="introductions-your-instructor">
 <h2>Introductions: Your Instructor</h2>
-<p>Scott Purcell</p>
-<p><a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a></p>
-<p><a class="reference external" href="http://www.linkedin.com/in/scottpurcell">http://www.linkedin.com/in/scottpurcell</a></p>
-<p><a class="reference external" href="http://twitter.com/texastwister">http://twitter.com/texastwister</a></p>
-<p><a class="reference external" href="http://www.facebook.com/Scott.L.Purcell">http://www.facebook.com/Scott.L.Purcell</a></p>
-<p><strong>Qualifications</strong></p>
-<blockquote>
+<p class="custom">Scott Purcell</p>
+<p class="custom"><a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a></p>
+<p class="custom"><a class="reference external" href="http://www.linkedin.com/in/scottpurcell">http://www.linkedin.com/in/scottpurcell</a></p>
+<p class="custom"><a class="reference external" href="http://twitter.com/texastwister">http://twitter.com/texastwister</a></p>
+<p class="custom"><a class="reference external" href="http://www.facebook.com/Scott.L.Purcell">http://www.facebook.com/Scott.L.Purcell</a></p>
+<p class="custom"><strong>Qualifications</strong></p>
+<blockquote class="custom">
 <ul class="simple">
 <li>RHCSA, RHCE #110-008-877 (RHEL6)</li>
 <li>Also: CTT+, CLA, CLP, CNI, LPIC1, Linux+</li>
@@ -342,14 +346,14 @@ ul.auto-toc {
 <li>Linux Enthusiast since 2000</li>
 </ul>
 </blockquote>
-<p><strong>Personal</strong></p>
-<blockquote>
+<p class="custom"><strong>Personal</strong></p>
+<blockquote class="custom">
 <ul class="simple">
 <li>Disciple of Jesus Christ, Husband, Father, Eagle Scout, Computer Geek, Balloon Entertainer, and occasional coach of youth sports or leader of scouting units.</li>
 </ul>
 </blockquote>
-<p><strong>Fun</strong></p>
-<blockquote>
+<p class="custom"><strong>Fun</strong></p>
+<blockquote class="custom">
 <ul class="simple">
 <li>Fun: Part-time Balloon Entertainer</li>
 </ul>
@@ -1891,11 +1895,18 @@ drwxrwxr-x+ 2 frank frank 4096 2009-05-27 14:15 acldir
 <div class="section" id="working-with-cifs-network-file-systems">
 <h2>Working with CIFS network file systems</h2>
 <p>Will be covered in more detail later.</p>
-<p>Mount and unmount CIFS network file systems</p>
+<p>Mounting:</p>
+<pre class="literal-block">
+mount -t cifs //server/share /path/to/mountpoint -o options
+</pre>
 </div>
 <div class="section" id="working-with-nfs-file-systems">
 <h2>Working with NFS file systems</h2>
-<p>Mount and unmount NFS file systems</p>
+<p>Will be covered in more detail later.</p>
+<p>Mounting:</p>
+<pre class="literal-block">
+mount -t nfs server:/path/to/export /path/to/mountpoint -o options
+</pre>
 </div>
 <div class="section" id="iscsi-devices">
 <h2>iSCSI Devices</h2>
@@ -2544,7 +2555,7 @@ $ rpmdev-setuptree
 <h2>Exercise: Building a Custom RPM</h2>
 <p>As root, install rpm-build, rpmlint, rpmdevtools:</p>
 <pre class="literal-block">
-# yum -y install rpmbuild rpmdevtools rpmlint
+# yum -y install rpm-build rpmdevtools rpmlint
 </pre>
 <p>As a non-privileged user, create a project directory, named according to the convention: &lt;projname&gt;-&lt;majorver&gt;.&lt;minorver&gt;:</p>
 <pre class="literal-block">
@@ -2559,7 +2570,7 @@ exit 0
 </pre>
 <p>Create a tarball of the project directory:</p>
 <pre class="literal-block">
-$ tar cvzf hello-1.0.tar.gz ~/hello-1.0/
+$ tar cvzf hello-1.0.tar.gz hello-1.0/
 </pre>
 <p>Create an rpm development environment:</p>
 <pre class="literal-block">
@@ -2567,7 +2578,7 @@ $ rpmdev-setuptree
 </pre>
 <p>Move the tarball to the SOURCES directory:</p>
 <pre class="literal-block">
-$ mv hello-1.0 rpmbuild/SOURCES/
+$ mv hello-1.0.tar.gz rpmbuild/SOURCES/
 </pre>
 <p>Create a .spec file in the SPECS directory:</p>
 <pre class="literal-block">
@@ -2851,6 +2862,93 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <li>Use iostat and vmstat to report on system performance</li>
 <li>Use shell scripting to automate system maintenance tasks</li>
 </ul>
+<div class="section" id="proc-sys">
+<h3>/proc/sys</h3>
+<p>/proc is a virtual filesystem containing &quot;virtual&quot; files and directories that serve as an interface to the data being held in RAM by the kernel.</p>
+<p>Many of these files deal with running processes.  Others deal with hardware information. But the /proc/sys directory tree contains files defining system performance and can be used for performance tuning.</p>
+<p>These performance parameters can be directly read with <tt class="docutils literal">cat</tt>:</p>
+<pre class="literal-block">
+# cat /proc/sys/net/ipv4/icmp_echo_ignore_all
+0
+</pre>
+<p>Or modified directly with <tt class="docutils literal">echo</tt>:</p>
+<pre class="literal-block">
+# echo 1 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all
+# cat /proc/sys/net/ipv4/icmp_echo_ignore_all
+1
+</pre>
+</div>
+<div class="section" id="sysctl">
+<h3>sysctl</h3>
+<p>The <tt class="docutils literal">sysctl</tt> command is an easier and safer way to work with these parameters</p>
+<p>To view all of the tunable parameters:</p>
+<pre class="literal-block">
+# sysctl -A
+kernel.sched_child_runs_first = 0
+kernel.sched_min_granularity_ns = 1000000
+kernel.sched_latency_ns = 5000000
+...
+</pre>
+<p>To search for a tunable parameter related to a keyword:</p>
+<pre class="literal-block">
+# sysctl -A | grep icmp
+...
+net.ipv4.icmp_echo_ignore_all = 0
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+...
+</pre>
+<p>The <a class="reference external" href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/index.html">RHEL Deployment Guide</a> has an appendix that documents many of the more common parameters that might be of use.</p>
+<blockquote>
+</blockquote>
+</div>
+<div class="section" id="changing-tunable-parameters-with-sysctl">
+<h3>Changing Tunable Parameters with sysctl</h3>
+<p>Modify a parameter using <tt class="docutils literal">sysctl</tt> with a <tt class="docutils literal"><span class="pre">-w</span></tt> parameter:</p>
+<pre class="literal-block">
+# sysctl -w net.ipv4.icmp_echo_ignore_all=1
+net.ipv4.icmp_echo_ignore_all = 1
+</pre>
+<p>The example above sets the system to ignore all ping requests.</p>
+</div>
+<div class="section" id="making-changes-persistent-with-etc-sysctl-conf">
+<h3>Making changes persistent with /etc/sysctl.conf</h3>
+<p>Changes to these parameters can be made persistent by inclusion in <tt class="docutils literal">/etc/sysctl.conf</tt>.</p>
+<p>The format for this file is exactly the same as that of the output of <tt class="docutils literal">sysctl <span class="pre">-A</span></tt> -- so you can find the parameter you want to modify, insert it into <tt class="docutils literal">/etc/sysctl.conf</tt> and then modify it.</p>
+<p>The file documents a significant number of the most often modified performance tuning parameters so that finding and modifying these values is easy.</p>
+<p><tt class="docutils literal">sysctl <span class="pre">-p</span></tt> allows you to immediately process <tt class="docutils literal">/etc/sysctl.conf</tt> (or an alternate file) to make its settings effective immediately.</p>
+</div>
+</div>
+<div class="section" id="monitoring-system-utilization">
+<h2>Monitoring System Utilization</h2>
+<dl class="docutils">
+<dt>free</dt>
+<dd>Reports memory and swap usage</dd>
+<dt>ps</dt>
+<dd>Reports CPU and memory utilization by process</dd>
+<dt>top</dt>
+<dd>Reports memory, CPU, and process utilization of the most active processes</dd>
+<dt>df</dt>
+<dd>Reports utilization of mounted filesystems</dd>
+<dt>du</dt>
+<dd>Reports utilization of diskspace by files and directories</dd>
+<dt>netstat</dt>
+<dd>Reports network utilization</dd>
+<dt>gnome-system-monitor</dt>
+<dd>Graphical tool to monitor all of the above</dd>
+</dl>
+</div>
+<div class="section" id="analyzing-system-performance">
+<h2>Analyzing System Performance</h2>
+<dl class="docutils">
+<dt>iostat</dt>
+<dd>Used for reporting the I/O performance of storage devices, partitions, and network storage.</dd>
+<dt>vmstat</dt>
+<dd>Used for reportion the performance of the virtual memory subsystem.</dd>
+</dl>
+</div>
+<div class="section" id="bash-scripting">
+<h2>Bash Scripting</h2>
+<p>&lt;Content to be Added&gt;</p>
 </div>
 </div>
 <div class="section" id="session-4-networking-and-routing">
@@ -2870,12 +2968,12 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">ip a</tt>, <tt class="docutils literal">ifconfig</tt></p>
+<p><tt class="docutils literal">ip a</tt>, <tt class="docutils literal">ifconfig</tt>, <tt class="docutils literal">nm_applet</tt> (partial), <tt class="docutils literal"><span class="pre">system-config-network</span></tt> (partial), <tt class="docutils literal">cat <span class="pre">/etc/sysconfig/network-scripts/ifcfg-eth&lt;#&gt;</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal">nm_applet</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of interface config files</p>
+<p><tt class="docutils literal">ip a</tt>  (not persistent), <tt class="docutils literal">ifconfig</tt>  (not persistent), <tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of interface config files</p>
 </blockquote>
 </li>
 </ul>
@@ -2885,28 +2983,49 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">route</tt>, <tt class="docutils literal">ip r</tt></p>
+<p><tt class="docutils literal">route</tt>, <tt class="docutils literal">ip r</tt>, <tt class="docutils literal">netstat <span class="pre">-r</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal">route</tt>, <tt class="docutils literal">ip r</tt>, manual editing of route config files,</p>
+<p><tt class="docutils literal">route</tt> (not persistent), <tt class="docutils literal">ip r</tt> (not persistent), manual editing of route config files,  <tt class="docutils literal">nm_applet</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
 </blockquote>
 </li>
 </ul>
 </div>
 <div class="section" id="hostname">
 <h2>Hostname</h2>
-<ul class="simple">
-<li>Verifying configuration</li>
-<li>Changing configuration</li>
+<ul>
+<li><p class="first">Verifying configuration</p>
+<blockquote>
+<p><tt class="docutils literal">hostname</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, <tt class="docutils literal">cat /etc/sysconfig/network</tt></p>
+</blockquote>
+</li>
+<li><p class="first">Changing configuration</p>
+<blockquote>
+<p><tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal">/etc/sysconfig/network</tt></p>
+</blockquote>
+</li>
 </ul>
 </div>
 <div class="section" id="name-resolution">
 <h2>Name Resolution</h2>
-<ul class="simple">
-<li>Verifying configuration</li>
-<li>Changing configuration</li>
+<ul>
+<li><p class="first">Verifying configuration</p>
+<blockquote>
+<p><tt class="docutils literal">cat /etc/resolv.conf</tt>,  <tt class="docutils literal">nm_applet</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
+</blockquote>
+</li>
+<li><p class="first">Testing functionality</p>
+<blockquote>
+<p><tt class="docutils literal">dig</tt>, <tt class="docutils literal">nslookup</tt>, <tt class="docutils literal">host</tt></p>
+</blockquote>
+</li>
+<li><p class="first">Changing configuration</p>
+<blockquote>
+<p><tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal">/etc/resolv.conf</tt> and <tt class="docutils literal">/etc/hosts</tt></p>
+</blockquote>
+</li>
 </ul>
 </div>
 <div class="section" id="two-controlling-services">
@@ -3505,6 +3624,21 @@ uucp,news.crit       /var/log/spooler
 </blockquote>
 </dd>
 </dl>
+</div>
+<div class="section" id="investigate-selinux-implications-for-syslog">
+<h2>Investigate SELinux implications for Syslog</h2>
+<p>Find SELinux Filesystem contexts that might affect rsyslog:</p>
+<pre class="literal-block">
+# semanage fcontext -l  |grep syslog
+</pre>
+<p>Find SELinux port contexts that might affect rsyslog:</p>
+<pre class="literal-block">
+# semanage port -l  |grep syslog
+</pre>
+<p>Find SELinux booleans that might affect rsyslog:</p>
+<pre class="literal-block">
+# getsebool -a  |grep syslog
+</pre>
 </div>
 <div class="section" id="practice">
 <h2>Practice</h2>
@@ -5139,7 +5273,7 @@ libwrap.so.0 =&gt; /lib64/libwrap.so.0 ...
 </tr>
 <tr class="field"><th class="field-name">Author:</th><td class="field-body">Scott Purcell &lt;<a class="reference external" href="mailto:scott&#64;texastwister.info">scott&#64;texastwister.info</a>&gt;</td>
 </tr>
-<tr class="field"><th class="field-name">Date:</th><td class="field-body">November 26, 2012</td>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">December 05, 2012</td>
 </tr>
 </tbody>
 </table>
