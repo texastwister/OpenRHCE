@@ -209,6 +209,15 @@ RHEL6 Server installed on virtualization-capable Dell Optiplex workstations.
 
 We will be creating multiple virtual machines on the hosts on which the Lab Exercises will be performed.
 
+A classroom server is available at 192.168.5.200, offering a variety of services to your lab stations.
+
+File downloads are available at ftp://192.168.5.200/pub.  
+
+Note, especially, the preconfigured yum repo file at ftp://192.168.5.200/pub/classroom.repo. The following commands can be used on a newly configured virtual machine to configure it for access to the repository::
+
+	# cd /etc/yum.repos.d/
+	# wget ftp://192.168.5.200/pub/classroom.repo
+
 
 Red Hat Enterprise Linux
 -----------------------------
@@ -3273,6 +3282,8 @@ The man pages for logger(1) and syslog(3) have more information.
 
 ``rsyslog`` is configured in ``/etc/rsyslog.conf`` and defaults to using port 514 (TCP or UDP) to send and receive messages.
 
+The man page for rsyslog is under rsyslogd(8).  Add'l extensive documentation is in /usr/share/doc/rsyslog-5.8.10/index.html
+
 Accepting Remote Logs
 ------------------------------------
 
@@ -4148,15 +4159,35 @@ Packages:
 
     nfs4-acl-tools
 
+Man pages:
+
+	showmount (8) 
+		show mount information for an NFS server
+		
+	exportfs (8)  
+		maintain table of exported NFS file systems
+		
+	exports (5)
+		NFS server export table
+
+	nfs (5)
+		fstab format and options for the nfs and nfs4 file systems
+
+	nfs4_acl (5) 
+		NFSv4 Access Control Lists
+		
+	nfs4_editfacl (1)   
+		manipulate NFSv4 file/directory access control lists
 
 
 Configuration
 ----------------------------------------------------------------
 
-/etc/sysconfig/nfs
+``/etc/sysconfig/nfs``
+	Used to restrict or allow the various versions of the protocol and, in the case of older versions, to specify ports (rather than depending on portmapper) for firewall purposes.
 
-/etc/exports
-
+``/etc/exports``
+	Used to define the directories to be exported, the clients permitted to access them, and the mount options.
 
 
 
@@ -4183,24 +4214,46 @@ chkconfig nfs on
 * If you put a space between them, then you will get a global export.
 
 
+User Mapping
+----------------------------------------------------------------
+
+Root Squashing
+----------------------------------------------------------------
+
 
 Commands
 ----------------------------------------------------------------
 
-exportfs -a
+``exportfs``
+	Command to make exported directories immediately accessible to clients.  If ``/etc/exports`` is to nfs as ``/etc/fstab`` is to filesystem mounts, then ``exportfs`` is to nfs what ``mount`` is to filesystem mounts.
 
-exportfs -r
+	-a  	Checks ``/etc/exports`` and exports any directories that are there defined as exports but not yet exported.  Corresponds to the function of ``mount -a``.
+	
 
-exportfs -u
+	-u  Used to unexport a previously exported filesystem.
 
-showmount -e server
-
-
-
+``showmount -e <servername>``
+	Used to show exports that would be available to your machine.
 
 
-SELinux
+Firewall Considerations
 ----------------------------------------------------------------
+
+
+
+SELinux Considerations
+----------------------------------------------------------------
+
+
+
+Man Pages:
+
+	nfs_selinux          (8)  
+		Security Enhanced Linux Policy for NFS
+				
+	nfsd_selinux         (8)  
+		Security Enhanced Linux Policy for the nfsd processes
+
 
 
 Mounting
@@ -4238,11 +4291,13 @@ Unmounts the directory after a specified idle time.
 
 Autofs service controls this behavior.
 
-A master configuration file called.
-  /etc/auto.master
+A master configuration file called:
+
+  ``/etc/auto.master``
 
 Sub configuration files
-  Usually called /etc/auto.*
+
+  Usually called ``/etc/auto.<arbitrary-name>``
 
 
 
@@ -4253,14 +4308,14 @@ Specifies directories to mount under when accessed.
 
 Specifies the auto.* file to use for the directories.
 
-Example:
-  /etc/auto.master
+Example -- ``/etc/auto.master``::
+  
     /misc    /etc/auto.misc
     /data    /etc/auto.data
 
-  When a directory under /misc is accessed, the /etc/auto.misc file indicates how to mount it.
+When a directory under /misc is accessed, the /etc/auto.misc file indicates how to mount it.
 
-  When a directory under /data is accessed, the /etc/auto.data file indicates how to mount it.
+When a directory under /data is accessed, the /etc/auto.data file indicates how to mount it.
 
 
 
@@ -4273,8 +4328,8 @@ Specifies options to use when mounting.
 
 Specifies what to mount.
 
-Example:
-  /etc/auto.data
+Example -- ``/etc/auto.data``::
+  
     pictures       -rw,soft,intr    nfs.example.com:/export/pics
     mp3s           -ro              /dev/sdd1
 
@@ -4289,13 +4344,12 @@ Understanding Automount
 ----------------------------------------------------------------
 
 You must access the destination directory in order for it to automount.
-  If nothing is automounted and you run "ls /data" then you will get no files listed.
 
-  If you run "ls /data/mpp3", you will get a listing.  You can now run "ls /data" and you will see the mp3s directory listed.  At least until the idle timeout is reached.
+If nothing is automounted and you run "ls /data" then you will get no files listed.
 
-Some commands will cause the directory to be mounted when ran but they do not
-produce any results.  In this case, you may need to run the command a second
-time.
+If you run "ls /data/mp3s", you will get a listing.  You can now run "ls /data" and you will see the mp3s directory listed.  
+
+Some commands will cause the directory to be mounted when executed but may time out before the mount is completed. It may appear that automount failed.  In this case, you may need to run the command a second time.
 
 
 

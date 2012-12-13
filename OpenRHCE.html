@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
 <title>RHCSA / RHCE Preparation</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -46,10 +46,6 @@ blockquote.epigraph {
 
 dl.docutils dd {
   margin-bottom: 0.5em }
-
-object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
-  overflow: hidden;
-}
 
 /* Uncomment (and remove this text!) to get bold-faced definition list terms
 dl.docutils dt {
@@ -161,38 +157,11 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left, .figure.align-left, object.align-left {
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
+img.align-left {
+  clear: left }
 
-img.align-right, .figure.align-right, object.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
-
-img.align-center, .figure.align-center, object.align-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.align-left {
-  text-align: left }
-
-.align-center {
-  clear: both ;
-  text-align: center }
-
-.align-right {
-  text-align: right }
-
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: inherit }
-
-/* div.align-center * { */
-/*   text-align: left } */
+img.align-right {
+  clear: right }
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -247,9 +216,10 @@ p.topic-title {
 pre.address {
   margin-bottom: 0 ;
   margin-top: 0 ;
-  font: inherit }
+  font-family: serif ;
+  font-size: 100% }
 
-pre.literal-block, pre.doctest-block, pre.math {
+pre.literal-block, pre.doctest-block {
   margin-left: 2em ;
   margin-right: 2em }
 
@@ -491,6 +461,13 @@ Publication Date: June 17, 2011 | Edition: 6</blockquote>
 <h2>Classroom Infrastructure</h2>
 <p>RHEL6 Server installed on virtualization-capable Dell Optiplex workstations.</p>
 <p>We will be creating multiple virtual machines on the hosts on which the Lab Exercises will be performed.</p>
+<p>A classroom server is available at 192.168.5.200, offering a variety of services to your lab stations.</p>
+<p>File downloads are available at <a class="reference external" href="ftp://192.168.5.200/pub">ftp://192.168.5.200/pub</a>.</p>
+<p>Note, especially, the preconfigured yum repo file at <a class="reference external" href="ftp://192.168.5.200/pub/classroom.repo">ftp://192.168.5.200/pub/classroom.repo</a>. The following commands can be used on a newly configured virtual machine to configure it for access to the repository:</p>
+<pre class="literal-block">
+# cd /etc/yum.repos.d/
+# wget ftp://192.168.5.200/pub/classroom.repo
+</pre>
 </div>
 <div class="section" id="red-hat-enterprise-linux">
 <h2>Red Hat Enterprise Linux</h2>
@@ -585,7 +562,7 @@ Publication Date: June 17, 2011 | Edition: 6</blockquote>
 <ul>
 <li><p class="first">Access a shell prompt and issue commands with correct syntax</p>
 </li>
-<li><p class="first">Use input-output redirection (&gt;, &gt;&gt;, <tt class="docutils literal">|</tt>, 2&gt;, etc.)</p>
+<li><p class="first">Use input-output redirection (&gt;, &gt;&gt;, <tt class="docutils literal"><span class="pre">|</span></tt>, 2&gt;, etc.)</p>
 </li>
 <li><p class="first">Use grep and regular expressions to analyze text</p>
 </li>
@@ -897,17 +874,17 @@ Publication Date: June 17, 2011 | Edition: 6</blockquote>
 </div>
 <div class="section" id="log-files">
 <h2>Log Files</h2>
-<p><tt class="docutils literal">/var/log/*</tt></p>
-<p><tt class="docutils literal">/root/install.log</tt></p>
+<p><tt class="docutils literal"><span class="pre">/var/log/*</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">/root/install.log</span></tt></p>
 <p><tt class="docutils literal"><span class="pre">/root/anaconda-ks.cfg</span></tt></p>
-<p>View with <tt class="docutils literal">cat</tt>, <tt class="docutils literal">less</tt> or other tools</p>
-<p>Search with <tt class="docutils literal">grep</tt></p>
+<p>View with <tt class="docutils literal"><span class="pre">cat</span></tt>, <tt class="docutils literal"><span class="pre">less</span></tt> or other tools</p>
+<p>Search with <tt class="docutils literal"><span class="pre">grep</span></tt></p>
 </div>
 <div class="section" id="exercise-1-4-view-logs-from-an-x-term-and-a-virtual-terminal">
 <h2>Exercise 1-4: View Logs from an x-term and a virtual terminal</h2>
 <ul class="simple">
-<li>Launch a gnome-terminal session and browse the <tt class="docutils literal">/var/log/messages</tt> file.</li>
-<li>Switch to a virtual terminal, login as root, and view <tt class="docutils literal">/var/log/secure</tt></li>
+<li>Launch a gnome-terminal session and browse the <tt class="docutils literal"><span class="pre">/var/log/messages</span></tt> file.</li>
+<li>Switch to a virtual terminal, login as root, and view <tt class="docutils literal"><span class="pre">/var/log/secure</span></tt></li>
 </ul>
 </div>
 <div class="section" id="start-stop-virtual-machines">
@@ -995,7 +972,7 @@ After this change, some messages that appear only on the default console will be
 # chkconfig &lt;servicename&gt; on
 </pre>
 <!--  -->
-<p>or with <tt class="docutils literal">ntsysv</tt> or <tt class="docutils literal"><span class="pre">system-config-services</span></tt></p>
+<p>or with <tt class="docutils literal"><span class="pre">ntsysv</span></tt> or <tt class="docutils literal"><span class="pre">system-config-services</span></tt></p>
 </blockquote>
 </li>
 </ul>
@@ -1070,12 +1047,12 @@ After this change, some messages that appear only on the default console will be
 </dl>
 <div class="important">
 <p class="first admonition-title">Important</p>
-<p class="last">If editing directly, <tt class="docutils literal">vipw</tt> and <tt class="docutils literal">vigr</tt> should be used.</p>
+<p class="last">If editing directly, <tt class="docutils literal"><span class="pre">vipw</span></tt> and <tt class="docutils literal"><span class="pre">vigr</span></tt> should be used.</p>
 </div>
 </div>
 <div class="section" id="structure-of-etc-passwd">
 <h2>Structure of /etc/passwd</h2>
-<p><tt class="docutils literal">Name:Password:UID:GID:Comments:Homedir:Shell</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:UID:GID:Comments:Homedir:Shell</span></tt></p>
 <p><strong>Sample Contents</strong></p>
 <pre class="literal-block">
 $ cat /etc/passwd
@@ -1090,7 +1067,7 @@ scott:x:500:500:Scott Purcell:/home/scott:/bin/bash
 </div>
 <div class="section" id="structure-of-etc-shadow">
 <h2>Structure of /etc/shadow</h2>
-<p><tt class="docutils literal">Name:Password:Lastchange:May:Must:Warn:Disable:Expire</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:Lastchange:May:Must:Warn:Disable:Expire</span></tt></p>
 <p><strong>Sample Contents</strong></p>
 <pre class="literal-block">
 # cat /etc/shadow
@@ -1107,7 +1084,7 @@ bob:$1${...}:14398:7:30:7:7:14457:
 </div>
 <div class="section" id="structure-of-etc-group">
 <h2>Structure of /etc/group</h2>
-<p><tt class="docutils literal">Name:Password:GID:Users</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:GID:Users</span></tt></p>
 <p><strong>Sample Contents</strong></p>
 <pre class="literal-block">
 # cat /etc/group
@@ -1121,7 +1098,7 @@ training:x:504:scott
 </div>
 <div class="section" id="structure-of-etc-gshadow">
 <h2>Structure of /etc/gshadow</h2>
-<p><tt class="docutils literal">Name:Password:Admins:Members</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:Admins:Members</span></tt></p>
 <p><strong>Sample Contents</strong>
 **</p>
 <pre class="literal-block">
@@ -1173,7 +1150,7 @@ training:!::scott
 <h2>System-wide Shell Config Files</h2>
 <dl class="docutils">
 <dt>/etc/profile</dt>
-<dd>Executed with each user login. Sets paths, variables, etc. Runs scripts in <tt class="docutils literal">/etc/profile.d</tt>.</dd>
+<dd>Executed with each user login. Sets paths, variables, etc. Runs scripts in <tt class="docutils literal"><span class="pre">/etc/profile.d</span></tt>.</dd>
 <dt>/etc/profile.d</dt>
 <dd>Scripts that extend /etc/profile, usually added by applications.</dd>
 <dt>/etc/bashrc</dt>
@@ -1255,22 +1232,22 @@ training:!::scott
 <p>The directory structure of a Linux system is standardized through the Filesystem Hierarchy Standard (explained at <a class="reference external" href="http://www.pathname.com/fhs">http://www.pathname.com/fhs</a>)</p>
 <p>The Linux Manual system has an abbreviated reference:</p>
 <blockquote>
-<tt class="docutils literal">$ man 7 hier</tt></blockquote>
+<tt class="docutils literal"><span class="pre">$</span> <span class="pre">man</span> <span class="pre">7</span> <span class="pre">hier</span></tt></blockquote>
 <p>Red Hat has a more complete description, along with RedHat-specific implementation decisions in their <strong>Storage Administration Guide</strong> at <a class="reference external" href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-filesystem-fhs.html">https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/s1-filesystem-fhs.html</a></p>
 <!-- for future development, consider expanding this... -->
 </div>
 <div class="section" id="disk-and-filesystem-tools">
 <h2>Disk and Filesystem tools</h2>
 <ul class="simple">
-<li><tt class="docutils literal">fdisk</tt> or <tt class="docutils literal">parted</tt> -- Used to partition hard disks or other block devices</li>
-<li><tt class="docutils literal">mkfs</tt> and variants -- Used to create filesystems on block devices (actually a front-end for a variety of FS-specific tools)</li>
-<li><tt class="docutils literal">fsck</tt> and variants -- Used to run filesystem checks (a front-end to FS specific tools)</li>
-<li><tt class="docutils literal">mount</tt> -- Used to mount a filesystem to a specific location in the directory structure</li>
-<li><tt class="docutils literal">/etc/fstab</tt> -- Configuration file used to describe the filesystems that should be persistently mounted</li>
-<li><tt class="docutils literal">blkid</tt> -- used to identify filesystems or other in-use devices by UUID or filesystem labels.</li>
-<li><tt class="docutils literal">df</tt> -- used to display the capacity and utilization % of mounted filesystems.</li>
-<li><tt class="docutils literal">partx</tt> -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.</li>
-<li><tt class="docutils literal">partprobe</tt></li>
+<li><tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt> -- Used to partition hard disks or other block devices</li>
+<li><tt class="docutils literal"><span class="pre">mkfs</span></tt> and variants -- Used to create filesystems on block devices (actually a front-end for a variety of FS-specific tools)</li>
+<li><tt class="docutils literal"><span class="pre">fsck</span></tt> and variants -- Used to run filesystem checks (a front-end to FS specific tools)</li>
+<li><tt class="docutils literal"><span class="pre">mount</span></tt> -- Used to mount a filesystem to a specific location in the directory structure</li>
+<li><tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> -- Configuration file used to describe the filesystems that should be persistently mounted</li>
+<li><tt class="docutils literal"><span class="pre">blkid</span></tt> -- used to identify filesystems or other in-use devices by UUID or filesystem labels.</li>
+<li><tt class="docutils literal"><span class="pre">df</span></tt> -- used to display the capacity and utilization % of mounted filesystems.</li>
+<li><tt class="docutils literal"><span class="pre">partx</span></tt> -- used to force implementation of a new partition table on an in-use device w/o the need to reboot.</li>
+<li><tt class="docutils literal"><span class="pre">partprobe</span></tt></li>
 </ul>
 </div>
 <div class="section" id="working-with-partitions">
@@ -1278,11 +1255,11 @@ training:!::scott
 <p>Overview of process for using Basic Storage Devices:</p>
 <ul class="simple">
 <li>Install the device or otherwise make it available to the system.</li>
-<li>Partition it with <tt class="docutils literal">fdisk</tt> or <tt class="docutils literal">parted</tt>.</li>
+<li>Partition it with <tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt>.</li>
 <li>Create a filesystem on the partition with mkfs or other tools.</li>
 <li>Choose or create a directory to serve as a mount point.</li>
 <li>Mount the partition.</li>
-<li>Add an entry to <tt class="docutils literal">/etc/fstab</tt> to make it persistent.</li>
+<li>Add an entry to <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to make it persistent.</li>
 </ul>
 <!-- List, create, delete and set partition type for primary, extended, and logical partitions -->
 </div>
@@ -1294,19 +1271,19 @@ training:!::scott
 </ul>
 <p>On your Client virtual machine:</p>
 <ol class="arabic simple">
-<li>Use <tt class="docutils literal">fdisk <span class="pre">-luc</span></tt> to verify that it is seen after a reboot of the VM.</li>
+<li>Use <tt class="docutils literal"><span class="pre">fdisk</span> <span class="pre">-luc</span></tt> to verify that it is seen after a reboot of the VM.</li>
 <li>Use fdisk to create a 5 GB partition (leaving the remainder unused.</li>
 <li>Create an ext4 filesystem on the new partition.</li>
 <li>Create a new directory at /shared/villains and mount the new filesystem there.</li>
-<li>Verify with <tt class="docutils literal">df <span class="pre">-h</span></tt> that the new space is seen.</li>
-<li>Create an entry in <tt class="docutils literal">/etc/fstab</tt> to make it persistent.</li>
+<li>Verify with <tt class="docutils literal"><span class="pre">df</span> <span class="pre">-h</span></tt> that the new space is seen.</li>
+<li>Create an entry in <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to make it persistent.</li>
 </ol>
 <p>Optional Steps:</p>
 <ul class="simple">
-<li>Save a test file to <tt class="docutils literal">/shared/villains/</tt>.</li>
-<li>Use <tt class="docutils literal">ls</tt> to verify that it was saved as intended.</li>
-<li>Use <tt class="docutils literal">umount</tt> to unmount the new partition.</li>
-<li>Use <tt class="docutils literal">ls</tt> to verify that the file is no longer seen.</li>
+<li>Save a test file to <tt class="docutils literal"><span class="pre">/shared/villains/</span></tt>.</li>
+<li>Use <tt class="docutils literal"><span class="pre">ls</span></tt> to verify that it was saved as intended.</li>
+<li>Use <tt class="docutils literal"><span class="pre">umount</span></tt> to unmount the new partition.</li>
+<li>Use <tt class="docutils literal"><span class="pre">ls</span></tt> to verify that the file is no longer seen.</li>
 <li>Remount the partition.</li>
 </ul>
 </div>
@@ -1315,14 +1292,14 @@ training:!::scott
 <p>Overview of process for using Logical Volume Management:</p>
 <ul class="simple">
 <li>Install the device or otherwise make it available to the system.</li>
-<li>Create a type <tt class="docutils literal">8e</tt> partition with <tt class="docutils literal">fdisk</tt> or <tt class="docutils literal">parted</tt>.</li>
-<li>Initialize the partition as a physical volume with <tt class="docutils literal">pvcreate</tt>.</li>
-<li>Add the storage of the PV to a volume group with <tt class="docutils literal">vgcreate</tt>.</li>
-<li>Allocate storage from the volume group to a logical volume with <tt class="docutils literal">lvcreate</tt>.</li>
+<li>Create a type <tt class="docutils literal"><span class="pre">8e</span></tt> partition with <tt class="docutils literal"><span class="pre">fdisk</span></tt> or <tt class="docutils literal"><span class="pre">parted</span></tt>.</li>
+<li>Initialize the partition as a physical volume with <tt class="docutils literal"><span class="pre">pvcreate</span></tt>.</li>
+<li>Add the storage of the PV to a volume group with <tt class="docutils literal"><span class="pre">vgcreate</span></tt>.</li>
+<li>Allocate storage from the volume group to a logical volume with <tt class="docutils literal"><span class="pre">lvcreate</span></tt>.</li>
 <li>Create a filesystem on the logical volume with mkfs or other tools.</li>
 <li>Choose or create a directory to serve as a mount point.</li>
 <li>Mount the partition.</li>
-<li>Add an entry to <tt class="docutils literal">/etc/fstab</tt> to make it persistent.</li>
+<li>Add an entry to <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to make it persistent.</li>
 </ul>
 <!-- Create and remove physical volumes, assign physical volumes to volume groups, create and delete logical volumes -->
 </div>
@@ -1331,10 +1308,10 @@ training:!::scott
 <ul class="simple">
 <li>Unmount the lv you want to remove</li>
 <li>Edit /etc/fstab to remove its entry</li>
-<li>Remove the logical volume: <tt class="docutils literal">lvremove <span class="pre">/dev/&lt;vg&gt;/&lt;lv&gt;</span></tt></li>
+<li>Remove the logical volume: <tt class="docutils literal"><span class="pre">lvremove</span> <span class="pre">/dev/&lt;vg&gt;/&lt;lv&gt;</span></tt></li>
 <li>Before removing a VG, ensure there are no more LVs within it.</li>
-<li>Remove the volume group: <tt class="docutils literal">vgremove <span class="pre">/dev/&lt;vg&gt;</span></tt></li>
-<li>Remove the LVM signature from the partitions: <tt class="docutils literal">pvremove <span class="pre">/dev/&lt;part&gt;</span></tt></li>
+<li>Remove the volume group: <tt class="docutils literal"><span class="pre">vgremove</span> <span class="pre">/dev/&lt;vg&gt;</span></tt></li>
+<li>Remove the LVM signature from the partitions: <tt class="docutils literal"><span class="pre">pvremove</span> <span class="pre">/dev/&lt;part&gt;</span></tt></li>
 </ul>
 </div>
 <div class="section" id="exercise-2-3-work-with-logical-volume-management">
@@ -1346,13 +1323,13 @@ training:!::scott
 <li>Initialize it with pvcreate</li>
 <li>Use vgcreate to create a volume group named &quot;shared&quot; from the physical volume.</li>
 <li>Use lvcreate to create a 2.5 GB logical volume called &quot;goodguys&quot; from the &quot;shared&quot; volume group.</li>
-<li>Create an ext3 filesystem on <tt class="docutils literal">/dev/shared/goodguys</tt>.</li>
-<li>Create a directory <tt class="docutils literal">/shared/goodguys</tt> and mount the LV there.</li>
-<li>Create an entry in <tt class="docutils literal">/etc/fstab</tt> for persistance.</li>
-<li>Use <tt class="docutils literal">df <span class="pre">-h</span></tt> to verify the available space.</li>
-<li>Use lvextend to add another 1 GB to <tt class="docutils literal">/dev/shared/goodguys</tt>.</li>
-<li>Use resize2fs to grow the filesystem on <tt class="docutils literal">/dev/shared/goodguys</tt> to use the new space.</li>
-<li>use <tt class="docutils literal">df <span class="pre">-h</span></tt> to verify the available space.</li>
+<li>Create an ext3 filesystem on <tt class="docutils literal"><span class="pre">/dev/shared/goodguys</span></tt>.</li>
+<li>Create a directory <tt class="docutils literal"><span class="pre">/shared/goodguys</span></tt> and mount the LV there.</li>
+<li>Create an entry in <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> for persistance.</li>
+<li>Use <tt class="docutils literal"><span class="pre">df</span> <span class="pre">-h</span></tt> to verify the available space.</li>
+<li>Use lvextend to add another 1 GB to <tt class="docutils literal"><span class="pre">/dev/shared/goodguys</span></tt>.</li>
+<li>Use resize2fs to grow the filesystem on <tt class="docutils literal"><span class="pre">/dev/shared/goodguys</span></tt> to use the new space.</li>
+<li>use <tt class="docutils literal"><span class="pre">df</span> <span class="pre">-h</span></tt> to verify the available space.</li>
 </ol>
 </blockquote>
 </div>
@@ -1399,8 +1376,8 @@ training:!::scott
 <p>Overview of process for using LUKS encryption:</p>
 <ul class="simple">
 <li>Create a new partition</li>
-<li>Encrypt it with <tt class="docutils literal">cryptsetup luksFormat <span class="pre">/dev/&lt;partition&gt;</span></tt></li>
-<li>Open the encrypted device and assign it a name with <tt class="docutils literal">cryptsetup luksOpen <span class="pre">/dev/&lt;partition&gt;</span> &lt;name&gt;</tt></li>
+<li>Encrypt it with <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksFormat</span> <span class="pre">/dev/&lt;partition&gt;</span></tt></li>
+<li>Open the encrypted device and assign it a name with <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksOpen</span> <span class="pre">/dev/&lt;partition&gt;</span> <span class="pre">&lt;name&gt;</span></tt></li>
 <li>Create a filesystem on the named device (/dev/mapper/&lt;name&gt;)</li>
 <li>Create a mountpoint for the device</li>
 <li>Mount the device</li>
@@ -1408,7 +1385,7 @@ training:!::scott
 <p>To lock the volume:</p>
 <ul class="simple">
 <li>unmount it</li>
-<li>Use <tt class="docutils literal">cryptsetup luksClose &lt;name&gt;</tt> to remove the decryption mapping</li>
+<li>Use <tt class="docutils literal"><span class="pre">cryptsetup</span> <span class="pre">luksClose</span> <span class="pre">&lt;name&gt;</span></tt> to remove the decryption mapping</li>
 </ul>
 </div>
 <div class="section" id="persistent-mounting-of-luks-devices">
@@ -1428,7 +1405,7 @@ training:!::scott
 </ul>
 <div class="note">
 <p class="first admonition-title">Note</p>
-<p class="last">At reboot, the password prompt goes only to the default console.  If console redirection is enabled, as it might be in the case of enabling a virtual machine to accessible through <tt class="docutils literal">virsh console &lt;name&gt;</tt>, then the only place where the prompt is seen and the passphrase can be entered is at that redirected console.</p>
+<p class="last">At reboot, the password prompt goes only to the default console.  If console redirection is enabled, as it might be in the case of enabling a virtual machine to accessible through <tt class="docutils literal"><span class="pre">virsh</span> <span class="pre">console</span> <span class="pre">&lt;name&gt;</span></tt>, then the only place where the prompt is seen and the passphrase can be entered is at that redirected console.</p>
 </div>
 </blockquote>
 <!-- Create and configure LUKS-encrypted partitions and logical volumes to prompt for password and mount a decrypted file system at boot -->
@@ -1442,16 +1419,16 @@ training:!::scott
 <ul>
 <li><p class="first">Create a type 82 partition</p>
 </li>
-<li><p class="first">Initialize as swap with <tt class="docutils literal">mkswap <span class="pre">/dev/&lt;partition&gt;</span></tt></p>
+<li><p class="first">Initialize as swap with <tt class="docutils literal"><span class="pre">mkswap</span> <span class="pre">/dev/&lt;partition&gt;</span></tt></p>
 </li>
-<li><p class="first">Identify the UUID with <tt class="docutils literal">blkid</tt></p>
+<li><p class="first">Identify the UUID with <tt class="docutils literal"><span class="pre">blkid</span></tt></p>
 </li>
-<li><p class="first">Add an <tt class="docutils literal">/etc/fstab</tt> line:</p>
+<li><p class="first">Add an <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> line:</p>
 <pre class="literal-block">
 UUID=&lt;UUID&gt; swap swap defaults 0 0
 </pre>
 </li>
-<li><p class="first">Activate the new swap space with: <tt class="docutils literal">swapon <span class="pre">-a</span></tt></p>
+<li><p class="first">Activate the new swap space with: <tt class="docutils literal"><span class="pre">swapon</span> <span class="pre">-a</span></tt></p>
 </li>
 </ul>
 </div>
@@ -1464,14 +1441,14 @@ UUID=&lt;UUID&gt; swap swap defaults 0 0
 dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </pre>
 </li>
-<li><p class="first">Initialize as swap with <tt class="docutils literal">mkswap <span class="pre">/path/to/&lt;swapfile&gt;</span></tt></p>
+<li><p class="first">Initialize as swap with <tt class="docutils literal"><span class="pre">mkswap</span> <span class="pre">/path/to/&lt;swapfile&gt;</span></tt></p>
 </li>
-<li><p class="first">Add an <tt class="docutils literal">/etc/fstab</tt> line:</p>
+<li><p class="first">Add an <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> line:</p>
 <pre class="literal-block">
 /path/to/&lt;swapfile&gt; swap swap defaults 0 0
 </pre>
 </li>
-<li><p class="first">Activate the new swap space with: <tt class="docutils literal">swapon <span class="pre">-a</span></tt></p>
+<li><p class="first">Activate the new swap space with: <tt class="docutils literal"><span class="pre">swapon</span> <span class="pre">-a</span></tt></p>
 </li>
 </ul>
 </div>
@@ -1480,12 +1457,12 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <p>On your Client virtual machine:</p>
 <blockquote>
 <ol class="arabic simple">
-<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id4">[2]</a>  your system is configured to use. Note that number.</li>
+<li>Use <tt class="docutils literal"><span class="pre">free</span> <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id4">[2]</a>  your system is configured to use. Note that number.</li>
 <li>Create a new partition (this may be a new primary partition, or a logical partition on an extended partition, or you may need to add a new virtual disk, depending on your needs -- consult your instructor if you need help making this determination) of 512 MiB and make it a &quot;Linux Swap&quot; partition (type 82).</li>
-<li>Initialize it with <tt class="docutils literal">mkswap</tt>. Note the &quot;UUID=...&quot; in the output.</li>
-<li>Configure <tt class="docutils literal">/etc/fstab</tt> to use that device by device name or, preferably, by UUID as swap.</li>
-<li>Activate the new swap partition with <tt class="docutils literal">swapon</tt>.</li>
-<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
+<li>Initialize it with <tt class="docutils literal"><span class="pre">mkswap</span></tt>. Note the &quot;UUID=...&quot; in the output.</li>
+<li>Configure <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to use that device by device name or, preferably, by UUID as swap.</li>
+<li>Activate the new swap partition with <tt class="docutils literal"><span class="pre">swapon</span></tt>.</li>
+<li>Use <tt class="docutils literal"><span class="pre">free</span> <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
 </ol>
 </blockquote>
 <table class="docutils footnote" frame="void" id="id5" rules="none">
@@ -1500,12 +1477,12 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <p>On your Client virtual machine:</p>
 <blockquote>
 <ol class="arabic simple">
-<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id6">[2]</a>  your system is configured to use. Note that number.</li>
-<li>Create a new file for swap by using <tt class="docutils literal">dd</tt> to write zeros to a file of 128 MiB.</li>
-<li>Initialize it with <tt class="docutils literal">mkswap</tt>.</li>
-<li>Configure <tt class="docutils literal">/etc/fstab</tt> to use that file (by pathname) as swap.</li>
-<li>Activate the new swap partition with <tt class="docutils literal">swapon</tt>.</li>
-<li>Use <tt class="docutils literal">free <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
+<li>Use <tt class="docutils literal"><span class="pre">free</span> <span class="pre">-m</span></tt> to report the amount of swap in mebibytes (MiB) <a class="footnote-reference" href="#id5" id="id6">[2]</a>  your system is configured to use. Note that number.</li>
+<li>Create a new file for swap by using <tt class="docutils literal"><span class="pre">dd</span></tt> to write zeros to a file of 128 MiB.</li>
+<li>Initialize it with <tt class="docutils literal"><span class="pre">mkswap</span></tt>.</li>
+<li>Configure <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to use that file (by pathname) as swap.</li>
+<li>Activate the new swap partition with <tt class="docutils literal"><span class="pre">swapon</span></tt>.</li>
+<li>Use <tt class="docutils literal"><span class="pre">free</span> <span class="pre">-m</span></tt> to confirm that the new swap space is available.</li>
 </ol>
 </blockquote>
 </div>
@@ -1584,7 +1561,7 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 <blockquote>
 <ul class="simple">
 <li>On a file, allows execution if the file is otherwise executable (script or binary)</li>
-<li>On a directory, allows entry or traversal (<tt class="docutils literal"># cd {dirname}</tt>)</li>
+<li>On a directory, allows entry or traversal (<tt class="docutils literal"><span class="pre">#</span> <span class="pre">cd</span> <span class="pre">{dirname}</span></tt>)</li>
 </ul>
 </blockquote>
 </li>
@@ -1622,11 +1599,11 @@ dd if=/dev/zero of=/path/to/&lt;swapfile&gt; bs=1M count=&lt;size in MB&gt;
 </div>
 <div class="section" id="setting-permissions">
 <h2>Setting Permissions</h2>
-<p>The <tt class="docutils literal">chmod</tt> command is used to set permissions on both files and directories.  It has two modes -- one using symbolic options and one using octal numbers.</p>
+<p>The <tt class="docutils literal"><span class="pre">chmod</span></tt> command is used to set permissions on both files and directories.  It has two modes -- one using symbolic options and one using octal numbers.</p>
 <dl class="docutils">
-<dt><tt class="docutils literal">chmod [option] <span class="pre">[ugoa...][+-=][rwxst]</span> filename</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[option]</span> <span class="pre">[ugoa...][+-=][rwxst]</span> <span class="pre">filename</span></tt></dt>
 <dd>where ugo are user, group, other, or all and rwxst are read, write, execute, s{u/g}id, stickybit.</dd>
-<dt><tt class="docutils literal">chmod [option] XXXX filename</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[option]</span> <span class="pre">XXXX</span> <span class="pre">filename</span></tt></dt>
 <dd>where XXXX is a number representing the complete permissions on the file.</dd>
 </dl>
 </div>
@@ -1775,11 +1752,11 @@ $ chmod 3775 MySharedDir
 <div class="section" id="setting-extended-attributes-with-symbolic-values">
 <h2>Setting Extended Attributes with Symbolic Values:</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">chmod o+t {filename}</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">o+t</span> <span class="pre">{filename}</span></tt></dt>
 <dd>Sets the sticky bit</dd>
-<dt><tt class="docutils literal">chmod u+s {filename}</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">u+s</span> <span class="pre">{filename}</span></tt></dt>
 <dd>Sets suid</dd>
-<dt><tt class="docutils literal">chmod g+s {filename}</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">g+s</span> <span class="pre">{filename}</span></tt></dt>
 <dd>Sets sgid</dd>
 </dl>
 </div>
@@ -1822,7 +1799,7 @@ $ chmod 3775 MySharedDir
 <li>As a &quot;mask&quot; it is subtractive -- representing the value of the permissions you DO NOT want to grant.</li>
 <li>Execute rights are automatically withheld (w/o regard for the umask) for <em>files</em> but not for <em>directories</em>.</li>
 <li>Extended attributes are not addressed -- even though a umask is four characters.</li>
-<li>The default umask value is set in /etc/bashrc and can be modified (non-persistently!) with the bash built-in command <tt class="docutils literal">umask</tt>.</li>
+<li>The default umask value is set in /etc/bashrc and can be modified (non-persistently!) with the bash built-in command <tt class="docutils literal"><span class="pre">umask</span></tt>.</li>
 </ul>
 </div>
 <div class="section" id="umask-examples">
@@ -1858,9 +1835,9 @@ $ chmod 3775 MySharedDir
 <li><p class="first">Filesystem must be mounted with the 'acl' option or be configured with that option by default.</p>
 <blockquote>
 <ul class="simple">
-<li>Use mount with a <tt class="docutils literal"><span class="pre">-o</span> acl</tt> option to mount (non-persistently) with ACLs enabled.</li>
-<li>Add &quot;acl&quot; in the options field of <tt class="docutils literal">/etc/fstab</tt> to persistently enable ACLs</li>
-<li>or use <tt class="docutils literal">tune2fs <span class="pre">-o</span> user_xattr,acl /path/to/device</tt> to configure those attributes as default mount options</li>
+<li>Use mount with a <tt class="docutils literal"><span class="pre">-o</span> <span class="pre">acl</span></tt> option to mount (non-persistently) with ACLs enabled.</li>
+<li>Add &quot;acl&quot; in the options field of <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> to persistently enable ACLs</li>
+<li>or use <tt class="docutils literal"><span class="pre">tune2fs</span> <span class="pre">-o</span> <span class="pre">user_xattr,acl</span> <span class="pre">/path/to/device</span></tt> to configure those attributes as default mount options</li>
 </ul>
 </blockquote>
 </li>
@@ -1886,7 +1863,7 @@ group::rwx
 mask::rwx
 other::r-x
 </pre>
-<p>Example of <tt class="docutils literal">ls <span class="pre">-l</span> acldir</tt>:</p>
+<p>Example of <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">acldir</span></tt>:</p>
 <pre class="literal-block">
 drwxrwxr-x+ 2 frank frank 4096 2009-05-27 14:15 acldir
 </pre>
@@ -1925,7 +1902,7 @@ mount -t nfs server:/path/to/export /path/to/mountpoint -o options
 <ul>
 <li><p class="first">Install the iscsi-initiator-utils package</p>
 </li>
-<li><p class="first">Start the <tt class="docutils literal">iscsi</tt> and <tt class="docutils literal">iscsid</tt> services (and configure them persistently on)</p>
+<li><p class="first">Start the <tt class="docutils literal"><span class="pre">iscsi</span></tt> and <tt class="docutils literal"><span class="pre">iscsid</span></tt> services (and configure them persistently on)</p>
 </li>
 <li><p class="first">Set the initiator IQN in /etc/iscsi/initiatorname.iscsi</p>
 </li>
@@ -1939,14 +1916,14 @@ iscsiadm -m discovery -t st -p &lt;portal IP address&gt;
 iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP address&gt; -l
 </pre>
 </li>
-<li><p class="first">Identify the SCSI device name with <tt class="docutils literal">dmesg</tt>, <tt class="docutils literal">tail /var/log/messages</tt> or <tt class="docutils literal">ls <span class="pre">-l</span> <span class="pre">/dev/disk/by-path/*iscsi*</span></tt></p>
+<li><p class="first">Identify the SCSI device name with <tt class="docutils literal"><span class="pre">dmesg</span></tt>, <tt class="docutils literal"><span class="pre">tail</span> <span class="pre">/var/log/messages</span></tt> or <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/dev/disk/by-path/*iscsi*</span></tt></p>
 </li>
 <li><p class="first">Use the disk as though it were a local hard disk</p>
 </li>
 </ul>
 <div class="important">
 <p class="first admonition-title">Important</p>
-<p class="last">Be certain to use UUIDs or labels for persistent mounts in <tt class="docutils literal">/etc/fstab</tt>.  Also, provide <tt class="docutils literal">_netdev</tt> as a mount option so that this device will not be mounted until the network is already up.</p>
+<p class="last">Be certain to use UUIDs or labels for persistent mounts in <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt>.  Also, provide <tt class="docutils literal"><span class="pre">_netdev</span></tt> as a mount option so that this device will not be mounted until the network is already up.</p>
 </div>
 <!-- Configure a system as an iSCSI initiator that persistently mounts an iSCSI target -->
 </div>
@@ -1957,7 +1934,7 @@ iscsiadm -m node -T &lt;IQN&gt; -p &lt;portal IP address&gt; -l
 </li>
 <li><p class="first">Unmount the device</p>
 </li>
-<li><p class="first">Remove its <tt class="docutils literal">/etc/fstab</tt> entry</p>
+<li><p class="first">Remove its <tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> entry</p>
 </li>
 <li><p class="first">Logout from the target:</p>
 <pre class="literal-block">
@@ -2042,16 +2019,16 @@ Red Hat subscription login:
     Password: **************
     Email address: ****************************
 </pre>
-<p>That information can then be used with <tt class="docutils literal">rhn_register</tt> to activate a new subscription</p>
+<p>That information can then be used with <tt class="docutils literal"><span class="pre">rhn_register</span></tt> to activate a new subscription</p>
 </div>
 <div class="section" id="rd-party-yum-repositories">
 <h2>3rd Party Yum Repositories</h2>
-<p>These are other repositories of installable software, updates, or bugfixes.  The <tt class="docutils literal">yum</tt> command can be configured to use them in addition to or instead of the RHN.</p>
+<p>These are other repositories of installable software, updates, or bugfixes.  The <tt class="docutils literal"><span class="pre">yum</span></tt> command can be configured to use them in addition to or instead of the RHN.</p>
 <ul class="simple">
-<li>Configuration of repositories other than the RHN is accomplished through text configuration files located in the directory: <tt class="docutils literal">/etc/yum.repos.d/</tt></li>
-<li>A configuration file for each repository (or group of related repos) should be created in <tt class="docutils literal">/etc/yum.repos.d/</tt></li>
+<li>Configuration of repositories other than the RHN is accomplished through text configuration files located in the directory: <tt class="docutils literal"><span class="pre">/etc/yum.repos.d/</span></tt></li>
+<li>A configuration file for each repository (or group of related repos) should be created in <tt class="docutils literal"><span class="pre">/etc/yum.repos.d/</span></tt></li>
 <li>The name of each repo config file should end in &quot;.repo&quot;.</li>
-<li>This allows repos to be easily temporarily disabled simply by renaming the file to something like: <tt class="docutils literal">myrepo.repo.disabled</tt></li>
+<li>This allows repos to be easily temporarily disabled simply by renaming the file to something like: <tt class="docutils literal"><span class="pre">myrepo.repo.disabled</span></tt></li>
 </ul>
 </div>
 <div class="section" id="yum-repository-mandatory-configuration-items">
@@ -2087,7 +2064,7 @@ gpgcheck=1
 </pre>
 </dd>
 <dt>gpgkey</dt>
-<dd><p class="first">Defines (via URL) where the keys for signature validation are located (typically <tt class="docutils literal"><span class="pre">file:///etc/pki/rpm-gpg/&lt;key</span> name&gt;</tt>)</p>
+<dd><p class="first">Defines (via URL) where the keys for signature validation are located (typically <tt class="docutils literal"><span class="pre">file:///etc/pki/rpm-gpg/&lt;key</span> <span class="pre">name&gt;</span></tt>)</p>
 <pre class="last literal-block">
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 </pre>
@@ -2104,23 +2081,23 @@ enabled=1
 <h2>Managing Software: Using yum</h2>
 <p>Common commands:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal">yum help</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">help</span></tt></dt>
 <dd>Displays usage information.</dd>
-<dt><tt class="docutils literal">yum list</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">list</span></tt></dt>
 <dd>Lists all available packages and indicates which are installed.</dd>
-<dt><tt class="docutils literal">yum search KEYWORD</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">search</span> <span class="pre">KEYWORD</span></tt></dt>
 <dd>Searches for packages with a keyword in the package metadata.</dd>
-<dt><tt class="docutils literal">yum info PACKAGENAME</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">info</span> <span class="pre">PACKAGENAME</span></tt></dt>
 <dd>Displays information about a package taken from the package metadata.</dd>
-<dt><tt class="docutils literal">yum install PACKAGENAME</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">PACKAGENAME</span></tt></dt>
 <dd>Installs a package (obtained from the repository) and any required dependencies.</dd>
-<dt><tt class="docutils literal">yum localinstall RPMFILENAME</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">localinstall</span> <span class="pre">RPMFILENAME</span></tt></dt>
 <dd>Installs a local .rpm file, but uses the repository to satisfy dependencies.</dd>
-<dt><tt class="docutils literal">yum remove PACKAGENAME</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">remove</span> <span class="pre">PACKAGENAME</span></tt></dt>
 <dd>Uninstalls a package and any other packages dependent upon it.</dd>
-<dt><tt class="docutils literal">yum update PACKAGENAME</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">update</span> <span class="pre">PACKAGENAME</span></tt></dt>
 <dd>Installs a newer version of the package, if available.</dd>
-<dt><tt class="docutils literal">yum update</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">yum</span> <span class="pre">update</span></tt></dt>
 <dd>Updates an installed package for which a newer version is available.</dd>
 </dl>
 </div>
@@ -2140,7 +2117,7 @@ yum.conf [yum]       (5)  - Configuration file for yum(8)
 </div>
 <div class="section" id="rpm-architecture">
 <h2>RPM Architecture</h2>
-<p><tt class="docutils literal">rpm</tt> executable</p>
+<p><tt class="docutils literal"><span class="pre">rpm</span></tt> executable</p>
 <p>RPM packages -- Files to install + SPEC file (metadata)</p>
 <p>Local RPM database -- retains metadata from all installed packages</p>
 <blockquote>
@@ -2199,32 +2176,32 @@ Database is kept in /var/lib/rpm</blockquote>
 <div class="section" id="installing-and-upgrading-packages">
 <h2>Installing and Upgrading Packages</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal"># rpm <span class="pre">-i[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-i[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
 <dd>Installs a package</dd>
-<dt><tt class="docutils literal"># rpm <span class="pre">-U[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-U[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
 <dd>Upgrades a package if an older version was previously installed. Otherwise, simply installs the new version.</dd>
-<dt><tt class="docutils literal"># rpm <span class="pre">-F[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
+<dt><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-F[v,h]</span> <span class="pre">name-ver-rel.arch.rpm</span></tt></dt>
 <dd>Upgrades a package if an older version is installed.  Otherwise, does nothing -- <strong>does not install new packages if no older version was installed.</strong></dd>
 </dl>
 </div>
 <div class="section" id="upgrading-a-kernel">
 <h2>Upgrading a Kernel</h2>
 <ul class="simple">
-<li>Always use <tt class="docutils literal">#rpm <span class="pre">-i</span> ...</tt></li>
+<li>Always use <tt class="docutils literal"><span class="pre">#rpm</span> <span class="pre">-i</span> <span class="pre">...</span></tt></li>
 <li>This leaves the previously installed kernel on the system and in the GRUB menu as a fall-back in case the new version has problems.</li>
 </ul>
 </div>
 <div class="section" id="rpm-and-modified-config-files">
 <h2>RPM and Modified Config Files</h2>
-<p>Scenario: niftyapp-1.0-1.el5.rpm uses a config file, <tt class="docutils literal">/etc/nifty.conf</tt>. You tweaked <tt class="docutils literal">/etc/nifty.conf</tt> to fit your system.  Now niftyapp-2.0-1.el5.rpm is available with new features that require changes in the .conf file and provides a new default config file.  What to do?</p>
+<p>Scenario: niftyapp-1.0-1.el5.rpm uses a config file, <tt class="docutils literal"><span class="pre">/etc/nifty.conf</span></tt>. You tweaked <tt class="docutils literal"><span class="pre">/etc/nifty.conf</span></tt> to fit your system.  Now niftyapp-2.0-1.el5.rpm is available with new features that require changes in the .conf file and provides a new default config file.  What to do?</p>
 <ul class="simple">
-<li>If the previous version provided a default config file, the changes are detected.  Your modified version of the .conf file is saved as <tt class="docutils literal">/etc/nifty.conf.rpmsave</tt> and the new default config is installed.  You can compare the files and modify as needed.</li>
-<li>If the previous version did NOT provide a default config file, your version of the .conf file is saved as <tt class="docutils literal">/etc/nifty.conf.rpmorig</tt> and the new default config is installed.  You can compare the files and modify as needed.</li>
+<li>If the previous version provided a default config file, the changes are detected.  Your modified version of the .conf file is saved as <tt class="docutils literal"><span class="pre">/etc/nifty.conf.rpmsave</span></tt> and the new default config is installed.  You can compare the files and modify as needed.</li>
+<li>If the previous version did NOT provide a default config file, your version of the .conf file is saved as <tt class="docutils literal"><span class="pre">/etc/nifty.conf.rpmorig</span></tt> and the new default config is installed.  You can compare the files and modify as needed.</li>
 </ul>
 </div>
 <div class="section" id="uninstalling">
 <h2>Uninstalling</h2>
-<p><tt class="docutils literal"># rpm <span class="pre">-e</span> <span class="pre">name[-ver][-rel]</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-e</span> <span class="pre">name[-ver][-rel]</span></tt></p>
 <ul class="simple">
 <li>Package removal is never verbose, never shows progress ( -v, -h have not effect)</li>
 <li>Package removal only needs the name (or when multiple versions of the same package are installed, sometimes the version or release) but not the architecture or the .rpm extension.</li>
@@ -2232,10 +2209,10 @@ Database is kept in /var/lib/rpm</blockquote>
 </div>
 <div class="section" id="rpm-over-a-network">
 <h2>RPM over a Network</h2>
-<p><tt class="docutils literal"># rpm <span class="pre">-ivh</span> <span class="pre">ftp://{Host}/path/to/packagename-ver-rel.arch.rpm</span></tt></p>
-<p><tt class="docutils literal"># rpm <span class="pre">-ivh</span> <span class="pre">http://{Host}/path/to/packagename-ver-rel.arch.rpm</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">ftp://{Host}/path/to/packagename-ver-rel.arch.rpm</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">http://{Host}/path/to/packagename-ver-rel.arch.rpm</span></tt></p>
 <p>And wildcard &quot;globbing&quot; is allowed:</p>
-<p><tt class="docutils literal"># rpm <span class="pre">-ivh</span> <span class="pre">http://{Host}/path/to/packagename*</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">rpm</span> <span class="pre">-ivh</span> <span class="pre">http://{Host}/path/to/packagename*</span></tt></p>
 </div>
 <div class="section" id="common-rpm-queries">
 <h2>Common RPM Queries</h2>
@@ -2327,7 +2304,7 @@ ftp://linuxlib.us.dell.com/pub/Distros/RedHat/RHEL5/5.3/Server/x86_64/install-x8
 </div>
 <div class="section" id="verify-installed-files">
 <h2>Verify Installed Files</h2>
-<p><tt class="docutils literal">rpm <span class="pre">-V</span></tt> (or <tt class="docutils literal"><span class="pre">--verify</span></tt>) will compare existing files on the system to their pristine state in the packages they came from.</p>
+<p><tt class="docutils literal"><span class="pre">rpm</span> <span class="pre">-V</span></tt> (or <tt class="docutils literal"><span class="pre">--verify</span></tt>) will compare existing files on the system to their pristine state in the packages they came from.</p>
 <p>There are 8 points of comparison as shown in the following table, in the Michael Jang book and in the rpm man page:</p>
 </div>
 <div class="section" id="change-codes-from-rpm-verify">
@@ -2453,7 +2430,7 @@ S.5....T    /usr/bin/aspell
 <dt>Preamble (aka &quot;Header&quot;)</dt>
 <dd>Optional macro definitions and directives that define the package</dd>
 <dt>Stanzas</dt>
-<dd>Sections that perform specific functions, identified by tokens like <tt class="docutils literal">%prep</tt> and <tt class="docutils literal">%build</tt>.</dd>
+<dd>Sections that perform specific functions, identified by tokens like <tt class="docutils literal"><span class="pre">%prep</span></tt> and <tt class="docutils literal"><span class="pre">%build</span></tt>.</dd>
 </dl>
 </div>
 <div class="section" id="preamble-directives">
@@ -2487,7 +2464,7 @@ S.5....T    /usr/bin/aspell
 <dt>%description</dt>
 <dd>Longer description.  Lines starting flush-left will be automatically wrapped when displayed. Lines starting with leading whitespace are treated as pre-formatted text and not wrapped. Blank Lines separate paragraphs.</dd>
 <dt>%prep</dt>
-<dd>Prepares the environment for the build.  May need no more than the macro: <tt class="docutils literal">%setup <span class="pre">-q</span></tt>.</dd>
+<dd>Prepares the environment for the build.  May need no more than the macro: <tt class="docutils literal"><span class="pre">%setup</span> <span class="pre">-q</span></tt>.</dd>
 <dt>%build</dt>
 <dd>Builds the binaries from source.  This section must include the commands that would be used to manually build the software.</dd>
 <dt>%install</dt>
@@ -2529,27 +2506,27 @@ $ rpmdev-setuptree
 <div class="section" id="viewing-the-build-environment">
 <h2>Viewing the Build Environment</h2>
 <p>When diagnosing build problems, it is sometimes useful to see what files are actually being created in the build environment in order to identify deviations of actual behavior from expected behavior. The tree utility is useful for that.</p>
-<p>Install tree with <tt class="docutils literal"># yum install tree</tt>.</p>
-<p>Invoke tree with <tt class="docutils literal">$ tree ~/rpmbuild</tt> to show the contents of the build environment.</p>
+<p>Install tree with <tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">tree</span></tt>.</p>
+<p>Invoke tree with <tt class="docutils literal"><span class="pre">$</span> <span class="pre">tree</span> <span class="pre">~/rpmbuild</span></tt> to show the contents of the build environment.</p>
 </div>
 <div class="section" id="building-the-rpm">
 <h2>Building the RPM</h2>
-<p>With the source files in place and a properly configured <tt class="docutils literal">.spec</tt> file written, the <tt class="docutils literal">rpmbuild</tt> command can be used to build the rpm either at once, or (for troubleshooting) in stages</p>
+<p>With the source files in place and a properly configured <tt class="docutils literal"><span class="pre">.spec</span></tt> file written, the <tt class="docutils literal"><span class="pre">rpmbuild</span></tt> command can be used to build the rpm either at once, or (for troubleshooting) in stages</p>
 <dl class="docutils">
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-bp</span> &lt;spec file&gt;</tt></dt>
-<dd>Builds through the <tt class="docutils literal">%prep</tt> section -- unpacks sources and applies patches.</dd>
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-bc</span> &lt;spec file&gt;</tt></dt>
-<dd>Builds through compile -- processes the <tt class="docutils literal">%prep</tt> and <tt class="docutils literal">%build</tt> sections.</dd>
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-bi</span> &lt;spec file&gt;</tt></dt>
-<dd>Builds through <tt class="docutils literal">%install</tt> -- processes <tt class="docutils literal">%prep</tt>, <tt class="docutils literal">%build</tt>, and <tt class="docutils literal">%install</tt>.</dd>
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-bb</span> &lt;spec file&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bp</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through the <tt class="docutils literal"><span class="pre">%prep</span></tt> section -- unpacks sources and applies patches.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bc</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through compile -- processes the <tt class="docutils literal"><span class="pre">%prep</span></tt> and <tt class="docutils literal"><span class="pre">%build</span></tt> sections.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bi</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
+<dd>Builds through <tt class="docutils literal"><span class="pre">%install</span></tt> -- processes <tt class="docutils literal"><span class="pre">%prep</span></tt>, <tt class="docutils literal"><span class="pre">%build</span></tt>, and <tt class="docutils literal"><span class="pre">%install</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bb</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
 <dd>Builds only the binary rpm file.</dd>
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-bs</span> &lt;spec file&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-bs</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
 <dd>Builds only the source rpm file.</dd>
-<dt><tt class="docutils literal">$ rpmbuild <span class="pre">-ba</span> &lt;spec file&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">$</span> <span class="pre">rpmbuild</span> <span class="pre">-ba</span> <span class="pre">&lt;spec</span> <span class="pre">file&gt;</span></tt></dt>
 <dd>Builds both the binary and source rpm files.</dd>
 </dl>
-<p>Use <tt class="docutils literal">rpmbuild <span class="pre">--help</span></tt> or <tt class="docutils literal">man rpmbuild</tt> for other options.</p>
+<p>Use <tt class="docutils literal"><span class="pre">rpmbuild</span> <span class="pre">--help</span></tt> or <tt class="docutils literal"><span class="pre">man</span> <span class="pre">rpmbuild</span></tt> for other options.</p>
 </div>
 <div class="section" id="exercise-building-a-custom-rpm">
 <h2>Exercise: Building a Custom RPM</h2>
@@ -2740,11 +2717,11 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <div class="section" id="create-a-repo-with-your-files">
 <h2>Create a Repo with your files</h2>
 <p>(Assumes httpd already installed)</p>
-<p><tt class="docutils literal"># yum <span class="pre">-y</span> install createrepo</tt></p>
-<p><tt class="docutils literal"># mkdir <span class="pre">-p</span> /var/www/html/repo/Packages</tt></p>
-<p><tt class="docutils literal"># cp MyPackage.rpm /var/www/html/repo/Packages</tt></p>
-<p><tt class="docutils literal"># createrepo <span class="pre">-v</span> /var/www/html/repo</tt></p>
-<p><tt class="docutils literal"># cp <span class="pre">/home/me/RPM-GPG-KEY-me</span> /var/www/html/repo</tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">createrepo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">MyPackage.rpm</span> <span class="pre">/var/www/html/repo/Packages</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">createrepo</span> <span class="pre">-v</span> <span class="pre">/var/www/html/repo</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">#</span> <span class="pre">cp</span> <span class="pre">/home/me/RPM-GPG-KEY-me</span> <span class="pre">/var/www/html/repo</span></tt></p>
 </div>
 <div class="section" id="rpm-packaging-other-documentation">
 <h2>RPM Packaging, Other Documentation:</h2>
@@ -2763,26 +2740,26 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <dl class="docutils">
 <dt>Start a service:</dt>
 <dd><ul class="first last simple">
-<li><tt class="docutils literal">service &lt;servicename&gt; start</tt></li>
-<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> start</tt></li>
+<li><tt class="docutils literal"><span class="pre">service</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">start</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> <span class="pre">start</span></tt></li>
 </ul>
 </dd>
 <dt>Stop a service:</dt>
 <dd><ul class="first last simple">
-<li><tt class="docutils literal">service &lt;servicename&gt; stop</tt></li>
-<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> stop</tt></li>
+<li><tt class="docutils literal"><span class="pre">service</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">stop</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> <span class="pre">stop</span></tt></li>
 </ul>
 </dd>
 <dt>Check status of a service:</dt>
 <dd><ul class="first last simple">
-<li><tt class="docutils literal">service &lt;servicename&gt; status</tt></li>
-<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> status</tt></li>
+<li><tt class="docutils literal"><span class="pre">service</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">status</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> <span class="pre">status</span></tt></li>
 </ul>
 </dd>
 <dt>Reload a service's config:</dt>
 <dd><ul class="first last simple">
-<li><tt class="docutils literal">service &lt;servicename&gt; reload</tt></li>
-<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> reload</tt></li>
+<li><tt class="docutils literal"><span class="pre">service</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">reload</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/etc/init.d/&lt;servicescript&gt;</span> <span class="pre">reload</span></tt></li>
 </ul>
 </dd>
 </dl>
@@ -2792,36 +2769,36 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <dl class="docutils">
 <dt>Configure a service to start at boot:</dt>
 <dd><ul class="first last simple">
-<li><tt class="docutils literal">chkconfig &lt;servicename&gt; on</tt></li>
+<li><tt class="docutils literal"><span class="pre">chkconfig</span> <span class="pre">&lt;servicename&gt;</span> <span class="pre">on</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">system-config-services</span></tt></li>
-<li><tt class="docutils literal">ntsysv</tt></li>
+<li><tt class="docutils literal"><span class="pre">ntsysv</span></tt></li>
 </ul>
 </dd>
 </dl>
 </div>
 <div class="section" id="manage-processes-and-services-configure-systems-to-boot-into-a-specific-runlevel-automatically">
 <h2>Manage Processes and Services: Configure systems to boot into a specific runlevel automatically</h2>
-<p><tt class="docutils literal">/etc/inittab</tt></p>
+<p><tt class="docutils literal"><span class="pre">/etc/inittab</span></tt></p>
 </div>
 <div class="section" id="monitoring-processes">
 <h2>Monitoring Processes</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">ps</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">ps</span></tt></dt>
 <dd>Highly configurable command to list running processes</dd>
-<dt><tt class="docutils literal">top</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">top</span></tt></dt>
 <dd>Command to provide realtime reports of the most active running processes</dd>
 </dl>
 </div>
 <div class="section" id="killing-processes">
 <h2>Killing Processes</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">kill</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">kill</span></tt></dt>
 <dd>kills a process by PID.  Optionally sends &quot;signals&quot; other than &quot;kill&quot;.</dd>
 <dt><tt class="docutils literal"><span class="pre">kill-all</span></tt></dt>
 <dd>Kills a process by name.  Use care not to match names you don't intend to kill.</dd>
-<dt><tt class="docutils literal">pkill</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">pkill</span></tt></dt>
 <dd>Also kills processes by name.  Use care not to match names you don't intend to kill.</dd>
-<dt><tt class="docutils literal">pgrep</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">pgrep</span></tt></dt>
 <dd>Searches processes by name. Useful for verifying which processes would be killed by pkill.</dd>
 </dl>
 </div>
@@ -2834,9 +2811,9 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </ul>
 </div>
 <div class="section" id="nice-and-renice-commands">
-<h2><tt class="docutils literal">nice</tt> and <tt class="docutils literal">renice</tt> commands</h2>
+<h2><tt class="docutils literal"><span class="pre">nice</span></tt> and <tt class="docutils literal"><span class="pre">renice</span></tt> commands</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">nice</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">nice</span></tt></dt>
 <dd><p class="first">Launches commands with a specified &quot;niceness&quot; value affecting process priority.</p>
 <ul class="last simple">
 <li>Default niceness is &quot;0&quot;.</li>
@@ -2844,7 +2821,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <li>Non-privileged users can only use positive values.</li>
 </ul>
 </dd>
-<dt><tt class="docutils literal">renice</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">renice</span></tt></dt>
 <dd><p class="first">Modifies the niceness of an already-running process.</p>
 <ul class="last simple">
 <li>Root can modify the niceness of any process in either direction.</li>
@@ -2866,12 +2843,12 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 <h3>/proc/sys</h3>
 <p>/proc is a virtual filesystem containing &quot;virtual&quot; files and directories that serve as an interface to the data being held in RAM by the kernel.</p>
 <p>Many of these files deal with running processes.  Others deal with hardware information. But the /proc/sys directory tree contains files defining system performance and can be used for performance tuning.</p>
-<p>These performance parameters can be directly read with <tt class="docutils literal">cat</tt>:</p>
+<p>These performance parameters can be directly read with <tt class="docutils literal"><span class="pre">cat</span></tt>:</p>
 <pre class="literal-block">
 # cat /proc/sys/net/ipv4/icmp_echo_ignore_all
 0
 </pre>
-<p>Or modified directly with <tt class="docutils literal">echo</tt>:</p>
+<p>Or modified directly with <tt class="docutils literal"><span class="pre">echo</span></tt>:</p>
 <pre class="literal-block">
 # echo 1 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all
 # cat /proc/sys/net/ipv4/icmp_echo_ignore_all
@@ -2880,7 +2857,7 @@ rpmbuild/RPMS/x86_64/rhel6rhce-0.5-1.el6.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
 </div>
 <div class="section" id="sysctl">
 <h3>sysctl</h3>
-<p>The <tt class="docutils literal">sysctl</tt> command is an easier and safer way to work with these parameters</p>
+<p>The <tt class="docutils literal"><span class="pre">sysctl</span></tt> command is an easier and safer way to work with these parameters</p>
 <p>To view all of the tunable parameters:</p>
 <pre class="literal-block">
 # sysctl -A
@@ -2903,7 +2880,7 @@ net.ipv4.icmp_echo_ignore_broadcasts = 1
 </div>
 <div class="section" id="changing-tunable-parameters-with-sysctl">
 <h3>Changing Tunable Parameters with sysctl</h3>
-<p>Modify a parameter using <tt class="docutils literal">sysctl</tt> with a <tt class="docutils literal"><span class="pre">-w</span></tt> parameter:</p>
+<p>Modify a parameter using <tt class="docutils literal"><span class="pre">sysctl</span></tt> with a <tt class="docutils literal"><span class="pre">-w</span></tt> parameter:</p>
 <pre class="literal-block">
 # sysctl -w net.ipv4.icmp_echo_ignore_all=1
 net.ipv4.icmp_echo_ignore_all = 1
@@ -2912,10 +2889,10 @@ net.ipv4.icmp_echo_ignore_all = 1
 </div>
 <div class="section" id="making-changes-persistent-with-etc-sysctl-conf">
 <h3>Making changes persistent with /etc/sysctl.conf</h3>
-<p>Changes to these parameters can be made persistent by inclusion in <tt class="docutils literal">/etc/sysctl.conf</tt>.</p>
-<p>The format for this file is exactly the same as that of the output of <tt class="docutils literal">sysctl <span class="pre">-A</span></tt> -- so you can find the parameter you want to modify, insert it into <tt class="docutils literal">/etc/sysctl.conf</tt> and then modify it.</p>
+<p>Changes to these parameters can be made persistent by inclusion in <tt class="docutils literal"><span class="pre">/etc/sysctl.conf</span></tt>.</p>
+<p>The format for this file is exactly the same as that of the output of <tt class="docutils literal"><span class="pre">sysctl</span> <span class="pre">-A</span></tt> -- so you can find the parameter you want to modify, insert it into <tt class="docutils literal"><span class="pre">/etc/sysctl.conf</span></tt> and then modify it.</p>
 <p>The file documents a significant number of the most often modified performance tuning parameters so that finding and modifying these values is easy.</p>
-<p><tt class="docutils literal">sysctl <span class="pre">-p</span></tt> allows you to immediately process <tt class="docutils literal">/etc/sysctl.conf</tt> (or an alternate file) to make its settings effective immediately.</p>
+<p><tt class="docutils literal"><span class="pre">sysctl</span> <span class="pre">-p</span></tt> allows you to immediately process <tt class="docutils literal"><span class="pre">/etc/sysctl.conf</span></tt> (or an alternate file) to make its settings effective immediately.</p>
 </div>
 </div>
 <div class="section" id="monitoring-system-utilization">
@@ -2968,12 +2945,12 @@ net.ipv4.icmp_echo_ignore_all = 1
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">ip a</tt>, <tt class="docutils literal">ifconfig</tt>, <tt class="docutils literal">nm_applet</tt> (partial), <tt class="docutils literal"><span class="pre">system-config-network</span></tt> (partial), <tt class="docutils literal">cat <span class="pre">/etc/sysconfig/network-scripts/ifcfg-eth&lt;#&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">ip</span> <span class="pre">a</span></tt>, <tt class="docutils literal"><span class="pre">ifconfig</span></tt>, <tt class="docutils literal"><span class="pre">nm_applet</span></tt> (partial), <tt class="docutils literal"><span class="pre">system-config-network</span></tt> (partial), <tt class="docutils literal"><span class="pre">cat</span> <span class="pre">/etc/sysconfig/network-scripts/ifcfg-eth&lt;#&gt;</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal">ip a</tt>  (not persistent), <tt class="docutils literal">ifconfig</tt>  (not persistent), <tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of interface config files</p>
+<p><tt class="docutils literal"><span class="pre">ip</span> <span class="pre">a</span></tt>  (not persistent), <tt class="docutils literal"><span class="pre">ifconfig</span></tt>  (not persistent), <tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of interface config files</p>
 </blockquote>
 </li>
 </ul>
@@ -2983,12 +2960,12 @@ net.ipv4.icmp_echo_ignore_all = 1
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">route</tt>, <tt class="docutils literal">ip r</tt>, <tt class="docutils literal">netstat <span class="pre">-r</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">route</span></tt>, <tt class="docutils literal"><span class="pre">ip</span> <span class="pre">r</span></tt>, <tt class="docutils literal"><span class="pre">netstat</span> <span class="pre">-r</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal">route</tt> (not persistent), <tt class="docutils literal">ip r</tt> (not persistent), manual editing of route config files,  <tt class="docutils literal">nm_applet</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">route</span></tt> (not persistent), <tt class="docutils literal"><span class="pre">ip</span> <span class="pre">r</span></tt> (not persistent), manual editing of route config files,  <tt class="docutils literal"><span class="pre">nm_applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
 </blockquote>
 </li>
 </ul>
@@ -2998,12 +2975,12 @@ net.ipv4.icmp_echo_ignore_all = 1
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">hostname</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, <tt class="docutils literal">cat /etc/sysconfig/network</tt></p>
+<p><tt class="docutils literal"><span class="pre">hostname</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, <tt class="docutils literal"><span class="pre">cat</span> <span class="pre">/etc/sysconfig/network</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal">/etc/sysconfig/network</tt></p>
+<p><tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal"><span class="pre">/etc/sysconfig/network</span></tt></p>
 </blockquote>
 </li>
 </ul>
@@ -3013,17 +2990,17 @@ net.ipv4.icmp_echo_ignore_all = 1
 <ul>
 <li><p class="first">Verifying configuration</p>
 <blockquote>
-<p><tt class="docutils literal">cat /etc/resolv.conf</tt>,  <tt class="docutils literal">nm_applet</tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">cat</span> <span class="pre">/etc/resolv.conf</span></tt>,  <tt class="docutils literal"><span class="pre">nm_applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Testing functionality</p>
 <blockquote>
-<p><tt class="docutils literal">dig</tt>, <tt class="docutils literal">nslookup</tt>, <tt class="docutils literal">host</tt></p>
+<p><tt class="docutils literal"><span class="pre">dig</span></tt>, <tt class="docutils literal"><span class="pre">nslookup</span></tt>, <tt class="docutils literal"><span class="pre">host</span></tt></p>
 </blockquote>
 </li>
 <li><p class="first">Changing configuration</p>
 <blockquote>
-<p><tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal">/etc/resolv.conf</tt> and <tt class="docutils literal">/etc/hosts</tt></p>
+<p><tt class="docutils literal"><span class="pre">nm-applet</span></tt>, <tt class="docutils literal"><span class="pre">system-config-network</span></tt>, manual editing of <tt class="docutils literal"><span class="pre">/etc/resolv.conf</span></tt> and <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt></p>
 </blockquote>
 </li>
 </ul>
@@ -3064,7 +3041,7 @@ NM_CONTROLLED=no
 </li>
 <li><p class="first">Ensure both services are configured on and running.</p>
 </li>
-<li><p class="first">Configured interfaces can be brought up with <tt class="docutils literal">ifup eth&lt;x&gt;</tt> or down with <tt class="docutils literal">ifdown eth&lt;x&gt;</tt> regardless of whether they are managed by NetworkManager or not.</p>
+<li><p class="first">Configured interfaces can be brought up with <tt class="docutils literal"><span class="pre">ifup</span> <span class="pre">eth&lt;x&gt;</span></tt> or down with <tt class="docutils literal"><span class="pre">ifdown</span> <span class="pre">eth&lt;x&gt;</span></tt> regardless of whether they are managed by NetworkManager or not.</p>
 </li>
 </ul>
 </div>
@@ -3155,11 +3132,11 @@ NM_CONTROLLED=no
 <dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">-vnl</span> <span class="pre">--line-numbers</span></tt></dt>
 <dd>List all rules with line numbering</dd>
-<dt><tt class="docutils literal"><span class="pre">-A</span> &lt;chain&gt; &lt;rule&gt; <span class="pre">-j</span> &lt;target&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">-A</span> <span class="pre">&lt;chain&gt;</span> <span class="pre">&lt;rule&gt;</span> <span class="pre">-j</span> <span class="pre">&lt;target&gt;</span></tt></dt>
 <dd>Adds a rule to the end of the chain</dd>
-<dt><tt class="docutils literal"><span class="pre">-D</span> &lt;chain&gt; &lt;rule#&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">-D</span> <span class="pre">&lt;chain&gt;</span> <span class="pre">&lt;rule#&gt;</span></tt></dt>
 <dd>Deletes a rule by number</dd>
-<dt><tt class="docutils literal"><span class="pre">-F</span> &lt;chain&gt;</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">-F</span> <span class="pre">&lt;chain&gt;</span></tt></dt>
 <dd>Flushes all rules from the chain</dd>
 </dl>
 </div>
@@ -3220,7 +3197,7 @@ NM_CONTROLLED=no
 <li>httpd allows remote anonymous access.</li>
 <li>This allows the possibility of attempts to compromise the httpd daemon with security exploits.</li>
 <li>httpd runs with the identity of the user &quot;apache&quot; and the group &quot;apache&quot; -- a successful exploit gains system access with the permissions granted to that user and group.</li>
-<li>In addition to the filesystem areas needed to run a webserver, the apache user and group also have access to other &quot;world-readable&quot; and &quot;world-writeable&quot; location such as <tt class="docutils literal">/tmp</tt>.</li>
+<li>In addition to the filesystem areas needed to run a webserver, the apache user and group also have access to other &quot;world-readable&quot; and &quot;world-writeable&quot; location such as <tt class="docutils literal"><span class="pre">/tmp</span></tt>.</li>
 <li>SELinux ensures that a compromised service cannot gain access to these filesystem location where it should not need access in the normal course of events.</li>
 </ul>
 </div>
@@ -3238,11 +3215,11 @@ NM_CONTROLLED=no
 <div class="section" id="important-selinux-filesystem-locations">
 <h2>Important SELinux Filesystem locations</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">/etc/sysconfig/selinux</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">/etc/sysconfig/selinux</span></tt></dt>
 <dd>Used to set enforcement mode and policy set.</dd>
-<dt><tt class="docutils literal">/var/log/audit/audit.log</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">/var/log/audit/audit.log</span></tt></dt>
 <dd>Extensive log of SELinux messages</dd>
-<dt><tt class="docutils literal">/var/log/messages</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">/var/log/messages</span></tt></dt>
 <dd>Contains short summaries of SELinux messages when <tt class="docutils literal"><span class="pre">setroubleshoot-server</span></tt> is installed and active</dd>
 </dl>
 <ul class="simple">
@@ -3255,27 +3232,27 @@ NM_CONTROLLED=no
 <dt>coreutils</dt>
 <dd>Always installed.  Provides some default elements of SELinux.</dd>
 <dt>policycoreutils</dt>
-<dd>Provides <tt class="docutils literal">restorecon</tt>, <tt class="docutils literal">secon</tt>, <tt class="docutils literal">setfiles</tt>, et al.</dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">restorecon</span></tt>, <tt class="docutils literal"><span class="pre">secon</span></tt>, <tt class="docutils literal"><span class="pre">setfiles</span></tt>, et al.</dd>
 <dt>libselinux-utils</dt>
-<dd>Provides <tt class="docutils literal">getenforce</tt>, <tt class="docutils literal">setenforce</tt>, <tt class="docutils literal">getsebool</tt>, <tt class="docutils literal">setsebool</tt>, et al.</dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">getenforce</span></tt>, <tt class="docutils literal"><span class="pre">setenforce</span></tt>, <tt class="docutils literal"><span class="pre">getsebool</span></tt>, <tt class="docutils literal"><span class="pre">setsebool</span></tt>, et al.</dd>
 <dt>policycoreutils-gui</dt>
-<dd>Provides <tt class="docutils literal"><span class="pre">system-config-selinux</span></tt> and <tt class="docutils literal">sepolgen</tt>, et al.</dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">system-config-selinux</span></tt> and <tt class="docutils literal"><span class="pre">sepolgen</span></tt>, et al.</dd>
 <dt>policycoreutils-python</dt>
-<dd>Provides <tt class="docutils literal">semanage</tt>, <tt class="docutils literal">audit2allow</tt>, <tt class="docutils literal">audit2why</tt>, et al.</dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">semanage</span></tt>, <tt class="docutils literal"><span class="pre">audit2allow</span></tt>, <tt class="docutils literal"><span class="pre">audit2why</span></tt>, et al.</dd>
 <dt>setroubleshoot</dt>
-<dd>Provides <tt class="docutils literal">seapplet</tt></dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">seapplet</span></tt></dd>
 <dt>setroubleshoot-server</dt>
-<dd>Provides <tt class="docutils literal">sealert</tt>, <tt class="docutils literal">sedispatch</tt>, <tt class="docutils literal">setroubleshootd</tt>, et al.</dd>
+<dd>Provides <tt class="docutils literal"><span class="pre">sealert</span></tt>, <tt class="docutils literal"><span class="pre">sedispatch</span></tt>, <tt class="docutils literal"><span class="pre">setroubleshootd</span></tt>, et al.</dd>
 </dl>
 </div>
 <div class="section" id="useful-commands">
 <h2>Useful Commands</h2>
 <dl class="docutils">
-<dt><tt class="docutils literal">sestatus</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">sestatus</span></tt></dt>
 <dd>Displays information about the current SELinux parameters.</dd>
-<dt><tt class="docutils literal">chcon</tt></dt>
-<dd>Changes context labels on files (but non-persistently! Use with <tt class="docutils literal">semanage</tt> for persistent changes.</dd>
-<dt><tt class="docutils literal">semanage</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">chcon</span></tt></dt>
+<dd>Changes context labels on files (but non-persistently! Use with <tt class="docutils literal"><span class="pre">semanage</span></tt> for persistent changes.</dd>
+<dt><tt class="docutils literal"><span class="pre">semanage</span></tt></dt>
 <dd>Modifies SELinux contexts persistently.</dd>
 </dl>
 </div>
@@ -3294,7 +3271,7 @@ Enforcing
 <pre class="literal-block">
 # setenforce &lt;mode&gt;
 </pre>
-<p>To make persistent changes, edit <tt class="docutils literal">/etc/sysconfig/selinux</tt></p>
+<p>To make persistent changes, edit <tt class="docutils literal"><span class="pre">/etc/sysconfig/selinux</span></tt></p>
 </div>
 <div class="section" id="selinux-policy-types">
 <h2>SELinux Policy Types</h2>
@@ -3315,13 +3292,13 @@ Enforcing
 <p>When SELinux is not disabled, every file, directory, and process has an SELinux context label.  These labels are used to determine which protected service(s) can operate in this location.</p>
 <p>View SELinux contexts of processes:</p>
 <blockquote>
-<tt class="docutils literal">ps <span class="pre">-eZ</span></tt>, <tt class="docutils literal">ps <span class="pre">-axZ</span></tt>, <tt class="docutils literal">ps <span class="pre">-Zc</span> &lt;process name&gt;</tt>, etc.</blockquote>
+<tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-eZ</span></tt>, <tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-axZ</span></tt>, <tt class="docutils literal"><span class="pre">ps</span> <span class="pre">-Zc</span> <span class="pre">&lt;process</span> <span class="pre">name&gt;</span></tt>, etc.</blockquote>
 <p>View SELinux contexts of files and directories:</p>
 <blockquote>
-<tt class="docutils literal">ls <span class="pre">-Zd</span> /path/to/dir/</tt>, <tt class="docutils literal">ls <span class="pre">-Z</span> /path/to/file</tt>, etc.</blockquote>
+<tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-Zd</span> <span class="pre">/path/to/dir/</span></tt>, <tt class="docutils literal"><span class="pre">ls</span> <span class="pre">-Z</span> <span class="pre">/path/to/file</span></tt>, etc.</blockquote>
 <p>View SELinux contexts of users:</p>
 <blockquote>
-<tt class="docutils literal">id <span class="pre">-Z</span></tt></blockquote>
+<tt class="docutils literal"><span class="pre">id</span> <span class="pre">-Z</span></tt></blockquote>
 <!-- + * Set enforcing and permissive modes for SELinux -->
 <!-- + * List and identify SELinux file and process context -->
 <!-- + * Restore default file contexts -->
@@ -3330,7 +3307,7 @@ Enforcing
 </div>
 <div class="section" id="setting-selinux-file-contexts">
 <h2>Setting SELinux file contexts</h2>
-<p>The initial contexts are created based on a set of rules, which are also used by <tt class="docutils literal">restorecon</tt> to restore contexts to the default. When using the default &quot;targeted&quot; policy, these rules are stored in <tt class="docutils literal">/etc/selinux/targeted/contexts/files/file_contexts</tt>. New customized rules are stored in <tt class="docutils literal">/etc/selinux/targeted/contexts/files/file_contexts.local</tt>.</p>
+<p>The initial contexts are created based on a set of rules, which are also used by <tt class="docutils literal"><span class="pre">restorecon</span></tt> to restore contexts to the default. When using the default &quot;targeted&quot; policy, these rules are stored in <tt class="docutils literal"><span class="pre">/etc/selinux/targeted/contexts/files/file_contexts</span></tt>. New customized rules are stored in <tt class="docutils literal"><span class="pre">/etc/selinux/targeted/contexts/files/file_contexts.local</span></tt>.</p>
 <p>View these rules with:</p>
 <pre class="literal-block">
 # semanage fcontext -l
@@ -3397,8 +3374,8 @@ ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
 </div>
 <div class="section" id="monitor-selinux-violations">
 <h2>Monitor SELinux Violations</h2>
-<p>Installing <tt class="docutils literal"><span class="pre">setroubleshoot-server</span></tt> sends SELinux error messages to <tt class="docutils literal">/var/log/messages</tt>.  These can be further parsed with <tt class="docutils literal">sealert</tt>.</p>
-<p><tt class="docutils literal">audit2why</tt> and <tt class="docutils literal">audit2allow</tt> can be used to parse the messages in /var/log/audit/audit.log and explain why access was denied, and how to modify your configuration to allow it.</p>
+<p>Installing <tt class="docutils literal"><span class="pre">setroubleshoot-server</span></tt> sends SELinux error messages to <tt class="docutils literal"><span class="pre">/var/log/messages</span></tt>.  These can be further parsed with <tt class="docutils literal"><span class="pre">sealert</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">audit2why</span></tt> and <tt class="docutils literal"><span class="pre">audit2allow</span></tt> can be used to parse the messages in /var/log/audit/audit.log and explain why access was denied, and how to modify your configuration to allow it.</p>
 </div>
 </div>
 <div class="section" id="session-6-virtualization">
@@ -3427,17 +3404,17 @@ ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
 <ul>
 <li><p class="first">64-bit Intel or AMD processor</p>
 <blockquote>
-<p>To confirm, search <tt class="docutils literal">/proc/cpuinfo</tt> for the string <tt class="docutils literal">lm</tt> on the flags line.</p>
+<p>To confirm, search <tt class="docutils literal"><span class="pre">/proc/cpuinfo</span></tt> for the string <tt class="docutils literal"><span class="pre">lm</span></tt> on the flags line.</p>
 </blockquote>
 </li>
 <li><p class="first">CPU Hardware assisted virtualization extensions (enabled in BIOS)</p>
 <blockquote>
-<p>To confirm, search <tt class="docutils literal">/proc/cpuinfo</tt> for the string <tt class="docutils literal">vmx</tt> (for Intel) or <tt class="docutils literal">svm</tt> (for AMD)</p>
+<p>To confirm, search <tt class="docutils literal"><span class="pre">/proc/cpuinfo</span></tt> for the string <tt class="docutils literal"><span class="pre">vmx</span></tt> (for Intel) or <tt class="docutils literal"><span class="pre">svm</span></tt> (for AMD)</p>
 </blockquote>
 </li>
 <li><p class="first">64-bit version of RHEL6</p>
 <blockquote>
-<p>To confirm, look for <tt class="docutils literal">x86_64</tt> in the output of <tt class="docutils literal">uname <span class="pre">-m</span></tt>.</p>
+<p>To confirm, look for <tt class="docutils literal"><span class="pre">x86_64</span></tt> in the output of <tt class="docutils literal"><span class="pre">uname</span> <span class="pre">-m</span></tt>.</p>
 </blockquote>
 </li>
 </ul>
@@ -3447,7 +3424,7 @@ ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
 <ul class="simple">
 <li>KVM kernel modules</li>
 <li>libvirt</li>
-<li><tt class="docutils literal">virsh</tt> virtualization shell</li>
+<li><tt class="docutils literal"><span class="pre">virsh</span></tt> virtualization shell</li>
 <li><tt class="docutils literal"><span class="pre">virt-manager</span></tt></li>
 </ul>
 </div>
@@ -3455,9 +3432,9 @@ ypbind_selinux       (8)  - Security Enhanced Linux Policy for NIS
 <h2>Installing Virtualization Capabilities</h2>
 <dl class="docutils">
 <dt>At OS Installation:</dt>
-<dd>Select the <tt class="docutils literal">Virtual Host</tt> server role --or-- customize packages and select the <tt class="docutils literal">Virtualization</tt> package group. In a kickstart file, these packages can be installed as a group with the <tt class="docutils literal">&#64;kvm</tt> group name.</dd>
+<dd>Select the <tt class="docutils literal"><span class="pre">Virtual</span> <span class="pre">Host</span></tt> server role --or-- customize packages and select the <tt class="docutils literal"><span class="pre">Virtualization</span></tt> package group. In a kickstart file, these packages can be installed as a group with the <tt class="docutils literal"><span class="pre">&#64;kvm</span></tt> group name.</dd>
 <dt>After Installation:</dt>
-<dd>With entitlement to the Virtualization packages, or access to them through a 3rd party repository,: <tt class="docutils literal">yum install kvm</tt></dd>
+<dd>With entitlement to the Virtualization packages, or access to them through a 3rd party repository,: <tt class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">kvm</span></tt></dd>
 </dl>
 <p>Other recommended packages:</p>
 <blockquote>
@@ -3504,7 +3481,7 @@ virsh autostart &lt;vm name or id&gt;
 <div class="section" id="creating-virtual-machines-with-virt-install">
 <h2>Creating Virtual Machines with virt-install</h2>
 <p><tt class="docutils literal"><span class="pre">virt-install</span></tt> is a command-line tool used to create virtual machines.</p>
-<p>See the syntax with <tt class="docutils literal">man <span class="pre">virt-install</span></tt> or <tt class="docutils literal"><span class="pre">virt-install</span> <span class="pre">--help</span></tt>.</p>
+<p>See the syntax with <tt class="docutils literal"><span class="pre">man</span> <span class="pre">virt-install</span></tt> or <tt class="docutils literal"><span class="pre">virt-install</span> <span class="pre">--help</span></tt>.</p>
 <p>Sample command:</p>
 <pre class="literal-block">
 # virt-install --name StXVM3 --ram 768 \
@@ -3515,7 +3492,7 @@ virsh autostart &lt;vm name or id&gt;
 <div class="section" id="selinux-considerations">
 <h2>SELinux considerations</h2>
 <ul class="simple">
-<li>SELinux expects file-based guest images to be stored in <tt class="docutils literal">/var/lib/libvirt/images/</tt>. Use of other locations with SELinux enforcing will require adding the location to the SELinux policies.</li>
+<li>SELinux expects file-based guest images to be stored in <tt class="docutils literal"><span class="pre">/var/lib/libvirt/images/</span></tt>. Use of other locations with SELinux enforcing will require adding the location to the SELinux policies.</li>
 </ul>
 <ol class="arabic">
 <li><p class="first">Find the context applied to the expected location:</p>
@@ -3549,7 +3526,7 @@ default_t:s0-&gt;system_u:object_r:virt_image_t:s0
 <h1>Session 7 Logging and remote access</h1>
 <div class="section" id="rhel-6-logging-with-rsyslog">
 <h2>RHEL 6 Logging with Rsyslog</h2>
-<p>Red Hat uses <tt class="docutils literal">rsyslog</tt> for its logging facility.  <tt class="docutils literal">rsyslog</tt> can be configured to for local logging only, to send log messages to a remote destination as well, and to recieve log messages from other systems as well.</p>
+<p>Red Hat uses <tt class="docutils literal"><span class="pre">rsyslog</span></tt> for its logging facility.  <tt class="docutils literal"><span class="pre">rsyslog</span></tt> can be configured to for local logging only, to send log messages to a remote destination as well, and to recieve log messages from other systems as well.</p>
 <p><strong>Terms</strong></p>
 <dl class="docutils">
 <dt>facility</dt>
@@ -3558,11 +3535,12 @@ default_t:s0-&gt;system_u:object_r:virt_image_t:s0
 <dd>A name that indicates the importance of the messages in that category.</dd>
 </dl>
 <p>The man pages for logger(1) and syslog(3) have more information.</p>
-<p><tt class="docutils literal">rsyslog</tt> is configured in <tt class="docutils literal">/etc/rsyslog.conf</tt> and defaults to using port 514 (TCP or UDP) to send and receive messages.</p>
+<p><tt class="docutils literal"><span class="pre">rsyslog</span></tt> is configured in <tt class="docutils literal"><span class="pre">/etc/rsyslog.conf</span></tt> and defaults to using port 514 (TCP or UDP) to send and receive messages.</p>
+<p>The man page for rsyslog is under rsyslogd(8).  Add'l extensive documentation is in /usr/share/doc/rsyslog-5.8.10/index.html</p>
 </div>
 <div class="section" id="accepting-remote-logs">
 <h2>Accepting Remote Logs</h2>
-<p>By default, <tt class="docutils literal">rsyslog</tt> is configured for only local logging.  To enable it to receive log messages from other systems, uncomment one of the following groups of lines in the config file (depending on which transport protocol, tcp or udp, you prefer to use):</p>
+<p>By default, <tt class="docutils literal"><span class="pre">rsyslog</span></tt> is configured for only local logging.  To enable it to receive log messages from other systems, uncomment one of the following groups of lines in the config file (depending on which transport protocol, tcp or udp, you prefer to use):</p>
 <p>For UDP (more widely supported but less reliable):</p>
 <pre class="literal-block">
 # Provides UDP syslog reception
@@ -3579,7 +3557,7 @@ default_t:s0-&gt;system_u:object_r:virt_image_t:s0
 </div>
 <div class="section" id="rsyslog-configuration-message-selection">
 <h2>Rsyslog Configuration: Message Selection</h2>
-<p>In <tt class="docutils literal">/etc/rsyslog.conf</tt> in the &quot;RULES&quot; section, ensure that a rule exists (or write one) for the kind of messages you want to send.  The format is:</p>
+<p>In <tt class="docutils literal"><span class="pre">/etc/rsyslog.conf</span></tt> in the &quot;RULES&quot; section, ensure that a rule exists (or write one) for the kind of messages you want to send.  The format is:</p>
 <pre class="literal-block">
 &lt;facility&gt;.&lt;priority&gt;        &lt;action&gt;
 </pre>
@@ -3643,7 +3621,7 @@ uucp,news.crit       /var/log/spooler
 <div class="section" id="practice">
 <h2>Practice</h2>
 <p>Configure one system to receive remote log messages.  Configure the other to log only a particular facility or priority to the remote syslog server.</p>
-<p>Use <tt class="docutils literal">logger</tt> to generate test messages.</p>
+<p>Use <tt class="docutils literal"><span class="pre">logger</span></tt> to generate test messages.</p>
 <p>Remember to investigate firewall and SELinux considerations.</p>
 <!-- o + - Remote Logging -->
 <!-- + *..  Configure a system to log to a remote system -->
@@ -3654,8 +3632,8 @@ uucp,news.crit       /var/log/spooler
 <div class="section" id="remote-access-via-ssh">
 <h2>Remote Access via SSH</h2>
 <p>RedHat installs by default both the OpenSSH client package (openssh) and the server package (openssh-server)</p>
-<p>Client behavior is configured in <tt class="docutils literal">/etc/ssh/ssh_config</tt></p>
-<p>Server behavior is configured in <tt class="docutils literal">/etc/ssh/sshd_config</tt></p>
+<p>Client behavior is configured in <tt class="docutils literal"><span class="pre">/etc/ssh/ssh_config</span></tt></p>
+<p>Server behavior is configured in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt></p>
 <p>Start the service:</p>
 <pre class="literal-block">
 # service sshd start
@@ -3694,15 +3672,15 @@ getsebool -a | grep ssh
 <h2>SSH Security Considerations</h2>
 <dl class="docutils">
 <dt>Allow root logins?</dt>
-<dd>Disallow with <tt class="docutils literal">PermitRootLogin no</tt> in <tt class="docutils literal">/etc/ssh/sshd_config</tt></dd>
+<dd>Disallow with <tt class="docutils literal"><span class="pre">PermitRootLogin</span> <span class="pre">no</span></tt> in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt></dd>
 <dt>Listen on specific interfaces?</dt>
-<dd>Specify with <tt class="docutils literal">ListenAddress x.x.x.x</tt> in <tt class="docutils literal">/etc/ssh/sshd_config</tt></dd>
+<dd>Specify with <tt class="docutils literal"><span class="pre">ListenAddress</span> <span class="pre">x.x.x.x</span></tt> in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt></dd>
 <dt>Allow legacy versions?</dt>
-<dd>Specify allowed versions of the protocol in <tt class="docutils literal">/etc/ssh/sshd_config</tt> (read comments).</dd>
+<dd>Specify allowed versions of the protocol in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt> (read comments).</dd>
 <dt>Allow X11 forwarding?</dt>
-<dd>Configure with <tt class="docutils literal">X11Forwarding yes|no</tt> in <tt class="docutils literal">/etc/ssh/sshd_config</tt></dd>
+<dd>Configure with <tt class="docutils literal"><span class="pre">X11Forwarding</span> <span class="pre">yes|no</span></tt> in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt></dd>
 <dt>Specify alternate port?</dt>
-<dd>Configure with <tt class="docutils literal">Port xx</tt> in <tt class="docutils literal">/etc/ssh/sshd_config</tt>. Multiple ports on multiple lines accepted. Don't forget firewall and SELinux implications though!</dd>
+<dd>Configure with <tt class="docutils literal"><span class="pre">Port</span> <span class="pre">xx</span></tt> in <tt class="docutils literal"><span class="pre">/etc/ssh/sshd_config</span></tt>. Multiple ports on multiple lines accepted. Don't forget firewall and SELinux implications though!</dd>
 </dl>
 <!-- # * Install the packages needed to provide the service -->
 <!-- # * Configure SELinux to support the service -->
@@ -3715,7 +3693,7 @@ getsebool -a | grep ssh
 <div class="section" id="remote-access-via-vnc">
 <h2>Remote Access via VNC</h2>
 <p>For remote management when a GUI is desired or required, Red Hat provides VNC services through tigervnc.</p>
-<p>Install the package with <tt class="docutils literal">yum <span class="pre">-y</span> install <span class="pre">tigervnc-server</span></tt>.</p>
+<p>Install the package with <tt class="docutils literal"><span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">tigervnc-server</span></tt>.</p>
 <p>Configure the service at /etc/sysconfig/vncservers</p>
 <p>Start the service:</p>
 <pre class="literal-block">
@@ -3728,13 +3706,13 @@ getsebool -a | grep ssh
 </div>
 <div class="section" id="configuring-a-vnc-remote-display">
 <h2>Configuring a VNC remote display</h2>
-<p>In <tt class="docutils literal">/etc/sysconfig/vncservers</tt> uncomment and modify the lines below:</p>
+<p>In <tt class="docutils literal"><span class="pre">/etc/sysconfig/vncservers</span></tt> uncomment and modify the lines below:</p>
 <pre class="literal-block">
 # VNCSERVERS=&quot;2:myusername&quot;
 # VNCSERVERARGS[2]=&quot;-geometry 800x600 -nolisten tcp -localhost&quot;
 </pre>
 <!-- Multiple VNC servers can be configured on the same line, space-delimited, but each one requires its own set of vncserverargs on a separate line. -->
-<p>As the user who will connect, set a VNC password with <tt class="docutils literal">vncpasswd</tt>.</p>
+<p>As the user who will connect, set a VNC password with <tt class="docutils literal"><span class="pre">vncpasswd</span></tt>.</p>
 <p>Start or restart the service.</p>
 <p>Connect to the remote system using a vnc client with the <tt class="docutils literal"><span class="pre">-via</span></tt> option:</p>
 <pre class="literal-block">
@@ -3828,15 +3806,15 @@ Where X is the display number and y.y.y.y is the IP address of the remote machin
 </div>
 <div class="section" id="configuration-of-ntp">
 <h2>Configuration of NTP</h2>
-<p>Configured in <tt class="docutils literal">/etc/ntp.conf</tt></p>
+<p>Configured in <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt></p>
 <dl class="docutils">
-<dt><tt class="docutils literal">restrict</tt> lines</dt>
-<dd>Define the access to be allowed or restricted for other hosts that communicate with this service. Each server or peer configured must be included in a <tt class="docutils literal">restrict</tt> line.</dd>
-<dt><tt class="docutils literal">server</tt> lines</dt>
+<dt><tt class="docutils literal"><span class="pre">restrict</span></tt> lines</dt>
+<dd>Define the access to be allowed or restricted for other hosts that communicate with this service. Each server or peer configured must be included in a <tt class="docutils literal"><span class="pre">restrict</span></tt> line.</dd>
+<dt><tt class="docutils literal"><span class="pre">server</span></tt> lines</dt>
 <dd>Define a host to be queried as a more authoritative time source.</dd>
-<dt><tt class="docutils literal">peer</tt> lines</dt>
+<dt><tt class="docutils literal"><span class="pre">peer</span></tt> lines</dt>
 <dd>Define a host to be queried as an equally authoritative time source.</dd>
-<dt><tt class="docutils literal">broadcast</tt> or <tt class="docutils literal">multicast</tt> lines</dt>
+<dt><tt class="docutils literal"><span class="pre">broadcast</span></tt> or <tt class="docutils literal"><span class="pre">multicast</span></tt> lines</dt>
 <dd>Define ways to obtain or provide time information apart from unicast queries.</dd>
 </dl>
 </div>
@@ -3865,7 +3843,7 @@ restrict &lt;address&gt; [mask &lt;subnet mask&gt; ] [flag] [flag] ...
 <div class="section" id="configure-as-a-client">
 <h2>Configure as a Client</h2>
 <ol class="arabic">
-<li><p class="first">Include at least one server (three are preferred) in <tt class="docutils literal">/etc/ntp.conf</tt>:</p>
+<li><p class="first">Include at least one server (three are preferred) in <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt>:</p>
 <pre class="literal-block">
 server &lt;server1 IP&gt; iburst
 server &lt;server2 IP&gt; iburst
@@ -4000,7 +3978,7 @@ peer &lt;peer IP or hostname&gt; [options]
 <p>Note that this install several packages including the Apache Manual which is then locally accessible at <a class="reference external" href="http://localhost/manual">http://localhost/manual</a></p>
 </blockquote>
 </li>
-<li><p class="first">Install the <tt class="docutils literal">mod_ssl</tt> package:</p>
+<li><p class="first">Install the <tt class="docutils literal"><span class="pre">mod_ssl</span></tt> package:</p>
 <pre class="literal-block">
 # yum install mod_ssl
 </pre>
@@ -4013,20 +3991,20 @@ peer &lt;peer IP or hostname&gt; [options]
 </ol>
 <!--  -->
 <blockquote>
-In this default configuration, you can create an <tt class="docutils literal">index.html</tt> page in <tt class="docutils literal">/var/www/html/</tt> and it will be served out as your home page. Additionally, you can use <a class="reference external" href="https://">https://</a> to connect securely to your webserver, but you will have to manually accept a self-signed certificate.</blockquote>
+In this default configuration, you can create an <tt class="docutils literal"><span class="pre">index.html</span></tt> page in <tt class="docutils literal"><span class="pre">/var/www/html/</span></tt> and it will be served out as your home page. Additionally, you can use <a class="reference external" href="https://">https://</a> to connect securely to your webserver, but you will have to manually accept a self-signed certificate.</blockquote>
 </div>
 <div class="section" id="installing-a-signed-ssl-certificate">
 <h2>Installing a Signed SSL Certificate</h2>
 <ol class="arabic">
-<li><p class="first">Place the certificate and private key in the appropriate locations in <tt class="docutils literal">/etc/pki/tls/</tt>.</p>
+<li><p class="first">Place the certificate and private key in the appropriate locations in <tt class="docutils literal"><span class="pre">/etc/pki/tls/</span></tt>.</p>
 </li>
-<li><p class="first">Ensure that both files have the <tt class="docutils literal">cert_t</tt> SELinux file context and that the private key is readable only by root.</p>
+<li><p class="first">Ensure that both files have the <tt class="docutils literal"><span class="pre">cert_t</span></tt> SELinux file context and that the private key is readable only by root.</p>
 </li>
-<li><p class="first">Modify <tt class="docutils literal">/etc/httpd/conf.d/ssl.conf</tt>:</p>
+<li><p class="first">Modify <tt class="docutils literal"><span class="pre">/etc/httpd/conf.d/ssl.conf</span></tt>:</p>
 <blockquote>
 <ul class="simple">
-<li><tt class="docutils literal">SSLCertificateFile</tt> points to your newly installed certificate.</li>
-<li><tt class="docutils literal">SSLCertificateKeyFile</tt> points to the corresponding private key.</li>
+<li><tt class="docutils literal"><span class="pre">SSLCertificateFile</span></tt> points to your newly installed certificate.</li>
+<li><tt class="docutils literal"><span class="pre">SSLCertificateKeyFile</span></tt> points to the corresponding private key.</li>
 </ul>
 </blockquote>
 </li>
@@ -4045,7 +4023,7 @@ In this default configuration, you can create an <tt class="docutils literal">in
 <dt>Standard Virtual Hosts</dt>
 <dd>Exist on hosts that have been assigned multiple IP addresses. Queries for each separate IP address are served pages from a particular virtual host.</dd>
 <dt>Name Virtual Hosts</dt>
-<dd>Exist on hosts with multiple names aliased to one IP address (usually through DNS aliases, but can also be accomplished with <tt class="docutils literal">/etc/hosts</tt>). Queries for each separate name (regardless of IP address) are served as different virtual hosts.</dd>
+<dd>Exist on hosts with multiple names aliased to one IP address (usually through DNS aliases, but can also be accomplished with <tt class="docutils literal"><span class="pre">/etc/hosts</span></tt>). Queries for each separate name (regardless of IP address) are served as different virtual hosts.</dd>
 </dl>
 </blockquote>
 </div>
@@ -4077,8 +4055,8 @@ In this default configuration, you can create an <tt class="docutils literal">in
 <div class="section" id="configuring-for-cgi-bin-scripts">
 <h2>Configuring for CGI-BIN scripts</h2>
 <p>Refer to the Apache Manual (package: httpd-manual) for full details and a tutorial on <em>CGI: Dynamic Content</em>.</p>
-<p>The <tt class="docutils literal">ScriptAlias</tt> line in <tt class="docutils literal">httpd.conf</tt> designates the directory in which Apache expects to find CGI scripts.</p>
-<p>CGI scripts can be implemented in directories <strong>outside</strong> of the <tt class="docutils literal">DocumentRoot</tt> path -- but this will require modification of the <tt class="docutils literal">ScriptAlias</tt> line and the fcontext rules for SELinux.</p>
+<p>The <tt class="docutils literal"><span class="pre">ScriptAlias</span></tt> line in <tt class="docutils literal"><span class="pre">httpd.conf</span></tt> designates the directory in which Apache expects to find CGI scripts.</p>
+<p>CGI scripts can be implemented in directories <strong>outside</strong> of the <tt class="docutils literal"><span class="pre">DocumentRoot</span></tt> path -- but this will require modification of the <tt class="docutils literal"><span class="pre">ScriptAlias</span></tt> line and the fcontext rules for SELinux.</p>
 </div>
 <div class="section" id="apache-access-control">
 <h2>Apache Access Control</h2>
@@ -4100,20 +4078,20 @@ In this default configuration, you can create an <tt class="docutils literal">in
 </ol>
 </blockquote>
 </li>
-<li><p class="first">In <tt class="docutils literal">Order</tt> statements, whichever directive comes <strong>last</strong> is the default in case of no match.</p>
+<li><p class="first">In <tt class="docutils literal"><span class="pre">Order</span></tt> statements, whichever directive comes <strong>last</strong> is the default in case of no match.</p>
 </li>
 </ul>
 </div>
 <div class="section" id="host-based-security-directive-formats">
 <h2>Host Based Security directive formats</h2>
-<p><tt class="docutils literal">Deny from example.com</tt></p>
-<p><tt class="docutils literal">Allow from 192.168.0.15</tt></p>
-<p><tt class="docutils literal">Deny from 192.168.0.0/255.255.255.0</tt></p>
-<p><tt class="docutils literal">Deny from 192.168.1.0/24</tt></p>
+<p><tt class="docutils literal"><span class="pre">Deny</span> <span class="pre">from</span> <span class="pre">example.com</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">Allow</span> <span class="pre">from</span> <span class="pre">192.168.0.15</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">Deny</span> <span class="pre">from</span> <span class="pre">192.168.0.0/255.255.255.0</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">Deny</span> <span class="pre">from</span> <span class="pre">192.168.1.0/24</span></tt></p>
 </div>
 <div class="section" id="access-control-with-htaccess-files">
 <h2>Access Control with .htaccess files</h2>
-<p>If permitted by httpd.conf, access may be controlled on a per-directory basis with <tt class="docutils literal">.htaccess</tt> files in the directories where the content needs to be protected:</p>
+<p>If permitted by httpd.conf, access may be controlled on a per-directory basis with <tt class="docutils literal"><span class="pre">.htaccess</span></tt> files in the directories where the content needs to be protected:</p>
 <pre class="literal-block">
 &lt;Files ~ &quot;^\.ht&quot;&gt;
     Order allow,deny
@@ -4136,8 +4114,8 @@ In this default configuration, you can create an <tt class="docutils literal">in
 <div class="section" id="configuring-passwords">
 <h2>Configuring Passwords</h2>
 <ul class="simple">
-<li><tt class="docutils literal">htpasswd <span class="pre">-cm</span> <span class="pre">/etc/httpd/.htpasswd</span> good_user</tt></li>
-<li><tt class="docutils literal">htpasswd <span class="pre">-m</span> <span class="pre">/etc/httpd/.htpasswd</span> another_user</tt></li>
+<li><tt class="docutils literal"><span class="pre">htpasswd</span> <span class="pre">-cm</span> <span class="pre">/etc/httpd/.htpasswd</span> <span class="pre">good_user</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">htpasswd</span> <span class="pre">-m</span> <span class="pre">/etc/httpd/.htpasswd</span> <span class="pre">another_user</span></tt></li>
 </ul>
 </div>
 <div class="section" id="user-based-security-with-ldap-authentication">
@@ -4180,14 +4158,14 @@ Modify the cert path, and the FQDN and prefix of the LDAP Server to match your i
 <pre class="literal-block">
 # semanage boolean -l | grep http
 </pre>
-<p>Read the man page <tt class="docutils literal">httpd_selinux (8)</tt></p>
+<p>Read the man page <tt class="docutils literal"><span class="pre">httpd_selinux</span> <span class="pre">(8)</span></tt></p>
 <p>Make SELinux more verbose:</p>
 <pre class="literal-block">
 # semanage dontaudit off
 </pre>
 <!--  -->
 <blockquote>
-This disables setroubleshoot-server, sealert, and the issuing of SELinux messages into <tt class="docutils literal">/var/log/messages</tt> -- so you'll need to view the messages in <tt class="docutils literal">/var/log/audit/audit.log</tt>.</blockquote>
+This disables setroubleshoot-server, sealert, and the issuing of SELinux messages into <tt class="docutils literal"><span class="pre">/var/log/messages</span></tt> -- so you'll need to view the messages in <tt class="docutils literal"><span class="pre">/var/log/audit/audit.log</span></tt>.</blockquote>
 <!-- # sealert -a /var/log/audit/audit.log -H > audit.html -->
 </div>
 <div class="section" id="important-selinux-contexts">
@@ -4216,7 +4194,7 @@ This disables setroubleshoot-server, sealert, and the issuing of SELinux message
 </div>
 <div class="section" id="very-secure-file-transfer-protocol-daemon">
 <h2>Very Secure File Transfer Protocol Daemon</h2>
-<p><tt class="docutils literal">vsftpd</tt> is Red Hat's preferred FTP daemon.  The &quot;Very Secure&quot; descriptor refers to the daemon and not to the protocol!</p>
+<p><tt class="docutils literal"><span class="pre">vsftpd</span></tt> is Red Hat's preferred FTP daemon.  The &quot;Very Secure&quot; descriptor refers to the daemon and not to the protocol!</p>
 <p>The only mention of FTP in the RHCSA objectives is concerned with enabling a default configuration</p>
 <p>The only mention of FTP in the RHCE objectives is concerned with securely configuring anonymous access.</p>
 </div>
@@ -4231,7 +4209,7 @@ This disables setroubleshoot-server, sealert, and the issuing of SELinux message
 <pre class="literal-block">
 # service vsftpd start; chkconfig vsftpd on
 </pre>
-<p>In this default configuration, anonymous downloads are allowed from <tt class="docutils literal">/pub</tt> (as shown to the client) and are placed in <tt class="docutils literal">/var/ftp/pub/</tt> (as viewed on the server). Additionally, system users are able to login by username and password and access their home directories with read/write permissions. No anonymous uploads are permitted by default.</p>
+<p>In this default configuration, anonymous downloads are allowed from <tt class="docutils literal"><span class="pre">/pub</span></tt> (as shown to the client) and are placed in <tt class="docutils literal"><span class="pre">/var/ftp/pub/</span></tt> (as viewed on the server). Additionally, system users are able to login by username and password and access their home directories with read/write permissions. No anonymous uploads are permitted by default.</p>
 </div>
 <div class="section" id="ftp-documentation">
 <h2>FTP Documentation</h2>
@@ -4268,7 +4246,7 @@ This disables setroubleshoot-server, sealert, and the issuing of SELinux message
 <div class="section" id="configuring-a-secure-drop-box-for-anon-upload">
 <h2>Configuring a Secure &quot;Drop-box&quot; for Anon Upload</h2>
 <ol class="arabic">
-<li><p class="first">Create an upload directory owned by <tt class="docutils literal">root.ftp</tt> and with 730 permissions:</p>
+<li><p class="first">Create an upload directory owned by <tt class="docutils literal"><span class="pre">root.ftp</span></tt> and with 730 permissions:</p>
 <pre class="literal-block">
 cd /var/ftp
 mkdir incoming
@@ -4279,13 +4257,13 @@ chmod 730 incoming
 <li><p class="first">Modify SELinux</p>
 <blockquote>
 <ul>
-<li><p class="first">Set context of <tt class="docutils literal">public_content_rw_t</tt> on the upload directory:</p>
+<li><p class="first">Set context of <tt class="docutils literal"><span class="pre">public_content_rw_t</span></tt> on the upload directory:</p>
 <pre class="literal-block">
 semanage fcontext -a -t public_content_rw_t '/var/ftp/incoming(/.*)?'
 restorecon -rvv /var/ftp/
 </pre>
 </li>
-<li><p class="first">Enable the <tt class="docutils literal">allow_ftp_anon_write</tt> boolean:</p>
+<li><p class="first">Enable the <tt class="docutils literal"><span class="pre">allow_ftp_anon_write</span></tt> boolean:</p>
 <pre class="literal-block">
 setsebool -P allow_ftpd_anon_write on
 </pre>
@@ -4293,7 +4271,7 @@ setsebool -P allow_ftpd_anon_write on
 </ul>
 </blockquote>
 </li>
-<li><p class="first">Modify <tt class="docutils literal">/etc/vsftpd/vsftpd.conf</tt> as follows:</p>
+<li><p class="first">Modify <tt class="docutils literal"><span class="pre">/etc/vsftpd/vsftpd.conf</span></tt> as follows:</p>
 <pre class="literal-block">
 anonymous_enable=YES
 local_enable=NO
@@ -4486,7 +4464,7 @@ time.</p>
 <ul>
 <li><p class="first">Graphically, using Nautilus:</p>
 <blockquote>
-<p>Use <strong>Places | Connect to Server</strong>, choose <tt class="docutils literal">Windows share</tt> as the <strong>Service Type</strong>  and provide the required credentials.</p>
+<p>Use <strong>Places | Connect to Server</strong>, choose <tt class="docutils literal"><span class="pre">Windows</span> <span class="pre">share</span></tt> as the <strong>Service Type</strong>  and provide the required credentials.</p>
 </blockquote>
 </li>
 <li><p class="first">Occasional, FTP-like access from the command line:</p>
@@ -4501,7 +4479,7 @@ time.</p>
 -o credentials=/root/credentials``
 </pre>
 </li>
-<li><p class="first"><tt class="docutils literal">/etc/fstab</tt> entry:</p>
+<li><p class="first"><tt class="docutils literal"><span class="pre">/etc/fstab</span></tt> entry:</p>
 <pre class="literal-block">
 # //server/share /mnt/point cifs \
 credentials=/root/credentials 0 0``
@@ -4528,7 +4506,7 @@ domain=&lt;domainname&gt;
 </div>
 <div class="section" id="id10">
 <h2>SELinux</h2>
-<p>SELinux notes are at the top of the config file (<tt class="docutils literal">/etc/samba/smb.conf</tt>) and the man page samba_selinux (8).</p>
+<p>SELinux notes are at the top of the config file (<tt class="docutils literal"><span class="pre">/etc/samba/smb.conf</span></tt>) and the man page samba_selinux (8).</p>
 <p>SELinux Port Settings for Samba:</p>
 <pre class="literal-block">
 # semanage port -l  |grep smb
@@ -4583,7 +4561,7 @@ smbd_port_t                    tcp      137-139, 445
 </div>
 <div class="section" id="samba-users-and-passwords">
 <h2>Samba Users and Passwords</h2>
-<p>When the security model set to <tt class="docutils literal">user</tt>, local Samba users and passwords must be created.  Typically, these accounts use the same user names as those configured on the local system.  <tt class="docutils literal">smbpasswd</tt> is the command used:</p>
+<p>When the security model set to <tt class="docutils literal"><span class="pre">user</span></tt>, local Samba users and passwords must be created.  Typically, these accounts use the same user names as those configured on the local system.  <tt class="docutils literal"><span class="pre">smbpasswd</span></tt> is the command used:</p>
 <pre class="literal-block">
 # smbpasswd -a winuser
 </pre>
@@ -4846,11 +4824,11 @@ variable2=value</p>
 <p>example:</p>
 <blockquote>
 <dl class="docutils">
-<dt><tt class="docutils literal">*/5 * * * * cleanup</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">*/5</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">cleanup</span></tt></dt>
 <dd>Runs cleanup every 5 minutes</dd>
-<dt><tt class="docutils literal">1 23 * * 0 cleanup</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">1</span> <span class="pre">23</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">0</span> <span class="pre">cleanup</span></tt></dt>
 <dd>Runs cleanup 11:01 pm every Sunday</dd>
-<dt><tt class="docutils literal">1 23 5 * 0 cleanup</tt></dt>
+<dt><tt class="docutils literal"><span class="pre">1</span> <span class="pre">23</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">0</span> <span class="pre">cleanup</span></tt></dt>
 <dd>Runs cleanup at 11:01 on the 5th of each month, but only if it falls on a Sunday.</dd>
 </dl>
 </blockquote>
@@ -4898,11 +4876,11 @@ at&gt; &lt;CTRL-D&gt;
 <dt>/etc/gshadow</dt>
 <dd>Restricted-access group password, admin, membership info</dd>
 </dl>
-<p>If editing directly, <tt class="docutils literal">vipw</tt> and <tt class="docutils literal">vigr</tt> should be used.</p>
+<p>If editing directly, <tt class="docutils literal"><span class="pre">vipw</span></tt> and <tt class="docutils literal"><span class="pre">vigr</span></tt> should be used.</p>
 </div>
 <div class="section" id="id15">
 <h2>Structure of /etc/passwd</h2>
-<p><tt class="docutils literal">Name:Password:UID:GID:Comments:Homedir:Shell</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:UID:GID:Comments:Homedir:Shell</span></tt></p>
 <p>Sample Contents
 ________________________________________________-</p>
 <pre class="literal-block">
@@ -4916,7 +4894,7 @@ scott:x:500:500:Scott Purcell:/home/scott:/bin/bash
 </div>
 <div class="section" id="id16">
 <h2>Structure of /etc/shadow</h2>
-<p><tt class="docutils literal">Name:Password:Lstchg:May:Must:Warn:Disable:Expire</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:Lstchg:May:Must:Warn:Disable:Expire</span></tt></p>
 <div class="section" id="sample-contents">
 <h3>Sample Contents</h3>
 <pre class="literal-block">
@@ -4932,7 +4910,7 @@ bob:$1${...}:14398:7:30:7:7:14457:
 </div>
 <div class="section" id="id17">
 <h2>Structure of /etc/group</h2>
-<p><tt class="docutils literal">Name:Password:GID:Users</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:GID:Users</span></tt></p>
 <div class="section" id="id18">
 <h3>Sample Contents</h3>
 <pre class="literal-block">
@@ -4948,7 +4926,7 @@ training:x:504:scott
 </div>
 <div class="section" id="id19">
 <h2>Structure of /etc/gshadow</h2>
-<p><tt class="docutils literal">Name:Password:Admins:Members</tt></p>
+<p><tt class="docutils literal"><span class="pre">Name:Password:Admins:Members</span></tt></p>
 <div class="section" id="id20">
 <h3>Sample Contents</h3>
 <pre class="literal-block">
@@ -5001,7 +4979,7 @@ training:!::scott
 <h2>System-wide Shell Config Files</h2>
 <dl class="docutils">
 <dt>/etc/profile</dt>
-<dd>Executed with each user login. Sets paths, variables, etc. Runs scripts in <tt class="docutils literal">/etc/profile.d</tt>.</dd>
+<dd>Executed with each user login. Sets paths, variables, etc. Runs scripts in <tt class="docutils literal"><span class="pre">/etc/profile.d</span></tt>.</dd>
 <dt>/etc/profile.d</dt>
 <dd>Scripts that extend /etc/profile, usually added by applications.</dd>
 <dt>/etc/bashrc</dt>
@@ -5236,7 +5214,7 @@ Check the status of the queues. &quot;lpc status&quot;</blockquote>
 /usr/sbin/sendmail
 </pre>
 </li>
-<li><p class="first">Run <tt class="docutils literal">ldd</tt> and <tt class="docutils literal">strings</tt> against the binary and examine the output for &quot;libwrap&quot;:</p>
+<li><p class="first">Run <tt class="docutils literal"><span class="pre">ldd</span></tt> and <tt class="docutils literal"><span class="pre">strings</span></tt> against the binary and examine the output for &quot;libwrap&quot;:</p>
 <pre class="literal-block">
 # strings `which sendmail` |grep libwrap
 # ldd `which sendmail` |grep libwrap
@@ -5253,12 +5231,12 @@ libwrap.so.0 =&gt; /lib64/libwrap.so.0 ...
 </div>
 <div class="section" id="hosts-access-files-syntax">
 <h2>Hosts Access Files Syntax</h2>
-<p>Basic format:  <tt class="docutils literal">&lt;daemon list&gt;: &lt;client list&gt; [: &lt;option&gt;: &lt;option&gt;: <span class="pre">...]</span></tt></p>
+<p>Basic format:  <tt class="docutils literal"><span class="pre">&lt;daemon</span> <span class="pre">list&gt;:</span> <span class="pre">&lt;client</span> <span class="pre">list&gt;</span> <span class="pre">[:</span> <span class="pre">&lt;option&gt;:</span> <span class="pre">&lt;option&gt;:</span> <span class="pre">...]</span></tt></p>
 <ul class="simple">
 <li>Lists are comma-separated.</li>
 <li>The daemon list uses process names -- not always the same as the name of the service or daemon.  Wild cards and operators are available.</li>
 <li>The client list is hostnames, IP addresses, patterns or wildcards</li>
-<li>More details in <tt class="docutils literal">man hosts_options</tt></li>
+<li>More details in <tt class="docutils literal"><span class="pre">man</span> <span class="pre">hosts_options</span></tt></li>
 </ul>
 </div>
 </div>
