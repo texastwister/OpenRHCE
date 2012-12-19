@@ -139,7 +139,7 @@ RHCE Requirements
 
 Complete the following in approximately 2 hours:
 
-* Ensure that both the Server and Client Virtual machines are obtaining their time from NTP. Your server virtual machine should obtain its time from ``ntppub.tamu.edu`` and from ``ntp.bytestacker.com``.  Your client virtual machine should get its time from your server virtual machine.
+* Ensure that both the Server and Client Virtual machines are obtaining their time from NTP. Your server virtual machine should obtain its time from ``pool.ntp.org`` and from ``192.168.5.200``.  Your client virtual machine should get its time from your server virtual machine.
 
 * SSH connections should be allowed from throughout the ``192.168.4.0/22`` network.
 

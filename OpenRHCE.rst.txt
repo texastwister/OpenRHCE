@@ -2621,6 +2621,8 @@ Class discussion -- Populate a table explaining for each of the following aspect
 
 * Hostname
 
+* Domainname
+
 * Name Resolution
 
     
@@ -2659,6 +2661,17 @@ Hostname
 
     ``system-config-network``, manual editing of ``/etc/sysconfig/network``
 
+Domainname
+------------------
+
+Two types:
+
+    NIS domain
+        Set with ``domainname`` command
+        
+    Domain component of FQDN
+        Set in 2nd field of an ``/etc/hosts`` entry.
+        
 
 Name Resolution
 -----------------
